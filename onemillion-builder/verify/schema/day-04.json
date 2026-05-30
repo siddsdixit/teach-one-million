@@ -1,0 +1,55 @@
+{
+  "day": 4,
+  "title": "Stack + First Deploy",
+  "structural_checks": [
+    {
+      "id": "package_json_exists",
+      "type": "file_exists",
+      "path": "package.json"
+    },
+    {
+      "id": "next_in_dependencies",
+      "type": "json_field_contains",
+      "path": "package.json",
+      "field": "dependencies",
+      "required_keys": ["next", "react"]
+    },
+    {
+      "id": "app_page_exists",
+      "type": "file_exists",
+      "path": "app/page.tsx"
+    },
+    {
+      "id": "app_page_customized",
+      "type": "file_not_contains",
+      "path": "app/page.tsx",
+      "blocked_strings": ["Get started by editing"]
+    },
+    {
+      "id": "gitignore_set",
+      "type": "file_contains",
+      "path": ".gitignore",
+      "required_strings": ["node_modules", ".env.local"]
+    },
+    {
+      "id": "git_initialized",
+      "type": "directory_exists",
+      "path": ".git"
+    }
+  ],
+  "remote_checks": [
+    {
+      "id": "git_remote_set",
+      "type": "shell_command",
+      "command": "git remote -v",
+      "expected_pattern": "github.com"
+    },
+    {
+      "id": "vercel_url_responds",
+      "type": "http_check",
+      "url_source": "ask_builder",
+      "url_prompt": "What is your Vercel URL?",
+      "expected_status": [200, 304]
+    }
+  ]
+}

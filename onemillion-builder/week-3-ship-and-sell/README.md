@@ -1,0 +1,56 @@
+# Week 3 — Ship & Sell
+
+**Outcome by end of Week 3:** A real, production-grade product at YOUR own domain (yourapp.com), with monitoring, a landing page, and at least one real user using it. Then Builder #N — yours, forever.
+
+This is the week that turns your AI-native app from "thing on Vercel.app" to "actual product." Same code base. Same features. Different posture.
+
+---
+
+## The Six Days
+
+| Day | Title | What you ship | Time |
+|-----|-------|---------------|------|
+| **13** | [Production Hygiene](./day-13-hygiene/learn.md) | Audit-passed app — secrets, RLS, rate limits, errors | 1-2 hr |
+| **14** | [Custom Domain](./day-14-domain/learn.md) | yourapp.com live with SSL | 30-60 min |
+| **15** | [Monitoring](./day-15-monitoring/learn.md) | Sentry + Vercel Analytics + UptimeRobot active | 30-60 min |
+| **16** | [Landing Page](./day-16-landing/learn.md) | Real landing page at root URL | 1-2 hr |
+| **17** | [First 10 Users](./day-17-first-users/learn.md) | At least 1 real user with real feedback | 45-90 min |
+| **18** | [Demo Day → Builder #N](./day-18-demo/learn.md) | 5-min Loom + verification + your Builder number | 30-60 min |
+
+---
+
+## The 5 Pillars This Week
+
+| Pillar | Where it shows up |
+|--------|------------------|
+| **Spec before code** | Day 16 (landing page is a spec for what your product is) |
+| **Multi-agent decomposition** | Day 15 (monitoring = 3 separate small concerns) |
+| **Validation gates** | Day 13 (audit gate), Day 18 (final verification → Builder #N) |
+| **Production hygiene** | This entire week is Pillar 4 |
+| **Human review loop** | Day 17 (real user feedback — humans review YOUR product) |
+
+---
+
+## What You Need Before Week 3
+
+- ✅ Week 1 + Week 2 complete and verified
+- ✅ A working AI feature you'd be willing to show your toughest friend
+- ✅ ~$10-15 budget if you want a custom domain (optional but recommended)
+- ✅ One person in mind who would actually use your product
+
+---
+
+## When You're Done With Week 3
+
+You should have:
+- Your product live at `yourapp.com` (or staying on .vercel.app — still counts)
+- Sentry catching errors before users complain about them
+- Analytics showing real visits (even if just yours, your friends, and one user)
+- A landing page that explains what + for whom + a clear CTA
+- At least one real user with at least one piece of real feedback
+- A 5-minute Demo Day Loom
+- **Your Builder #N** — permanent, sequential, public
+
+Then you're done with the course. You're a Builder. The skill is yours forever.
+
+→ **Start:** [Day 13 — Production Hygiene](./day-13-hygiene/learn.md)

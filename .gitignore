@@ -1,0 +1,11 @@
+.DS_Store
+.cache/
+*.pyc
+__pycache__/
+.env
+onemillion-builder/simulation+QA/
+onemillion-builder/archive/
+onemillion-builder/loom-scripts/
+onemillion-builder/TODO.md
+onemillion-builder/landing/
+onemillion-builder/CLAUDE.md

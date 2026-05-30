@@ -1,0 +1,48 @@
+{
+  "day": 2,
+  "title": "Problem + Mom Test",
+  "structural_checks": [
+    {
+      "id": "notes_md_exists",
+      "type": "file_exists",
+      "path": ".onemillion/notes.md"
+    },
+    {
+      "id": "min_three_conversations",
+      "type": "markdown_section_count",
+      "path": ".onemillion/notes.md",
+      "section_pattern": "## Conversation",
+      "min_count": 3
+    },
+    {
+      "id": "each_conversation_has_quote",
+      "type": "markdown_section_field",
+      "path": ".onemillion/notes.md",
+      "section_pattern": "## Conversation",
+      "required_subsection": "Direct quotes",
+      "applies_to": "each"
+    },
+    {
+      "id": "each_conversation_has_date",
+      "type": "markdown_section_field",
+      "path": ".onemillion/notes.md",
+      "section_pattern": "## Conversation",
+      "required_text": "Date:",
+      "applies_to": "each"
+    }
+  ],
+  "quality_checks": [
+    {
+      "id": "pain_specificity",
+      "criteria": "Pain stories describe specific moments (when, where, what happened), not generic complaints"
+    },
+    {
+      "id": "quotes_authentic",
+      "criteria": "Direct quotes sound like real human speech — specific anchors, frustration words, prices, etc."
+    },
+    {
+      "id": "target_users",
+      "criteria": "Conversations are with target users, not the builder's friends/family (unless explicitly noted)"
+    }
+  ]
+}

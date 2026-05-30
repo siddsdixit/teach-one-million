@@ -1,0 +1,15 @@
+# Day 1 — Loom Video
+
+**Sid walks through Day 1 in ~5 minutes.**
+
+[Embedded Loom — placeholder for Sprint 3 recording]
+
+Recording URL: `TBD`
+
+### What Sid covers in this video
+- The restaurant analogy in 90 seconds
+- Picking a product type — out loud, with examples
+- Writing his own Day 1 idea live
+- Running the Day 1 verifier and watching it pass
+
+Watch this if Part 1 of [learn.md](./learn.md) doesn't click on the read.

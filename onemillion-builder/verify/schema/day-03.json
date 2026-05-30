@@ -1,0 +1,49 @@
+{
+  "day": 3,
+  "title": "Write Your PRD",
+  "structural_checks": [
+    {
+      "id": "prd_exists",
+      "type": "file_exists",
+      "path": ".onemillion/prd.md"
+    },
+    {
+      "id": "five_sections_present",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/prd.md",
+      "required_headings": ["Problem", "User", "Feature", "Scope", "Done"]
+    },
+    {
+      "id": "exactly_three_user_stories",
+      "type": "regex_count",
+      "path": ".onemillion/prd.md",
+      "pattern": "As [^,]+, I want [^,]+ so that",
+      "exact_count": 3
+    },
+    {
+      "id": "out_of_scope_has_items",
+      "type": "markdown_section_bullet_count",
+      "path": ".onemillion/prd.md",
+      "section_heading_contains": "Out of Scope",
+      "min_bullets": 5
+    }
+  ],
+  "quality_checks": [
+    {
+      "id": "named_user",
+      "criteria": "Section 1 (Problem) and Section 2 (User) reference a specific named user or detailed persona, not 'users' or 'people'"
+    },
+    {
+      "id": "evidence_in_problem",
+      "criteria": "Section 1 references the Day 2 conversations or includes specific evidence (numbers, quotes, observed behavior)"
+    },
+    {
+      "id": "definition_of_done_concrete",
+      "criteria": "Section 5 describes a specific working state of v1, not vague aspirations"
+    },
+    {
+      "id": "user_stories_concrete",
+      "criteria": "Each user story names a concrete action (see, send, mark, create, filter), not vague verbs like 'use' or 'manage'"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "day": 1,
+  "title": "Vision + Mental Map",
+  "structural_checks": [
+    {
+      "id": "project_json_exists",
+      "type": "file_exists",
+      "path": ".onemillion/project.json"
+    },
+    {
+      "id": "project_json_valid",
+      "type": "valid_json",
+      "path": ".onemillion/project.json"
+    },
+    {
+      "id": "product_type_set",
+      "type": "json_field",
+      "path": ".onemillion/project.json",
+      "field": "product_type",
+      "allowed_values": ["web_app", "ai_agent", "hybrid"]
+    },
+    {
+      "id": "idea_set",
+      "type": "json_field_min_length",
+      "path": ".onemillion/project.json",
+      "field": "idea",
+      "min_length": 30
+    },
+    {
+      "id": "builder_name_set",
+      "type": "json_field_not_placeholder",
+      "path": ".onemillion/project.json",
+      "field": "builder_name",
+      "blocked_values": ["Your Name", "TBD", "TODO", ""]
+    },
+    {
+      "id": "started_at_set",
+      "type": "json_field_iso_date",
+      "path": ".onemillion/project.json",
+      "field": "started_at"
+    }
+  ],
+  "quality_checks": [
+    {
+      "id": "idea_specificity",
+      "criteria": "Idea has a specific user (named or describable), specific pain point, hints at success outcome"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "day": 6,
+  "title": "Core Feature CRUD",
+  "structural_checks": [
+    {
+      "id": "api_route_exists",
+      "type": "file_exists_glob",
+      "patterns": ["app/api/*/route.ts"],
+      "min_match_count": 1,
+      "note": "At least one API route file for the builder's entity"
+    },
+    {
+      "id": "entity_page_exists",
+      "type": "file_exists_glob",
+      "patterns": ["app/*/page.tsx"],
+      "exclude": ["app/page.tsx", "app/login/page.tsx", "app/signup/page.tsx", "app/dashboard/page.tsx"],
+      "min_match_count": 1
+    }
+  ],
+  "code_quality_checks": [
+    {
+      "id": "api_uses_server_supabase",
+      "type": "file_contains",
+      "path_pattern": "app/api/**/route.ts",
+      "required_strings": ["createClient", "auth.getUser"]
+    },
+    {
+      "id": "api_inserts_user_id",
+      "type": "file_contains",
+      "path_pattern": "app/api/**/route.ts",
+      "required_strings": ["user_id"]
+    },
+    {
+      "id": "api_handles_unauthenticated",
+      "type": "file_contains",
+      "path_pattern": "app/api/**/route.ts",
+      "required_strings": ["401"]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "incognito_test_passed",
+      "ask": "Did you sign up as a second user in incognito mode and confirm they see NO data from the first user? (Critical — confirms RLS is working.)"
+    },
+    {
+      "id": "full_crud_works_live",
+      "ask": "Did you test create, read, update, AND delete on your LIVE Vercel URL (not just localhost)?"
+    },
+    {
+      "id": "loading_empty_error_states",
+      "ask": "Does your UI handle loading (spinner), empty (no items yet), and error states?"
+    }
+  ],
+  "remote_checks": [
+    {
+      "id": "vercel_url_live",
+      "type": "http_check",
+      "url_source": "ask_builder",
+      "url_prompt": "What is your Vercel URL?",
+      "expected_status": [200, 304]
+    }
+  ]
+}

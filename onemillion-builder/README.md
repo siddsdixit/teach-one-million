@@ -1,4 +1,4 @@
-# OneMillion: Build a Real AI Product in 18 Days
+# 🚀 OneMillion: Build a Real AI Product in 18 Days
 
 *Created by [Sid Dixit](https://www.linkedin.com/in/siddharthdixit/)*
 
@@ -10,9 +10,15 @@ You've seen the posts. Solo founders shipping SaaS in a weekend. Indie builders 
 
 **It is. And this is how.**
 
+- **18 days, one product at a time.** No information overload. You make one meaningful move each day and understand it before moving on.
+- **1–2 hours per day.** Short enough to fit around work, family, and the rest of real life.
+- **A deployed product, not a sandbox.** By the end, you have a live URL, working AI features, documented feedback from at least one real person, and a launch plan.
+- **Use AI to learn how to build with AI.** The course is designed around agents that help you spec, design, build, verify, secure, deploy, and sell.
+- **Free forever.** Course content is MIT licensed. No bootcamp fee. No paywalled advanced tier.
+
 ---
 
-### What is OneMillion Builders?
+## ✨ What Is OneMillion Builders?
 
 **OneMillion is on a mission to take one million people — anyone with an idea — from zero to a real, deployed, launchable product in 18 days.**
 
@@ -20,17 +26,15 @@ Not a tutorial. Not a sandbox. A real product, on a real server, ready for real 
 
 We do this by giving you a set of AI agents that work alongside you through every step:
 
-- **Define** — capture your idea and write a clear product requirements document
-- **Architect** — design the software so it's built to last, not just to ship
-- **Plan** — break the build into day-by-day steps you can actually execute
-- **Build** — write the code, review it, and ship it — with AI doing the heavy lifting
-- **Secure** — run automated security checks before anything goes live
-- **Deploy** — get your product onto a real web server or cloud in minutes
-- **Sell** — build a go-to-market plan: how to launch, market, and evangelize your product
+- 🧭 **Define** — capture your idea and write a clear product requirements document
+- 🏗️ **Architect** — design the software so it's built to last, not just to ship
+- 🗓️ **Plan** — break the build into day-by-day steps you can actually execute
+- ⚒️ **Build** — write the code, review it, and ship it — with AI doing the heavy lifting
+- 🔐 **Secure** — run automated security checks before anything goes live
+- 🚢 **Deploy** — get your product onto a real web server or cloud in minutes
+- 📣 **Sell** — build a go-to-market plan: how to launch, market, and evangelize your product
 
 **No prior coding knowledge required.** The agents guide you through every decision. If you've never written a line of code, the path is built for you. If you're an engineer, you blaze through and go deeper.
-
-**1–2 hours per day. 18 days. One shipped product.**
 
 By the end, you have a live URL, working AI features, documented feedback from at least one real person, and a launch plan. Total AI cost: usually $5–15 in Anthropic credits; optional domains are covered in the Day 14 guide.
 
@@ -39,7 +43,7 @@ By the end, you have a live URL, working AI features, documented feedback from a
 
 &nbsp;
 
-## Get Certified — Become a Builder
+## 🎓 Get Certified — Become a Builder
 
 Complete all 18 days and pass all 18 verifications → earn **Builder #N**. Sequential, permanent, public. Listed forever at [onemillion.build/builders](../builders/README.md).
 
@@ -53,7 +57,7 @@ Apply for the next cohort: [cohort/README.md](../cohort/README.md)
 
 ---
 
-## How It Works
+## 💡 How It Works
 
 You don't need to know how to code. If you do — great, you'll go faster. Either way, you finish.
 
@@ -61,31 +65,31 @@ Here's the journey: over 18 days, you become a **lean, AI-powered builder** — 
 
 You can do OneMillion two ways:
 
-- **Self-paced** — follow the 18 days in this repo on your own schedule.
-- **Live cohort** — join a free group when applications are open.
+- 🧑‍💻 **Self-paced.** Follow the 18 days in this repo on your own schedule.
+- 🧑‍🤝‍🧑 **Live cohort.** Join a free group when applications are open.
 
 The same curriculum and verifiers apply either way.
 
 **Every day follows the same rhythm:**
 
-1. **Learn** — a short concept that builds your mental model (~15 min)
-2. **Build** — a step-by-step guide where your AI coding agent does the heavy lifting. You direct. You review. You ship.
-3. **Verify** — paste a prompt into your AI. It checks your work against the day's standard and tells you what passed, what failed, and what to fix.
+- 📖 **Learn.** Read a short concept that builds your mental model.
+- 🛠️ **Build.** Follow a hands-on guide where your AI coding agent does the heavy lifting. You direct. You review. You ship.
+- ✅ **Verify.** Paste a prompt into your AI. It checks your work and tells you what passed, what failed, and what to fix.
 
 **Support is built in:**
 
-- **Video walkthroughs** — Sid walks through the course so you have a human reference
-- **Weekly live sessions** — group calls to unblock, answer questions, and keep you moving
-- **Slack community** — a dedicated channel where builders help each other in real time
-- **Mentors on call** — real people who've been through the build, ready to answer when you're stuck
+- 🎥 **Video walkthroughs** — Sid walks through the course so you have a human reference
+- 🗓️ **Weekly live sessions** — group calls to unblock, answer questions, and keep you moving
+- 💬 **Slack community** — a dedicated channel where builders help each other in real time
+- 🧑‍🏫 **Mentors on call** — real people who've been through the build, ready to answer when you're stuck
 
 The only thing you need to bring is the will to keep going. If you show up, we show up: walkthroughs, community support, office hours, and mentors are designed to keep you moving when you get stuck.
 
 **What you need to start:**
 
-- A laptop (Mac or Windows)
-- An [Anthropic account](getting-your-api-key.md) — most builders spend $5–15 in AI credits
-- 1–2 hours a day
+- 💻 A laptop (Mac or Windows)
+- 🔑 An [Anthropic account](getting-your-api-key.md) — most builders spend $5–15 in AI credits
+- ⏱️ 1–2 hours a day
 
 **What you keep forever:**
 
@@ -93,14 +97,16 @@ When you graduate, the AI agents you built with don't go away. They stay in your
 
 ---
 
-## See What You Produce
+## 🧩 See What You Produce
 
-- **A Day 18-style credential** — [sample Builder profile](diagrams/builder-profile-sample.png)
-- **The verification workflow** — [how Builder #N is earned](verify/README.md)
-- **A public launch artifact** — [Day 18 demo requirements](week-3-ship-and-sell/day-18-demo/learn.md)
-- **The AI credit setup** — [Getting Your API Key](getting-your-api-key.md)
+- 🪪 **A Day 18-style credential** — [sample Builder profile](diagrams/builder-profile-sample.png)
+- ✅ **The verification workflow** — [how Builder #N is earned](verify/README.md)
+- 🎬 **A public launch artifact** — [Day 18 demo requirements](week-3-ship-and-sell/day-18-demo/learn.md)
+- 🔑 **The AI credit setup** — [Getting Your API Key](getting-your-api-key.md)
 
-## Course Days
+---
+
+## 📚 Course Days
 
 | Day | What You Build |
 |-----|----------------|
@@ -126,38 +132,38 @@ When you graduate, the AI agents you built with don't go away. They stay in your
 
 ---
 
-## What You Walk Away With
+## 🏆 What You Walk Away With
 
-- **A deployed product** — live on Vercel, with an optional custom domain
-- **A GitHub repo** with 18 days of commits — proof you built it yourself
-- **Builder #N** — sequential, permanent, public
-- **A public profile** at onemillion.build/builders/[your-number]
-- **A repeatable way to spec, build, verify, and ship your next product**
+- 🌐 **A deployed product** — live on Vercel, with an optional custom domain
+- 📦 **A GitHub repo** with 18 days of commits — proof you built it yourself
+- 🎓 **Builder #N** — sequential, permanent, public
+- 🪪 **A public profile** at onemillion.build/builders/[your-number]
+- 🔁 **A repeatable way to spec, build, verify, and ship your next product**
 
 ---
 
-## Who This Course Is For
+## 🚀 Who This Course Is For
 
-- **Executive assistants** who've never opened a terminal
-- **Product managers** who've written specs but never built the product
-- **Engineers** who want to master agentic SDLC and the modern way of building
-- **Anyone** — yoga teachers, nurses, designers, retirees, career-changers
+- 🗂️ **Executive assistants** who've never opened a terminal
+- 🧠 **Product managers** who've written specs but never built the product
+- 👩‍💻 **Engineers** who want to master agentic SDLC and the modern way of building
+- 🌎 **Anyone** — yoga teachers, nurses, designers, retirees, career-changers
 
 Zero prior experience required. If you can follow step-by-step instructions, copy commands carefully, and ask AI for help when something breaks, you can do this.
 
 ---
 
-## What You Need to Start
+## 🛠️ What You Need to Start
 
-- A laptop (Mac or Windows)
-- An Anthropic API key ([here's how to get one](getting-your-api-key.md)) — most builders spend $5–15 in AI credits
-- An AI tool of your choice — Claude Code, Cursor, Windsurf, or any AI chat. [Getting Started](getting-started.md) walks you through the recommended setup.
+- 💻 A laptop (Mac or Windows)
+- 🔑 An Anthropic API key ([here's how to get one](getting-your-api-key.md)) — most builders spend $5–15 in AI credits
+- 🤖 An AI tool of your choice — Claude Code, Cursor, Windsurf, or any AI chat. [Getting Started](getting-started.md) walks you through the recommended setup.
 
 Total setup: ~30 minutes. Start here: [getting-started.md](getting-started.md)
 
 ---
 
-## Live Cohorts
+## 🗓️ Live Cohorts
 
 Sid runs free weekend cohorts every 6–8 weeks. Saturday live session + 1 hr/day self-paced. Demo Day on the final Saturday.
 
@@ -167,13 +173,13 @@ First 100 builders ever earn permanent **Founding Builder** status.
 
 ---
 
-## FAQ
+## ❓ FAQ
 
 Have questions about cost, technical requirements, which AI tool to use, or what happens if you fall behind? [Read the FAQ](FAQ.md).
 
 ---
 
-## Related
+## 🔗 Related
 
 - [The Manifesto: The Age of Agentic Engineering](../MANIFESTO.md)
 - [Getting Your API Key](getting-your-api-key.md) — AI credit setup and cost guidance
@@ -182,17 +188,17 @@ Have questions about cost, technical requirements, which AI tool to use, or what
 
 ---
 
-## Share the Love
+## 💬 Share the Love
 
 Finished the course? Tag [Sid Dixit](https://www.linkedin.com/in/siddharthdixit/) on LinkedIn with **#BuildingWith1M** and tell him what you built. It makes his day — and helps the next builder find the course.
 
 ---
 
-## License
+## 📄 License
 
 MIT. Free to use, fork, remix, and share. If you build on this, credit OneMillion and link back to this repo.
 
 ---
 
-→ **[Start with Getting Started](getting-started.md)**  
-→ Already set up? **[Begin Day 0](day-0-commit/README.md)**
+🚀 **[Start with Getting Started](getting-started.md)**  
+✅ Already set up? **[Begin Day 0](day-0-commit/README.md)**

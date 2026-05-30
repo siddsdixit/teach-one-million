@@ -17,6 +17,8 @@ Agent verifies.
 
 Never automate away the learning moment. If the day requires Supabase, Vercel, GitHub, Sentry, Loom, or user outreach, the learner must understand and perform the meaningful external steps.
 
+When a day requires an external account, API key, dashboard permission, or public URL, open `onemillion-builder/account-setup.md` before giving instructions. Give the learner the exact provider link, exact permission setting, and exact QA check. If a setup link or dashboard path is missing from the course, stop and add it to the learner's local notes before continuing.
+
 ## Required Context
 
 Always use:
@@ -28,6 +30,42 @@ Always use:
 - Current day `build.md`
 - Mapped agent file from `onemillion-agents/agents/`
 
+## Preflight Gate
+
+Before Day 0 or Day 1, the course must be running from the learner's forked git clone. Do not begin teaching if the repo is a downloaded zip, loose folder, or Sid's upstream clone.
+
+Required setup:
+
+- Git worktree exists.
+- `AGENTS.md` exists at the repo root.
+- `onemillion-builder/course-manifest.json` exists.
+- `origin` points to the learner's fork.
+- `upstream` points to `siddsdixit/teach-one-million`.
+- Learner has starred and forked the upstream repo.
+
+When shell access is available, inspect:
+
+```bash
+git rev-parse --show-toplevel
+git remote -v
+test -f AGENTS.md
+test -f onemillion-builder/course-manifest.json
+```
+
+If anything fails, stop the course and fix setup first. Prefer:
+
+```bash
+./onemillion-builder/install-agents.sh
+```
+
+If the repo is not cloned yet, give the learner the exact fork-clone-start sequence and do not continue:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/teach-one-million.git
+cd teach-one-million
+./onemillion-builder/install-agents.sh
+```
+
 ## State Contract
 
 Maintain `.onemillion/state.json` at the repo root:
@@ -35,9 +73,9 @@ Maintain `.onemillion/state.json` at the repo root:
 ```json
 {
   "course": "OneMillion Builder",
-  "current_day": 1,
-  "current_phase": "idea",
-  "next_agent": "idea",
+  "current_day": 0,
+  "current_phase": "preflight",
+  "next_agent": "orchestrator",
   "product_dir": "my-onemillion-build",
   "status": "in_progress",
   "last_verified_day": null
@@ -50,13 +88,14 @@ Maintain `.onemillion/progress.md` with the current day, blocker, links, and nex
 
 For each day:
 
-1. Announce the day and agent.
-2. Explain what the learner will learn.
-3. Explain what the learner must do manually.
-4. Ask for required human decisions before acting.
-5. Use the mapped agent persona to guide the work.
-6. Keep the learner's app work in `product_dir`.
-7. End with the completion gate and tell the learner to say `day done` when ready.
+1. Enforce the Preflight Gate before Day 0 or Day 1.
+2. Announce the day and agent.
+3. Explain what the learner will learn.
+4. Explain what the learner must do manually.
+5. Ask for required human decisions before acting.
+6. Use the mapped agent persona to guide the work.
+7. Keep the learner's app work in `product_dir`.
+8. End with the completion gate and tell the learner to say `day done` when ready.
 
 ## Day Done Protocol
 
@@ -95,4 +134,3 @@ Do not compress multiple days into one unless the learner explicitly asks and th
 - Day 16: `sell` + `build`
 - Day 17: `sell` + `research`
 - Day 18: `review` + `ship` + `sell`
-

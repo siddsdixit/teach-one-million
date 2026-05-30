@@ -13,6 +13,8 @@
 
 <p align="center">
   <a href="START-HERE.md">Start Here</a> &bull;
+  <a href="#-mandatory-first-steps">Mandatory First Steps</a> &bull;
+  <a href="account-setup.md">Account Setup</a> &bull;
   <a href="#-course-days">Course Days</a> &bull;
   <a href="verify/README.md">Verification</a> &bull;
   <a href="FAQ.md">FAQ</a> &bull;
@@ -25,6 +27,7 @@ You've seen the posts. Solo founders shipping SaaS in a weekend. Indie builders 
 
 **It is. And this is how.**
 
+- **Mandatory first move: star, fork, clone.** Your fork becomes your public learning workspace and proof trail.
 - **18 days, one product at a time.** No information overload. You make one meaningful move each day and understand it before moving on.
 - **1–2 hours per day.** Short enough to fit around work, family, and the rest of real life.
 - **A deployed product, not a sandbox.** By the end, you have a live URL, working AI features, documented feedback from at least one real person, and a launch plan.
@@ -58,6 +61,49 @@ By the end, you have a live URL, working AI features, documented feedback from a
 → **Start here:** [Start Here](START-HERE.md)<br>
 → Already set up? [Begin Day 0](day-0-commit/README.md)<br>
 → Returning after a break? [Recover your place](recover.md)
+
+---
+
+## ⭐ Mandatory First Steps
+
+Before Day 1, every learner does this:
+
+1. **Star** this repo so you can find it again and help the next builder discover it.
+2. **Fork** this repo into your own GitHub account.
+3. **Clone your fork**, not Sid's original repo.
+4. Run the installer so the repo can verify/fix `origin` and `upstream`.
+5. Open your fork in your favorite coding harness.
+6. Paste the start prompt below.
+
+```bash
+git clone https://github.com/YOUR-USERNAME/teach-one-million.git
+cd teach-one-million
+./onemillion-builder/install-agents.sh
+```
+
+If the GitHub CLI is installed and authenticated, the installer stars the upstream repo, creates or verifies your fork, sets `origin` to your fork, sets `upstream` to Sid's repo, and starts local course state. If it cannot verify the clone/fork/upstream setup, it stops before the course begins.
+
+Then tell your coding harness:
+
+```text
+I am starting the OneMillion course from my fork.
+
+Read AGENTS.md and onemillion-builder/course-manifest.json.
+Become my OneMillion learning orchestrator.
+First enforce the Preflight Gate. If anything is wrong with clone/fork/origin/upstream setup, stop and fix it before Day 0.
+Then start Day 0 and Day 1.
+Teach me one day at a time.
+When I say "day done", verify the day and advance me.
+Do not skip the learning or do the external tool steps for me.
+```
+
+This course page is the canonical learner landing page:
+
+```text
+https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
+```
+
+When any day asks for an external account, key, dashboard permission, or public link, use [Account Setup Playbook](account-setup.md). It gives the exact link, exact permission, and QA check for GitHub, Vercel, Supabase, Anthropic, Sentry, UptimeRobot, and Loom.
 
 ---
 

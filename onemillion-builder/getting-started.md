@@ -14,6 +14,32 @@ You can use:
 
 The course repo contains the instructions, agents, manifest, examples, and daily lessons. Your harness becomes the teacher by reading them.
 
+When a step asks for an external account, API key, dashboard setting, permission, or public link, open [Account Setup Playbook](account-setup.md). It gives the exact provider link and the QA check for that setup.
+
+Start from the rendered course page:
+
+```text
+https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
+```
+
+---
+
+## Mandatory GitHub Preflight
+
+You must do these before Day 0 or Day 1:
+
+1. Star `siddsdixit/teach-one-million`.
+2. Fork `siddsdixit/teach-one-million`.
+3. Clone your fork.
+
+```bash
+git clone https://github.com/YOUR-USERNAME/teach-one-million.git
+cd teach-one-million
+./onemillion-builder/install-agents.sh
+```
+
+Open your fork in your coding harness. If the repo is a downloaded zip, a loose folder, or Sid's upstream clone, the harness should stop and fix the setup before teaching.
+
 ---
 
 ## The First Prompt
@@ -21,36 +47,18 @@ The course repo contains the instructions, agents, manifest, examples, and daily
 Paste this into your harness:
 
 ```text
-I am starting the OneMillion course.
+I am starting the OneMillion course from my fork.
 
-Course repo:
-https://github.com/siddsdixit/teach-one-million
+Course page:
+https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 
-Read AGENTS.md and the course manifest.
+Read AGENTS.md and onemillion-builder/course-manifest.json.
 Become my OneMillion learning orchestrator.
-Start me at Day 1.
+First enforce the Preflight Gate. If anything is wrong with clone/fork/origin/upstream setup, stop and fix it before Day 0.
+Then start Day 0 and Day 1.
 Teach me one day at a time.
 When I say "day done", verify the day and advance me.
 Do not skip the learning or do the external tool steps for me.
-```
-
----
-
-## If Your Harness Needs Local Files
-
-Clone the repo:
-
-```bash
-git clone https://github.com/siddsdixit/teach-one-million.git
-cd teach-one-million
-```
-
-Open the folder in your coding harness.
-
-Then say:
-
-```text
-Read AGENTS.md and start Day 1.
 ```
 
 ---
@@ -63,7 +71,7 @@ From inside the cloned repo:
 ./onemillion-builder/install-agents.sh
 ```
 
-This installs local adapter files:
+If GitHub CLI is installed and authenticated, the installer stars the upstream repo, creates or verifies your fork, sets `origin` to your fork, sets `upstream` to Sid's repo, and starts local course state. It also installs local adapter files:
 
 ```text
 .claude/agents/

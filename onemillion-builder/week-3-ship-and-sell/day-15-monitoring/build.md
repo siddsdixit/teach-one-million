@@ -13,11 +13,20 @@
 
 ---
 
+## Before You Start
+
+- [ ] Day 14 verified
+- [ ] Live app URL works
+- [ ] Opened [Account Setup Playbook: Day 15](../../account-setup.md#day-15-monitoring)
+
+---
+
 ## Step 1: Sentry (15-20 min)
 
-1. Sign up at [sentry.io](https://sentry.io). Free plan.
+1. Sign up at [sentry.io/signup](https://sentry.io/signup/). Free plan.
 2. Create new project → Platform: Next.js
 3. Sentry shows you a **DSN** (looks like `https://xxx@xxx.ingest.sentry.io/xxx`). Copy.
+4. Keep Sentry's Next.js docs open: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 In your terminal:
 ```bash
@@ -51,6 +60,7 @@ Then revert the test error.
 ## Step 2: Vercel Analytics (5 min)
 
 1. vercel.com → your project → **Analytics** tab → enable
+   - Docs: https://vercel.com/docs/analytics
 2. Install the package:
    ```bash
    npm install @vercel/analytics
@@ -69,7 +79,8 @@ After your next visit (and ~10 min of data accumulation), Vercel dashboard shows
 
 ## Step 3: UptimeRobot (10 min)
 
-1. Sign up at [uptimerobot.com](https://uptimerobot.com). Free plan.
+1. Sign up at [uptimerobot.com/signUp](https://uptimerobot.com/signUp). Free plan.
+   - First monitor guide: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 2. Dashboard → **+ New Monitor**
 3. Type: HTTP(s)
 4. Friendly name: "OneMillion build — [your-app-name]"
@@ -107,6 +118,7 @@ Paste contents of [`ai-instructions-day-15.md`](./ai-instructions-day-15.md).
 - [ ] `<Analytics />` component in app/layout.tsx
 - [ ] UptimeRobot monitoring your live URL
 - [ ] Confirmed email alerts work
+- [ ] Account setup QA passed from [Account Setup Playbook: Day 15](../../account-setup.md#day-15-monitoring)
 - [ ] Verification passed ✅
 
 ---

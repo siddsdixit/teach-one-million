@@ -17,6 +17,7 @@
 
 - [ ] Day 7 verified — AI feature spec locked
 - [ ] You have `ANTHROPIC_API_KEY` in your Anthropic console (from getting-your-api-key.md)
+- [ ] Opened [Account Setup Playbook: Day 8](../../account-setup.md#day-8-anthropic-api-key)
 - [ ] Both terminal windows ready
 
 ---
@@ -37,6 +38,10 @@ npm install ai @ai-sdk/anthropic
 
 ## Step 2: Add Anthropic Key To Env Vars
 
+Open: https://console.anthropic.com/
+
+Anthropic API docs: https://docs.anthropic.com/en/api/overview
+
 In `.env.local`:
 
 ```
@@ -49,6 +54,7 @@ Then add the same to Vercel:
 1. vercel.com → your project → Settings → Environment Variables
 2. Add `ANTHROPIC_API_KEY` with your key value
 3. Save
+4. Redeploy after saving
 
 > 🚨 **Critical:** Never use `NEXT_PUBLIC_` for `ANTHROPIC_API_KEY`. That would expose your key to anyone who opens DevTools on your site.
 
@@ -177,6 +183,7 @@ Paste contents of [`ai-instructions-day-08.md`](./ai-instructions-day-08.md).
 - [ ] `ai` and `@ai-sdk/anthropic` in package.json
 - [ ] `ANTHROPIC_API_KEY` in `.env.local`
 - [ ] `ANTHROPIC_API_KEY` in Vercel (verify in dashboard)
+- [ ] Account setup QA passed from [Account Setup Playbook: Day 8](../../account-setup.md#day-8-anthropic-api-key)
 - [ ] API route exists at `app/api/ai/[your-feature]/route.ts`
 - [ ] Route checks auth (returns 401 if no user)
 - [ ] Prompt has all 5 elements (role/goal/tone/constraints/format)

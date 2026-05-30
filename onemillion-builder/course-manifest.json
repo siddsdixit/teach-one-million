@@ -4,10 +4,91 @@
   "state_file": ".onemillion/state.json",
   "progress_file": ".onemillion/progress.md",
   "default_product_dir": "my-onemillion-build",
-  "start_day": 1,
+  "start_day": 0,
   "completion_phrase": "day done",
   "agent_root": "onemillion-agents/agents",
   "principle": "Agent guides. Learner decides. Learner touches real tools. Agent verifies.",
+  "preflight": {
+    "required": true,
+    "canonical_landing_page": "https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder",
+    "upstream_repo": "siddsdixit/teach-one-million",
+    "upstream_url": "https://github.com/siddsdixit/teach-one-million.git",
+    "install_script": "onemillion-builder/install-agents.sh",
+    "required_actions": [
+      "star_upstream_repo",
+      "fork_upstream_repo",
+      "clone_own_fork",
+      "open_cloned_fork_in_coding_harness",
+      "configure_origin_as_learner_fork",
+      "configure_upstream_as_siddsdixit_repo"
+    ],
+    "hard_gate": [
+      "do_not_start_day_0_or_day_1_from_a_downloaded_zip",
+      "do_not_start_day_0_or_day_1_from_a_loose_folder",
+      "do_not_start_day_0_or_day_1_when_origin_points_to_upstream",
+      "stop_and_fix_clone_fork_origin_upstream_before_teaching"
+    ],
+    "completion_gate": [
+      "git worktree exists",
+      "AGENTS.md exists at repo root",
+      "onemillion-builder/course-manifest.json exists",
+      "origin points to learner fork",
+      "upstream points to siddsdixit/teach-one-million",
+      "learner confirms upstream repo is starred"
+    ]
+  },
+  "provider_setup_playbook": "onemillion-builder/account-setup.md",
+  "provider_setup_links": {
+    "github_course_fork": {
+      "days": [0],
+      "account": "https://github.com/signup",
+      "course_repo": "https://github.com/siddsdixit/teach-one-million",
+      "fork": "https://github.com/siddsdixit/teach-one-million/fork",
+      "cli": "https://cli.github.com/",
+      "qa": ["origin points to learner fork", "upstream points to siddsdixit/teach-one-million"]
+    },
+    "github_app_repo_vercel": {
+      "days": [4],
+      "github_new_repo": "https://github.com/new",
+      "vercel_signup": "https://vercel.com/signup",
+      "vercel_import": "https://vercel.com/new",
+      "vercel_git_docs": "https://vercel.com/docs/deployments/git",
+      "qa": ["app repo exists", "live Vercel URL returns 200", "push triggers redeploy"]
+    },
+    "supabase": {
+      "days": [5, 6, 10, 11, 13],
+      "dashboard": "https://supabase.com/dashboard",
+      "new_project": "https://database.new",
+      "nextjs_auth": "https://supabase.com/docs/guides/auth/quickstarts/nextjs",
+      "api_keys": "https://supabase.com/docs/guides/getting-started/api-keys",
+      "redirect_urls": "https://supabase.com/docs/guides/auth/redirect-urls",
+      "rls": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "qa": ["signup works locally", "signup works on live URL", "RLS enabled", "auth.uid policy exists"]
+    },
+    "anthropic": {
+      "days": [8, 9, 10, 11, 12],
+      "console": "https://console.anthropic.com/",
+      "api_docs": "https://docs.anthropic.com/en/api/overview",
+      "vercel_env": "https://vercel.com/docs/projects/environment-variables",
+      "qa": ["ANTHROPIC_API_KEY set locally and in Vercel", "no NEXT_PUBLIC_ANTHROPIC leak", "live AI route works"]
+    },
+    "monitoring": {
+      "days": [15],
+      "sentry_signup": "https://sentry.io/signup/",
+      "sentry_nextjs": "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
+      "vercel_analytics": "https://vercel.com/docs/analytics",
+      "uptimerobot_signup": "https://uptimerobot.com/signUp",
+      "uptimerobot_first_monitor": "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
+      "qa": ["Sentry receives test error", "Vercel Analytics enabled", "UptimeRobot monitor up", "alert email verified"]
+    },
+    "loom_builder_claim": {
+      "days": [18],
+      "loom": "https://www.loom.com/",
+      "loom_share": "https://loomhelp.zendesk.com/hc/en-us/articles/360002208157-How-to-share-your-recording",
+      "builder_claim": "https://github.com/siddsdixit/teach-one-million/issues/new/choose",
+      "qa": ["incognito can view Loom", "incognito can open live app", "Builder Claim issue submitted"]
+    }
+  },
   "utility_agents": ["ask", "debug", "refactor", "orchestrator", "research", "review", "revise"],
   "days": [
     {
@@ -264,4 +345,3 @@
     }
   ]
 }
-

@@ -17,6 +17,7 @@
 
 - [ ] Day 4 verified (live URL working)
 - [ ] You skimmed [learn.md](./learn.md) (especially Part 3 — the auth flow)
+- [ ] Opened [Account Setup Playbook: Day 5](../../account-setup.md#day-5-supabase-auth--database)
 - [ ] Terminal in your project folder
 - [ ] Both terminal windows open (one for `npm run dev`, one for git/claude)
 
@@ -24,7 +25,7 @@
 
 ## Step 1: Create Supabase Project (10 min)
 
-1. Go to [supabase.com](https://supabase.com)
+1. Go to [database.new](https://database.new) or [supabase.com/dashboard](https://supabase.com/dashboard)
 2. Click **Start your project** → Continue with GitHub
 3. Click **New Project**
 4. Fill in:
@@ -33,11 +34,11 @@
    - **Region:** pick closest to you
 5. Click **Create project**. Wait 2 minutes.
 
-Once it's ready, go to **Settings** (gear icon, left sidebar) → **API**.
+Once it's ready, go to **Connect** or **Settings** (gear icon, left sidebar) → **API Keys**.
 
 You need TWO things from this page:
 - **Project URL** — looks like `https://abcdefgh.supabase.co`
-- **anon public** key — long string starting with `eyJ...`
+- **publishable** key (`sb_publishable_...`) or legacy **anon public** key (`eyJ...`)
 
 Keep this tab open.
 
@@ -55,10 +56,16 @@ Open `.env.local` in your editor and add:
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ_your_anon_key_here
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your_key_here
 ```
 
 Replace with YOUR values from Supabase.
+
+If your project only shows the legacy anon key, use:
+
+```text
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ_your_anon_key_here
+```
 
 **Verify it's gitignored.** Run:
 
@@ -80,8 +87,10 @@ echo ".env.local" >> .gitignore
 2. **Settings** → **Environment Variables**
 3. Add both:
    - Name: `NEXT_PUBLIC_SUPABASE_URL` | Value: your URL
-   - Name: `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value: your key
+   - Name: `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Value: your publishable key
 4. Click **Save**
+
+If you used the legacy anon key locally, add `NEXT_PUBLIC_SUPABASE_ANON_KEY` instead. Use the exact same variable name locally and in Vercel. Vercel env var docs: https://vercel.com/docs/projects/environment-variables
 
 > ⚠️ **Critical step.** If you skip this, your deployed app won't connect to Supabase. Local works, production breaks. This is the #1 Day 5 mistake.
 
@@ -125,6 +134,7 @@ Router project. Set up:
 Use the @supabase/ssr package (not the deprecated @supabase/auth-helpers).
 Use Tailwind for basic styling. Use the env vars
 NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.
+If my env uses NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY instead, use that name consistently.
 
 Don't overcomplicate. Aim for ~150-200 lines total. Show me what you'd
 create before generating files.
@@ -224,7 +234,7 @@ The most common Day 5 failure mode: works locally, breaks in production silently
 
 - [ ] **`.env.local` exists locally** with both:
   - `NEXT_PUBLIC_SUPABASE_URL=https://...`
-  - `NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...`
+  - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...` or `NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...`
 
 - [ ] **Vercel has the SAME env vars** (Settings → Environment Variables in your Vercel project dashboard). Take a screenshot or screenshot-equivalent visual scan: BOTH names visible.
 
@@ -235,6 +245,8 @@ The most common Day 5 failure mode: works locally, breaks in production silently
 - [ ] **RLS is enabled on your first table.** Supabase dashboard → Table Editor → click your table → green "RLS enabled" indicator.
 
 - [ ] **RLS policy exists.** Same screen → Policies → at least one policy referencing `auth.uid()`.
+
+- [ ] **Account setup QA passed** from [Account Setup Playbook: Day 5](../../account-setup.md#day-5-supabase-auth--database).
 
 If any box is unchecked: fix it before continuing. Don't skip.
 

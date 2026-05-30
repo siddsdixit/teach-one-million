@@ -1,10 +1,58 @@
 # Day 0 — Public Commitment
 
-**Time: 5 minutes. Optional but recommended.**
+**Time: 10-15 minutes. Mandatory before Day 1.**
 
-Before you start Day 1, post about it. Publicly. On LinkedIn (or X, or both).
+Before you start Day 1, set up your fork and make a commitment. Publicly if you can. Privately to five real people if you cannot post yet.
 
-This sounds cheesy. It's actually the single highest-impact retention tactic in any course.
+This sounds small. It is the course's first real learning gate: you create a public workspace, prove you can work from your own fork, and make it harder to disappear when the build gets uncomfortable.
+
+---
+
+## Required Setup
+
+Do not skip this. Your coding harness should stop the course if any item is missing.
+
+Open the exact setup playbook first: [Account Setup Playbook](../account-setup.md#day-0-github-course-fork)
+
+- [ ] Starred `siddsdixit/teach-one-million`
+- [ ] Forked `siddsdixit/teach-one-million` into your own GitHub account
+- [ ] Cloned your fork locally
+- [ ] `origin` points to your fork
+- [ ] `upstream` points to `siddsdixit/teach-one-million`
+- [ ] Opened the cloned fork in your coding harness
+
+Run this from the repo root if you have not already:
+
+```bash
+./onemillion-builder/install-agents.sh
+```
+
+### If You Do Not Have GitHub Yet
+
+1. Create an account: https://github.com/signup
+2. Open the course repo: https://github.com/siddsdixit/teach-one-million
+3. Click **Star**.
+4. Fork directly: https://github.com/siddsdixit/teach-one-million/fork
+5. Install GitHub CLI if you want the easiest terminal path: https://cli.github.com/
+6. If Git is not installed, use GitHub's setup guide: https://docs.github.com/en/get-started/git-basics/set-up-git
+
+### QA: Prove The Setup Is Correct
+
+Run:
+
+```bash
+git remote -v
+git rev-parse --show-toplevel
+test -f AGENTS.md
+test -f onemillion-builder/course-manifest.json
+```
+
+You pass Day 0 setup only when:
+
+- `origin` contains your GitHub username.
+- `upstream` contains `siddsdixit/teach-one-million`.
+- You are not working from a downloaded zip.
+- Your harness can read `AGENTS.md` and `onemillion-builder/course-manifest.json`.
 
 ---
 
@@ -111,4 +159,10 @@ Either way: you win.
 
 ## Now: Go Post It
 
-Then come back. [Day 1](../week-1-foundation/day-01-vision/learn.md) is waiting.
+Then come back and tell your coding harness:
+
+```text
+day done
+```
+
+Your harness should verify the fork/clone/upstream setup and commitment before it starts [Day 1](../week-1-foundation/day-01-vision/learn.md).

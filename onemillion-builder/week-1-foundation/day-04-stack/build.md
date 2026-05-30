@@ -19,6 +19,7 @@ Today you set up a Next.js project, push it to GitHub, and deploy to Vercel. Fol
 
 - [ ] Day 3 verified (PRD locked)
 - [ ] GitHub, Vercel accounts ready (from getting-started.md)
+- [ ] Opened [Account Setup Playbook: Day 4](../../account-setup.md#day-4-github-app-repo--vercel-deploy)
 - [ ] Terminal open, in your `my-onemillion-build` folder
 - [ ] Editor ready to open
 
@@ -110,6 +111,8 @@ Save the file. Look at `http://localhost:3000` in your browser — it should hot
 
 **Option A — GitHub CLI (easiest, RECOMMENDED):**
 
+Open: https://cli.github.com/
+
 ```bash
 # Mac
 brew install gh
@@ -190,6 +193,8 @@ Go to [vercel.com/new](https://vercel.com/new).
 5. Environment Variables: leave empty for today (you'll add some on Day 5)
 6. Click **Deploy**
 
+If Vercel does not show your repo, check the GitHub integration permissions. For a personal repo, you usually need to be the repo owner. See the setup playbook and Vercel Git docs: https://vercel.com/docs/deployments/git
+
 **You should see:** A progress screen with "Building..." then "Deploying..." Takes 1-3 minutes.
 
 When done, Vercel shows you fireworks and your deployed URL — something like `https://my-onemillion-build-username.vercel.app`.
@@ -245,6 +250,7 @@ If pass: you're done with Day 4. If revision needed: fix and re-run.
 - [ ] Code is pushed to a GitHub repo
 - [ ] Your app is live at a Vercel URL
 - [ ] You made a change, pushed it, and saw Vercel redeploy
+- [ ] Account setup QA passed from [Account Setup Playbook: Day 4](../../account-setup.md#day-4-github-app-repo--vercel-deploy)
 - [ ] Verification passed ✅
 
 ---

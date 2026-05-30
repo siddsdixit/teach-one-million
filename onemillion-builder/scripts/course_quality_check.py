@@ -117,7 +117,9 @@ def check_day_navigation() -> None:
 def check_agent_architecture() -> None:
     required_files = [
         REPO / "AGENTS.md",
+        ROOT / "AGENTS.md",
         ROOT / "course-manifest.json",
+        ROOT / "account-setup.md",
         ROOT / "agent-flow.md",
         ROOT / "day-done.md",
         ROOT / "install-agents.sh",
@@ -214,19 +216,59 @@ def check_manifest() -> None:
     if seen_days != set(range(1, 19)):
         errors.append(f"{rel(path)} days must be numbered 1-18")
 
+    preflight = manifest.get("preflight")
+    if not isinstance(preflight, dict):
+        errors.append(f"{rel(path)} missing required preflight object")
+        return
+
+    required_preflight_terms = {
+        "required": True,
+        "upstream_repo": "siddsdixit/teach-one-million",
+        "install_script": "onemillion-builder/install-agents.sh",
+    }
+    for key, expected in required_preflight_terms.items():
+        if preflight.get(key) != expected:
+            errors.append(f"{rel(path)} preflight {key} must be {expected!r}")
+
+    for field in ["required_actions", "hard_gate", "completion_gate"]:
+        value = preflight.get(field)
+        if not isinstance(value, list) or not value:
+            errors.append(f"{rel(path)} preflight missing list: {field}")
+
+    if manifest.get("provider_setup_playbook") != "onemillion-builder/account-setup.md":
+        errors.append(f"{rel(path)} must point to account setup playbook")
+
+    setup_links = manifest.get("provider_setup_links")
+    if not isinstance(setup_links, dict):
+        errors.append(f"{rel(path)} missing provider_setup_links")
+    else:
+        for key in [
+            "github_course_fork",
+            "github_app_repo_vercel",
+            "supabase",
+            "anthropic",
+            "monitoring",
+            "loom_builder_claim",
+        ]:
+            if key not in setup_links:
+                errors.append(f"{rel(path)} provider_setup_links missing: {key}")
+
 
 def check_harness_neutral_entrypoints() -> None:
     entry_files = [
         REPO / "README.md",
         REPO / "AGENTS.md",
+        ROOT / "AGENTS.md",
         ROOT / "README.md",
         ROOT / "START-HERE.md",
         ROOT / "getting-started.md",
+        ROOT / "account-setup.md",
         ROOT / "agent-flow.md",
     ]
     required_terms = [
         "AGENTS.md",
         "course-manifest.json",
+        "Preflight Gate",
     ]
     for file in entry_files:
         if not file.exists():

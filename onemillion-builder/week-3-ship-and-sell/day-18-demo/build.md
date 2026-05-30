@@ -13,6 +13,14 @@
 
 ---
 
+## Before You Start
+
+- [ ] Day 17 verified
+- [ ] Live app URL works in an incognito browser
+- [ ] Opened [Account Setup Playbook: Day 18](../../account-setup.md#day-18-loom--builder-claim)
+
+---
+
 ## Step 1: Plan The Demo (10 min)
 
 In `.onemillion/demo-plan.md`:
@@ -60,7 +68,9 @@ Before hitting record:
 
 ## Step 3: Record (10-20 min)
 
-Open Loom (Cmd+Shift+L on Mac, similar on Windows).
+Open Loom: https://www.loom.com/
+
+Loom sharing help: https://loomhelp.zendesk.com/hc/en-us/articles/360002208157-How-to-share-your-recording
 
 Settings:
 - Screen + face camera
@@ -169,6 +179,7 @@ Tag @SidDixit. The Builder Wall thanks you.
 - [ ] `.onemillion/demo.md` saved with URLs
 - [ ] All 18 days verified
 - [ ] Builder Claim issue submitted for review
+- [ ] Account setup QA passed from [Account Setup Playbook: Day 18](../../account-setup.md#day-18-loom--builder-claim)
 - [ ] You shared on LinkedIn (or you'll share within 24 hours)
 - [ ] You took 10 minutes to actually feel what you accomplished
 

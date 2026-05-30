@@ -8,6 +8,17 @@ The learner does not paste one giant prompt and hope. The learner works with foc
 idea → spec → design → plan → build → test → guard → ship → sell
 ```
 
+## Preflight Gate
+
+Before Day 0 or Day 1, the harness must verify the course is running from a forked git clone:
+
+- `origin` points to the learner's fork.
+- `upstream` points to `siddsdixit/teach-one-million`.
+- `AGENTS.md` and `onemillion-builder/course-manifest.json` exist.
+- The learner has starred and forked the upstream repo.
+
+If anything is wrong, the harness stops and fixes setup before teaching.
+
 ## The Contract
 
 ```text
@@ -41,7 +52,8 @@ Agent verifies.
 I am starting the OneMillion course.
 Read AGENTS.md and the course manifest.
 Become my OneMillion learning orchestrator.
-Start me at Day 1.
+First enforce the Preflight Gate.
+Start me at Day 0.
 Teach me one day at a time.
 When I say "day done", verify the day and advance me.
 Do not skip the learning or do the external tool steps for me.

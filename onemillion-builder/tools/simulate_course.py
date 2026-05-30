@@ -1,0 +1,349 @@
+#!/usr/bin/env python3
+"""
+OneMillion course simulator.
+
+Runs a synthetic learner QA pass against the course repo without touching GitHub.
+It creates throwaway clones/workspaces under /tmp and checks:
+
+- landing/course material is internally valid
+- installer blocks unsafe states
+- installer succeeds in a fork-like local clone
+- Day 0/Day 1 artifacts can be created and verified
+- deployment/source matching verifier works on a local mock deployment
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import shutil
+import socket
+import subprocess
+import sys
+import tempfile
+import threading
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+REPO = ROOT.parent
+
+
+class Result:
+    def __init__(self, name: str, passed: bool, details: str = "") -> None:
+        self.name = name
+        self.passed = passed
+        self.details = details.strip()
+
+
+def run(
+    cmd: list[str],
+    cwd: Path,
+    *,
+    check: bool = False,
+    env: dict[str, str] | None = None,
+    timeout: int = 30,
+) -> subprocess.CompletedProcess[str]:
+    merged_env = os.environ.copy()
+    if env:
+        merged_env.update(env)
+    return subprocess.run(
+        cmd,
+        cwd=cwd,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=check,
+        env=merged_env,
+        timeout=timeout,
+    )
+
+
+def record(results: list[Result], name: str, passed: bool, details: str = "") -> None:
+    results.append(Result(name, passed, details))
+
+
+def copy_repo(destination: Path) -> None:
+    ignore = shutil.ignore_patterns(
+        ".git",
+        "remotion/node_modules",
+        "remotion/.cache",
+        "remotion/out",
+        "__pycache__",
+        "*.pyc",
+        ".DS_Store",
+    )
+    shutil.copytree(REPO, destination, ignore=ignore)
+
+
+def init_fork_like_repo(path: Path) -> None:
+    run(["git", "init", "-b", "main"], path, check=True)
+    run(["git", "config", "user.email", "simulator@example.com"], path, check=True)
+    run(["git", "config", "user.name", "OneMillion Simulator"], path, check=True)
+    run(["git", "add", "."], path, check=True)
+    run(["git", "commit", "-m", "simulated learner fork"], path, check=True)
+    run(["git", "remote", "add", "origin", "https://github.com/simulated-learner/teach-one-million.git"], path, check=True)
+    run(["git", "remote", "add", "upstream", "https://github.com/siddsdixit/teach-one-million.git"], path, check=True)
+
+
+def create_fake_gh_bin(bin_dir: Path, authenticated: bool = False) -> None:
+    script = bin_dir / "gh"
+    if authenticated:
+        body = """#!/usr/bin/env bash
+set -euo pipefail
+if [[ "$1" == "auth" && "$2" == "status" ]]; then exit 0; fi
+if [[ "$1" == "api" && "$2" == "user" ]]; then echo "simulated-learner"; exit 0; fi
+if [[ "$1" == "repo" && "$2" == "star" ]]; then exit 0; fi
+if [[ "$1" == "repo" && "$2" == "view" ]]; then exit 0; fi
+if [[ "$1" == "repo" && "$2" == "fork" ]]; then exit 0; fi
+echo "fake gh unsupported: $*" >&2
+exit 1
+"""
+    else:
+        body = """#!/usr/bin/env bash
+if [[ "$1" == "auth" && "$2" == "status" ]]; then exit 1; fi
+echo "fake gh unauthenticated" >&2
+exit 1
+"""
+    script.write_text(body)
+    script.chmod(0o755)
+
+
+def test_course_quality(results: list[Result]) -> None:
+    proc = run(["python3", "onemillion-builder/tools/course_quality_check.py"], REPO)
+    record(results, "course_quality_check", proc.returncode == 0, proc.stdout)
+
+
+def test_installer_blocks_plain_folder(results: list[Result], tmp: Path) -> None:
+    plain = tmp / "plain-folder"
+    copy_repo(plain)
+    fake_bin = tmp / "fake-gh-off"
+    fake_bin.mkdir()
+    create_fake_gh_bin(fake_bin, authenticated=False)
+    env = {"PATH": f"{fake_bin}:{os.environ['PATH']}"}
+    proc = run(["bash", "onemillion-builder/install-agents.sh"], plain, env=env)
+    passed = proc.returncode != 0 and "not a git clone" in proc.stdout and "Clone your fork" in proc.stdout
+    record(results, "installer_blocks_downloaded_or_plain_folder", passed, proc.stdout)
+
+
+def test_installer_blocks_upstream_origin(results: list[Result], tmp: Path) -> None:
+    repo = tmp / "upstream-origin"
+    copy_repo(repo)
+    init_fork_like_repo(repo)
+    run(["git", "remote", "set-url", "origin", "https://github.com/siddsdixit/teach-one-million.git"], repo, check=True)
+    fake_bin = tmp / "fake-gh-off-2"
+    fake_bin.mkdir()
+    create_fake_gh_bin(fake_bin, authenticated=False)
+    env = {"PATH": f"{fake_bin}:{os.environ['PATH']}"}
+    proc = run(["bash", "onemillion-builder/install-agents.sh"], repo, env=env)
+    passed = proc.returncode != 0 and "origin still points to Sid" in proc.stdout
+    record(results, "installer_blocks_upstream_origin", passed, proc.stdout)
+
+
+def test_installer_succeeds_in_fork_like_clone(results: list[Result], tmp: Path) -> Path:
+    repo = tmp / "fork-like"
+    copy_repo(repo)
+    init_fork_like_repo(repo)
+    fake_bin = tmp / "fake-gh-off-3"
+    fake_bin.mkdir()
+    create_fake_gh_bin(fake_bin, authenticated=False)
+    env = {"PATH": f"{fake_bin}:{os.environ['PATH']}"}
+    proc = run(["bash", "onemillion-builder/install-agents.sh"], repo, env=env)
+    expected = [
+        ".claude/agents/orchestrator.md",
+        ".cursor/rules/onemillion-course.mdc",
+        ".agents/rules/onemillion-course.md",
+        ".gemini/GEMINI.md",
+        ".github/copilot-instructions.md",
+        ".onemillion/state.json",
+        ".onemillion/progress.md",
+    ]
+    missing = [path for path in expected if not (repo / path).exists()]
+    passed = proc.returncode == 0 and not missing
+    details = proc.stdout
+    if missing:
+        details += "\nMissing: " + ", ".join(missing)
+    record(results, "installer_succeeds_in_fork_like_clone", passed, details)
+    return repo
+
+
+def test_day0_state(results: list[Result], repo: Path) -> None:
+    state_path = repo / ".onemillion/state.json"
+    try:
+        state = json.loads(state_path.read_text())
+        passed = (
+            state.get("current_day") == 0
+            and state.get("current_phase") == "preflight"
+            and "simulated-learner/teach-one-million" in state.get("preflight", {}).get("origin_remote", "")
+            and "siddsdixit/teach-one-million" in state.get("preflight", {}).get("upstream_remote", "")
+        )
+        record(results, "day0_preflight_state_created", passed, json.dumps(state, indent=2))
+    except Exception as exc:
+        record(results, "day0_preflight_state_created", False, str(exc))
+
+
+def create_day1_project(path: Path) -> Path:
+    product = path / "my-onemillion-build"
+    (product / ".onemillion").mkdir(parents=True)
+    (product / ".onemillion/progress.md").write_text(
+        """# OneMillion Progress
+
+## Builder
+
+- **Builder name:** Sim Learner
+- **Product name:** FollowUpPilot
+- **Target user:** independent yoga studio owners
+- **Current day:** Day 1
+- **Last verified day:** None
+"""
+    )
+    (product / ".onemillion/project.json").write_text(
+        json.dumps(
+            {
+                "product_type": "web_app",
+                "idea": "Independent yoga studio owners forget to follow up with clients who do not rebook after a class. FollowUpPilot drafts approval-based rebooking messages so owners can recover missed revenue without sounding robotic.",
+                "builder_name": "Sim Learner",
+                "started_at": "2026-05-30",
+            },
+            indent=2,
+        )
+    )
+    return product
+
+
+def test_day1_verifier(results: list[Result], tmp: Path) -> None:
+    product = create_day1_project(tmp)
+    proc = run(
+        [
+            "python3",
+            str(REPO / "onemillion-builder/docs/verification/scripts/verify.py"),
+            "1",
+            "--project-dir",
+            str(product),
+            "--schema-dir",
+            str(REPO / "onemillion-builder/docs/verification/schema"),
+            "--write-report",
+        ],
+        REPO,
+    )
+    report_exists = (product / ".onemillion/verification-day-01.md").exists()
+    passed = proc.returncode == 0 and report_exists
+    record(results, "day1_artifacts_pass_schema_verifier", passed, proc.stdout)
+
+
+def test_deployment_source_match(results: list[Result], tmp: Path) -> None:
+    product = tmp / "deploy-match-product"
+    (product / "app").mkdir(parents=True)
+    (product / "package.json").write_text(json.dumps({"dependencies": {"next": "15.0.0", "react": "19.0.0"}}))
+    (product / ".gitignore").write_text("node_modules\n.env.local\n")
+    marker = "Hello from Sim Learner's OneMillion build"
+    (product / "app/page.tsx").write_text(
+        f"""export default function Page() {{
+  return <main><h1>{marker}</h1><p>Day 4 deployed live.</p></main>;
+}}
+"""
+    )
+    init_fork_like_repo(product)
+
+    web_root = tmp / "mock-deployment"
+    web_root.mkdir()
+    (web_root / "index.html").write_text(f"<html><body><h1>{marker}</h1><p>Day 4 deployed live.</p></body></html>")
+
+    class Handler(SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=str(web_root), **kwargs)
+
+        def log_message(self, format: str, *args) -> None:
+            return
+
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1", 0))
+        port = sock.getsockname()[1]
+
+    server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        proc = run(
+            [
+                "python3",
+                str(REPO / "onemillion-builder/docs/verification/scripts/verify.py"),
+                "4",
+                "--project-dir",
+                str(product),
+                "--schema-dir",
+                str(REPO / "onemillion-builder/docs/verification/schema"),
+                "--deployment-url",
+                f"http://127.0.0.1:{port}/",
+            ],
+            REPO,
+        )
+        passed = proc.returncode == 0 and "deployment_matches_homepage_source" in proc.stdout
+        record(results, "deployment_source_match_verifier", passed, proc.stdout)
+    finally:
+        server.shutdown()
+
+
+def test_manifest_paths(results: list[Result]) -> None:
+    manifest = json.loads((ROOT / "course-manifest.json").read_text())
+    missing: list[str] = []
+    for day in manifest["days"]:
+        for key in ["lesson", "build", "resources", "verifier"]:
+            rel = day[key]
+            if not (REPO / rel).exists():
+                missing.append(rel)
+    record(results, "manifest_day_paths_exist", not missing, "\n".join(missing))
+
+
+def print_report(results: list[Result]) -> int:
+    print("# OneMillion Course Simulation Report\n")
+    passed_count = 0
+    for result in results:
+        icon = "PASS" if result.passed else "FAIL"
+        if result.passed:
+            passed_count += 1
+        print(f"## {icon}: {result.name}")
+        if result.details:
+            details = result.details.strip()
+            if len(details) > 2000:
+                details = details[:2000] + "\n... [truncated]"
+            print()
+            print("```text")
+            print(details)
+            print("```")
+        print()
+    print(f"Summary: {passed_count}/{len(results)} checks passed.")
+    return 0 if passed_count == len(results) else 1
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Simulate a OneMillion learner QA path")
+    parser.add_argument("--keep", action="store_true", help="Keep temp simulation directory")
+    args = parser.parse_args()
+
+    results: list[Result] = []
+    tmp_obj = tempfile.TemporaryDirectory(prefix="onemillion-sim-")
+    tmp = Path(tmp_obj.name)
+    try:
+        test_course_quality(results)
+        test_manifest_paths(results)
+        test_installer_blocks_plain_folder(results, tmp)
+        test_installer_blocks_upstream_origin(results, tmp)
+        fork_repo = test_installer_succeeds_in_fork_like_clone(results, tmp)
+        test_day0_state(results, fork_repo)
+        test_day1_verifier(results, tmp)
+        test_deployment_source_match(results, tmp)
+        code = print_report(results)
+        if args.keep:
+            print(f"Kept simulation directory: {tmp}")
+            tmp_obj.cleanup = lambda: None  # type: ignore[method-assign]
+        return code
+    finally:
+        if not args.keep:
+            tmp_obj.cleanup()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

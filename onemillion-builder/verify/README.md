@@ -100,4 +100,4 @@ You receive:
 
 ---
 
-→ Back to: [README](../README.md) · [How to use AI tools](../tools/README.md)
+→ Back to: [README](../README.md) · [Getting Started](../getting-started.md)

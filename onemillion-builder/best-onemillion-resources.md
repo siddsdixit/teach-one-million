@@ -92,7 +92,7 @@ After Builder #N:
 - **Become a Ship Captain** — help run the next cohort
 - **Founding Builder benefits** (if you're in the first 100) — Sid's DM, intros, lifetime access
 
-→ See [cohort/README.md](./cohort/README.md) for current opportunities.
+→ See [cohort/README.md](../cohort/README.md) for current opportunities.
 
 ---
 

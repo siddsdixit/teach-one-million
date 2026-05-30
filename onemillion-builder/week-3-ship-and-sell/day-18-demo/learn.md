@@ -204,7 +204,7 @@ You're done with the course. The skill is yours.
 
 Things to consider over the next week:
 1. **Keep iterating on your product.** Real users → real feedback → real improvements. Days 19, 20, 21...
-2. **Become a Ship Captain.** Help run the next cohort. See [cohort/README.md](../../cohort/README.md).
+2. **Become a Ship Captain.** Help run the next cohort. See [cohort/README.md](../../../cohort/README.md).
 3. **Build your next product.** You did this in 18 days. Try to do the next one in 9.
 4. **Teach what you learned.** Charge $200-500/hr for AI consulting. Companies need this skill desperately.
 
@@ -226,4 +226,4 @@ You're Builder #N. That's yours, forever.
 
 The million starts with one. You're one of them now.
 
-→ [Back to README](../../README.md) · [Cohort](../../cohort/README.md) · [Builder Wall](../../builders/README.md)
+→ [Back to README](../../README.md) · [Cohort](../../../cohort/README.md) · [Builder Wall](../../../builders/README.md)

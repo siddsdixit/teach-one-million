@@ -12,7 +12,7 @@
 
 ## What's next
 - **Keep building.** Real users → real feedback → real product.
-- **[Become a Ship Captain](../../cohort/README.md)** — help the next cohort
+- **[Become a Ship Captain](../../../cohort/README.md)** — help the next cohort
 - **[The Crew Slack](#)** — alumni community (Sprint 3)
 - **[Sprint 4: Your next product](#)** — your second build is the real test
 
@@ -27,4 +27,4 @@
 
 The course is finished. The skill is yours.
 
-→ [Back to README](../../README.md) · [Builder Wall](../../builders/README.md)
+→ [Back to README](../../README.md) · [Builder Wall](../../../builders/README.md)

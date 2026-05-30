@@ -10,7 +10,7 @@
 
 ## Inspiration: real products built in 18 days
 - Sid's first OneMillion build (link added Sprint 3)
-- Builder Wall — see what others have built: [/builders](../../builders/)
+- Builder Wall — see what others have built: [builders](../../../builders/README.md)
 
 ## What's next
 - [Day 2 — Problem + Mom Test](../day-02-problem/learn.md)

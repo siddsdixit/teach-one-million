@@ -205,4 +205,4 @@ The million starts with one. You're one of them.
 
 ---
 
-→ [Back to README](../../README.md) · [Cohort](../../cohort/README.md) · [Builder Wall](../../builders/README.md)
+→ [Back to README](../../README.md) · [Cohort](../../../cohort/README.md) · [Builder Wall](../../../builders/README.md)

@@ -104,7 +104,7 @@ VS Code is the default. It's free and works on Mac + Windows.
 2. Download for your OS, run installer
 3. Open VS Code once to confirm it launched
 
-> 🔧 **Engineers:** If you prefer Cursor, Antigravity, Windsurf, or JetBrains — install any of them. The course works with all of them. See [tools/README.md](./tools/README.md) for editor-specific notes.
+> 🔧 **Engineers:** For this version of the course, Claude Code is the supported path. You can use another editor if you prefer, but keep Claude Code as the AI builder so the daily instructions and verifiers match.
 
 ---
 
@@ -149,7 +149,7 @@ claude
 
 The first time you run `claude`, it asks for your API key. Paste it.
 
-> 💰 **Cost reality:** You'll spend $5-15 in API credits over the 18 days. Anthropic gives you $5 free to start. Add $20 to your account and you'll have plenty. Full breakdown: [cost-transparency.md](./cost-transparency.md).
+> 💰 **Cost reality:** You'll spend $5-15 in API credits over the 18 days. Anthropic gives you $5 free to start. Add $20 to your account and you'll have plenty. See [Getting Your API Keys](./getting-your-api-key.md) for the current cost breakdown.
 
 > 📖 **Detailed key setup with screenshots:** [getting-your-api-key.md](./getting-your-api-key.md).
 
@@ -239,6 +239,6 @@ You're set up. Now you build.
 → **[Day 1: Vision + Mental Map](./week-1-foundation/day-01-vision/learn.md)** — your first day starts here.
 
 Or read the foundation:
-- [The Manifesto](./MANIFESTO.md) — why this exists
+- [The Manifesto](../MANIFESTO.md) — why this exists
 - [How verification works](./verify/README.md) — how you earn Builder #N
-- [Cost transparency](./cost-transparency.md) — what you'll actually spend
+- [Getting Your API Keys](./getting-your-api-key.md) — what you'll actually spend

@@ -195,4 +195,4 @@ You finished Week 1. **That's a massive milestone.** Most courses haven't gotten
 
 ---
 
-→ **Next:** [Week 2 — Make It AI](../../week-2-make-it-ai/README.md) (coming in Sprint 2 — or jump to [Demo Day](../../demo-day-coming-soon.md))
+→ **Next:** [Week 2 — Make It AI](../../week-2-make-it-ai/README.md)

@@ -40,13 +40,11 @@ Last resort: switch to **Codespaces** ([see getting-started.md](./getting-starte
 
 ---
 
-## 4. Can I use Cursor or Antigravity instead of Claude Code?
+## 4. Can I use Cursor, Windsurf, or another AI tool instead of Claude Code?
 
-Yes. See [tools/README.md](./tools/README.md).
+For this version of the course, **Claude Code is the supported path**.
 
-The course teaches an **agentic SDLC framework**. Claude Code is the reference implementation (cleanest fit). Cursor, Antigravity, Windsurf all work — they use a slightly different pattern (one main agent that adopts personas instead of subagent orchestration), but you can complete the entire course in any of them.
-
-You can even complete the course in just Claude.ai web chat with paste-able prompts. Lower fidelity, but works.
+The course teaches an **agentic SDLC framework**, but the daily instructions and verifiers assume Claude Code. Other tools may work, but they are not the official path yet.
 
 ---
 
@@ -163,4 +161,4 @@ Builder #N is the credential. What you do with it is up to you.
 
 ---
 
-→ **More:** [Manifesto](./MANIFESTO.md) · [Getting Started](./getting-started.md) · [Cost](./cost-transparency.md) · [Day 1](./week-1-foundation/day-01-vision/learn.md)
+→ **More:** [Manifesto](../MANIFESTO.md) · [Getting Started](./getting-started.md) · [API Keys + Cost](./getting-your-api-key.md) · [Day 1](./week-1-foundation/day-01-vision/learn.md)

@@ -118,7 +118,7 @@ You'll see step-by-step signup for each one on the day you need it.
 
 **Realistic total: $5–25 for the entire 18 days.**
 
-Full breakdown: [cost-transparency.md](./cost-transparency.md).
+This page is the current cost breakdown for the course.
 
 ---
 

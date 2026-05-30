@@ -1,5 +1,14 @@
 # Day 2 — Build Guide
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 **Still no code.** Today's "build" is having 3 conversations and writing down what you heard.
 
 If you're nervous about reaching out to people, that's normal. Push through it. By tomorrow you'll be glad you did.

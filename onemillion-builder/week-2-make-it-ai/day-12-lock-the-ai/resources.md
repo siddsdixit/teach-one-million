@@ -1,5 +1,14 @@
 # Day 12 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Evaluating AI features
 - **[Hamel Hussain on Evals](https://hamel.dev/blog/posts/evals/)** — the canonical post on testing AI systems
 - **[Braintrust](https://www.braintrust.dev/docs)** — eval platform for when you scale past 5 tests

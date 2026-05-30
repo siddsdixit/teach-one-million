@@ -36,9 +36,10 @@ def check_day_files() -> None:
 
 def check_links() -> None:
     link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+    href_re = re.compile(r'href="([^"]+)"')
     for file in ROOT.rglob("*.md"):
         text = file.read_text()
-        for raw in link_re.findall(text):
+        for raw in link_re.findall(text) + href_re.findall(text):
             if re.match(r"^(https?:|mailto:|#)", raw):
                 continue
             target = raw.split("#", 1)[0].replace("%20", " ")
@@ -93,6 +94,24 @@ def check_progress_tracker() -> None:
             errors.append(f"{rel(file)} missing progress tracker update")
 
 
+def check_day_navigation() -> None:
+    required = [
+        "Course Home</a>",
+        "Week Overview</a>",
+        "./learn.md",
+        "./build.md",
+        "./resources.md",
+        "./loom.md",
+    ]
+    for file in ROOT.glob("week-*/*/*.md"):
+        if file.name.startswith("ai-instructions-day-"):
+            continue
+        text = file.read_text()
+        for item in required:
+            if item not in text:
+                errors.append(f"{rel(file)} missing day navigation item: {item}")
+
+
 def main() -> int:
     check_day_files()
     check_links()
@@ -100,6 +119,7 @@ def main() -> int:
     check_learning_frames()
     check_stuck_prompts()
     check_progress_tracker()
+    check_day_navigation()
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

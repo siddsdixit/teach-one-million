@@ -1,5 +1,14 @@
 # Day 17 — First 10 Users
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 **Week 3 | ~45-90 min | The day "I built a thing" becomes "real people are using my thing"**
 
 ---

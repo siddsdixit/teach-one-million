@@ -1,5 +1,14 @@
 # Day 13 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Security checklists
 - **[OWASP Top 10](https://owasp.org/www-project-top-ten/)** — canonical web app vulnerabilities
 - **[OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)** — AI-specific risks

@@ -1,5 +1,12 @@
 # Week 3 — Ship & Sell
 
+<p align="center">
+  <a href="../README.md">Course Home</a> &bull;
+  <a href="../week-2-make-it-ai/README.md">Previous Week</a> &bull;
+  <a href="../verify/README.md">Verification</a> &bull;
+  <a href="../../builders/README.md">Builder Wall</a>
+</p>
+
 **Outcome by end of Week 3:** A launch-ready product with monitoring, a landing page, real outreach, captured feedback, and a Day 18 Builder Claim submission.
 
 This is the week that turns your AI-native app from "thing on Vercel.app" to "actual product." Same code base. Same features. Different posture.

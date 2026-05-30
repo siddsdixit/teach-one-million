@@ -1,5 +1,14 @@
 # Day 1 — Vision + Mental Map
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 **Week 1 | ~30–60 min | No code today**
 
 > 💜 **First, the most important thing about this course:** you will miss days. That's normal. The 18 days are units of progress, not calendar days. Skip a day, take a week off, come back when life lets you. **No shame, no streaks, no badges taken away.** Builder #N gets earned when you finish, not by when you finish. The only way to fail is to never come back.

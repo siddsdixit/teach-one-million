@@ -1,5 +1,14 @@
 # Day 18 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Recording demos
 - **[Loom](https://www.loom.com)** — what you use today
 - **[Camo](https://reincubate.com/camo/)** — turn your phone into a webcam if your laptop cam is weak

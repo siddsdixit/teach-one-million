@@ -4,6 +4,21 @@
 
 ![OneMillion — Build in 18 days](diagrams/hero-animated.gif)
 
+<p align="center">
+  <strong>Claude Code-first</strong> &bull;
+  <strong>18 daily builds</strong> &bull;
+  <strong>Beginner-friendly</strong> &bull;
+  <strong>Ship a real AI product</strong>
+</p>
+
+<p align="center">
+  <a href="START-HERE.md">Start Here</a> &bull;
+  <a href="#-course-days">Course Days</a> &bull;
+  <a href="verify/README.md">Verification</a> &bull;
+  <a href="FAQ.md">FAQ</a> &bull;
+  <a href="../builders/README.md">Builder Wall</a>
+</p>
+
 ---
 
 You've seen the posts. Solo founders shipping SaaS in a weekend. Indie builders launching real AI products from their laptops. People who had never written code running real businesses. You follow along. Three hours in, you're debugging a system you don't understand, wondering if this is actually for you.
@@ -42,11 +57,23 @@ By the end, you have a live URL, working AI features, documented feedback from a
 → Already set up? [Begin Day 0](day-0-commit/README.md)<br>
 → Returning after a break? [Recover your place](recover.md)
 
-&nbsp;
+---
+
+## 🗺️ Course Map
+
+| Stage | Days | Outcome | Start |
+|-------|------|---------|-------|
+| 🧱 **Foundation** | 1-6 | Deployed web app with auth, database, and one core feature | [Week 1](week-1-foundation/README.md) |
+| 🧠 **Make It AI** | 7-12 | Real Claude-powered feature with streaming, tools, RAG, and quality gates | [Week 2](week-2-make-it-ai/README.md) |
+| 🚢 **Ship & Sell** | 13-18 | Production hygiene, landing page, outreach, demo, and Builder Claim | [Week 3](week-3-ship-and-sell/README.md) |
+
+Each day has the same rhythm: **learn → build → verify → update progress**.
+
+---
 
 ## 🎓 Get Certified — Become a Builder
 
-Complete all 18 days and pass all 18 verifications → earn **Builder #N**. Sequential, permanent, public. Listed forever at [onemillion.build/builders](../builders/README.md).
+Complete all 18 days, pass final verification, and submit your Builder Claim. Once accepted, you earn **Builder #N**: sequential, permanent, public, and listed forever at [onemillion.build/builders](../builders/README.md).
 
 Each day has an AI verification prompt. Day 18 requires your daily verification reports, a public repo, a deployed URL, a Loom demo, and final anti-cheating checks. See [How Builder #N is earned](verify/README.md).
 
@@ -132,7 +159,7 @@ When you graduate, the AI agents you built with don't go away. They stay in your
 | [Day 15: Monitoring](week-3-ship-and-sell/day-15-monitoring/learn.md) | Sentry + Vercel Analytics + UptimeRobot live |
 | [Day 16: Landing Page](week-3-ship-and-sell/day-16-landing/learn.md) | Hero → Problem → Solution → Proof → CTA |
 | [Day 17: First 10 Users](week-3-ship-and-sell/day-17-first-users/learn.md) | At least 1 real user with documented feedback |
-| [Day 18: Demo Day → Builder #N](week-3-ship-and-sell/day-18-demo/learn.md) | 5-min Loom + your permanent Builder number |
+| [Day 18: Demo Day → Builder Claim](week-3-ship-and-sell/day-18-demo/learn.md) | 5-min Loom + final verification + Builder Claim submission |
 
 ---
 
@@ -140,8 +167,8 @@ When you graduate, the AI agents you built with don't go away. They stay in your
 
 - 🌐 **A deployed product** — live on Vercel, with an optional custom domain
 - 📦 **A GitHub repo** with 18 days of commits — proof you built it yourself
-- 🎓 **Builder #N** — sequential, permanent, public
-- 🪪 **A public profile** at onemillion.build/builders/[your-number]
+- 🎓 **Builder #N after review** — sequential, permanent, public
+- 🪪 **A public profile** at onemillion.build/builders/[your-number] after your claim is accepted
 - 🔁 **A repeatable way to spec, build, verify, and ship your next product**
 
 ---

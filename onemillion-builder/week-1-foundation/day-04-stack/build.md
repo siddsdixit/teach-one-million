@@ -1,5 +1,14 @@
 # Day 4 — Build Guide
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 **Time: 1–2.5 hours. The first real building day.**
 
 Today you set up a Next.js project, push it to GitHub, and deploy to Vercel. Follow every step. Every command has an expected output.

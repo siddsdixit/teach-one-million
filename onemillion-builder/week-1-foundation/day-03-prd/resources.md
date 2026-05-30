@@ -1,5 +1,14 @@
 # Day 3 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Writing good PRDs
 - **[Marty Cagan on Product Specs](https://www.svpg.com/principles-vs-techniques/)** — what PRDs should and shouldn't do
 - **[Linear's PRD template](https://linear.app/method/specs)** — modern lightweight PRD example

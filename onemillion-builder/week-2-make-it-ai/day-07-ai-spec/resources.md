@@ -1,5 +1,14 @@
 # Day 7 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## AI feature design
 - **[Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)** — real patterns + examples
 - **[OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)** — universal principles

@@ -1,5 +1,12 @@
 # Week 1 — Foundation
 
+<p align="center">
+  <a href="../README.md">Course Home</a> &bull;
+  <a href="../START-HERE.md">Start Here</a> &bull;
+  <a href="../week-2-make-it-ai/README.md">Next Week</a> &bull;
+  <a href="../recover.md">Recover</a>
+</p>
+
 **Outcome by end of Week 1:** A real web app deployed at your own URL with working signup/login and your core feature live.
 
 No AI yet. That's Week 2. Week 1 is about getting the bones in place — auth, database, deployment, and one feature working end to end. Once these are solid, adding AI is fast.

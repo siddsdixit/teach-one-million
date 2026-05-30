@@ -1,5 +1,14 @@
 # Day 11 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## RAG fundamentals
 - **[The Original RAG Paper (Facebook)](https://arxiv.org/abs/2005.11401)** — if you want the academic basis
 - **[LangChain RAG Tutorial](https://python.langchain.com/docs/tutorials/rag/)** — most-referenced practical guide

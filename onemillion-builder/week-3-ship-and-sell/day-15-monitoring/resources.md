@@ -1,5 +1,14 @@
 # Day 15 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Sentry
 - **[Sentry Next.js Setup](https://docs.sentry.io/platforms/javascript/guides/nextjs/)** — official
 - **[Sentry Best Practices](https://docs.sentry.io/product/best-practices/)** — what to alert on

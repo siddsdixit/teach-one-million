@@ -1,5 +1,14 @@
 # Day 9 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Streaming with Vercel AI SDK
 - **[`streamText` reference](https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text)** — what you use server-side
 - **[`useCompletion` hook](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-completion)** — what you use client-side

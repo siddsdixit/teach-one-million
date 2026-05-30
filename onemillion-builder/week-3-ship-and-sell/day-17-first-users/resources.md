@@ -1,5 +1,14 @@
 # Day 17 — Resources
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 ## Talking to users (post-launch)
 - **[YC: Talk to your users](https://www.ycombinator.com/library/4f-talking-to-users)** — Eric Migicovsky's classic
 - **[The Mom Test](https://www.momtestbook.com/)** — Day 2 + Day 17 use the same principles

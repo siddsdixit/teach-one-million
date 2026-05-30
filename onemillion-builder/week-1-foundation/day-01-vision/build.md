@@ -1,5 +1,14 @@
 # Day 1 — Build Guide
 
+<p align="center">
+  <a href="../../README.md">Course Home</a> &bull;
+  <a href="../README.md">Week Overview</a> &bull;
+  <a href="./learn.md">Learn</a> &bull;
+  <a href="./build.md">Build</a> &bull;
+  <a href="./resources.md">Resources</a> &bull;
+  <a href="./loom.md">Video</a>
+</p>
+
 **No code today.** This is your "set up your project folder and write down your idea" day.
 
 If you've already done [getting-started.md](../../getting-started.md), you have all the tools. We're just creating a folder and a file.

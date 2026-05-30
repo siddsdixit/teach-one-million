@@ -50,10 +50,31 @@ Apply for the next cohort: [cohort/README.md](../cohort/README.md)
 
 ## 💡 How It Works
 
-- **Five files per day.** `learn.md` is the concept. `build.md` is the hands-on guide. `ai-instructions-day-XX.md` is a prompt you paste into your AI — it reads your work, runs the checks, and tells you if you passed. `loom.md` is Sid walking through it. `resources.md` is for going deeper.
-- **Read the learn, follow the build, run the verifier.** Pass all 18 verifiers → claim your Builder number.
-- **Your AI builds with you.** Each build includes prompts you paste into Claude Code (or any AI tool). It writes the code. You direct, review, and ship.
-- **Transferable.** The framework — spec before code, multi-agent decomposition, validation gates, production hygiene, human review loop — applies to every product you build after this.
+You don't need to know how to code. If you do — great, you'll go faster. Either way, you finish.
+
+Here's the journey: over 18 days, you become a **lean, AI-powered builder** — someone who can take any idea from a napkin concept to a real, enterprise-grade product deployed on the cloud. Not a prototype. Not a demo. A working application — an AI agent, a web app, or a hybrid of both — that real users can sign up for and pay for.
+
+**Every day follows the same rhythm:**
+
+1. **Learn** — a short concept that builds your mental model (~15 min)
+2. **Build** — a step-by-step guide where your AI coding agent does the heavy lifting. You direct. You review. You ship.
+3. **Verify** — paste a prompt into your AI. It checks your work against the day's standard and tells you if you passed. No ambiguity.
+
+**You're never alone:**
+
+- 🎥 **Video walkthroughs** — Sid walks through every day on video so you always have a human reference
+- 🗓️ **Weekly live sessions** — group calls to unblock, answer questions, and keep you moving
+- 💬 **Slack community** — a dedicated channel where builders help each other in real time
+
+**What you need to start:**
+
+- A laptop (Mac or Windows)
+- An [Anthropic account](getting-your-api-key.md) — ~$10 in credits covers the full 18 days
+- 1–2 hours a day
+
+**What you keep forever:**
+
+When you graduate, the AI agents you built with don't go away. They stay in your toolkit — ready to help you spec, design, build, test, secure, deploy, and sell the next product. And the one after that. **You've learned how to wield AI. That skill compounds for life.**
 
 ---
 

@@ -29,6 +29,12 @@
 
 ## The Promise
 
+You have seen the posts: solo builders shipping SaaS in a weekend, non-engineers launching useful AI tools, tiny teams turning ideas into real products. Then you try it yourself and hit the wall: setup, auth, databases, deploys, API keys, prompts, bugs, and a dozen tabs you do not understand yet.
+
+That is exactly who this course is for.
+
+**OneMillion exists to take one million people — anyone with an idea — from zero to a real, deployed, launchable product.**
+
 Most people get stuck because they try to learn coding, product thinking, AI, deployment, auth, databases, and launch all at once.
 
 OneMillion turns that into one small daily move.
@@ -44,6 +50,8 @@ By the end, you have:
 | A public demo | Loom + Builder Claim |
 
 No prior coding experience required. Your coding harness becomes your teacher, but you make the decisions and learn the tools.
+
+This is not a toy tutorial. It is not a sandbox. You build a real product, in a real repo, deployed on a real URL, with a path to real users.
 
 ---
 
@@ -85,6 +93,20 @@ Need the slower walkthrough? Open [START-HERE.md](START-HERE.md).
 
 ## How The Course Feels
 
+OneMillion is an agent-led apprenticeship. Open the repo in Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, or another coding harness. The harness reads `AGENTS.md` and `course-manifest.json`, then becomes your OneMillion learning orchestrator.
+
+You move through focused agent modes:
+
+```text
+/idea -> /spec -> /design -> /plan -> /build -> /test -> /guard -> /ship -> /sell
+```
+
+Support modes are always available:
+
+```text
+/ask · /debug · /refactor · /orchestrator
+```
+
 |  |  |
 |---|---|
 | **Short daily lessons** | Read just enough to understand the idea before building. |
@@ -102,6 +124,22 @@ Agent verifies.
 ```
 
 Whenever the course asks you to create an account, API key, dashboard setting, or public link, use the [Account Setup Playbook](docs/account-setup.md). It gives the exact link, exact permission, and exact QA check.
+
+---
+
+## Support Built In
+
+You are not expected to brute-force the hard parts alone.
+
+| Support | What it is for |
+|---|---|
+| **Loom walkthroughs** | Sid records the key setup/build moments so you can compare your screen to a human reference. |
+| **Live cohorts** | Free group runs when available, with shared momentum and demo day. |
+| **Community help** | Bring stuck points, errors, and daily wins to the channel you have access to. |
+| **Mentors and reviewers** | Experienced builders help with blockers and final Builder Claim review. |
+| **Recovery path** | If you stop for a week, use [Recover Your Place](docs/recover.md) and continue from the next verified day. |
+
+Self-paced and cohort learners use the same curriculum, the same daily gates, and the same final verification.
 
 ---
 
@@ -163,6 +201,35 @@ Whenever the course asks you to create an account, API key, dashboard setting, o
 
 ---
 
+## Who This Is For
+
+| If you are... | Why this can work |
+|---|---|
+| **Brand new to code** | The harness teaches each move and the course keeps the scope small. |
+| **A product manager** | You already think in users and requirements; now you learn to ship. |
+| **An operator or assistant** | You know painful workflows. This turns one into software. |
+| **A designer** | You can pair taste with working product behavior. |
+| **An engineer** | You can move faster and learn a structured agentic SDLC. |
+| **A founder or indie builder** | You finish with a deployed product, demo, and first-user motion. |
+
+The only hard requirement is that you keep going one verified day at a time.
+
+---
+
+## What You Produce
+
+| Artifact | Why it matters |
+|---|---|
+| [DeliverableDash example artifacts](docs/examples/deliverabledash/README.md) | Shows what a finished course trail can look like. |
+| [Sample finished app shape](docs/examples/deliverabledash/app/README.md) | Gives you a concrete reference for the end state. |
+| [Daily verification reports](docs/verification/README.md) | Proves each day passed before you advanced. |
+| [Day 18 demo](week-3-ship-and-sell/day-18-demo/learn.md) | Turns your product into something people can understand. |
+| [Share templates](docs/share-templates.md) | Helps you build in public without staring at a blank post. |
+
+The product is useful. The proof trail is useful. The repeatable way of building is the real prize.
+
+---
+
 ## What You Earn
 
 Complete all 18 days, pass final verification, and submit your Builder Claim.
@@ -174,6 +241,8 @@ Complete all 18 days, pass final verification, and submit your Builder Claim.
 | **Reusable skill** | A repeatable agentic build process for your next product |
 
 See [How Builder #N is earned](docs/verification/README.md).
+
+First 100 accepted builders receive **Founding Builder** status. Live cohorts run periodically; apply when a cohort is open through [cohort/README.md](../cohort/README.md).
 
 <p align="center">
   <img src="diagrams/builder-profile-sample.png" alt="Sample OneMillion Builder profile" width="720">

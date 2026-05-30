@@ -19,7 +19,7 @@ This is what separates novelty AI ("write me a poem") from useful AI ("write me 
 
 [Embedded Loom — Sid adds RAG to a working tool-use AI route]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 
@@ -81,7 +81,7 @@ You use a **vector database** that stores text embeddings and lets you query "fi
 
 When to use: knowledge bases, documents, "ask my files," etc.
 
-**You don't need this today.** It's Week 3 / Sprint 2 territory. The simple SQL approach is more useful for most products.
+**You don't need this today.** It is an advanced path for later. The simple SQL approach is more useful for most products.
 
 ---
 
@@ -199,7 +199,7 @@ Paste contents of [`ai-instructions-day-11.md`](./ai-instructions-day-11.md).
 - **[RAG Primer](https://docs.langchain.com/docs/use-cases/question-answering/)** — the canonical explanation
 - **[Anthropic + RAG](https://docs.anthropic.com/en/docs/build-with-claude/embeddings)** — when you need vector search later
 - **[Pinecone Learn](https://www.pinecone.io/learn/)** — when you graduate to vector DBs
-- **[Supabase Vector](https://supabase.com/docs/guides/ai)** — if you want vectors INSIDE your current stack (Sprint 2 / Week 3)
+- **[Supabase Vector](https://supabase.com/docs/guides/ai)** — if you want vectors inside your current stack later
 
 ---
 

@@ -29,7 +29,7 @@ This is the most important day of Week 1. Once you've seen your own URL work, yo
 
 [Embedded Loom — Sid deploys from zero in 10 minutes]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

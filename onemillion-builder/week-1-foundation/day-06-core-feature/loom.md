@@ -2,9 +2,9 @@
 
 **Sid builds a full CRUD feature with Claude in 15 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - The Data → API → UI pattern in real time

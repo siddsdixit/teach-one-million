@@ -2,9 +2,9 @@
 
 **Sid makes the first AI call and writes the prompt live.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Installing Vercel AI SDK

@@ -19,7 +19,7 @@ Today is no-code again. We pick what you'll build, the same way Day 1 picked the
 
 [Embedded Loom — Sid walks through AI feature scoping]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

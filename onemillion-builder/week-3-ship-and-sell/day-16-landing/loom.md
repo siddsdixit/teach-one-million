@@ -2,9 +2,9 @@
 
 **Sid writes a landing page in 8 minutes using the 5-section template.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - The headline iteration: 3 attempts before he likes it

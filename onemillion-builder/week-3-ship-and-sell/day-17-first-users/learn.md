@@ -19,7 +19,7 @@ This is one of the most underrated days. Most courses end at "deployed." OneMill
 
 [Embedded Loom — Sid reaches out to first 10 users live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

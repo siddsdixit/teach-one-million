@@ -2,9 +2,9 @@
 
 **Sid sets up Sentry + Vercel Analytics + UptimeRobot live.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Sentry wizard from terminal (the magical npx command)

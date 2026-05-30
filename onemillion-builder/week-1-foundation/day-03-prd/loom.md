@@ -2,9 +2,9 @@
 
 **Sid writes a real PRD in 5 minutes using Claude.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Live drafting with Claude (Approach 1 from learn.md)

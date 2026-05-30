@@ -20,7 +20,7 @@ By tomorrow you build your core feature. Today you build the foundation it sits 
 
 [Embedded Loom — Sid sets up auth + first table + RLS in 10 min]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

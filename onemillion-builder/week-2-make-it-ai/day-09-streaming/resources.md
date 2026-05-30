@@ -3,7 +3,7 @@
 ## Streaming with Vercel AI SDK
 - **[`streamText` reference](https://sdk.vercel.ai/docs/reference/ai-sdk-core/stream-text)** — what you use server-side
 - **[`useCompletion` hook](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-completion)** — what you use client-side
-- **[`useChat` hook](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat)** — multi-turn conversations (Sprint 2 / Week 3)
+- **[`useChat` hook](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat)** — multi-turn conversations for future versions
 
 ## Edge runtime
 - **[Next.js Edge Runtime docs](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#runtime)** — how to opt in

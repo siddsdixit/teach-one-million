@@ -2,9 +2,9 @@
 
 **Sid buys a domain and connects it in 8 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Picking a domain name (live demonstration of checking availability)

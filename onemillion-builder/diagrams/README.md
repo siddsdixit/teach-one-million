@@ -1,17 +1,19 @@
 # Diagrams
 
-Visual assets for the OneMillion course. Generated in Sprint 3.
+Visual assets for the OneMillion course.
 
 ## Inventory (planned)
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `hero.png` | Repo README hero — the OneMillion crucible visual | Sprint 3 |
-| `restaurant-analogy.png` | Frontend/Backend/DB/AI/Hosting as a restaurant | Sprint 3 |
-| `the-five-pillars.png` | Visual of the 5 pillars of Agentic SDLC | Sprint 3 |
-| `data-api-ui-pattern.png` | Day 6's core pattern visualized | Sprint 3 |
-| `auth-flow.png` | Day 5's signup → login → session flow | Sprint 3 |
-| `verification-flow.png` | How Builder #N gets earned | Sprint 3 |
+| `hero-animated.gif` | Repo README hero animation | Done |
+| `builder-profile-sample.png` | Sample Builder credential | Done |
+| `logo-mark.svg` | OneMillion mark | Done |
+| `restaurant-analogy.png` | Frontend/Backend/DB/AI/Hosting as a restaurant | Planned |
+| `the-five-pillars.png` | Visual of the 5 pillars of Agentic SDLC | Planned |
+| `data-api-ui-pattern.png` | Day 6's core pattern visualized | Planned |
+| `auth-flow.png` | Day 5's signup → login → session flow | Planned |
+| `verification-flow.png` | How Builder #N gets earned | Planned |
 
 ## How They'll Be Created
 
@@ -20,4 +22,4 @@ Visual assets for the OneMillion course. Generated in Sprint 3.
 - All under MIT — anyone can remix
 - Stored as PNG in this directory, referenced from day markdown files
 
-For now: diagrams are described in text in each day's `learn.md`. Images come in Sprint 3 polish.
+For now: diagrams are described in text in each day's `learn.md`. Planned images should not be linked from public lessons until the files exist.

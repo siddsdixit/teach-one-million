@@ -24,7 +24,7 @@ This is the "wait, it actually works" day. Make it count.
 
 [Embedded Loom — Sid writes a real prompt + calls Claude live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

@@ -2,9 +2,9 @@
 
 **Sid runs a production audit on a finished app.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - gitleaks scan live (and what to do if it finds something)

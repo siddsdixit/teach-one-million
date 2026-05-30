@@ -9,7 +9,7 @@
 - **[YC: Make Something People Want](https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice)** — short essay
 
 ## Inspiration: real products built in 18 days
-- Sid's first OneMillion build (link added Sprint 3)
+- Sid's first OneMillion build — example to add when available
 - Builder Wall — see what others have built: [builders](../../../builders/README.md)
 
 ## What's next

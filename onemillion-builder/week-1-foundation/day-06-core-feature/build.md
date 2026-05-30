@@ -214,4 +214,4 @@ This is more than most people accomplish in months of trying to build things. Ta
 
 ---
 
-→ **Done with Day 6?** Week 2 (Make It AI) is coming in Sprint 2. For now: review your PRD's "out of scope" list — feel free to add a small polish or two before Week 2.
+→ **Done with Day 6?** Move to [Week 2 — Make It AI](../../week-2-make-it-ai/README.md). Before you start, review your PRD's "out of scope" list and resist adding extra features.

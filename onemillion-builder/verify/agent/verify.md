@@ -83,6 +83,6 @@ PASS or NEEDS REVISION
 
 - For Days 1-3 (no code): focus is on file artifacts in `.onemillion/`.
 - For Days 4-6 (code days): includes structural code checks + remote HTTP checks.
-- Days 7-18: schemas added in Sprint 2.
+- Days 7-18 currently use prompt-based verifiers unless schema files have been added locally.
 
 Begin by asking the builder which day they want to verify, then load the corresponding schema.

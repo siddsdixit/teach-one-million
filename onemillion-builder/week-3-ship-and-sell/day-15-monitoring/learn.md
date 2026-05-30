@@ -19,7 +19,7 @@ All three are free for your usage level. Total setup time: ~30-60 min.
 
 [Embedded Loom — Sid sets up all three monitoring services live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

@@ -2,9 +2,9 @@
 
 **Sid reaches out to his first 10 users live, narrates each message.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - His outreach list — how he picked 10 people

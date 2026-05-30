@@ -2,9 +2,9 @@
 
 **Sid adds RAG to a working tool-using AI route.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - The retrieval pattern (fetch → summarize → inject)

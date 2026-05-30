@@ -2,9 +2,9 @@
 
 **Sid adds tool use to a working streaming AI route.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Defining the first tool (read-only) with Zod schema

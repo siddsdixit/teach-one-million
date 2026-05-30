@@ -21,7 +21,7 @@ This is the unglamorous day. No new features. Just making sure nothing embarrass
 
 [Embedded Loom — Sid runs a production audit live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

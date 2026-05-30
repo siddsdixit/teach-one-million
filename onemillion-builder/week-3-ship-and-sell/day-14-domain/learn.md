@@ -19,7 +19,7 @@ This is optional. You can finish OneMillion and become Builder #N on `your-app.v
 
 [Embedded Loom — Sid registers a domain, connects it to Vercel, deploys with SSL]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

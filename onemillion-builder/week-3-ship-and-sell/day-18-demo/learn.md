@@ -21,7 +21,7 @@ You did it. Today is the proof.
 
 [Embedded Loom — Sid records his own Demo Day Loom live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 
@@ -214,9 +214,9 @@ The course is done. Your build continues.
 
 ## Go Deeper
 
-- **[Sid's Day 18 reflection](#)** — what graduating Builder #1 actually felt like (Sprint 3)
-- **[The Crew Slack](#)** — alumni community (Sprint 3)
-- **[Sprint 4: Build something else](#)** — guided path for your second product
+- **Sid's Day 18 reflection** — what graduating Builder #1 actually felt like
+- **The Crew Slack** — alumni community
+- **Build something else** — your next product is where the skill compounds
 
 ---
 

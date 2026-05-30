@@ -8,13 +8,13 @@
 ## Demo Day inspiration
 - **[YC Demo Day pitches](https://www.youtube.com/results?search_query=yc+demo+day+pitch)** — 60-sec versions of what you just did in 5 min
 - **[First Round Capital — How to demo](https://review.firstround.com/the-art-of-the-pitch/)** — pitch construction
-- **[Sid's first OneMillion build](#)** — Sprint 3 will include this
+- **Sid's first OneMillion build** — example demo to add when available
 
 ## What's next
 - **Keep building.** Real users → real feedback → real product.
 - **[Become a Ship Captain](../../../cohort/README.md)** — help the next cohort
-- **[The Crew Slack](#)** — alumni community (Sprint 3)
-- **[Sprint 4: Your next product](#)** — your second build is the real test
+- **The Crew Slack** — alumni community
+- **Your next product** — the second build is the real test
 
 ## Resources For Life After OneMillion
 - **[Indie Hackers](https://www.indiehackers.com)** — community of solo builders shipping real stuff

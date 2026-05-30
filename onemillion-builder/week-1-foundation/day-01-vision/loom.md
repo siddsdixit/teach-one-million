@@ -2,9 +2,9 @@
 
 **Sid walks through Day 1 in ~5 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers in this video
 - The restaurant analogy in 90 seconds

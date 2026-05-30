@@ -20,7 +20,7 @@ This is the marketing equivalent of Day 3's PRD. Specific. Locked. Not perfect.
 
 [Embedded Loom — Sid writes a landing page in 8 minutes using the 5-section template]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

@@ -19,7 +19,7 @@ This is the biggest day of Week 1 in terms of code volume. But you're not writin
 
 [Embedded Loom — Sid builds a full CRUD feature with Claude in 15 min]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

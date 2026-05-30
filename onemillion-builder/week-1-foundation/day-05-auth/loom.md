@@ -2,9 +2,9 @@
 
 **Sid sets up auth + first table + RLS in 12 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Supabase project setup (live, real account)

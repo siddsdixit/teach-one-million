@@ -19,7 +19,7 @@ This is your Week 2 checkpoint. Before adding production hygiene + custom domain
 
 [Embedded Loom — Sid runs acceptance criteria on a finished AI feature]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

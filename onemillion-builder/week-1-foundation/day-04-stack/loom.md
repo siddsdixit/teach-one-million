@@ -2,9 +2,9 @@
 
 **Sid deploys from zero to live URL in 10 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - `npx create-next-app` walkthrough with the right answers

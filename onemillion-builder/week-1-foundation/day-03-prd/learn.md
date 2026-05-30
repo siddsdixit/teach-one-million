@@ -19,7 +19,7 @@ By tomorrow (Day 4) you build. Today you lock what you build.
 
 [Embedded Loom — Sid writes a PRD live in 5 minutes]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

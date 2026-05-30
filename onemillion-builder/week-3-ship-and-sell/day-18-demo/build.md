@@ -140,8 +140,8 @@ If pass: Claude will tell you what your Builder # is (next available) and how to
 
 Sid reviews within 48 hours. Merge = you're in.
 
-**Method 2 — Web form (Sprint 3, when onemillion.build/claim is live):**
-Coming Sprint 3. PR is the current path.
+**Method 2 — Web form (planned):**
+A web claim form is planned. The pull request path is the current path.
 
 ---
 

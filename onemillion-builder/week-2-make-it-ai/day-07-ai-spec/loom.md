@@ -2,9 +2,9 @@
 
 **Sid scopes an AI feature in 7 minutes.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - The three patterns (A/B/C) with side-by-side real examples

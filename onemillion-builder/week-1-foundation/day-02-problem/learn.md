@@ -19,7 +19,7 @@ Today is the day most courses skip. It's why most courses produce products nobod
 
 [Embedded Loom — Sid demonstrating a Mom Test conversation in 5 minutes]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 
@@ -220,7 +220,7 @@ Paste the contents of [`ai-instructions-day-02.md`](./ai-instructions-day-02.md)
 - **[The Mom Test (book)](https://www.momtestbook.com/)** — actually read it. 80 pages, transformative.
 - **[Rob Fitzpatrick's 20-min talk](https://www.youtube.com/results?search_query=mom+test+rob+fitzpatrick)** — short version if you don't want to read
 - **[Jobs To Be Done framework](https://jtbd.info/)** — complementary lens for user interviews
-- **[Sid's Day 2 Loom](#)** — Sid running a real Mom Test conversation live
+- **Sid's Day 2 Loom** — Sid running a real Mom Test conversation live
 
 ---
 

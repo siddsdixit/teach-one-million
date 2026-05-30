@@ -19,7 +19,7 @@ This is a small change technically. It's a huge change for how your app feels.
 
 [Embedded Loom — Sid converts a Day 8 non-streaming call to a streaming one]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

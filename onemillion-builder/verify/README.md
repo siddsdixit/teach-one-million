@@ -49,15 +49,15 @@ claude
 ```
 Then paste the contents of `ai-instructions-day-XX.md`. Claude does the verification in your terminal.
 
-### Option 2: Web Form (EAs)
-At onemillion.build/verify (coming Sprint 3):
+### Option 2: Web Form (planned)
+The future web verifier will let builders:
 - Paste your GitHub repo URL
 - Paste your deployed app URL
 - Click "Verify Day X"
 - Backend clones, runs checks, reports back
 
-### Option 3: GitHub Action (auto)
-Drop the OneMillion verification workflow into your repo (template coming Sprint 3). Every push runs the verification automatically. Daily progress auto-syncs to Builder Wall.
+### Option 3: GitHub Action (planned)
+The future GitHub Action will run verification automatically on every push and sync daily progress to the Builder Wall.
 
 ---
 

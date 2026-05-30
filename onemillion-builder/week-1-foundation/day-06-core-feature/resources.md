@@ -15,5 +15,5 @@
 - **[Reading a stack trace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Errors)** — when something breaks
 
 ## What's next
-- **Week 2 — Make It AI** — coming in Sprint 2 of course content build-out
+- **[Week 2 — Make It AI](../../week-2-make-it-ai/README.md)** — add AI to the product you shipped in Week 1
 - For now: polish your Week 1 app, get a friend to try it, gather feedback

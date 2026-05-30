@@ -81,7 +81,7 @@ NEEDS REVISION — list issues
 - Submit as a Pull Request to siddsdixit/onemillion-builder
 - File path to edit: builders/_data.json
 - Once Sid merges (within 48 hours), your Builder profile goes live
-- LinkedIn badge will be available at onemillion.build/badge/[your-number] (Sprint 3)
+- LinkedIn badge URL: pending Builder Wall badge generation
 
 (If NEEDS REVISION)
 - Be specific about what's missing

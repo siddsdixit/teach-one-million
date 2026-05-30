@@ -19,7 +19,7 @@ This is where AI stops being a chatbot and starts being a coworker.
 
 [Embedded Loom — Sid implements tool use live]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 

@@ -2,9 +2,9 @@
 
 **Sid runs acceptance tests on a finished AI feature, makes the lock decision live.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Converting Day 7 Quality Criteria into 5 test cases

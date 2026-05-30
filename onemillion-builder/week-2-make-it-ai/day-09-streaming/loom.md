@@ -2,9 +2,9 @@
 
 **Sid converts a non-streaming AI call to streaming, live.**
 
-[Embedded Loom — placeholder for Sprint 3 recording]
+Video walkthrough: coming soon. The written guide is complete.
 
-Recording URL: `TBD`
+Recording URL: coming soon
 
 ### What Sid covers
 - Side-by-side: same call, with and without streaming

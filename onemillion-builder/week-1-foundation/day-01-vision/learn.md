@@ -22,7 +22,7 @@ Today is the day you go from "course-taker" to "person who has shipped something
 
 [Embedded Loom — Sid walks through Day 1 in 5 minutes]
 
-*Loom recording link will be added in Sprint 3.*
+*Video walkthrough: coming soon. The written guide is complete.*
 
 ---
 
@@ -214,7 +214,7 @@ If you're in a cohort or want to build in public, post in Slack or on LinkedIn:
 
 - **[The Mom Test](https://www.momtestbook.com/)** by Rob Fitzpatrick — short, transforms how you talk to users
 - **[Y Combinator's "Make Something People Want"](https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice)** — short essay on why specificity matters
-- **[Sid's Day 1 Loom](#)** — Sid picking his own Day 1 idea live, narrating the process
+- **Sid's Day 1 Loom** — Sid picking his own Day 1 idea live, narrating the process
 
 ---
 

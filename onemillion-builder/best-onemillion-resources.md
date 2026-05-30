@@ -38,20 +38,12 @@ Curated resources for after the 18 days. Keep building.
 
 ---
 
-## Tools & Tools About Tools
+## Claude Code
 
-### Claude Code
 - **[Official Docs](https://docs.claude.com/en/docs/claude-code)** — read these. All of them.
 - **[Anthropic Cookbook — Claude Code section](https://github.com/anthropics/anthropic-cookbook/tree/main/skills)** — skill examples
 
-### Cursor
-- **[Cursor Docs](https://docs.cursor.com)** — rules, composer, agent mode
-- **[awesome-cursor-rules](https://github.com/PatrickJS/awesome-cursorrules)** — community rule library
-
-### Antigravity
-- **[Google AI Studio Docs](https://ai.google.dev/)** — Google's AI tooling reference
-
-### Next.js + Supabase
+## Next.js + Supabase
 - **[Next.js Docs](https://nextjs.org/docs)** — the canonical reference
 - **[Supabase + Next.js Quickstart](https://supabase.com/docs/guides/getting-started/quickstarts/nextjs)**
 - **[shadcn/ui](https://ui.shadcn.com)** — beautiful free components
@@ -63,7 +55,6 @@ Curated resources for after the 18 days. Keep building.
 - **[Indie Hackers](https://www.indiehackers.com)** — solo builders, real revenue, real lessons
 - **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)** — frontier of open-source AI
 - **[r/SaaS](https://reddit.com/r/SaaS)** — building and shipping
-- **[The Cursor Discord](https://discord.gg/cursor)** — AI coding community
 - **[Anthropic Discord](https://discord.gg/anthropic)** — official Anthropic developer community
 
 ---

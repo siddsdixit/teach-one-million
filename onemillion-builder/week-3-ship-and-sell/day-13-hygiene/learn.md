@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Production hygiene removes the obvious ways a real user can get hurt or stuck.
+- **What can go wrong:** You treat security, errors, and rate limits as optional polish.
+- **What to ignore today:** Ignore new features; harden the product you have.
+
 ## What You'll Have After Today
 
 - A **9-point production audit** passed on your app
@@ -17,11 +23,9 @@ This is the unglamorous day. No new features. Just making sure nothing embarrass
 
 ---
 
-## Watch First (8 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid runs a production audit live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

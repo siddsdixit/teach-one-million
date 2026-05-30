@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A landing page explains who the product is for and why they should try it.
+- **What can go wrong:** You write generic hype instead of a specific promise.
+- **What to ignore today:** Ignore brand perfection; make the offer clear.
+
 ## What You'll Have After Today
 
 - A **landing page** at your root URL (yourapp.com)
@@ -16,11 +22,9 @@ This is the marketing equivalent of Day 3's PRD. Specific. Locked. Not perfect.
 
 ---
 
-## Watch First (8 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid writes a landing page in 8 minutes using the 5-section template]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

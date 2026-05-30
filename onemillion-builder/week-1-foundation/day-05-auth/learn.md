@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Auth plus RLS turns a demo into a product with private user data.
+- **What can go wrong:** You create data access without proving users are isolated.
+- **What to ignore today:** Ignore advanced login options; get email auth and one protected table working.
+
 ## What You'll Have After Today
 
 - A **Supabase project** linked to your app
@@ -16,11 +22,9 @@ By tomorrow you build your core feature. Today you build the foundation it sits 
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid sets up auth + first table + RLS in 10 min]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

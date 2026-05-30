@@ -6,6 +6,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A product is a promise to a specific person with a specific problem.
+- **What can go wrong:** You pick an idea that is too broad or too vague.
+- **What to ignore today:** Ignore tech stack, design, auth, and AI implementation today.
+
 ## What You'll Have After Today
 
 - A picked **product type** (web app / AI agent / hybrid)
@@ -18,11 +24,9 @@ Today is the day you go from "course-taker" to "person who has shipped something
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid walks through Day 1 in 5 minutes]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 
@@ -189,7 +193,7 @@ If all 5 are true, you're done. If any are false, fix that before tomorrow.
 
 ## Verify Your Day 1
 
-Paste the contents of [`ai-instructions-day-01.md`](./ai-instructions-day-01.md) into Claude Code (or whichever AI tool you're using). It will:
+Paste the contents of [`ai-instructions-day-01.md`](./ai-instructions-day-01.md) into Claude Code. It will:
 - Check your project.json structure
 - Validate your idea is specific enough
 - Report pass/needs-revision
@@ -214,7 +218,7 @@ If you're in a cohort or want to build in public, post in Slack or on LinkedIn:
 
 - **[The Mom Test](https://www.momtestbook.com/)** by Rob Fitzpatrick — short, transforms how you talk to users
 - **[Y Combinator's "Make Something People Want"](https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice)** — short essay on why specificity matters
-- **Sid's Day 1 Loom** — Sid picking his own Day 1 idea live, narrating the process
+- **Day 1 walkthrough recording note** — Sid should pick his own Day 1 idea live and narrate the process
 
 ---
 

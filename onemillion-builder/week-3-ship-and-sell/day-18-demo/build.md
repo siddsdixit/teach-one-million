@@ -1,6 +1,6 @@
 # Day 18 — Build Guide
 
-**Time: 30-60 min. Record demo. Submit. Receive Builder #N.**
+**Time: 30-60 min. Record demo. Submit for Builder #N review.**
 
 ---
 
@@ -28,7 +28,7 @@ In `.onemillion/demo-plan.md`:
 7. Save / use the output (20 sec)
 
 ### Last 30 sec: Wrap
-- "Built this in 18 days through OneMillion. Joining as Builder #[X]."
+- "Built this in 18 days through OneMillion. Submitting for Builder #N."
 - One ask: [early users / feedback / hiring]
 ```
 
@@ -111,37 +111,24 @@ This runs the FINAL check:
 - All 17 previous days verified
 - Demo.md exists
 
-If pass: Claude will tell you what your Builder # is (next available) and how to claim it.
+If pass: Claude will generate the verified submission data you need for review. Your official Builder #N is assigned after the claim is accepted.
 
 ---
 
 ## Step 7: Submit Your Builder Application
 
-**Method 1 — Pull Request to OneMillion repo (current):**
+**Current path — GitHub Builder Claim issue:**
 
-1. Fork [github.com/siddsdixit/onemillion-builder](https://github.com/siddsdixit/onemillion-builder)
-2. Open `builders/_data.json`
-3. Add your entry to the `builders` array:
-   ```json
-   {
-     "number": [next available — check current data],
-     "name": "Sarah Designer",
-     "product_name": "DeliverableDash",
-     "product_url": "https://deliverabledash.com",
-     "demo_url": "https://www.loom.com/share/abc123",
-     "github_repo": "https://github.com/sarah/deliverabledash",
-     "cohort": "Cohort 0",
-     "graduated_at": "2026-05-12"
-   }
-   ```
-4. Update `_total_builders` to reflect new count
-5. Update `_founding_builders_remaining` if you're #1-100
-6. Open Pull Request titled: "Add Builder #[X] — [your-name]"
+1. Go to [github.com/siddsdixit/teach-one-million/issues/new/choose](https://github.com/siddsdixit/teach-one-million/issues/new/choose)
+2. Choose **Builder Claim**
+3. Paste the verified submission data from Day 18 verification
+4. Include your live URL, Loom URL, repo URL if public, and short build summary
+5. Submit the issue
 
-Sid reviews within 48 hours. Merge = you're in.
+Sid reviews claims manually until Builder Wall automation is live. Accepted claim = official Builder #N.
 
-**Method 2 — Web form (planned):**
-A web claim form is planned. The pull request path is the current path.
+**Future path — web claim form:**
+A web claim form is planned. The GitHub Builder Claim issue is the current path.
 
 ---
 
@@ -172,9 +159,46 @@ Tag @SidDixit. The Builder Wall thanks you.
 - [ ] 5-min Demo Loom recorded + public
 - [ ] `.onemillion/demo.md` saved with URLs
 - [ ] All 18 days verified
-- [ ] PR submitted to onemillion-builder repo with Builder data
+- [ ] Builder Claim issue submitted for review
 - [ ] You shared on LinkedIn (or you'll share within 24 hours)
 - [ ] You took 10 minutes to actually feel what you accomplished
+
+---
+
+## Update Your Progress Tracker
+
+Before you close today, open `.onemillion/progress.md` and update:
+
+- **Current day:** Day 18 complete
+- **Last verified day:** Day 18
+- **Current blocker:** None, or the exact blocker to resume from
+- **Next smallest action:** Submit your Builder Claim and keep building.
+
+If verification did not pass yet, keep **Last verified day** at the previous passed day and write the blocker clearly.
+
+## If You Are Stuck
+
+Open Claude Code from your project folder:
+
+```bash
+claude
+```
+
+Paste this:
+
+```text
+I am on OneMillion Day 18.
+
+Here is the step I was trying to complete:
+[paste the step heading or instructions]
+
+Here is what happened:
+[paste the error, terminal output, or describe what I see]
+
+Diagnose the likely cause and give me the next smallest action.
+Do not rewrite unrelated code.
+Ask for one missing detail at a time if needed.
+```
 
 ---
 
@@ -195,11 +219,11 @@ Tag @SidDixit. The Builder Wall thanks you.
 
 Take this moment.
 
-You spent 18 days. You built a real product. You shipped it to the internet. Real people are using it. You earned a Builder number.
+You spent 18 days. You built a real product. You shipped it to the internet. Real people have seen it. You earned a verified submission.
 
-The next person reading this — Builder #N+1 — is starting their Day 1 today. They have no idea what they're capable of. **You used to be them. Three weeks ago.**
+The next person reading this is starting their Day 1 today. They have no idea what they're capable of. **You used to be them. Three weeks ago.**
 
-The skill is yours forever. The product is yours forever. The number is yours forever.
+The skill is yours forever. The product is yours forever. After review, the number is yours forever.
 
 The million starts with one. You're one of them.
 

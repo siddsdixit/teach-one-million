@@ -1,0 +1,86 @@
+name: Builder Claim
+description: Submit a completed OneMillion build for Builder #N review.
+title: "Builder Claim: [Your Name] — [Product Name]"
+labels:
+  - builder-claim
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Congrats on finishing Day 18. Submit this claim after your final Claude Code verification passes.
+
+        Builder numbers are issued after review. Your local Day 18 verification means your build is ready to submit; the official Builder #N is assigned when the claim is accepted.
+  - type: input
+    id: builder_name
+    attributes:
+      label: Builder name
+      description: Your public display name.
+      placeholder: "Sarah Designer"
+    validations:
+      required: true
+  - type: input
+    id: product_name
+    attributes:
+      label: Product name
+      placeholder: "DeliverableDash"
+    validations:
+      required: true
+  - type: input
+    id: live_url
+    attributes:
+      label: Live product URL
+      placeholder: "https://yourapp.vercel.app"
+    validations:
+      required: true
+  - type: input
+    id: demo_url
+    attributes:
+      label: Public Loom demo URL
+      placeholder: "https://www.loom.com/share/..."
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: GitHub repo URL
+      description: Optional if your repo is private.
+      placeholder: "https://github.com/you/your-app"
+    validations:
+      required: false
+  - type: dropdown
+    id: cohort
+    attributes:
+      label: Cohort
+      options:
+        - Self-serve
+        - Cohort 0
+        - Cohort 1
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: verification_summary
+    attributes:
+      label: Final verification summary
+      description: Paste the Result section from `.onemillion/verification-day-18.md`.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: build_summary
+    attributes:
+      label: What did you build?
+      description: Two or three sentences on the product, target user, and core AI feature.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: My live URL is publicly accessible.
+          required: true
+        - label: My Loom demo is publicly viewable.
+          required: true
+        - label: I completed the Day 18 Claude Code verification.
+          required: true

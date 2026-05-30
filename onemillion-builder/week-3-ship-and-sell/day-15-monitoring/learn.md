@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Monitoring lets you find problems before users have to explain them.
+- **What can go wrong:** You install tools but never confirm they receive real events.
+- **What to ignore today:** Ignore complex dashboards; capture errors, analytics, and uptime.
+
 ## What You'll Have After Today
 
 - **Sentry** — catches every error in your app, emails you when something breaks
@@ -15,11 +21,9 @@ All three are free for your usage level. Total setup time: ~30-60 min.
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid sets up all three monitoring services live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

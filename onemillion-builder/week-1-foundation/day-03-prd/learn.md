@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A PRD turns messy intent into buildable constraints.
+- **What can go wrong:** You write a wish list instead of a small, frozen scope.
+- **What to ignore today:** Ignore nice-to-have features and future versions.
+
 ## What You'll Have After Today
 
 - A **locked PRD** in `.onemillion/prd.md` with 5 sections
@@ -15,11 +21,9 @@ By tomorrow (Day 4) you build. Today you lock what you build.
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid writes a PRD live in 5 minutes]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

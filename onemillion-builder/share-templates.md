@@ -1,0 +1,96 @@
+# Share Templates
+
+Use these at major checkpoints. Keep posts specific, humble, and useful.
+
+---
+
+## Day 0 — Starting
+
+```text
+Starting #OneMillion today.
+
+The plan: build and ship a real AI product in 18 days, using Claude Code.
+
+I'm building: [specific product]
+For: [specific user]
+
+I'll post progress as I go.
+
+https://github.com/siddsdixit/teach-one-million
+#BuildingWith1M
+```
+
+---
+
+## Day 4 — First Deploy
+
+```text
+Day 4 of #OneMillion:
+
+I deployed my first live app.
+
+URL: [your Vercel URL]
+
+Tiny today, but real: code in GitHub, deployed on Vercel, visible to anyone.
+
+Next: auth + database.
+#BuildingWith1M
+```
+
+---
+
+## Day 6 — Week 1 Complete
+
+```text
+Week 1 of #OneMillion complete.
+
+I now have:
+- live app
+- auth
+- database
+- Row Level Security
+- core CRUD feature
+
+Product: [one sentence]
+URL: [your URL]
+
+Next: add the AI feature.
+#BuildingWith1M
+```
+
+---
+
+## Day 12 — AI Feature Locked
+
+```text
+Day 12 of #OneMillion:
+
+The AI feature is working and locked.
+
+It can: [specific AI outcome]
+Quality bar: [one measurable criterion]
+Cost budget: [your budget]
+
+Next: production hygiene, monitoring, landing page, users.
+#BuildingWith1M
+```
+
+---
+
+## Day 18 — Builder Claim
+
+```text
+18 days later: I shipped.
+
+Product: [name]
+For: [target user]
+It does: [specific outcome]
+
+Live: [URL]
+Demo: [Loom URL]
+
+Submitting for Builder #N through OneMillion.
+
+#BuildingWith1M
+```
+

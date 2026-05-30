@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Your core feature is the smallest useful loop a user can complete.
+- **What can go wrong:** You build too many fields or skip the second-user security test.
+- **What to ignore today:** Ignore AI and polish; make CRUD work end to end.
+
 ## What You'll Have After Today
 
 - **Your core feature working live** — create, read, update, delete
@@ -15,11 +21,9 @@ This is the biggest day of Week 1 in terms of code volume. But you're not writin
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid builds a full CRUD feature with Claude in 15 min]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started Locally
 
 **Time: 30-60 minutes. One-time setup.**
 
@@ -12,29 +12,17 @@ By the end of this guide you'll have:
 
 That's it. Then you go to [Day 1](./week-1-foundation/day-01-vision/learn.md).
 
-> 🧭 **First time with any of this?** Don't worry. Every step has expected output. If something doesn't match, the [troubleshooting table](#troubleshooting) at the bottom has answers. If you're still stuck after 10 minutes, ask in the cohort Slack (or use [Codespaces](#codespaces-fallback-last-resort) as a fallback).
+> 🧭 **Never coded before?** Start with [Getting Started With Codespaces](./getting-started-codespaces.md). It gets you into the course faster by avoiding local install problems.
 
 > 🔧 **Engineers:** You probably have most of this already. Skip to step 4 (Claude Code) if Node/Git/an editor are installed.
 
 ---
 
-## Pick Your Path First (1 min decision)
+## Before You Start
 
-Two paths through this course:
+This is the local setup path. Pick it if you have admin rights on your laptop, an OS update from the past 2 years, and you are comfortable pasting commands into Terminal or Git Bash.
 
-### Path A — Local Install (recommended for most)
-You install everything on your laptop. Real dev environment forever. Skill transfers to any project. **Pick this if:** you have admin rights on your laptop, an OS update from the past 2 years, and you've used a terminal more than 3 times in your life.
-
-→ Continue below with Step 1.
-
-### Path B — Codespaces (browser-only, zero install)
-Everything runs in your browser via GitHub Codespaces. No local install. Works on Chromebook, locked-down corporate laptops, anything with a browser. Free 60 hrs/month covers the course.
-
-**Pick this if:** you're on a corporate laptop where you can't install software, you've never opened a terminal in your life, your laptop is more than 5 years old, OR local install has failed for you in the past.
-
-→ [Skip to Codespaces setup](#codespaces-fallback-last-resort) (it's at the bottom of this page — same instructions, less friction).
-
-> 💡 **Honest take:** Path A teaches you more. Path B gets you to Day 1 faster. Both produce a real shipped product by Day 18. Pick what fits your reality.
+If that does not describe you, use [Codespaces](./getting-started-codespaces.md).
 
 ---
 
@@ -201,20 +189,9 @@ If you get a response, you're set. **Setup is complete.**
 
 ---
 
-## Codespaces Fallback (Last Resort)
+## Browser-Only Alternative
 
-> ⚠️ **This is a real last resort.** Local install is the magic — it gives you skills that work forever, on any machine. Try local for at least 30 minutes before switching. Many people who started in Codespaces moved to local once they had confidence.
-
-If local install genuinely won't work for you:
-
-1. Sign in to [github.com](https://github.com) (do Step 6 first)
-2. Go to [github.com/codespaces](https://github.com/codespaces)
-3. Click **New codespace** → pick **Blank**
-4. Wait 60 seconds for it to start
-5. In the Codespace terminal, run Step 4 (`npm install -g @anthropic-ai/claude-code`)
-6. Add your API key as a Codespace secret: Settings → Codespaces → Secrets → add `ANTHROPIC_API_KEY`
-
-Free tier: 60 hours/month, more than enough for the course.
+If local install is taking more than 30 minutes or your laptop is locked down, switch to [Getting Started With Codespaces](./getting-started-codespaces.md).
 
 ---
 

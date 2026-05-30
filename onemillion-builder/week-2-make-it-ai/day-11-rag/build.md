@@ -171,6 +171,43 @@ Paste contents of [`ai-instructions-day-11.md`](./ai-instructions-day-11.md).
 
 ---
 
+## Update Your Progress Tracker
+
+Before you close today, open `.onemillion/progress.md` and update:
+
+- **Current day:** Day 11 complete
+- **Last verified day:** Day 11
+- **Current blocker:** None, or the exact blocker to resume from
+- **Next smallest action:** Open Day 12.
+
+If verification did not pass yet, keep **Last verified day** at the previous passed day and write the blocker clearly.
+
+## If You Are Stuck
+
+Open Claude Code from your project folder:
+
+```bash
+claude
+```
+
+Paste this:
+
+```text
+I am on OneMillion Day 11.
+
+Here is the step I was trying to complete:
+[paste the step heading or instructions]
+
+Here is what happened:
+[paste the error, terminal output, or describe what I see]
+
+Diagnose the likely cause and give me the next smallest action.
+Do not rewrite unrelated code.
+Ask for one missing detail at a time if needed.
+```
+
+---
+
 ## Troubleshooting
 
 | Problem | Fix |

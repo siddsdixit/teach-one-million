@@ -50,12 +50,13 @@ Most builders finish Week 1 in 6–10 days. Engineers finish in 4–6 days.
 
 ## When You're Done With Week 1
 
-You should have:
+You are ready for Week 2 if:
 - A live URL where strangers can sign up and use your app
 - A GitHub repo with 6+ commits, one per day minimum
 - A core feature that works end-to-end (create, read, update, delete on your main entity)
 - Row Level Security enabled on your database
 - A locked PRD that hasn't been changed since Day 3
+- Days 1-6 are verified
 
 Then you move on to **Week 2: Make It AI** — adding real AI features to the app you just built.
 

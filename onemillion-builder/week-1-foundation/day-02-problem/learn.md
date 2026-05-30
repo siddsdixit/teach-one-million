@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Good products start with evidence from real conversations, not guesses.
+- **What can go wrong:** You ask leading questions and collect compliments instead of facts.
+- **What to ignore today:** Ignore features and solutions until the pain is real.
+
 ## What You'll Have After Today
 
 - **3 real conversations** with real people about your problem
@@ -15,11 +21,9 @@ Today is the day most courses skip. It's why most courses produce products nobod
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid demonstrating a Mom Test conversation in 5 minutes]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 
@@ -220,7 +224,7 @@ Paste the contents of [`ai-instructions-day-02.md`](./ai-instructions-day-02.md)
 - **[The Mom Test (book)](https://www.momtestbook.com/)** — actually read it. 80 pages, transformative.
 - **[Rob Fitzpatrick's 20-min talk](https://www.youtube.com/results?search_query=mom+test+rob+fitzpatrick)** — short version if you don't want to read
 - **[Jobs To Be Done framework](https://jtbd.info/)** — complementary lens for user interviews
-- **Sid's Day 2 Loom** — Sid running a real Mom Test conversation live
+- **Day 2 walkthrough recording note** — Sid should run a real Mom Test conversation live
 
 ---
 

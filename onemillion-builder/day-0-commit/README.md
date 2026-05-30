@@ -42,7 +42,7 @@ I'll post a quick update at the end of each day. If you have feedback, ideas,
 or are doing this too, hit me in the comments.
 
 The course is open source — anyone can join. Repo:
-https://github.com/siddsdixit/onemillion-builder
+https://github.com/siddsdixit/teach-one-million
 
 Day 1 starts now. Tagging @Sid Dixit (who built this).
 
@@ -73,7 +73,7 @@ Day 1 → 🚀
 ## Optional: The Photo
 
 Take one of these to attach:
-- A screenshot of `https://github.com/siddsdixit/onemillion-builder` open in your browser
+- A screenshot of `https://github.com/siddsdixit/teach-one-million` open in your browser
 - A photo of you at your laptop with your terminal open
 - Just text-only — also fine
 

@@ -41,7 +41,7 @@ This is where OneMillion stops being "yet another web app course" and becomes th
 
 ## When You're Done With Week 2
 
-You should have:
+You are ready for Week 3 if:
 - An AI feature in your app that does something real for your user
 - A streaming UI (text appears as it's generated, not all at once)
 - The AI can take at least one action via tools (e.g., write to your DB)

@@ -1,12 +1,12 @@
-# Day 18 Final Verification — Issue Builder #N
+# Day 18 Final Verification — Prepare Builder #N Claim
 
 **How to use:** Paste this entire prompt into Claude Code from your project folder.
 
-This is the FINAL verification. Pass = you earn your Builder #N.
+This is the FINAL verification. Pass = your build is ready to submit for Builder #N review.
 
 ---
 
-You are a OneMillion course verifier running the FINAL verification before issuing Builder #N. Be rigorous. Builder #N is permanent and public — only verified builders get one.
+You are a OneMillion course verifier running the FINAL verification before Builder #N review. Be rigorous. Builder #N is permanent and public — only verified builders should submit a claim.
 
 ## What to verify
 
@@ -71,16 +71,15 @@ You are a OneMillion course verifier running the FINAL verification before issui
 - [ ] / [x] Builder confirms all 18 days completed
 
 ## Result
-🎉 BUILDER VERIFIED — claim your number!
+🎉 BUILDER VERIFIED — submit your Builder Claim
 or
 NEEDS REVISION — list issues
 
 ## Next Step For Builder
 (If PASS)
 - Your verified Builder data: [generate JSON based on demo.md]
-- Submit as a Pull Request to siddsdixit/onemillion-builder
-- File path to edit: builders/_data.json
-- Once Sid merges (within 48 hours), your Builder profile goes live
+- Submit a Builder Claim issue at github.com/siddsdixit/teach-one-million/issues/new/choose
+- Once Sid accepts the claim, your official Builder number is issued
 - LinkedIn badge URL: pending Builder Wall badge generation
 
 (If NEEDS REVISION)
@@ -89,11 +88,9 @@ NEEDS REVISION — list issues
 
 ## Builder Number Assignment
 
-Read `builders/_data.json` in the OneMillion repo. The next Builder # is `(highest existing number) + 1`.
+Do not assign a Builder number locally. Tell the builder their build is verified and ready to submit. The official Builder #N is assigned after the Builder Claim is accepted.
 
-Tell the builder their number. Tell them it's not OFFICIAL until Sid merges the PR — but reserve it informally for them in the meantime.
-
-If their number is ≤100, mention the Founding Builder benefits (permanent badge, Sid's Slack, intro to investor/hiring manager).
+Mention that accepted builders in the first 100 receive Founding Builder benefits (permanent badge, Sid's Slack, intro to investor/hiring manager).
 
 ## After Verification
 
@@ -101,10 +98,10 @@ If PASS:
 - Save report to `.onemillion/verification-day-18.md`
 - Write a closing message:
   ```
-  🎉 [Builder Name], you finished. 18 days. Real product. Real users. 
-  Builder #[X] is yours.
+  🎉 [Builder Name], you finished. 18 days. Real product. Real feedback.
+  Your build is verified and ready for Builder #N review.
   
-  Submit your PR: [link]
+  Submit your Builder Claim: https://github.com/siddsdixit/teach-one-million/issues/new/choose
   Share on LinkedIn: tag @SidDixit.
   
   The course is done. The skill is yours forever.
@@ -116,4 +113,4 @@ If NEEDS REVISION:
 - Highlight the specific gap (usually missing prior day verification or broken Loom link)
 - Tell them to fix it and re-run this prompt
 
-Begin verification now. Builder #N depends on it.
+Begin verification now. Builder #N review depends on it.

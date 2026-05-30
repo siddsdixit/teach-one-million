@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** An AI feature is shippable when quality, cost, and failure modes are bounded.
+- **What can go wrong:** You rely on vibes instead of acceptance criteria.
+- **What to ignore today:** Ignore new capabilities; lock what already works.
+
 ## What You'll Have After Today
 
 - A `ai-acceptance-criteria.md` file with **measurable, testable** quality criteria for your AI feature
@@ -15,11 +21,9 @@ This is your Week 2 checkpoint. Before adding production hygiene + custom domain
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid runs acceptance criteria on a finished AI feature]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

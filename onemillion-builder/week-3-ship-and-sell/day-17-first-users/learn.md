@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A product becomes real when a target user reacts to it.
+- **What can go wrong:** You ask for praise or wait for perfect polish before outreach.
+- **What to ignore today:** Ignore broad launches; get specific feedback from a few people.
+
 ## What You'll Have After Today
 
 - **At least 1 real user** (someone who's not you) has signed up + tried it
@@ -15,11 +21,9 @@ This is one of the most underrated days. Most courses end at "deployed." OneMill
 
 ---
 
-## Watch First (8 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid reaches out to first 10 users live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

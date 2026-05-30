@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A domain is a credibility layer, not a requirement for learning.
+- **What can go wrong:** DNS or auth callback settings break the live app.
+- **What to ignore today:** Ignore expensive names; use a simple domain or intentionally stay on Vercel.
+
 ## What You'll Have After Today
 
 - A **custom domain** for your app — `yourapp.com` (or `.io`, `.app`, `.dev`, whatever)
@@ -11,15 +17,13 @@
 - Your product **looks like a real product** the moment someone reads the URL
 - DNS knowledge — the 5-min version of "how the internet finds your app"
 
-This is optional. You can finish OneMillion and become Builder #N on `your-app.vercel.app`. But for ~$10/year, you make your product look 10x more serious.
+This is optional. You can finish OneMillion and submit for Builder review on `your-app.vercel.app`. But for ~$10/year, you make your product look 10x more serious.
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid registers a domain, connects it to Vercel, deploys with SSL]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

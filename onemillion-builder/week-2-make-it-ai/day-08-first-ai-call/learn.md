@@ -9,6 +9,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** The first AI call connects your app to model output through a safe server route.
+- **What can go wrong:** You expose the API key or build a prompt that ignores the spec.
+- **What to ignore today:** Ignore streaming and tools; return one useful response first.
+
 ## What You'll Have After Today
 
 - **An API route in your app** at `/api/ai/[your-feature-name]` that calls Claude
@@ -20,11 +26,9 @@ This is the "wait, it actually works" day. Make it count.
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid writes a real prompt + calls Claude live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

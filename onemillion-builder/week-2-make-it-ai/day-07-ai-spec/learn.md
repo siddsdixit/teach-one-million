@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** An AI feature needs a spec before it needs a model call.
+- **What can go wrong:** You describe the AI vaguely and cannot judge quality later.
+- **What to ignore today:** Ignore implementation; lock role, goal, inputs, constraints, output, and quality bar.
+
 ## What You'll Have After Today
 
 - A clear answer to "what AI feature am I adding to my app?"
@@ -15,11 +21,9 @@ Today is no-code again. We pick what you'll build, the same way Day 1 picked the
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid walks through AI feature scoping]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

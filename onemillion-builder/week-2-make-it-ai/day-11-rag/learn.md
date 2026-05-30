@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** RAG means retrieving the right user data and injecting it into the prompt.
+- **What can go wrong:** You leak another user’s data or retrieve irrelevant context.
+- **What to ignore today:** Ignore vector databases unless simple SQL cannot serve the feature.
+
 ## What You'll Have After Today
 
 - An AI feature **grounded in your user's actual data** — not generic
@@ -15,11 +21,9 @@ This is what separates novelty AI ("write me a poem") from useful AI ("write me 
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid adds RAG to a working tool-use AI route]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

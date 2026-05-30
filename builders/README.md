@@ -24,12 +24,7 @@ The first 100 builders to ever complete OneMillion. They got Sid's personal welc
 
 This list is closed once 100 builders graduate. After that: regular Builder #N for everyone else.
 
-| # | Name | Product | URL | LinkedIn |
-|---|------|---------|-----|----------|
-| 1 | [first graduate] | [product] | [url] | [linkedin] |
-| 2 | ... | | | |
-| ... | | | | |
-| 100 | ... | | | |
+No accepted builders yet. The first accepted Builder Claim becomes Builder #1.
 
 ---
 
@@ -46,11 +41,13 @@ Once the wall fills, this section will show all builders sortable by:
 ## How To Get Your Number
 
 1. Complete all 18 days of the course
-2. Pass all 18 verification checks
-3. Submit Day 18 — demo Loom + final commit
-4. Receive your Builder #N within 24 hours
-5. Your profile auto-generates at `onemillion.build/builders/[your-number]`
-6. You get a LinkedIn badge image to share
+2. Pass all 18 Claude Code verification checks
+3. Record your Day 18 demo Loom
+4. Submit a **Builder Claim** issue in this repo
+5. Sid reviews the claim
+6. Accepted claim receives the next sequential Builder #N
+
+Builder Wall profile pages and LinkedIn badge images are planned automation. Until then, `_data.json` is the source of truth.
 
 ---
 

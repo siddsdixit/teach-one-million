@@ -47,16 +47,50 @@ mkdir .onemillion
 
 ---
 
-## Step 3: Create `project.json`
+## Step 3: Create Your Progress Tracker
+
+The course uses `.onemillion/progress.md` as your restart point. If you fall behind, this file tells you where to resume.
+
+Create `.onemillion/progress.md` and paste this:
+
+```markdown
+# OneMillion Progress
+
+## Builder
+
+- **Builder name:** [Your name]
+- **Product name:** [Product name or "not named yet"]
+- **Target user:** [Specific user]
+- **Current day:** Day 1
+- **Last verified day:** None
+
+## Links
+
+- **GitHub repo:** [add on Day 4]
+- **Live URL:** [add on Day 4]
+- **Supabase project:** [add on Day 5]
+- **Vercel project:** [add on Day 4]
+- **Demo Loom:** [add on Day 18]
+
+## Current State
+
+- **What works now:** Day 1 setup in progress
+- **Current blocker:** None
+- **Next smallest action:** Finish project.json
+```
+
+Fill in your name, product name if you have one, and target user. A fuller template lives at [templates/progress.md](../../templates/progress.md).
+
+---
+
+## Step 4: Create `project.json`
 
 This file holds the answers to "what am I building?" The verifier reads it on every day to check your progress.
 
-Open your editor (VS Code, Cursor, Antigravity, whatever you picked):
+Open your editor:
 
 ```bash
 code .            # opens VS Code in this folder
-# OR
-cursor .          # opens Cursor
 ```
 
 In your editor, create a new file: `.onemillion/project.json`
@@ -82,7 +116,7 @@ Save the file.
 
 ---
 
-## Step 4: 🎉 Bonus — Deploy Your First URL (10 min, browser only)
+## Step 5: 🎉 Bonus — Deploy Your First URL (10 min, browser only)
 
 Before you finish Day 1, you're going to put your name on the internet.
 
@@ -117,7 +151,7 @@ That's the public commitment. You shipped on Day 1. You're not a course-taker an
 
 ---
 
-## Step 5: Run Day 1 Verification
+## Step 6: Run Day 1 Verification
 
 You're going to ask Claude Code to check your work. This is how every day ends — the AI verifies that you actually did what you were supposed to.
 
@@ -140,12 +174,50 @@ If needs revision, fix the issues and re-paste the verification prompt.
 ## What Should Be True After Day 1
 
 - [ ] `~/my-onemillion-build/` folder exists
+- [ ] `.onemillion/progress.md` exists
 - [ ] `.onemillion/project.json` exists and is valid JSON
 - [ ] `product_type` is one of `web_app`, `ai_agent`, or `hybrid`
 - [ ] `idea` is 2 sentences with a specific user and specific pain
 - [ ] **Your Vercel template URL is live** (e.g., `https://your-name-onemillion-day-1.vercel.app`)
 - [ ] You sent the URL to at least one person (public commitment moment)
 - [ ] Verification ran and returned "Pass" (or you've addressed all revision notes)
+
+---
+
+## Update Your Progress Tracker
+
+Before you close today, open `.onemillion/progress.md` and update:
+
+- **Current day:** Day 1 complete
+- **Last verified day:** Day 1
+- **Current blocker:** None, or the exact blocker to resume from
+- **Next smallest action:** Open Day 2.
+
+If verification did not pass yet, keep **Last verified day** at the previous passed day and write the blocker clearly.
+
+## If You Are Stuck
+
+Open Claude Code from your project folder:
+
+```bash
+claude
+```
+
+Paste this:
+
+```text
+I am on OneMillion Day 01.
+
+Here is the step I was trying to complete:
+[paste the step heading or instructions]
+
+Here is what happened:
+[paste the error, terminal output, or describe what I see]
+
+Diagnose the likely cause and give me the next smallest action.
+Do not rewrite unrelated code.
+Ask for one missing detail at a time if needed.
+```
 
 ---
 

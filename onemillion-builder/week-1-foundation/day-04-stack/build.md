@@ -11,7 +11,7 @@ Today you set up a Next.js project, push it to GitHub, and deploy to Vercel. Fol
 - [ ] Day 3 verified (PRD locked)
 - [ ] GitHub, Vercel accounts ready (from getting-started.md)
 - [ ] Terminal open, in your `my-onemillion-build` folder
-- [ ] Editor (VS Code, Cursor, etc.) ready to open
+- [ ] Editor ready to open
 
 > 💡 **Pro tip:** Have TWO terminal windows open today. One for running the dev server (it stays open). One for running git commands.
 
@@ -240,6 +240,43 @@ If pass: you're done with Day 4. If revision needed: fix and re-run.
 
 ---
 
+## Update Your Progress Tracker
+
+Before you close today, open `.onemillion/progress.md` and update:
+
+- **Current day:** Day 4 complete
+- **Last verified day:** Day 4
+- **Current blocker:** None, or the exact blocker to resume from
+- **Next smallest action:** Open Day 5.
+
+If verification did not pass yet, keep **Last verified day** at the previous passed day and write the blocker clearly.
+
+## If You Are Stuck
+
+Open Claude Code from your project folder:
+
+```bash
+claude
+```
+
+Paste this:
+
+```text
+I am on OneMillion Day 04.
+
+Here is the step I was trying to complete:
+[paste the step heading or instructions]
+
+Here is what happened:
+[paste the error, terminal output, or describe what I see]
+
+Diagnose the likely cause and give me the next smallest action.
+Do not rewrite unrelated code.
+Ask for one missing detail at a time if needed.
+```
+
+---
+
 ## Troubleshooting
 
 | Problem | Fix |
@@ -254,7 +291,7 @@ If pass: you're done with Day 4. If revision needed: fix and re-run.
 | Made changes locally but Vercel still shows old version | You forgot to `git add` and `git commit` before `git push`. Run all three. |
 | `app/page.tsx` looks weird (lots of imports and JSX) | That's normal. Just replace the contents with what Claude generated. |
 
-If you're stuck for 30 min: switch to Codespaces ([see fallback](../../getting-started.md#codespaces-fallback-last-resort)) and try the day there.
+If you're stuck for 30 min because your local machine is fighting you, switch to Codespaces ([browser setup path](../../getting-started-codespaces.md)) and try the day there.
 
 ---
 

@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Tool use lets AI read or change product state through narrow, validated actions.
+- **What can go wrong:** You give the AI too much write power or loose parameters.
+- **What to ignore today:** Ignore complex agents; build one small tool.
+
 ## What You'll Have After Today
 
 - An AI that can **take real actions** in your app — not just generate text
@@ -15,11 +21,9 @@ This is where AI stops being a chatbot and starts being a coworker.
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid implements tool use live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

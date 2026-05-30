@@ -11,6 +11,12 @@ If you take longer than the band, that's fine. Day 4 is the steepest learning cu
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A deploy loop makes your product real because every change can reach users.
+- **What can go wrong:** Local setup, GitHub auth, or Vercel deployment breaks and drains momentum.
+- **What to ignore today:** Ignore app polish; ship the smallest visible page.
+
 ## What You'll Have After Today
 
 - A **Next.js app running on your laptop** at `http://localhost:3000`
@@ -25,11 +31,9 @@ This is the most important day of Week 1. Once you've seen your own URL work, yo
 
 ---
 
-## Watch First (10 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid deploys from zero in 10 minutes]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 
@@ -76,7 +80,7 @@ Remember the restaurant analogy from Day 1? Frontend (dining room), backend (kit
 Here's the loop you'll use for the next 14 days:
 
 ```
-1. Open code in VS Code/Cursor
+1. Open code in your editor
 2. Run `claude` in terminal — give it a task
 3. Claude writes code, you review
 4. Save the file

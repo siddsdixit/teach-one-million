@@ -26,6 +26,8 @@ The course is calibrated for the middle. EAs will spend more time on Day 4 (setu
 
 If you fall behind, that's fine. The course is milestone-based, not calendar-based. Catch up. You're allowed to skip the weekend if you need to.
 
+If you paused for a while, use [I Fell Behind](./recover.md) to find your last verified day and resume.
+
 ---
 
 ## 3. What if I get stuck on a day and can't move forward?
@@ -34,9 +36,9 @@ Three escalation steps:
 
 1. **Read the day's troubleshooting table** (bottom of every `build.md`). Most problems are listed there.
 2. **Re-run the AI verifier** for that day — paste the `ai-instructions-day-XX.md` prompt into Claude Code. It will tell you specifically what's missing.
-3. **Ask in the cohort Slack** (if you're in a cohort) or open an issue on the GitHub repo (if you're self-serve). Tag the day number. Someone will help within a few hours.
+3. **Ask for help in the channel you have access to.** If you're in a cohort, ask in the cohort community. If you're self-serve, open a GitHub issue and tag the day number.
 
-Last resort: switch to **Codespaces** ([see getting-started.md](./getting-started.md#codespaces-fallback-last-resort)). 90% of "stuck" issues are local-environment-related. Codespaces eliminates them.
+If your local machine is the blocker, switch to **Codespaces** ([see the browser setup path](./getting-started-codespaces.md)). Most setup problems are local-environment-related. Codespaces eliminates them.
 
 ---
 
@@ -57,6 +59,8 @@ You'll fall behind. Everyone does. Real life happens. The course is designed for
 Many builders take 30 or 60 calendar days to complete the 18 days of work. Some take 90 days. They all graduate. You will too.
 
 The only failure mode is not coming back. If life pulls you away, just come back when it lets you. We're not Duolingo. The course waits.
+
+When you come back, use [I Fell Behind](./recover.md). It gives you one Claude Code prompt to find your current state and restart.
 
 ## 5. Can I skip days or do them out of order?
 
@@ -83,13 +87,14 @@ After Day 3 your PRD is locked. Don't pivot after that — finish what you start
 
 Welcome to engineering. This is normal.
 
-Your code lives in a Git repo. Every change is reversible. The course shows you how to commit at safe checkpoints. If something breaks badly, you can roll back to yesterday's working version with one command:
+Your code lives in a Git repo. Every change is reversible. The course shows you how to commit at safe checkpoints. If something breaks badly, first ask Claude Code to inspect your Git history:
 
 ```bash
-git reset --hard HEAD~1   # undoes your last commit
+git status
+git log --oneline -5
 ```
 
-(Don't run this until you understand it. Day 4 explains git in detail.)
+Paste that output into Claude Code and ask for the safest recovery plan. Do not run destructive Git commands until you understand which files will change.
 
 If things really go sideways, you can delete the project and start over. You'll lose your code, not your skill.
 
@@ -99,40 +104,41 @@ If things really go sideways, you can delete the project and start over. You'll 
 
 It will actually work.
 
-By Day 18 your product will have:
+By Day 18 your product should have:
 - Real authentication (signup, login, password reset)
 - A real database (Supabase Postgres, not localStorage)
 - A real AI feature (calling Claude with streaming, tool use, and your user's data)
 - Production monitoring (Sentry catches errors, Vercel Analytics tracks usage)
-- A custom domain with SSL
-- At least one real user (someone who's not you)
+- A live Vercel URL, with an optional custom domain if you choose to add one
+- Real outreach and feedback captured from at least one target user conversation or product trial
 
-It is not a demo. It is a product. You can keep building on it after Day 18, ship features, get more users, charge money if you want. It's yours.
+It is not a toy tutorial. It is a real product foundation. You can keep building on it after Day 18, ship features, get more users, charge money if you want. It's yours.
 
 ---
 
 ## 9. What if I'm not in a cohort?
 
-Self-serve works fine. The entire course content + verification system is in this repo. You'll miss two things:
+Self-serve works fine. The entire course content + Claude Code verification flow is in this repo. You'll miss the cohort layer:
 
-1. **Sid's live Saturday sessions** — you can watch the recordings instead
-2. **The cohort community** — you can join the OneMillion Crew Slack (open to all builders, even self-serve)
+1. **Live Saturday sessions** — available during live cohorts.
+2. **Cohort community** — available to cohort members.
+3. **Mentor support** — available when a cohort is actively running.
 
-Self-serve completion rate is lower (~25%) than cohort completion (~45%). The community and accountability matter. But many builders finish solo.
+Self-serve completion is harder because there is less accountability. If you go self-serve, use Day 0 publicly and post progress every few days so other people know you're still building.
 
 ---
 
 ## 10. How does Builder #N actually work?
 
-When you complete Day 18 and pass all verification checks, the system assigns you the next sequential Builder number. It's:
+When you complete Day 18 and pass all verification checks, you have a verified local submission. Sid or the Builder Wall review process then issues the next sequential Builder number. It's:
 
 - **Permanent.** Yours forever. No re-certification.
 - **Sequential.** Builder #47 was the 47th person to graduate. Builder #500 was the 500th.
-- **Public.** Listed on this repo and at onemillion.build/builders.
+- **Public.** Listed in the Builder Wall once your submission is accepted.
 - **Linked.** Your profile shows your deployed product, 18-day commit history, demo Loom.
 - **Shareable.** A LinkedIn badge image links back to your verified profile.
 
-The first 100 builders ever get **Founding Builder** status — same number, additional permanent badge, plus Sid's personal Slack DM access and an intro to one investor or hiring manager on graduation.
+The first 100 accepted builders ever get **Founding Builder** status — same number, additional permanent badge, plus Sid's personal Slack DM access and an intro to one investor or hiring manager on graduation.
 
 ---
 

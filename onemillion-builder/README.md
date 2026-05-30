@@ -38,8 +38,9 @@ We do this by giving you a set of AI agents that work alongside you through ever
 
 By the end, you have a live URL, working AI features, documented feedback from at least one real person, and a launch plan. Total AI cost: usually $5–15 in Anthropic credits; optional domains are covered in the Day 14 guide.
 
-→ **Start here:** [Getting Started](getting-started.md)  
-→ Already set up? [Begin Day 0](day-0-commit/README.md)
+→ **Start here:** [Start Here](START-HERE.md)<br>
+→ Already set up? [Begin Day 0](day-0-commit/README.md)<br>
+→ Returning after a break? [Recover your place](recover.md)
 
 &nbsp;
 
@@ -73,8 +74,8 @@ The same curriculum and verifiers apply either way.
 **Every day follows the same rhythm:**
 
 - 📖 **Learn.** Read a short concept that builds your mental model.
-- 🛠️ **Build.** Follow a hands-on guide where your AI coding agent does the heavy lifting. You direct. You review. You ship.
-- ✅ **Verify.** Paste a prompt into your AI. It checks your work and tells you what passed, what failed, and what to fix.
+- 🛠️ **Build.** Follow a hands-on guide where Claude Code does the heavy lifting. You direct. You review. You ship.
+- ✅ **Verify.** Paste a prompt into Claude Code. It checks your work and tells you what passed, what failed, and what to fix.
 
 **Support is built in:**
 
@@ -100,9 +101,12 @@ When you graduate, the AI agents you built with don't go away. They stay in your
 ## 🧩 See What You Produce
 
 - 🪪 **A Day 18-style credential** — [sample Builder profile](diagrams/builder-profile-sample.png)
+- 📁 **A golden-path example** — [DeliverableDash artifacts](examples/deliverabledash/README.md)
+- 🖥️ **A sample finished app shape** — [DeliverableDash app mock](examples/deliverabledash/app/README.md)
 - ✅ **The verification workflow** — [how Builder #N is earned](verify/README.md)
 - 🎬 **A public launch artifact** — [Day 18 demo requirements](week-3-ship-and-sell/day-18-demo/learn.md)
 - 🔑 **The AI credit setup** — [Getting Your API Key](getting-your-api-key.md)
+- 📣 **Public milestone posts** — [Share Templates](share-templates.md)
 
 ---
 
@@ -157,9 +161,9 @@ Zero prior experience required. If you can follow step-by-step instructions, cop
 
 - 💻 A laptop (Mac or Windows)
 - 🔑 An Anthropic API key ([here's how to get one](getting-your-api-key.md)) — most builders spend $5–15 in AI credits
-- 🤖 An AI tool of your choice — Claude Code, Cursor, Windsurf, or any AI chat. [Getting Started](getting-started.md) walks you through the recommended setup.
+- 🤖 Claude Code — the supported AI builder for this version of the course. [Getting Started](getting-started.md) walks you through setup.
 
-Total setup: ~30 minutes. Start here: [getting-started.md](getting-started.md)
+Total setup: 15-60 minutes depending on your path. Start here: [START-HERE.md](START-HERE.md)
 
 ---
 
@@ -175,7 +179,7 @@ First 100 builders ever earn permanent **Founding Builder** status.
 
 ## ❓ FAQ
 
-Have questions about cost, technical requirements, which AI tool to use, or what happens if you fall behind? [Read the FAQ](FAQ.md).
+Have questions about cost, technical requirements, Claude Code setup, or what happens if you fall behind? [Read the FAQ](FAQ.md).
 
 ---
 
@@ -200,5 +204,5 @@ MIT. Free to use, fork, remix, and share. If you build on this, credit OneMillio
 
 ---
 
-🚀 **[Start with Getting Started](getting-started.md)**  
+🚀 **[Start Here](START-HERE.md)**<br>
 ✅ Already set up? **[Begin Day 0](day-0-commit/README.md)**

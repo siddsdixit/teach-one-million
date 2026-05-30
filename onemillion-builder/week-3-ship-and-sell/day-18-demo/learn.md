@@ -4,24 +4,28 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** A demo proves the product works and turns the build into a public artifact.
+- **What can go wrong:** You over-record, hide broken flows, or submit before verification passes.
+- **What to ignore today:** Ignore adding features; show the working product clearly.
+
 ## What You'll Have After Today
 
 - A **5-minute Demo Loom** of your product, working live
 - **Final verification** — all 18 days passed
-- Your **Builder #N** — your permanent, sequential number on the OneMillion wall
-- A **public profile** at onemillion.build/builders/[your-number]
-- A **LinkedIn badge** to share
+- A **Builder Claim submission** ready for review
+- Your official **Builder #N** after the claim is accepted
+- A **public profile** and badge after review
 - The ability to say: **"I built this in 18 days."**
 
 You did it. Today is the proof.
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid records his own Demo Day Loom live]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 
@@ -53,7 +57,7 @@ If you screw something up live, **leave it in.** The "oh, oops, let me try again
 
 ### Last 30 sec: What's Next
 - What you'd build next (your "v2" from your PRD's Out-Of-Scope)
-- The Builder number context: "Joining as Builder #[X]"
+- The Builder number context: "Submitting for Builder review"
 - A clear ask if you have one (early users? feedback? hiring?)
 
 ---
@@ -82,7 +86,7 @@ Loom requirements:
 
 Today is the day you stop being someone "building a product" and become someone who **built a product**.
 
-Tomorrow morning you'll wake up to a public profile that says **Builder #[X]**. That number is yours. Permanent. Sequential. It's not a participation trophy — every Builder went through the same gauntlet you did.
+After your claim is accepted, you'll have a public profile that says **Builder #[X]**. That number is yours. Permanent. Sequential. It's not a participation trophy — every Builder went through the same gauntlet you did.
 
 People will ask: "What did you build?" You'll have an answer. A real URL. A real demo. A real product.
 
@@ -94,9 +98,9 @@ This isn't a small thing. Most people who try to build something never finish. Y
 
 1. Plan your 5-minute demo (script lightly, don't read)
 2. Record your Loom
-3. Submit your Builder application (URL, repo, demo Loom, optional bio)
-4. Run final verification (all 18 days)
-5. Receive your Builder #N
+3. Run final verification (all 18 days)
+4. Submit your Builder Claim issue (URL, repo, demo Loom, optional bio)
+5. Wait for review and official Builder #N issuance
 
 ---
 
@@ -108,7 +112,7 @@ A great Demo Day Loom:
 - Shows you signing up + using the core feature LIVE
 - Shows the AI feature working
 - Has at least one real, slightly imperfect moment (proves it's live)
-- Closes with: "Joining the Crew as Builder #[X]." + 1-sentence what's next
+- Closes with: "Submitting for Builder review." + 1-sentence what's next
 
 5 minutes. Clean. Honest. Real.
 
@@ -124,7 +128,7 @@ A great Demo Day Loom:
 
 4. **Asking for everything at the end.** "Sign up, give feedback, hire me, invest in me, mention me to your friends!" Pick ONE ask. Maximum.
 
-5. **Skipping the submission.** Recording a Loom but not submitting it. You only become Builder #N when the submission is verified.
+5. **Skipping the submission.** Recording a Loom but not submitting it. You only receive Builder #N after the claim is accepted.
 
 ---
 
@@ -134,8 +138,8 @@ A great Demo Day Loom:
 - [ ] Loom is publicly viewable (you tested the link in incognito)
 - [ ] Live URL still works (test it now)
 - [ ] All 18 daily verifications passed (or 17 + explicit skip note)
-- [ ] Builder submission filed
-- [ ] You received your Builder #N
+- [ ] Builder Claim issue filed
+- [ ] You understand the official Builder #N arrives after review
 - [ ] You took a moment to notice you actually did this
 
 ---
@@ -147,7 +151,7 @@ Paste contents of [`ai-instructions-day-18.md`](./ai-instructions-day-18.md). Cl
 - Verify Loom URL returns 200
 - Check live URL still works
 - Verify all previous 17 day verifications passed
-- Issue Builder #N (or instruct you to claim it)
+- Generate claim-ready submission data
 - Report pass / needs revision
 
 ---
@@ -156,11 +160,10 @@ Paste contents of [`ai-instructions-day-18.md`](./ai-instructions-day-18.md). Cl
 
 Once verified:
 
-1. Open `builders/_data.json` (in the OneMillion repo via PR, or onemillion.build/claim form when available)
-2. Submit your entry:
+1. Open the Builder Claim issue form in the OneMillion repo
+2. Submit your verified claim data:
    ```json
    {
-     "number": [next available],
      "name": "[your display name]",
      "product_name": "[your product]",
      "product_url": "[yourapp.com or .vercel.app]",
@@ -171,7 +174,7 @@ Once verified:
    }
    ```
 3. Sid reviews your submission within 48 hours
-4. Once approved, you're on the wall forever
+4. Once approved, you receive the next sequential Builder number and go on the wall
 
 The Founding Builder badge (first 100) is automatic if your number is ≤100.
 
@@ -180,7 +183,7 @@ The Founding Builder badge (first 100) is automatic if your number is ≤100.
 ## Share It
 
 ```
-🎉 Builder #[N] reporting in. 
+🎉 Submitted for Builder review.
 
 Shipped [product] in 18 days through OneMillion.
 
@@ -222,7 +225,7 @@ The course is done. Your build continues.
 
 ## Welcome To The Crew
 
-You're Builder #N. That's yours, forever.
+You finished the course work. Once your claim is accepted, Builder #N is yours forever.
 
 The million starts with one. You're one of them now.
 

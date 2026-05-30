@@ -1,6 +1,6 @@
 # Day 1 Verification Prompt
 
-**How to use:** Paste the entire content below (starting from "You are a OneMillion course verifier...") into Claude Code or your AI tool. The AI will execute the checks and report results.
+**How to use:** Paste the entire content below (starting from "You are a OneMillion course verifier...") into Claude Code. Claude Code will execute the checks and report results.
 
 ---
 
@@ -16,7 +16,7 @@ Read the file `.onemillion/project.json` in the current directory. Validate the 
 2. **Valid JSON.** Parses without errors.
 3. **Has `product_type` field.** Value is exactly one of: `web_app`, `ai_agent`, or `hybrid`.
 4. **Has `idea` field.** Value is a non-empty string longer than 30 characters.
-5. **Has `builder_name` field.** Value is non-empty and not a placeholder ("Your Name", "TBD", etc.).
+5. **Has `builder_name` field.** Value is non-empty and not a placeholder ("Your Name", "To be decided", etc.).
 6. **Has `started_at` field.** Value is a date in ISO format (YYYY-MM-DD).
 
 **Quality check (your judgment):**

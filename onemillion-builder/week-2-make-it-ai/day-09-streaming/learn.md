@@ -4,6 +4,12 @@
 
 ---
 
+## Learning Frame
+
+- **Mental model:** Streaming makes AI feel alive because users see progress immediately.
+- **What can go wrong:** You break a working AI route while changing the response shape.
+- **What to ignore today:** Ignore multi-turn chat; stream the existing feature.
+
 ## What You'll Have After Today
 
 - **AI output that streams token-by-token** in your UI (text appears as it's generated)
@@ -15,11 +21,9 @@ This is a small change technically. It's a huge change for how your app feels.
 
 ---
 
-## Watch First (5 min) 🎬
+## Video Walkthrough
 
-[Embedded Loom — Sid converts a Day 8 non-streaming call to a streaming one]
-
-*Video walkthrough: coming soon. The written guide is complete.*
+Video walkthrough: coming soon. The written guide is complete.
 
 ---
 

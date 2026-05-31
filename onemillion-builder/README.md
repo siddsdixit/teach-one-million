@@ -57,15 +57,26 @@ This is not a toy tutorial. It is not a sandbox. You build a real product, in a 
 
 ## Start In 5 Minutes
 
-The course starts from your own fork. That matters: your fork becomes your learning workspace, progress trail, and final proof.
+Start by giving this page to your coding harness:
+
+```text
+I am taking the OneMillion course at:
+https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
+```
+
+Your harness should greet you, explain the course, help you set up GitHub if needed, guide you through the fork/clone/install flow, and then start Day 0. You should not need to know the setup steps before you begin.
+
+The course still runs from your own fork. That matters: your fork becomes your learning workspace, progress trail, and final proof.
 
 | Step | Do this | Link |
 |---:|---|---|
-| 1 | Star the repo | [Open repo](https://github.com/siddsdixit/teach-one-million) |
-| 2 | Fork it into your GitHub account | [Fork now](https://github.com/siddsdixit/teach-one-million/fork) |
-| 3 | Clone your fork | Use the command below |
-| 4 | Run the installer | It checks/fixes `origin` and `upstream` |
-| 5 | Paste the start prompt | Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot |
+| 1 | Paste the course link into your harness | Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot |
+| 2 | Let the harness explain the course | It follows the teaching protocol |
+| 3 | Create or open GitHub when asked | [GitHub signup](https://github.com/signup) |
+| 4 | Fork, clone, and install with guidance | [Fork now](https://github.com/siddsdixit/teach-one-million/fork) |
+| 5 | Complete Day 0 | Public or private commitment |
+
+If your harness asks for exact setup commands, use these:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/teach-one-million.git
@@ -73,16 +84,19 @@ cd teach-one-million
 ./onemillion-builder/install-agents.sh
 ```
 
-Then paste this into your coding harness:
+If your harness needs a fuller prompt, paste this:
 
 ```text
-I am starting the OneMillion course from my fork.
+I am taking the OneMillion course at:
+https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 
 Read AGENTS.md and onemillion-builder/course-manifest.json.
+Read onemillion-builder/docs/teaching-protocol.md.
 Become my OneMillion learning orchestrator.
-First enforce the Preflight Gate. If anything is wrong with clone/fork/origin/upstream setup, stop and fix it before Day 0.
-Then start Day 0 and Day 1.
-Teach me one day at a time.
+Properly greet me, explain the course, explain the AI/human contract, and guide me through GitHub setup, fork, clone, install, and Day 0.
+If I do not have GitHub yet, walk me through account creation with exact links.
+When the local clone is ready, enforce the Preflight Gate before Day 0.
+Teach me one day at a time with copy-ready actions and clear done checklists.
 When I say "day done", verify the day and advance me.
 Do not skip the learning or do the external tool steps for me.
 ```

@@ -100,6 +100,7 @@ def scan_persona_friction(persona: dict) -> list[str]:
     frictions: list[str] = []
     readme = (ROOT / "README.md").read_text()
     start = (ROOT / "START-HERE.md").read_text()
+    subdir_agents = (ROOT / "AGENTS.md").read_text()
     agents = (REPO / "AGENTS.md").read_text()
     orchestrator = (REPO / "onemillion-agents/agents/orchestrator.md").read_text()
     teaching = (ROOT / "docs/teaching-protocol.md").read_text()
@@ -177,6 +178,19 @@ def scan_persona_friction(persona: dict) -> list[str]:
     for term in ["welcome to onemillion", "what this course is", "today is day 0", "what counts as done for day 0"]:
         if term not in day0_lower:
             frictions.append(f"Day 0 opening script missing required teaching phrase: {term}")
+
+    landing_surface = "\n".join([readme, start, subdir_agents]).lower()
+    landing_requirements = {
+        "i am taking the onemillion course at": "Landing page must support the one-sentence harness start prompt.",
+        "github signup": "Landing/start docs must guide learners who do not have GitHub yet.",
+        "fork": "Landing/start docs must guide the required fork step.",
+        "clone": "Landing/start docs must guide the required clone step.",
+        "install": "Landing/start docs must guide the adapter/install step.",
+        "do not ask the learner to figure out the repo structure first": "Subdirectory AGENTS must tell harnesses to take over from the course URL.",
+    }
+    for term, message in landing_requirements.items():
+        if term not in landing_surface:
+            frictions.append(message)
 
     return frictions
 

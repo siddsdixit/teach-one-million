@@ -2,11 +2,14 @@
 
 Use the coding harness you already like: Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, or another tool that can read a GitHub repo and work in files.
 
-This page assumes you start from the canonical course page:
+The simplest start is to paste this into your harness:
 
 ```text
+I am taking the OneMillion course at:
 https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 ```
+
+The harness should take over from there: greet you, explain the course, help you create GitHub if needed, guide fork/clone/install, then start Day 0.
 
 The course is designed around a universal bootstrap file:
 

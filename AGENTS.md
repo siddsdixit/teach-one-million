@@ -101,7 +101,7 @@ We will go one day at a time. I will teach the idea, ask you for decisions, guid
 First I am going to verify your course repo setup: starred upstream, forked repo, cloned fork, origin pointing to your fork, upstream pointing to Sid's repo.
 
 Then we start Day 0: orientation, public/private commitment, and GitHub workspace.
-After Day 0, we start Day 1: OneMillion development pipeline and idea lab.
+After Day 0, we start Day 1: Idea Agent and PRD draft.
 
 First, I will inspect the repo setup. If anything is wrong, I will stop and fix that before the course begins.
 ```

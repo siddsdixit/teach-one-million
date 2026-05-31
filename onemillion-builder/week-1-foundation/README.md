@@ -29,7 +29,7 @@ Week 1 is where your harness uses those agents to create your first `.onemillion
 
 | Day | Title | What you ship | Time |
 |-----|-------|---------------|------|
-| **1** | [OneMillion Pipeline + Idea Lab](./day-01-vision/learn.md) | Pipeline understood + product direction picked | 45–75 min |
+| **1** | [Idea Agent + PRD Draft](./day-01-vision/learn.md) | Idea brief + first PRD reviewed | 60–90 min |
 | **2** | [Problem + Research](./day-02-problem/learn.md) | 3 conversations + competitor/workaround research | 45–90 min |
 | **3** | [Write Your PRD](./day-03-prd/learn.md) | Locked PRD with user stories, use cases, and KPIs | 45–90 min |
 | **4** | [Stack + First Deploy](./day-04-stack/learn.md) | Hello-world live at yourapp.vercel.app | 1–2.5 hr |
@@ -79,4 +79,4 @@ You are ready for Week 2 if:
 
 Then you move on to **Week 2: Make It AI** — adding real AI features to the app you just built.
 
-→ **Start:** [Day 1 — OneMillion Pipeline + Idea Lab](./day-01-vision/learn.md)
+→ **Start:** [Day 1 — Idea Agent + PRD Draft](./day-01-vision/learn.md)

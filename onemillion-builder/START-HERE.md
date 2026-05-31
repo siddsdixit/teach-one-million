@@ -107,15 +107,17 @@ If GitHub CLI is not available, the installer stops until your git remotes are c
 
 ## What Happens Next
 
-The orchestrator starts Day 0 with GitHub fork verification and the commitment. After Day 0 passes, it starts Day 1 with the OneMillion development pipeline, the agent map, and the Idea agent.
+The orchestrator starts Day 0 with GitHub fork verification and the commitment. After Day 0 passes, it starts Day 1 with the Idea agent and teaches how to turn a raw idea into a first PRD.
 
 You will:
 
 - learn what the OneMillion development pipeline is and why the flow is spec-first
 - learn what each OneMillion agent does
-- compare possible ideas
+- learn what makes a good idea
 - choose a specific user
 - name a painful moment
+- identify data sources, user stories, success criteria, and KPIs
+- review a first PRD draft
 - keep the first MVP to exactly 3 core jobs so you can finish
 - create your first `.onemillion/` artifacts
 - stop only when Day 1 is actually complete

@@ -138,4 +138,4 @@ The agent teaches and guides. You make decisions and do the real external-tool s
 ## Next
 
 → [Day 0 — Orientation + Commitment + GitHub Workspace](../day-0-commit/README.md)<br>
-→ [Day 1 — OneMillion Pipeline + Idea Lab](../week-1-foundation/day-01-vision/learn.md)
+→ [Day 1 — Idea Agent + PRD Draft](../week-1-foundation/day-01-vision/learn.md)

@@ -1,71 +1,121 @@
 # Day 1 Verification Prompt
 
-**How to use:** Paste the entire content below into your coding harness. It will execute the checks and report results.
+**How to use:** Paste this entire prompt into your coding harness. It will execute the checks and report results.
 
 ---
 
-You are a OneMillion course verifier. Your job is to check whether Day 1 was completed correctly. Be honest and rigorous — partial credit does not exist. Either the requirements are met or they aren't.
+You are a OneMillion course verifier. Today is Day 1 — Idea Agent + PRD Draft.
+
+Do not grade only whether the learner filled out a short form. Day 1 is complete only if the learner created an idea brief, created a project profile, generated a PRD draft, and reviewed the PRD.
 
 ## What to verify
 
-Read the file `.onemillion/project.json` in the current directory. Validate the following:
+Read these files in the current project directory:
 
-**Structural checks (binary pass/fail):**
+- `.onemillion/idea-brief.md`
+- `.onemillion/project.json`
+- `.onemillion/prd.md`
+- `.onemillion/progress.md`
 
-1. **File exists.** `.onemillion/project.json` is readable.
-2. **Valid JSON.** Parses without errors.
-3. **Has `product_type` field.** Value is exactly one of: `web_app`, `ai_agent`, or `hybrid`.
-4. **Has `idea` field.** Value is a non-empty string longer than 30 characters.
-5. **Has `builder_name` field.** Value is non-empty and not a placeholder ("Your Name", "To be decided", etc.).
-6. **Has `started_at` field.** Value is a date in ISO format (YYYY-MM-DD).
+## Structural checks
 
-**Quality check (your judgment):**
+1. `.onemillion/idea-brief.md` exists.
+2. `.onemillion/project.json` exists and is valid JSON.
+3. `project.json` has:
+   - `product_type`: one of `web_app`, `ai_agent`, `hybrid`
+   - `idea`: non-empty, 30+ characters
+   - `target_user`: non-empty
+   - `builder_name`: non-empty and not placeholder
+   - `started_at`: ISO date
+4. `.onemillion/prd.md` exists.
+5. `.onemillion/progress.md` exists.
 
-7. **Idea is specific enough to start work.** A specific idea has:
-   - A named or describable user (not just "users" or "people")
-   - A specific pain point or moment of friction (not "X is hard")
-   - Hints at what success looks like (not just "make X better")
+## Content checks
 
-   Examples of acceptable ideas:
-   - ✅ "Yoga studio owners spend hours each week manually following up with clients who didn't rebook. I want a tool that automates the follow-up while letting the owner approve each message before it goes."
-   - ✅ "I waste 20 min every morning checking which freelance clients I owe deliverables to. I want a dashboard that shows everything I owe whom by when."
+The idea brief should include:
 
-   Examples of ideas that need revision:
-   - ❌ "Something with AI for productivity" — too vague
-   - ❌ "An app for freelancers" — no specific pain
-   - ❌ "I want to revolutionize education" — too big, no specific user
+- raw idea
+- user
+- pain point or unmet need
+- current workaround
+- data sources or formats
+- ideal solution
+- usage moment
+- people or roles
+- user stories
+- success criteria
+- KPIs
+
+The PRD should include:
+
+- product summary
+- user and pain point
+- unmet need
+- data sources and formats
+- ideal solution
+- usage moment
+- user stories
+- success criteria
+- KPIs
+- competitive alternatives or market notes
+- TAM/SAM/SOM
+- assumptions to validate on Day 2
+
+## Quality checks
+
+Use judgment:
+
+1. The idea is driven by a user need or pain point, not a technology gimmick.
+2. The user is specific enough to interview on Day 2.
+3. The data sources/formats are plausible or clearly marked as assumptions.
+4. User stories use the format: `As a [user], I want to [action] so that [outcome]`.
+5. KPIs measure usefulness, not vanity.
+6. Competitive and TAM/SAM/SOM sections do not pretend unverified guesses are facts.
+7. The learner confirms they opened, reviewed, edited if needed, and saved the PRD.
 
 ## Report format
 
-Write your findings as a structured report. Format:
-
-```
+```markdown
 # Day 1 Verification Report
 
 ## Structural Checks
-- [ ] / [x] Check 1: ...
-- [ ] / [x] Check 2: ...
-(continue for checks 1-6)
+- [ ] / [x] idea-brief.md exists
+- [ ] / [x] project.json exists and is valid
+- [ ] / [x] project.json required fields are present
+- [ ] / [x] prd.md exists
+- [ ] / [x] progress.md exists
 
-## Quality Check
-- [ ] / [x] Check 7: Idea specificity
+## Content Checks
+- [ ] / [x] Idea brief has required sections
+- [ ] / [x] PRD has required sections
+
+## Quality Checks
+- [ ] / [x] Idea is pain/user driven
+- [ ] / [x] User is specific enough
+- [ ] / [x] Data sources/formats are plausible or marked as assumptions
+- [ ] / [x] User stories are in proper format
+- [ ] / [x] KPIs measure usefulness
+- [ ] / [x] Market notes/TAM/SAM/SOM are honest about assumptions
+- [ ] / [x] Learner reviewed and saved PRD
 
 ## Result
 PASS or NEEDS REVISION
 
 ## Feedback
-(If PASS: one sentence congratulations + what's next)
-(If NEEDS REVISION: specific list of what to fix, in priority order)
+(If PASS: one sentence + next day preview)
+(If NEEDS REVISION: specific fixes in priority order)
 ```
 
 ## After verification
 
 If PASS:
-- Append today's date to `.onemillion/verification-day-01.md` with the report
-- Tell the builder: "Day 1 verified. Move to Day 2: Problem + Research."
+
+- Save the report to `.onemillion/verification-day-01.md`.
+- Tell the builder: "Day 1 verified. You have an idea brief and PRD draft. Move to Day 2: Problem + Research."
 
 If NEEDS REVISION:
-- Save the report to `.onemillion/verification-day-01.md` so the builder can re-read it
-- Tell the builder: "Fix the issues above, then re-run this prompt."
 
-Begin the verification now.
+- Save the report to `.onemillion/verification-day-01.md`.
+- Tell the builder exactly what to fix, then re-run verification.
+
+Begin verification now.

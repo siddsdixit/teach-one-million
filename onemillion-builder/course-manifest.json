@@ -124,17 +124,17 @@
   "days": [
     {
       "day": 1,
-      "title": "OneMillion Pipeline + Idea Lab",
+      "title": "Idea Agent + PRD Draft",
       "primary_agent": "idea",
       "supporting_agents": ["ask"],
       "lesson": "onemillion-builder/week-1-foundation/day-01-vision/learn.md",
       "build": "onemillion-builder/week-1-foundation/day-01-vision/build.md",
       "resources": "onemillion-builder/week-1-foundation/day-01-vision/resources.md",
       "verifier": "onemillion-builder/week-1-foundation/day-01-vision/ai-instructions-day-01.md",
-      "learning_focus": ["understand the OneMillion development pipeline", "learn the agent map", "compare ideas", "choose one target user", "name the painful moment"],
+      "learning_focus": ["understand what makes a good idea", "describe user pain and unmet need", "identify data sources and formats", "write user stories", "define success criteria and KPIs", "review an Idea-agent PRD draft"],
       "external_tools": [],
-      "human_decisions": ["product direction", "target user", "problem statement", "product type"],
-      "completion_gate": [".onemillion/progress.md", ".onemillion/project.json"]
+      "human_decisions": ["target user", "pain point", "data sources", "ideal solution", "user stories", "success criteria", "KPIs", "PRD edits"],
+      "completion_gate": [".onemillion/idea-brief.md", ".onemillion/project.json", ".onemillion/prd.md", "learner reviewed and saved PRD"]
     },
     {
       "day": 2,

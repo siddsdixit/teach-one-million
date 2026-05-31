@@ -14,6 +14,8 @@ Artifacts created:
 - `.onemillion/state.json`
 - `.claude/commands/onemillion.md`
 - `my-onemillion-build/.onemillion/project.json`
+- `my-onemillion-build/.onemillion/idea-brief.md`
+- `my-onemillion-build/.onemillion/prd.md`
 - `my-onemillion-build/.onemillion/verification-day-01.md`
 
 ## PASS: Ravi - Product manager
@@ -28,6 +30,8 @@ Artifacts created:
 - `.onemillion/state.json`
 - `.claude/commands/onemillion.md`
 - `my-onemillion-build/.onemillion/project.json`
+- `my-onemillion-build/.onemillion/idea-brief.md`
+- `my-onemillion-build/.onemillion/prd.md`
 - `my-onemillion-build/.onemillion/verification-day-01.md`
 
 ## PASS: Lena - Designer-founder
@@ -42,6 +46,8 @@ Artifacts created:
 - `.onemillion/state.json`
 - `.claude/commands/onemillion.md`
 - `my-onemillion-build/.onemillion/project.json`
+- `my-onemillion-build/.onemillion/idea-brief.md`
+- `my-onemillion-build/.onemillion/prd.md`
 - `my-onemillion-build/.onemillion/verification-day-01.md`
 
 ## PASS: Alex - Experienced engineer
@@ -56,6 +62,8 @@ Artifacts created:
 - `.onemillion/state.json`
 - `.claude/commands/onemillion.md`
 - `my-onemillion-build/.onemillion/project.json`
+- `my-onemillion-build/.onemillion/idea-brief.md`
+- `my-onemillion-build/.onemillion/prd.md`
 - `my-onemillion-build/.onemillion/verification-day-01.md`
 
 ## PASS: Nora - Career changer
@@ -70,4 +78,6 @@ Artifacts created:
 - `.onemillion/state.json`
 - `.claude/commands/onemillion.md`
 - `my-onemillion-build/.onemillion/project.json`
+- `my-onemillion-build/.onemillion/idea-brief.md`
+- `my-onemillion-build/.onemillion/prd.md`
 - `my-onemillion-build/.onemillion/verification-day-01.md`

@@ -79,7 +79,50 @@ def create_persona_project(persona: dict, repo: Path) -> Path:
 
 - **What works now:** Day 1 setup in progress
 - **Current blocker:** None
-- **Next smallest action:** Finish project.json
+- **Next smallest action:** Review PRD
+"""
+    )
+    (product_dir / ".onemillion" / "idea-brief.md").write_text(
+        f"""# Idea Brief
+
+## Raw Idea
+{persona['idea']}
+
+## User
+{persona['target_user']}
+
+## Pain Point / Unmet Need
+The target user has a repeated workflow pain that costs time and creates missed follow-up.
+
+## Current Workaround
+Manual tracking across notes, spreadsheets, and messages.
+
+## Data Sources / Formats
+- User-entered notes
+- Spreadsheet rows
+- Email or message text copied by the user
+
+## Ideal Solution
+A focused app that organizes the work and drafts useful next actions for review.
+
+## Usage Moment
+The user opens it during the painful workflow and uses it to decide the next action.
+
+## People / Roles
+- Primary user: {persona['target_user']}
+
+## User Stories
+- As a {persona['target_user']}, I want to capture the work in one place so that I do not lose track.
+- As a {persona['target_user']}, I want to see what needs attention so that I can act quickly.
+- As a {persona['target_user']}, I want to review suggested next steps so that I stay in control.
+
+## Success Criteria
+The user can capture, review, and complete the core workflow without switching tools.
+
+## KPIs
+- User creates 3+ records in first session.
+- User completes one core workflow.
+- User returns the next week.
 """
     )
     (product_dir / ".onemillion" / "project.json").write_text(
@@ -87,11 +130,60 @@ def create_persona_project(persona: dict, repo: Path) -> Path:
             {
                 "product_type": persona["product_type"],
                 "idea": persona["idea"],
+                "target_user": persona["target_user"],
                 "builder_name": persona["name"],
                 "started_at": "2026-05-30",
             },
             indent=2,
         )
+    )
+    (product_dir / ".onemillion" / "prd.md").write_text(
+        f"""# {persona['label']} Build PRD
+
+## Product Summary
+{persona['idea']}
+
+## User And Pain Point
+The primary user is {persona['target_user']}. The pain is a repeated workflow that is currently handled manually.
+
+## Unmet Need
+The user needs a simpler way to capture context, see what matters, and complete the next action.
+
+## Data Sources And Formats
+- User-entered notes
+- Spreadsheet rows
+- Copied email or message text
+
+## Ideal Solution
+A focused product that organizes the workflow and produces reviewable next actions.
+
+## Usage Moment
+The user opens the product when the workflow becomes painful and uses it to decide what to do next.
+
+## User Stories
+- As a {persona['target_user']}, I want to capture the work in one place so that I do not lose track.
+- As a {persona['target_user']}, I want to see what needs attention so that I can act quickly.
+- As a {persona['target_user']}, I want to review suggested next steps so that I stay in control.
+
+## Success Criteria
+The user can complete the core workflow from capture to action in one session.
+
+## KPIs
+- User creates 3+ records in first session.
+- User completes one core workflow.
+- User returns the next week.
+
+## Competitive Alternatives And Market Notes
+Likely alternatives include spreadsheets, notes apps, email flags, and manual reminders. These are first-pass assumptions for Day 2 validation.
+
+## TAM / SAM / SOM
+TAM is everyone with the broad workflow pain. SAM is the reachable segment matching this user profile. SOM is the first small audience the builder can personally reach. These are directional assumptions for Day 2.
+
+## Assumptions To Validate On Day 2
+- The pain is frequent enough.
+- The data sources are available.
+- The user will try a focused product.
+"""
     )
     return product_dir
 
@@ -296,7 +388,7 @@ def scan_persona_friction(persona: dict) -> list[str]:
         "idea -> research -> prd -> validate spec -> design -> plan -> build -> review -> test -> guard -> ship -> sell",
         "tools arrive just in time",
         "day 0: orientation",
-        "day 1: onemillion pipeline",
+        "day 1: idea agent",
         "user stories",
         "use cases",
         "kpis",
@@ -367,6 +459,8 @@ def simulate_persona(persona: dict, tmp: Path) -> PersonaResult:
     if verify.returncode == 0:
         checks.append("Day 1 schema verifier passed")
         artifacts.append(str((product / ".onemillion/project.json").relative_to(repo)))
+        artifacts.append(str((product / ".onemillion/idea-brief.md").relative_to(repo)))
+        artifacts.append(str((product / ".onemillion/prd.md").relative_to(repo)))
         artifacts.append(str((product / ".onemillion/verification-day-01.md").relative_to(repo)))
     else:
         checks.append("Day 1 schema verifier failed")

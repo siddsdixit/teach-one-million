@@ -171,7 +171,7 @@ Key Day 0 setup links:
 The course has Day 0 plus 18 build days.
 
 - **Day 0:** orientation, OneMillion mission, pipeline, commitment, and GitHub workspace
-- **Days 1-6:** foundation: agent system, idea, research, PRD, stack, auth, core feature
+- **Days 1-6:** foundation: idea agent, PRD draft, research, validation, stack, auth, core feature
 - **Days 7-12:** make it AI: AI spec, first call, streaming, tools, RAG, quality gates
 - **Days 13-18:** ship and sell: hygiene, domain, monitoring, landing page, users, demo
 
@@ -230,48 +230,51 @@ The harness should not compress days unless the learner explicitly asks and the 
 - `.onemillion/day-00-reflection.md` exists
 - public or private commitment was made
 
-## Day 1: OneMillion Pipeline + Idea Lab
+## Day 1: Idea Agent + PRD Draft
 
-**Purpose:** understand the OneMillion agent system, learn spec-driven development, and begin nurturing one product idea.
+**Purpose:** teach how good ideas work and use the Idea agent to turn the learner's raw idea into a reviewed PRD draft.
 
-**Why it matters:** the course should not feel like random tasks. Day 1 gives the learner a mental map: which agents exist, what order they run in, why specs come before code, and how a vague idea becomes a buildable product.
+**Why it matters:** good products start with unmet user needs, not technology gimmicks. Day 1 teaches the learner how to describe a user, pain point, data source, ideal solution, user stories, success criteria, KPIs, and first-pass market shape before building anything.
 
 **What the learner learns:**
 
-- the OneMillion agent roster and what each agent is for
-- the spec development flow: idea, research, PRD, user stories, use cases, KPIs, design, plan, build, review, test, guard, ship, sell
-- product type: `web_app`, `ai_agent`, or `hybrid`
-- target user
-- painful moment
-- mental model of frontend, backend, database, AI, and hosting
+- what makes an idea good
+- unmet user needs and pain points
+- data sources and formats
+- ideal solution visualization
+- usage moments and roles
+- user stories
+- success criteria and KPIs
+- TAM/SAM/SOM
+- how the Idea agent creates a first PRD
 
 **What the learner does:**
 
-- reads the agent map with the harness
-- asks the harness to explain the build flow in plain language
-- picks one product type
-- writes a two-sentence idea
 - creates `my-onemillion-build/`
+- answers the Idea agent interview
+- writes `.onemillion/idea-brief.md`
 - creates `.onemillion/project.json`
+- creates and reviews `.onemillion/prd.md`
 - creates `.onemillion/progress.md`
 
 **What the harness does:**
 
-- acts as the OneMillion orchestrator first, then the Idea agent
-- teaches the agent roster before assigning the artifact
-- explains PRD, user stories, use cases, and KPIs at a beginner level
+- teaches idea generation before asking for fields
 - acts as the Idea agent
-- helps compare ideas without choosing for the learner
-- keeps scope small
-- validates that the idea is specific enough
+- interviews the learner one question at a time
+- explains user stories, success criteria, KPIs, and TAM/SAM/SOM
+- drafts the PRD from the learner's answers
+- marks unverified market claims as assumptions
+- asks the learner to open, review, edit, and save the PRD
 
 **Done means:**
 
+- `.onemillion/idea-brief.md` exists
 - `my-onemillion-build/.onemillion/project.json` exists
-- product type is one of `web_app`, `ai_agent`, `hybrid`
-- idea names a specific user and pain
+- `.onemillion/prd.md` exists
+- PRD includes user, pain, unmet need, data sources, ideal solution, usage moment, user stories, success criteria, KPIs, competitive alternatives, TAM/SAM/SOM, and assumptions for Day 2
+- learner reviewed and saved the PRD
 - progress tracker exists
-- learner can explain which agent they are using and why
 
 ## Day 2: Problem + Research
 

@@ -1,7 +1,12 @@
 {
   "day": 1,
-  "title": "OneMillion Pipeline + Idea Lab",
+  "title": "Idea Agent + PRD Draft",
   "structural_checks": [
+    {
+      "id": "idea_brief_exists",
+      "type": "file_exists",
+      "path": ".onemillion/idea-brief.md"
+    },
     {
       "id": "project_json_exists",
       "type": "file_exists",
@@ -27,6 +32,13 @@
       "min_length": 30
     },
     {
+      "id": "target_user_set",
+      "type": "json_field_min_length",
+      "path": ".onemillion/project.json",
+      "field": "target_user",
+      "min_length": 5
+    },
+    {
       "id": "builder_name_set",
       "type": "json_field_not_placeholder",
       "path": ".onemillion/project.json",
@@ -38,12 +50,57 @@
       "type": "json_field_iso_date",
       "path": ".onemillion/project.json",
       "field": "started_at"
+    },
+    {
+      "id": "prd_exists",
+      "type": "file_exists",
+      "path": ".onemillion/prd.md"
+    },
+    {
+      "id": "progress_exists",
+      "type": "file_exists",
+      "path": ".onemillion/progress.md"
+    },
+    {
+      "id": "idea_brief_sections",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/idea-brief.md",
+      "required_headings": ["Raw Idea", "User", "Pain", "Data", "Ideal Solution", "Usage", "User Stories", "Success", "KPI"]
+    },
+    {
+      "id": "prd_sections",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/prd.md",
+      "required_headings": ["Product Summary", "User", "Pain", "Unmet Need", "Data", "Ideal Solution", "Usage", "User Stories", "Success", "KPI", "Competitive", "TAM", "Assumptions"]
+    },
+    {
+      "id": "three_user_stories",
+      "type": "regex_count",
+      "path": ".onemillion/prd.md",
+      "pattern": "As (?:a |an )?[^,]+, I want to [^\\n]+ so that",
+      "min_count": 3
     }
   ],
   "quality_checks": [
     {
-      "id": "idea_specificity",
-      "criteria": "Idea has a specific user (named or describable), specific pain point, hints at success outcome"
+      "id": "idea_pain_driven",
+      "criteria": "Idea is driven by an unmet user need or pain point, not a technology gimmick"
+    },
+    {
+      "id": "user_specific_enough",
+      "criteria": "Target user is specific enough to interview on Day 2"
+    },
+    {
+      "id": "data_sources_plausible",
+      "criteria": "Data sources or formats are plausible or clearly marked as assumptions"
+    },
+    {
+      "id": "kpis_measure_usefulness",
+      "criteria": "KPIs measure usefulness, task completion, time saved, quality, or retention rather than vanity"
+    },
+    {
+      "id": "market_notes_honest",
+      "criteria": "Competitive alternatives and TAM/SAM/SOM are honest about assumptions if research has not been verified"
     }
   ]
 }

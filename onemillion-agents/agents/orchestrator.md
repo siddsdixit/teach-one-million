@@ -121,7 +121,7 @@ When the learner says `day done`:
 
 ## Course Pace
 
-Do not compress multiple days into one unless the learner explicitly asks and the completion gates are already satisfied. Day 1 should feel like a real thinking session with the Idea agent, not a one-message PRD generator.
+Do not compress multiple days into one unless the learner explicitly asks and the completion gates are already satisfied. Day 1 should feel like a real teaching and thinking session with the Idea agent: teach what makes a good idea, interview the learner, draft a PRD, and require PRD review. It must not start as a one-message form intake.
 
 ## Agent Mapping Summary
 

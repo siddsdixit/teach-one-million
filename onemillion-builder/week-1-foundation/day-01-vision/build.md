@@ -9,82 +9,205 @@
   <a href="./loom.md">Video</a>
 </p>
 
-**No code today.** This is your "learn the OneMillion pipeline, set up your product folder, and write down your idea" day.
+**No code today.** Today you run an Idea agent session and create your first PRD.
 
-If you've already done [getting-started.md](../../docs/getting-started.md), you have all the tools. We're just creating a folder and a file.
+The harness should not begin with a short intake form. That is too abrupt. Day 1 starts with teaching.
 
 ---
 
 ## Before You Start
 
-- [ ] Terminal is open (Mac: Terminal app. Windows: Git Bash.)
-- [ ] You have read the OneMillion pipeline section in [learn.md](./learn.md)
-- [ ] You've decided on a `product_type` (web_app / ai_agent / hybrid) — see [learn.md](./learn.md) Part 3
-- [ ] You've drafted an idea (2 sentences) — see [learn.md](./learn.md) Today's Assignment
+- [ ] Day 0 verified.
+- [ ] You are in the cloned course fork.
+- [ ] You have read [learn.md](./learn.md).
+- [ ] You are ready to think out loud with the Idea agent.
 
 ---
 
-## Step 1: Ask Your Harness To Explain The Pipeline
+## Step 1: Create Your Product Workspace
 
-Before you create files, make the harness teach the OneMillion development pipeline in plain language:
+From the root of your cloned course fork:
+
+```bash
+mkdir -p my-onemillion-build/.onemillion
+cd my-onemillion-build
+```
+
+Keep the product folder inside the cloned course repo unless your harness deliberately updates `.onemillion/state.json`.
+
+---
+
+## Step 2: Ask The Harness To Teach Idea Generation
+
+Paste this:
 
 ```text
 I am on OneMillion Day 1.
 
-Before we create files, explain the OneMillion development pipeline:
-idea -> research -> PRD -> validate spec -> design -> plan -> build -> review -> test -> guard -> ship -> sell.
+Do not ask me for a short form yet.
 
-For each stage, tell me:
-1. what the stage is for,
-2. which OneMillion agent helps,
-3. what artifact gets produced,
-4. why this matters for my product.
+Teach me what makes a good product idea:
+- unmet user need
+- pain point
+- user and usage moment
+- data sources or formats
+- ideal solution
+- user stories
+- success criteria
+- KPIs
 
-Keep it beginner-friendly and then help me pick my Day 1 product direction.
+Then interview me one question at a time as the OneMillion Idea agent.
+Your goal is to help me create:
+1. .onemillion/idea-brief.md
+2. .onemillion/project.json
+3. .onemillion/prd.md
+
+After drafting the PRD, ask me to open it, review it, edit anything I disagree with, and save it.
 ```
 
-You should understand that Day 1 is not random brainstorming. It is the first stage of the pipeline.
+The harness should explain before it asks.
 
 ---
 
-## Step 2: Create Your Project Folder
+## Step 3: Answer The Idea Agent Interview
 
-In your terminal, navigate to the root of your cloned course fork:
+The Idea agent should ask you about these topics one at a time.
 
-```bash
-cd /path/to/teach-one-million
+Answer in plain language. Rough notes are fine.
+
+```markdown
+# Idea Brief
+
+## Raw Idea
+[What are you thinking of building?]
+
+## User
+[Who has this problem?]
+
+## Pain Point / Unmet Need
+[What painful or unmet need drives the idea?]
+
+## Current Workaround
+[What do they do today instead?]
+
+## Data Sources / Formats
+[What data, files, systems, or formats will the product use?]
+
+## Ideal Solution
+[If you close your eyes, what does the finished solution look like?]
+
+## Usage Moment
+[When the solution exists, how do users use it?]
+
+## People / Roles
+[Who are the users or stakeholders?]
+
+## User Stories
+- As a [user], I want to [action] so that [outcome].
+- As a [user], I want to [action] so that [outcome].
+- As a [user], I want to [action] so that [outcome].
+
+## Success Criteria
+[What must be true for v1 to count as working?]
+
+## KPIs
+- [Measurable usefulness signal 1]
+- [Measurable usefulness signal 2]
+- [Measurable usefulness signal 3]
 ```
 
-Then create the product folder inside that course repo:
+The harness should save this to:
 
-```bash
-mkdir my-onemillion-build
-cd my-onemillion-build
+```text
+.onemillion/idea-brief.md
 ```
-
-**You should see:** Your terminal prompt now shows you're inside `my-onemillion-build`.
-
-> 💡 Keep the product folder inside your cloned course repo. The installer and verifier expect `teach-one-million/my-onemillion-build` unless your harness deliberately updates `.onemillion/state.json`.
 
 ---
 
-## Step 3: Create The Hidden Course Folder
+## Step 4: Create `project.json`
 
-The course uses a folder called `.onemillion/` (the dot makes it hidden) to track your progress and store course-specific files. Create it:
+The harness should create `.onemillion/project.json` from the idea brief.
 
-```bash
-mkdir .onemillion
+Required shape:
+
+```json
+{
+  "product_type": "web_app",
+  "idea": "One or two clear sentences describing the user, pain, and proposed solution.",
+  "target_user": "Specific user or role",
+  "builder_name": "Your Name",
+  "started_at": "2026-05-31"
+}
 ```
 
-**You should see:** Nothing visible if you run `ls`, because `.onemillion/` is hidden. Run `ls -la` to see all files including hidden ones.
+`product_type` must be one of:
+
+- `web_app`
+- `ai_agent`
+- `hybrid`
+
+If you are unsure, choose the smallest honest option. Many first products are `web_app` or `hybrid`.
 
 ---
 
-## Step 4: Create Your Progress Tracker
+## Step 5: Have The Idea Agent Draft The PRD
 
-The course uses `.onemillion/progress.md` as your restart point. If you fall behind, this file tells you where to resume.
+Ask the harness:
 
-Create `.onemillion/progress.md` and paste this:
+```text
+Use my idea brief to act as the OneMillion Idea agent.
+
+Create a first PRD at .onemillion/prd.md.
+
+The PRD must include:
+1. Product summary
+2. User and pain point
+3. Unmet need
+4. Data sources and formats
+5. Ideal solution
+6. Usage moment
+7. User stories
+8. Success criteria
+9. KPIs
+10. Competitive alternatives and market notes
+11. TAM/SAM/SOM explained simply
+12. Assumptions to validate on Day 2
+
+Do not pretend the research is proven yet. Mark competitor and market sections as first-pass assumptions if you cannot verify them.
+```
+
+The Idea agent can use general reasoning and any local context. If it performs web research, it should cite sources in the PRD. If it cannot research live, it should clearly mark market notes as assumptions for Day 2.
+
+---
+
+## Step 6: Review The PRD
+
+Open:
+
+```bash
+code .onemillion/prd.md
+```
+
+Read it like the product owner.
+
+Ask:
+
+- Do I agree with the user?
+- Is the pain real enough?
+- Are the data sources realistic?
+- Does the ideal solution match what I imagine?
+- Do the user stories sound like real behavior?
+- Are the KPIs measurable?
+- Are TAM/SAM/SOM reasonable enough as first-pass thinking?
+- What assumptions need to be tested on Day 2?
+
+Edit anything you disagree with. Then save the file.
+
+---
+
+## Step 7: Create Your Progress Tracker
+
+Create `.onemillion/progress.md`:
 
 ```markdown
 # OneMillion Progress
@@ -94,8 +217,8 @@ Create `.onemillion/progress.md` and paste this:
 - **Builder name:** [Your name]
 - **Product name:** [Product name or "not named yet"]
 - **Target user:** [Specific user]
-- **Current day:** Day 1
-- **Last verified day:** None
+- **Current day:** Day 1 complete
+- **Last verified day:** Day 1
 
 ## Links
 
@@ -107,51 +230,14 @@ Create `.onemillion/progress.md` and paste this:
 
 ## Current State
 
-- **What works now:** Day 1 setup in progress
+- **What works now:** Idea brief and PRD draft created
 - **Current blocker:** None
-- **Next smallest action:** Finish project.json
+- **Next smallest action:** Day 2 research
 ```
-
-Fill in your name, product name if you have one, and target user. A fuller template lives at [templates/progress.md](../../docs/templates/progress.md).
 
 ---
 
-## Step 5: Create `project.json`
-
-This file holds the answers to "what am I building?" The verifier reads it on every day to check your progress.
-
-Open your editor:
-
-```bash
-code .            # opens VS Code in this folder
-```
-
-In your editor, create a new file: `.onemillion/project.json`
-
-Paste this in, then **edit the values** to match YOUR product:
-
-```json
-{
-  "product_type": "web_app",
-  "idea": "Yoga studio owners spend hours each week manually following up with clients who didn't rebook. I want a tool that automates the follow-up while letting the owner approve each message before it goes.",
-  "builder_name": "Your Name",
-  "started_at": "2026-05-18"
-}
-```
-
-**Replace:**
-- `product_type` → `web_app`, `ai_agent`, or `hybrid`
-- `idea` → your 2-sentence idea from learn.md
-- `builder_name` → your actual name
-- `started_at` → today's date
-
-Save the file.
-
----
-
-## Step 6: Run Day 1 Verification
-
-You're going to ask your coding harness to check your work. This is how every day ends — the AI verifies that you actually did what you were supposed to.
+## Step 8: Run Day 1 Verification
 
 In your terminal, in `my-onemillion-build`:
 
@@ -159,26 +245,19 @@ In your terminal, in `my-onemillion-build`:
 claude
 ```
 
-Your coding harness starts. Once it is ready, ask it to run the day verifier or paste the fallback verifier prompt.
-
-**You should see:** Claude reads your `.onemillion/project.json`, checks each requirement, and reports back. Either:
-- ✅ **Pass** — Day 1 complete, you can move on to Day 2
-- ⚠️ **Needs revision** — specific feedback on what to fix
-
-If needs revision, fix the issues and re-paste the verification prompt.
+Paste the contents of [`ai-instructions-day-01.md`](./ai-instructions-day-01.md), or ask your harness to run the Day 1 verifier.
 
 ---
 
 ## What Should Be True After Day 1
 
-- [ ] `teach-one-million/my-onemillion-build/` folder exists inside your cloned course repo
-- [ ] `.onemillion/progress.md` exists
-- [ ] `.onemillion/project.json` exists and is valid JSON
-- [ ] `product_type` is one of `web_app`, `ai_agent`, or `hybrid`
-- [ ] `idea` is 2 sentences with a specific user and specific pain
-- [ ] You can explain the OneMillion pipeline in plain language
-- [ ] You know which agent is helping today: `idea`
-- [ ] Verification ran and returned "Pass" (or you've addressed all revision notes)
+- [ ] `teach-one-million/my-onemillion-build/` exists.
+- [ ] `.onemillion/idea-brief.md` exists.
+- [ ] `.onemillion/project.json` exists and is valid JSON.
+- [ ] `.onemillion/prd.md` exists.
+- [ ] PRD includes user, pain, unmet need, data, ideal solution, user stories, success criteria, KPIs, competitive alternatives, TAM/SAM/SOM, and assumptions for Day 2.
+- [ ] You opened, reviewed, edited if needed, and saved the PRD.
+- [ ] Verification passed.
 
 ---
 
@@ -190,8 +269,6 @@ Before you close today, open `.onemillion/progress.md` and update:
 - **Last verified day:** Day 1
 - **Current blocker:** None, or the exact blocker to resume from
 - **Next smallest action:** Open Day 2.
-
-If verification did not pass yet, keep **Last verified day** at the previous passed day and write the blocker clearly.
 
 ## If You Are Stuck
 
@@ -223,12 +300,11 @@ Ask for one missing detail at a time if needed.
 
 | Problem | Fix |
 |---------|-----|
-| `mkdir: command not found` | You're on Windows in CMD. Switch to Git Bash. |
-| `mkdir: cannot create directory: Permission denied` | You're trying to create in a protected folder. Run `cd ~` first to go to your home folder. |
-| Editor command `code` not found | Open VS Code manually, then File → Open → navigate to your folder. Then in VS Code: Cmd/Ctrl+Shift+P → "Shell Command: Install 'code' command". |
-| JSON syntax error in verification | Check for missing commas, missing quotes, or trailing commas. Use [jsonlint.com](https://jsonlint.com) to find the issue. |
-| your harness says "I can't find project.json" | Make sure you're running `claude` from inside `my-onemillion-build`, not from your home folder. |
-| `.onemillion/` folder not visible | It's hidden (starts with `.`). Use `ls -la` to see it, or in VS Code use Cmd+Shift+. to toggle hidden files. |
+| The harness asks for a short form immediately | Tell it: "Teach idea generation first, then interview me one question at a time." |
+| I do not know the data sources yet | Guess honestly and mark them as assumptions to validate on Day 2. |
+| TAM/SAM/SOM feels abstract | Keep it directional. SOM, the reachable first audience, matters most right now. |
+| The PRD invents facts | Edit them into assumptions or ask the harness to mark them for Day 2 validation. |
+| `code` is not found | Open VS Code manually, then open the `my-onemillion-build` folder. |
 
 ---
 

@@ -204,11 +204,104 @@ def create_day1_project(path: Path) -> Path:
             {
                 "product_type": "web_app",
                 "idea": "Independent yoga studio owners forget to follow up with clients who do not rebook after a class. FollowUpPilot drafts approval-based rebooking messages so owners can recover missed revenue without sounding robotic.",
+                "target_user": "independent yoga studio owners",
                 "builder_name": "Sim Learner",
                 "started_at": "2026-05-30",
             },
             indent=2,
         )
+    )
+    (product / ".onemillion/idea-brief.md").write_text(
+        """# Idea Brief
+
+## Raw Idea
+FollowUpPilot drafts approval-based rebooking messages for yoga studio owners.
+
+## User
+Independent yoga studio owners.
+
+## Pain Point / Unmet Need
+Owners forget to follow up with clients who attend one class but do not rebook.
+
+## Current Workaround
+Manual review of class attendance exports and ad hoc messages.
+
+## Data Sources / Formats
+- Class attendance CSV exports
+- Client names and emails
+- Message notes entered by the owner
+
+## Ideal Solution
+A simple dashboard that finds missed rebooking opportunities and drafts messages for owner approval.
+
+## Usage Moment
+The owner opens it after classes each week and reviews follow-up drafts.
+
+## People / Roles
+- Yoga studio owner
+- Recent class attendee
+
+## User Stories
+- As a yoga studio owner, I want to upload attendance data so that I can see who did not rebook.
+- As a yoga studio owner, I want to review drafted messages so that I stay in control.
+- As a yoga studio owner, I want to mark follow-ups sent so that I know what is complete.
+
+## Success Criteria
+An owner can identify missed rebookings, review a draft, and mark it sent.
+
+## KPIs
+- Owner creates one follow-up list.
+- Owner approves one drafted message.
+- Owner returns after the next class.
+"""
+    )
+    (product / ".onemillion/prd.md").write_text(
+        """# FollowUpPilot PRD
+
+## Product Summary
+FollowUpPilot helps independent yoga studio owners recover missed rebookings by drafting approval-based follow-up messages.
+
+## User And Pain Point
+Independent yoga studio owners lose revenue when students attend once and do not rebook. Follow-up is manual and easy to forget.
+
+## Unmet Need
+Owners need a simple way to see who needs follow-up and send a personal message without starting from scratch.
+
+## Data Sources And Formats
+- Class attendance CSV exports
+- Client names and emails
+- Message notes entered by the owner
+
+## Ideal Solution
+A simple dashboard that finds missed rebooking opportunities and drafts messages for owner approval.
+
+## Usage Moment
+The owner opens it after classes each week and reviews follow-up drafts.
+
+## User Stories
+- As a yoga studio owner, I want to upload attendance data so that I can see who did not rebook.
+- As a yoga studio owner, I want to review drafted messages so that I stay in control.
+- As a yoga studio owner, I want to mark follow-ups sent so that I know what is complete.
+
+## Success Criteria
+An owner can identify missed rebookings, review a draft, and mark it sent.
+
+## KPIs
+- Owner creates one follow-up list.
+- Owner approves one drafted message.
+- Owner returns after the next class.
+
+## Competitive Alternatives And Market Notes
+Likely alternatives include spreadsheets, booking-system reports, email templates, and manual reminders. These are first-pass assumptions for Day 2 validation.
+
+## TAM / SAM / SOM
+TAM is all small service businesses that rely on repeat bookings. SAM is independent fitness and wellness studios. SOM is the first reachable set of yoga studio owners the builder can interview or contact. This is directional and must be validated.
+
+## Assumptions To Validate On Day 2
+- Owners can export or access attendance data.
+- Missed rebooking follow-up is painful enough.
+- Owners want approval-based drafts instead of full automation.
+"""
     )
     return product
 

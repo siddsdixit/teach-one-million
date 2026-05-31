@@ -39,7 +39,7 @@ Your official Builder #N is issued after the Builder Claim is accepted.
 ### Layer 1: Structural Checks
 File exists. JSON is valid. URL returns 200. The live page contains text from the local source. API endpoint behavior matches expectations. RLS is enabled. These are binary — either they're true or they're not.
 
-Deployment verification is not just "the URL loaded." For deploy days, the verifier should fetch the live URL and compare what it sees against local code or expected artifacts. Example: Day 4 checks that the live homepage contains meaningful text from `app/page.tsx`; Day 5 checks that `/signup` contains text from the local signup page.
+Deployment verification is not just "the URL loaded." For deploy days, the verifier should fetch the live URL and compare what it sees against local code or expected artifacts. Example: Day 6 checks that the live homepage contains meaningful text from `app/page.tsx`; later deploy gates should compare the live product against local source markers or inspectable product evidence.
 
 ### Layer 2: Quality Checks (AI-Graded)
 Is the PRD actually specific enough? Is the prompt well-designed? Does the landing page communicate clearly? These require judgment. Claude reviews and reports.

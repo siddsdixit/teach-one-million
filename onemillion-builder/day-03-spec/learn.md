@@ -398,4 +398,4 @@ Tomorrow: first app + first deploy.
 
 ---
 
-→ **Next:** [Day 4 — Stack + First Deploy](../day-04-design/learn.md)
+→ **Next:** [Day 4 — Design The Product](../day-04-design/learn.md)

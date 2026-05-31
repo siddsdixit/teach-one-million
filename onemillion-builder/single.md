@@ -391,41 +391,57 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 ## Day 4: Design The Product
 
-**Purpose:** use the Design agent to turn `.onemillion/refined-prd.md` into screens, flows, states, copy, and MUI design language.
+**Purpose:** use the Design agent to turn `.onemillion/refined-prd.md` into screens, flows, states, copy, seed data, MUI design language, and a preview the learner can approve before code.
 
-**Why it matters:** design is not decoration. Design decides what the learner is asking the build agent to create. A good design spec prevents random UI, missing states, and rebuilds later.
+**Why it matters:** design is not decoration. Design is product behavior made visible. A good design stage prevents random UI, missing states, generic MUI defaults, and rebuilds later.
 
 **What the learner learns:**
 
-- what product design means before code
-- primary user journeys
-- screens, flows, and states
+- what good product design means before code
+- how the target audience changes visual and interaction choices
+- how web app, mobile-first, desktop-first, and responsive design differ
+- design direction: a one-sentence aesthetic intent that drives the product
+- primary user journeys, screens, flows, and states
 - loading, empty, error, success, partial, and full states
 - MUI / Material Design as the course UI language
-- how to review a design spec before building
+- typography, color, density, navigation, component choices, motion, and accessibility
+- why realistic seed data makes the first build feel alive
+- how to review a mockup before building
 
 **What the learner does:**
 
 - reviews the Day 3 refined PRD
-- chooses a visual direction with the Design agent
+- chooses primary device, audience assumptions, visual direction, seed color, heading font, density, navigation, and copy tone with the Design agent
 - identifies the main screens and user flow
+- reviews screen specs, content states, MUI component mapping, design tokens, seed data, and mockup
 - reviews the generated design spec
-- approves or edits the design direction
+- approves or revises the design direction before Day 5
 
 **What the harness does:**
 
 - acts as the Design agent
 - reads `.onemillion/refined-prd.md`
-- teaches design concepts before asking for style choices
+- teaches design concepts before asking for style choices: good design, audience-based design, web/mobile tradeoffs, MUI/Material Design 3, content states, motion, accessibility, and seed data
+- extracts every screen/page implied by the refined PRD
 - creates `.onemillion/design-spec.md`
 - creates `.onemillion/design-system.md`
-- defines MUI component patterns, states, layout, responsive behavior, and copy tone
+- creates `.onemillion/globals.css`
+- creates `.onemillion/screens/`
+- creates `.onemillion/seed-data.json`
+- creates `.onemillion/mockup/index.html` for web app or hybrid products
+- defines MUI component patterns, states, layout, responsive behavior, motion, accessibility, seed data, and copy tone
 
 **Done means:**
 
 - `.onemillion/design-spec.md` exists
 - `.onemillion/design-system.md` exists
+- `.onemillion/screens/` contains main screen specs
+- `.onemillion/seed-data.json` exists
+- `.onemillion/mockup/index.html` exists for web app or hybrid products
 - main screens and states are described
+- mobile and desktop behavior are described
+- MUI / Material Design 3 component patterns are named
+- realistic seed data exists
 - learner approved the design direction
 
 ## Day 5: Plan Architecture

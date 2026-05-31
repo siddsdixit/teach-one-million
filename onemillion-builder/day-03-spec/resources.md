@@ -23,4 +23,4 @@
 - **[The Build Trap](https://www.amazon.com/Escaping-Build-Trap-Effective-Management/dp/149197379X)** by Melissa Perri — why feature factories fail
 
 ## What's next
-- [Day 4 — Stack + First Deploy](../day-04-design/learn.md) — write code, ship a URL
+- [Day 4 — Design The Product](../day-04-design/learn.md) — turn the refined PRD into screens, design language, seed data, and a mockup

@@ -1,74 +1,72 @@
 {
   "day": 6,
-  "title": "Core Feature CRUD",
+  "title": "App Shell + First Deploy",
   "structural_checks": [
     {
-      "id": "api_route_exists",
-      "type": "file_exists_glob",
-      "patterns": ["app/api/*/route.ts"],
-      "min_match_count": 1,
-      "note": "At least one API route file for the builder's entity"
+      "id": "package_json_exists",
+      "type": "file_exists",
+      "path": "package.json"
     },
     {
-      "id": "entity_page_exists",
-      "type": "file_exists_glob",
-      "patterns": ["app/*/page.tsx"],
-      "exclude": ["app/page.tsx", "app/login/page.tsx", "app/signup/page.tsx", "app/dashboard/page.tsx"],
-      "min_match_count": 1
+      "id": "next_react_mui_in_dependencies",
+      "type": "json_field_contains",
+      "path": "package.json",
+      "field": "dependencies",
+      "required_keys": ["next", "react", "@mui/material"]
+    },
+    {
+      "id": "app_page_exists",
+      "type": "file_exists",
+      "path": "app/page.tsx"
+    },
+    {
+      "id": "app_page_customized",
+      "type": "file_not_contains",
+      "path": "app/page.tsx",
+      "blocked_strings": ["Get started by editing"]
+    },
+    {
+      "id": "gitignore_set",
+      "type": "file_contains",
+      "path": ".gitignore",
+      "required_strings": ["node_modules", ".env.local"]
+    },
+    {
+      "id": "git_initialized",
+      "type": "directory_exists",
+      "path": ".git"
     }
   ],
   "code_quality_checks": [
     {
-      "id": "api_uses_server_supabase",
+      "id": "mui_used_in_app",
       "type": "file_contains",
-      "path_pattern": "app/api/**/route.ts",
-      "required_strings": ["createClient", "auth.getUser"]
-    },
-    {
-      "id": "api_inserts_user_id",
-      "type": "file_contains",
-      "path_pattern": "app/api/**/route.ts",
-      "required_strings": ["user_id"]
-    },
-    {
-      "id": "api_handles_unauthenticated",
-      "type": "file_contains",
-      "path_pattern": "app/api/**/route.ts",
-      "required_strings": ["401"]
-    }
-  ],
-  "manual_checks": [
-    {
-      "id": "incognito_test_passed",
-      "ask": "Did you sign up as a second user in incognito mode and confirm they see NO data from the first user? (Critical — confirms RLS is working.)"
-    },
-    {
-      "id": "full_crud_works_live",
-      "ask": "Did you test create, read, update, AND delete on your LIVE Vercel URL (not just localhost)?"
-    },
-    {
-      "id": "loading_empty_error_states",
-      "ask": "Does your UI handle loading (spinner), empty (no items yet), and error states?"
+      "path_pattern": "app/**/*.tsx",
+      "any_of_strings": ["@mui/material", "ThemeProvider", "CssBaseline"]
     }
   ],
   "remote_checks": [
     {
-      "id": "vercel_url_live",
+      "id": "git_remote_set",
+      "type": "shell_command",
+      "command": "git remote -v",
+      "expected_pattern": "github.com"
+    },
+    {
+      "id": "vercel_url_responds",
       "type": "http_check",
       "url_source": "ask_builder",
       "url_prompt": "What is your Vercel URL?",
       "expected_status": [200, 304]
     },
     {
-      "id": "deployment_matches_local_app_source",
+      "id": "deployment_matches_homepage_source",
       "type": "deployment_matches_source",
       "url_source": "ask_builder",
       "source_paths": ["app/page.tsx"],
-      "source_globs": ["app/*/page.tsx"],
-      "exclude": ["app/login/page.tsx", "app/signup/page.tsx"],
       "min_marker_count": 1,
       "expected_status": [200, 304],
-      "note": "Fetches the live app and confirms at least one meaningful local page text marker appears in the deployment."
+      "note": "Fetches the live deployment and confirms at least one meaningful text marker from app/page.tsx appears in the deployed page."
     }
   ]
 }

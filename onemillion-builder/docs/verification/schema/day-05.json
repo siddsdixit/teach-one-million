@@ -1,114 +1,73 @@
 {
   "day": 5,
-  "title": "Auth + Database",
+  "title": "Plan Architecture",
   "structural_checks": [
     {
-      "id": "supabase_libs_installed",
-      "type": "json_field_contains",
-      "path": "package.json",
-      "field": "dependencies",
-      "required_keys": ["@supabase/supabase-js", "@supabase/ssr"]
-    },
-    {
-      "id": "env_local_exists",
+      "id": "architecture_exists",
       "type": "file_exists",
-      "path": ".env.local"
+      "path": ".onemillion/architecture.md"
     },
     {
-      "id": "supabase_env_vars",
-      "type": "file_contains",
-      "path": ".env.local",
-      "required_strings": ["NEXT_PUBLIC_SUPABASE_URL"],
-      "any_of_strings": ["NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "NEXT_PUBLIC_SUPABASE_ANON_KEY"]
+      "id": "sprints_directory_exists",
+      "type": "directory_exists",
+      "path": ".onemillion/sprints"
     },
     {
-      "id": "env_local_gitignored",
-      "type": "file_contains",
-      "path": ".gitignore",
-      "required_strings": [".env.local"]
-    },
-    {
-      "id": "signup_page_exists",
+      "id": "sprint_briefs_exist",
       "type": "file_exists_glob",
-      "patterns": ["app/signup/page.tsx", "app/(auth)/signup/page.tsx"]
-    },
-    {
-      "id": "login_page_exists",
-      "type": "file_exists_glob",
-      "patterns": ["app/login/page.tsx", "app/(auth)/login/page.tsx"]
-    },
-    {
-      "id": "auth_callback_exists",
-      "type": "file_exists_glob",
-      "patterns": ["app/auth/callback/route.ts", "app/auth/callback/route.tsx"]
-    },
-    {
-      "id": "dashboard_exists",
-      "type": "file_exists_glob",
-      "patterns": ["app/dashboard/page.tsx", "app/(protected)/dashboard/page.tsx"]
-    },
-    {
-      "id": "middleware_exists",
-      "type": "file_exists",
-      "path": "middleware.ts"
-    },
-    {
-      "id": "supabase_client_utility",
-      "type": "file_exists_glob",
-      "patterns": ["lib/supabase/client.ts", "lib/supabase/server.ts", "utils/supabase/client.ts"]
+      "patterns": [".onemillion/sprints/*.md"],
+      "min_match_count": 1
     }
   ],
   "code_quality_checks": [
     {
-      "id": "signup_uses_supabase_auth",
-      "type": "file_contains",
-      "path_pattern": "app/**/signup/page.tsx",
-      "required_strings": ["signUp"]
+      "id": "architecture_sections",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/architecture.md",
+      "required_headings": [
+        "Backend Path",
+        "Data Model",
+        "API",
+        "Frontend",
+        "Deployment"
+      ]
     },
     {
-      "id": "login_uses_supabase_auth",
+      "id": "backend_path_recorded",
       "type": "file_contains",
-      "path_pattern": "app/**/login/page.tsx",
-      "required_strings": ["signInWithPassword"]
+      "path": ".onemillion/architecture.md",
+      "any_of_strings": [
+        "Supabase-only",
+        "Supabase only",
+        "FastAPI"
+      ]
     },
     {
-      "id": "middleware_refreshes_session",
+      "id": "course_stack_named",
       "type": "file_contains",
-      "path": "middleware.ts",
-      "required_strings": ["supabase", "getUser"]
+      "path": ".onemillion/architecture.md",
+      "required_strings": ["Next.js", "Supabase", "Vercel"],
+      "any_of_strings": ["MUI", "Material Design", "Material UI"]
+    },
+    {
+      "id": "sprint_brief_has_build_contract",
+      "type": "file_contains",
+      "path_pattern": ".onemillion/sprints/*.md",
+      "any_of_strings": [
+        "Acceptance Criteria",
+        "Verification Gate",
+        "Design Notes"
+      ]
     }
   ],
   "manual_checks": [
     {
-      "id": "vercel_env_vars_set",
-      "ask": "Did you add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your Vercel project's Environment Variables?"
+      "id": "backend_path_approved",
+      "ask": "Did you approve the backend path decision: Supabase-only unless FastAPI is clearly justified?"
     },
     {
-      "id": "rls_enabled",
-      "ask": "Did you enable Row Level Security on your first table in Supabase?"
-    },
-    {
-      "id": "rls_policy_exists",
-      "ask": "Did you add at least one RLS policy that uses auth.uid()?"
-    }
-  ],
-  "remote_checks": [
-    {
-      "id": "live_signup_responds",
-      "type": "http_check",
-      "url_source": "build_from_vercel_base",
-      "path_suffix": "/signup",
-      "expected_status": [200, 304]
-    },
-    {
-      "id": "deployment_matches_signup_source",
-      "type": "deployment_matches_source",
-      "url_source": "build_from_vercel_base",
-      "path_suffix": "/signup",
-      "source_globs": ["app/**/signup/page.tsx"],
-      "min_marker_count": 1,
-      "expected_status": [200, 304],
-      "note": "Fetches the live /signup route and confirms it contains text from the local signup page source."
+      "id": "plan_validation_complete",
+      "ask": "Did validate-plan pass, or were its findings resolved before moving to build?"
     }
   ]
 }

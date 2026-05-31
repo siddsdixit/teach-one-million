@@ -322,23 +322,37 @@
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "turn refined PRD into screens and flows",
-        "learn product design basics",
-        "define MUI design language",
-        "design loading, empty, error, and success states",
-        "review the design before code"
+        "explain what good product design means",
+        "choose design direction based on user audience and product type",
+        "decide mobile-first, desktop-first, or balanced responsive behavior",
+        "define MUI / Material Design 3 design language",
+        "design loading, empty, error, partial, full, and success states",
+        "create realistic seed data",
+        "review the mockup before code"
       ],
       "external_tools": [],
       "human_decisions": [
         "primary user flow",
+        "primary device",
+        "target audience design needs",
         "visual direction",
-        "MUI component choices",
+        "seed color and heading font",
+        "content density",
+        "navigation pattern",
+        "MUI / Material Design 3 component choices",
         "screen priority",
-        "copy tone"
+        "copy tone",
+        "mockup approval or revision"
       ],
       "completion_gate": [
         ".onemillion/design-spec.md exists",
         ".onemillion/design-system.md exists",
+        ".onemillion/screens/ contains main screen specs",
+        ".onemillion/seed-data.json exists",
         "main screens and states are described",
+        "loading, empty, error, partial, full, and success states are covered",
+        "mobile and desktop behavior are described",
+        "MUI / Material Design 3 component patterns are named",
         "learner approved the design direction"
       ]
     },

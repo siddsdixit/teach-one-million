@@ -1,64 +1,103 @@
 {
   "day": 4,
-  "title": "Stack + First Deploy",
+  "title": "Design The Product",
   "structural_checks": [
     {
-      "id": "package_json_exists",
+      "id": "design_spec_exists",
       "type": "file_exists",
-      "path": "package.json"
+      "path": ".onemillion/design-spec.md"
     },
     {
-      "id": "next_in_dependencies",
-      "type": "json_field_contains",
-      "path": "package.json",
-      "field": "dependencies",
-      "required_keys": ["next", "react"]
-    },
-    {
-      "id": "app_page_exists",
+      "id": "design_system_exists",
       "type": "file_exists",
-      "path": "app/page.tsx"
+      "path": ".onemillion/design-system.md"
     },
     {
-      "id": "app_page_customized",
-      "type": "file_not_contains",
-      "path": "app/page.tsx",
-      "blocked_strings": ["Get started by editing"]
-    },
-    {
-      "id": "gitignore_set",
-      "type": "file_contains",
-      "path": ".gitignore",
-      "required_strings": ["node_modules", ".env.local"]
-    },
-    {
-      "id": "git_initialized",
+      "id": "screens_directory_exists",
       "type": "directory_exists",
-      "path": ".git"
+      "path": ".onemillion/screens"
+    },
+    {
+      "id": "screen_specs_exist",
+      "type": "file_exists_glob",
+      "patterns": [".onemillion/screens/*.md"],
+      "min_match_count": 2
+    },
+    {
+      "id": "seed_data_exists",
+      "type": "file_exists",
+      "path": ".onemillion/seed-data.json"
+    },
+    {
+      "id": "seed_data_valid_json",
+      "type": "valid_json",
+      "path": ".onemillion/seed-data.json"
+    },
+    {
+      "id": "globals_css_exists",
+      "type": "file_exists",
+      "path": ".onemillion/globals.css"
+    },
+    {
+      "id": "mockup_exists",
+      "type": "file_exists",
+      "path": ".onemillion/mockup/index.html"
     }
   ],
-  "remote_checks": [
+  "code_quality_checks": [
     {
-      "id": "git_remote_set",
-      "type": "shell_command",
-      "command": "git remote -v",
-      "expected_pattern": "github.com"
+      "id": "design_spec_sections",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/design-spec.md",
+      "required_headings": [
+        "Design Direction",
+        "Primary User Flow",
+        "Screens",
+        "Content States",
+        "Responsive"
+      ]
     },
     {
-      "id": "vercel_url_responds",
-      "type": "http_check",
-      "url_source": "ask_builder",
-      "url_prompt": "What is your Vercel URL?",
-      "expected_status": [200, 304]
+      "id": "design_system_sections",
+      "type": "markdown_required_sections",
+      "path": ".onemillion/design-system.md",
+      "required_headings": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Components",
+        "Motion",
+        "Accessibility"
+      ]
     },
     {
-      "id": "deployment_matches_homepage_source",
-      "type": "deployment_matches_source",
-      "url_source": "ask_builder",
-      "source_paths": ["app/page.tsx"],
-      "min_marker_count": 1,
-      "expected_status": [200, 304],
-      "note": "Fetches the live deployment and confirms at least one meaningful text marker from app/page.tsx appears in the deployed page."
+      "id": "design_mentions_mui_or_material",
+      "type": "file_contains",
+      "path": ".onemillion/design-system.md",
+      "any_of_strings": ["MUI", "Material Design", "Material UI"]
+    },
+    {
+      "id": "states_are_defined",
+      "type": "file_contains",
+      "path": ".onemillion/design-spec.md",
+      "required_strings": ["Loading", "Empty", "Error"],
+      "any_of_strings": ["Partial", "Full", "Success"]
+    },
+    {
+      "id": "responsive_behavior_defined",
+      "type": "file_contains",
+      "path": ".onemillion/design-spec.md",
+      "any_of_strings": ["mobile", "Mobile", "desktop", "Desktop", "responsive", "Responsive", "tablet", "Tablet"]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "mockup_reviewed",
+      "ask": "Did you review the Day 4 mockup or screen specs and confirm they match your intended product direction?"
+    },
+    {
+      "id": "design_direction_approved",
+      "ask": "Did you approve the design direction, or request and complete revisions before moving on?"
     }
   ]
 }

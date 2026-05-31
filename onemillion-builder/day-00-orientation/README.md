@@ -60,10 +60,10 @@ That pipeline is the operating system for the course. Each stage answers a quest
 
 We introduce external tools only when the pipeline needs them:
 - GitHub today, because your fork is the course workspace and proof trail.
-- Vercel on Day 4, when you have an app shell to deploy.
-- Supabase on Day 5, when you add auth and database.
-- Anthropic on Day 8, when your AI feature is specified.
-- Sentry, analytics, and uptime monitoring on Day 15, when production needs observability.
+- Vercel on Day 6, when you have an app shell to deploy.
+- Supabase on Day 7, when you add auth and database.
+- Anthropic on Day 11 or Day 12, when your AI feature is specified and ready to build.
+- Monitoring, domain, analytics, and production checks on Day 16, when production needs observability.
 
 What you will do now:
 1. Read the mission and pipeline.

@@ -9,7 +9,8 @@ It creates throwaway clones/workspaces under /tmp and checks:
 - installer blocks unsafe states
 - installer succeeds in a fork-like local clone
 - Day 0/Day 1 artifacts can be created and verified
-- deployment/source matching verifier works on a local mock deployment
+- Day 4 design artifacts can be created and verified
+- Day 6 deployment/source matching verifier works on a local mock deployment
 """
 
 from __future__ import annotations
@@ -270,15 +271,111 @@ def test_day1_verifier(results: list[Result], tmp: Path) -> None:
     record(results, "day1_artifacts_pass_schema_verifier", passed, proc.stdout)
 
 
-def test_deployment_source_match(results: list[Result], tmp: Path) -> None:
+def create_day4_design_project(tmp: Path) -> Path:
+    product = tmp / "day4-design-product"
+    om = product / ".onemillion"
+    screens = om / "screens"
+    mockup = om / "mockup"
+    screens.mkdir(parents=True)
+    mockup.mkdir(parents=True)
+    (om / "design-spec.md").write_text(
+        """# Design Specification
+
+## Design Direction
+Clean operational dashboard for studio owners who need fast follow-up decisions.
+
+## Primary User Flow
+Owner opens dashboard, reviews at-risk clients, approves a follow-up, and sees a success state.
+
+## Screens
+- Dashboard
+- Client detail
+- Follow-up approval form
+
+## Content States
+- Loading: skeleton cards and table rows
+- Empty: no at-risk clients message with import CTA
+- Error: retry panel with plain-language issue
+- Partial: one to three clients
+- Full: seeded dashboard with trends, cards, and table
+- Success: snackbar after approval
+
+## Responsive Behavior
+Mobile uses bottom navigation and one-column cards. Desktop uses sidebar navigation, data table, and split detail panel.
+"""
+    )
+    (om / "design-system.md").write_text(
+        """# Design System
+
+## Color
+MUI / Material Design 3 seed color: #0f766e.
+
+## Typography
+Heading font: Space Grotesk. Body font: Plus Jakarta Sans.
+
+## Spacing
+4, 8, 12, 16, 24, 32, 48, 64.
+
+## Components
+MUI Button, Card, Chip, Table, Drawer, TextField, Skeleton, Snackbar, Dialog.
+
+## Motion
+150ms hover, 250ms page transitions, reduced-motion support.
+
+## Accessibility
+AA contrast, focus-visible rings, labels, aria-labels for icon buttons, keyboard navigation.
+"""
+    )
+    (om / "globals.css").write_text(":root { --md-sys-color-primary: #0f766e; }\n")
+    (screens / "dashboard.md").write_text("# Dashboard\n\nLoading, Empty, Error, Partial, Full, Success states.\n")
+    (screens / "client-detail.md").write_text("# Client Detail\n\nResponsive desktop split panel and mobile stacked layout.\n")
+    (om / "seed-data.json").write_text(
+        json.dumps(
+            {
+                "users": [{"name": "Maya Patel", "role": "studio owner"}],
+                "clients": [{"name": "Jordan Lee", "status": "at risk"}],
+            }
+        )
+    )
+    (mockup / "index.html").write_text("<html><body><h1>Studio follow-up dashboard</h1></body></html>")
+    return product
+
+
+def test_day4_design_verifier(results: list[Result], tmp: Path) -> None:
+    product = create_day4_design_project(tmp)
+    proc = run(
+        [
+            "python3",
+            str(REPO / "onemillion-builder/docs/verification/scripts/verify.py"),
+            "4",
+            "--project-dir",
+            str(product),
+            "--schema-dir",
+            str(REPO / "onemillion-builder/docs/verification/schema"),
+            "--write-report",
+        ],
+        REPO,
+    )
+    state_path = product / ".onemillion/state.json"
+    state = json.loads(state_path.read_text()) if state_path.exists() else {}
+    passed = proc.returncode == 0 and state.get("last_verified_day") == 4
+    record(results, "day4_design_artifacts_pass_schema_verifier", passed, proc.stdout)
+
+
+def test_day6_deployment_source_match(results: list[Result], tmp: Path) -> None:
     product = tmp / "deploy-match-product"
     (product / "app").mkdir(parents=True)
-    (product / "package.json").write_text(json.dumps({"dependencies": {"next": "15.0.0", "react": "19.0.0"}}))
+    (product / "package.json").write_text(
+        json.dumps({"dependencies": {"next": "15.0.0", "react": "19.0.0", "@mui/material": "6.0.0"}})
+    )
     (product / ".gitignore").write_text("node_modules\n.env.local\n")
     marker = "Hello from Sim Learner's OneMillion build"
     (product / "app/page.tsx").write_text(
+        """import { Button } from '@mui/material';
+
+"""
         f"""export default function Page() {{
-  return <main><h1>{marker}</h1><p>Day 4 deployed live.</p></main>;
+  return <main><h1>{marker}</h1><p>Day 6 deployed live.</p><Button>Start</Button></main>;
 }}
 """
     )
@@ -286,7 +383,7 @@ def test_deployment_source_match(results: list[Result], tmp: Path) -> None:
 
     web_root = tmp / "mock-deployment"
     web_root.mkdir()
-    (web_root / "index.html").write_text(f"<html><body><h1>{marker}</h1><p>Day 4 deployed live.</p></body></html>")
+    (web_root / "index.html").write_text(f"<html><body><h1>{marker}</h1><p>Day 6 deployed live.</p></body></html>")
 
     class Handler(SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
@@ -307,7 +404,7 @@ def test_deployment_source_match(results: list[Result], tmp: Path) -> None:
             [
                 "python3",
                 str(REPO / "onemillion-builder/docs/verification/scripts/verify.py"),
-                "4",
+                "6",
                 "--project-dir",
                 str(product),
                 "--schema-dir",
@@ -318,7 +415,7 @@ def test_deployment_source_match(results: list[Result], tmp: Path) -> None:
             REPO,
         )
         passed = proc.returncode == 0 and "deployment_matches_homepage_source" in proc.stdout
-        record(results, "deployment_source_match_verifier", passed, proc.stdout)
+        record(results, "day6_deployment_source_match_verifier", passed, proc.stdout)
     finally:
         server.shutdown()
 
@@ -371,7 +468,8 @@ def main() -> int:
         fork_repo = test_installer_succeeds_in_fork_like_clone(results, tmp)
         test_day0_state(results, fork_repo)
         test_day1_verifier(results, tmp)
-        test_deployment_source_match(results, tmp)
+        test_day4_design_verifier(results, tmp)
+        test_day6_deployment_source_match(results, tmp)
         code = print_report(results)
         if args.keep:
             print(f"Kept simulation directory: {tmp}")

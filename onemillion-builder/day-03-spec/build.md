@@ -327,4 +327,4 @@ Ask for one missing detail at a time if needed.
 
 ---
 
-→ **Done with Day 3?** Move to [Day 4 — Stack + First Deploy](../day-04-design/learn.md).
+→ **Done with Day 3?** Move to [Day 4 — Design The Product](../day-04-design/learn.md).

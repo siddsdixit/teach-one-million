@@ -67,13 +67,24 @@ Here is what must be true before you say `day done`.
 
 When a day uses an external tool, first open `onemillion-builder/docs/account-setup.md` and give:
 
-- exact link
+- exact full clickable link
 - exact account, key, or permission to create
 - exact QA check
 - what the harness can verify
 - what the learner must confirm manually
 
 Do not hide the real tool from the learner. The course teaches tool fluency.
+
+If you mention a provider name in an action step, include the exact full URL in the same message. Do not say only "go to Vercel," "open Supabase," "check Sentry," or "submit the form." Say:
+
+```text
+Open Vercel: https://vercel.com/new
+Open Supabase: https://database.new
+Open Sentry: https://sentry.io/signup/
+Open Loom: https://www.loom.com/
+```
+
+Provider links must be clickable in the learner's harness output.
 
 ## Day Done Response
 

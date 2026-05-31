@@ -106,6 +106,16 @@ def scan_persona_friction(persona: dict) -> list[str]:
     teaching = (ROOT / "docs/teaching-protocol.md").read_text()
     day0 = (ROOT / "day-0-commit/README.md").read_text()
     day1 = (ROOT / "week-1-foundation/day-01-vision/build.md").read_text()
+    day4 = (ROOT / "week-1-foundation/day-04-stack/build.md").read_text()
+    day5 = (ROOT / "week-1-foundation/day-05-auth/build.md").read_text()
+    day6 = (ROOT / "week-1-foundation/day-06-core-feature/build.md").read_text()
+    day8 = (ROOT / "week-2-make-it-ai/day-08-first-ai-call/build.md").read_text()
+    day10 = (ROOT / "week-2-make-it-ai/day-10-tool-use/build.md").read_text()
+    day13 = (ROOT / "week-3-ship-and-sell/day-13-hygiene/build.md").read_text()
+    day13_learn = (ROOT / "week-3-ship-and-sell/day-13-hygiene/learn.md").read_text()
+    day14 = (ROOT / "week-3-ship-and-sell/day-14-domain/build.md").read_text()
+    day15 = (ROOT / "week-3-ship-and-sell/day-15-monitoring/build.md").read_text()
+    day18 = (ROOT / "week-3-ship-and-sell/day-18-demo/build.md").read_text()
     account = (ROOT / "docs/account-setup.md").read_text()
     harness_readme = (ROOT / "docs/harnesses/README.md").read_text()
     harness_docs = "\n".join(path.read_text() for path in (ROOT / "docs/harnesses").glob("*.md"))
@@ -178,6 +188,92 @@ def scan_persona_friction(persona: dict) -> list[str]:
     for term in ["welcome to onemillion", "what this course is", "today is day 0", "what counts as done for day 0"]:
         if term not in day0_lower:
             frictions.append(f"Day 0 opening script missing required teaching phrase: {term}")
+
+    day0_commitment_terms = {
+        "https://www.linkedin.com/feed/": "Day 0 must provide the exact LinkedIn place to paste the public commitment.",
+        "https://www.linkedin.com/in/siddharthdixit": "Day 0 must provide Sid's LinkedIn profile for tagging.",
+        "https://x.com/compose/post": "Day 0 must provide the exact X composer link.",
+        "copy this full linkedin post": "Day 0 must include a full copy-ready LinkedIn post.",
+        "copy this full x post": "Day 0 must include a full copy-ready X post.",
+        "copy this full private message": "Day 0 must include a full copy-ready private message.",
+        "private message to 5 real people": "Day 0 must preserve the private commitment path.",
+    }
+    for term, message in day0_commitment_terms.items():
+        if term not in day0_lower:
+            frictions.append(message)
+
+    provider_link_requirements = {
+        "Day 4": (
+            day4,
+            [
+                "https://github.com/signup",
+                "https://github.com/new",
+                "https://vercel.com/signup",
+                "https://vercel.com/new",
+                "https://vercel.com/docs/deployments/git",
+            ],
+        ),
+        "Day 5": (
+            day5,
+            [
+                "https://database.new",
+                "https://supabase.com/dashboard",
+                "https://vercel.com/dashboard",
+                "https://vercel.com/docs/projects/environment-variables",
+            ],
+        ),
+        "Day 8": (
+            day8,
+            [
+                "https://console.anthropic.com/",
+                "https://docs.anthropic.com/en/api/overview",
+                "https://vercel.com/dashboard",
+                "https://vercel.com/docs/projects/environment-variables",
+            ],
+        ),
+        "Day 6": (day6, ["https://supabase.com/dashboard"]),
+        "Day 10": (day10, ["https://supabase.com/dashboard"]),
+        "Day 13": (day13 + "\n" + day13_learn, ["https://supabase.com/dashboard"]),
+        "Day 14": (
+            day14,
+            [
+                "https://vercel.com/dashboard",
+                "https://vercel.com/docs/domains",
+                "https://www.cloudflare.com/products/registrar/",
+                "https://porkbun.com",
+                "https://www.namecheap.com",
+                "https://dnschecker.org",
+                "https://supabase.com/dashboard",
+                "https://supabase.com/docs/guides/auth/redirect-urls",
+            ],
+        ),
+        "Day 15": (
+            day15,
+            [
+                "https://sentry.io/signup/",
+                "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
+                "https://vercel.com/dashboard",
+                "https://vercel.com/docs/analytics",
+                "https://uptimerobot.com/signUp",
+                "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
+            ],
+        ),
+        "Day 18": (
+            day18,
+            [
+                "https://www.loom.com/",
+                "https://loomhelp.zendesk.com/hc/en-us/articles/360002208157-How-to-share-your-recording",
+                "https://github.com/siddsdixit/teach-one-million/issues/new/choose",
+                "https://www.linkedin.com/feed/",
+                "https://www.linkedin.com/in/siddharthdixit",
+                "https://x.com/compose/post",
+            ],
+        ),
+    }
+    for day_label, (text, urls) in provider_link_requirements.items():
+        for url in urls:
+            if url not in text:
+                frictions.append(f"{day_label} must include exact provider link: {url}")
 
     landing_surface = "\n".join([readme, start, subdir_agents]).lower()
     landing_requirements = {

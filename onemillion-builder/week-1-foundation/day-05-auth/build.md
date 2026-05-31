@@ -25,7 +25,8 @@
 
 ## Step 1: Create Supabase Project (10 min)
 
-1. Go to [database.new](https://database.new) or [supabase.com/dashboard](https://supabase.com/dashboard)
+1. Open Supabase project shortcut: https://database.new
+   - Backup link: https://supabase.com/dashboard
 2. Click **Start your project** → Continue with GitHub
 3. Click **New Project**
 4. Fill in:
@@ -83,7 +84,8 @@ echo ".env.local" >> .gitignore
 
 ## Step 3: Add Same Vars To Vercel (5 min)
 
-1. Go to [vercel.com/dashboard](https://vercel.com/dashboard) → your project
+1. Open Vercel dashboard: https://vercel.com/dashboard
+   - Then choose your project
 2. **Settings** → **Environment Variables**
 3. Add both:
    - Name: `NEXT_PUBLIC_SUPABASE_URL` | Value: your URL

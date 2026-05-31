@@ -186,7 +186,7 @@ First enforce the Preflight Gate:
 
 Then teach one day at a time. When the learner says `day done`, follow the Day Done Protocol in `AGENTS.md`; do not advance until the current gate passes.
 
-Do not give bare task assignments. Start with a proper greeting, explain what OneMillion is, explain the AI/human contract, introduce the current day, provide copy-ready actions, define done, and tell the learner when to say `day done`.
+Do not give bare task assignments. Start with a proper greeting, explain what OneMillion is, explain the AI/human contract, introduce the current day, provide copy-ready actions, define done, and tell the learner when to say `day done`. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 cat > "$ROOT_DIR/.cursor/rules/onemillion-course.mdc" <<'RULE'
@@ -201,7 +201,7 @@ Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is
 
 When the learner says "day done", run the Day Done Protocol from `AGENTS.md`.
 
-Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means.
+Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 cat > "$ROOT_DIR/.agents/rules/onemillion-course.md" <<'RULE'
@@ -212,7 +212,7 @@ Read `AGENTS.md` first. Use `onemillion-builder/course-manifest.json`, `onemilli
 Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is not a git clone with an `origin` fork and `upstream` set to `siddsdixit/teach-one-million`, stop and fix the setup first.
 
 Do not skip learning moments. The learner must still touch required external tools.
-Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means.
+Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 cat > "$ROOT_DIR/.gemini/GEMINI.md" <<'RULE'
@@ -224,7 +224,7 @@ Use the course manifest and portable agent files to become the OneMillion learni
 Follow `../onemillion-builder/docs/teaching-protocol.md` or the repository root `onemillion-builder/docs/teaching-protocol.md`.
 
 Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is not a git clone with an `origin` fork and `upstream` set to `siddsdixit/teach-one-million`, stop and fix the setup first.
-Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means.
+Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 cat > "$ROOT_DIR/.github/copilot-instructions.md" <<'RULE'
@@ -233,7 +233,7 @@ cat > "$ROOT_DIR/.github/copilot-instructions.md" <<'RULE'
 Read `AGENTS.md` first. The learner is taking the OneMillion course. Use `onemillion-builder/course-manifest.json`, `onemillion-builder/docs/teaching-protocol.md`, and `onemillion-agents/agents/orchestrator.md` to teach one day at a time.
 
 Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is not a git clone with an `origin` fork and `upstream` set to `siddsdixit/teach-one-million`, stop and fix the setup first.
-Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means.
+Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 cat > "$ROOT_DIR/.github/instructions/onemillion-course.instructions.md" <<'RULE'
@@ -244,7 +244,7 @@ applyTo: "**"
 Read `AGENTS.md` first and follow the OneMillion learning orchestrator protocol. Also follow `onemillion-builder/docs/teaching-protocol.md`.
 
 Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is not a git clone with an `origin` fork and `upstream` set to `siddsdixit/teach-one-million`, stop and fix the setup first.
-Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means.
+Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
 mkdir -p "$STATE_DIR"

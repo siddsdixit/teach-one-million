@@ -23,7 +23,7 @@
 
 ## Step 1: Sentry (15-20 min)
 
-1. Sign up at [sentry.io/signup](https://sentry.io/signup/). Free plan.
+1. Open Sentry signup: https://sentry.io/signup/
 2. Create new project → Platform: Next.js
 3. Sentry shows you a **DSN** (looks like `https://xxx@xxx.ingest.sentry.io/xxx`). Copy.
 4. Keep Sentry's Next.js docs open: https://docs.sentry.io/platforms/javascript/guides/nextjs/
@@ -36,6 +36,8 @@ npx @sentry/wizard@latest -i nextjs
 The wizard installs the SDK + creates config files + asks for your DSN. Paste it.
 
 It modifies your `next.config.js` and creates `sentry.client.config.js` + `sentry.server.config.js` + `sentry.edge.config.js`.
+
+Open Vercel dashboard: https://vercel.com/dashboard
 
 Add the env vars to Vercel:
 - `NEXT_PUBLIC_SENTRY_DSN` (your DSN)
@@ -51,7 +53,7 @@ After Vercel redeploys, trigger a test error. Easiest: add this line temporarily
 throw new Error('Sentry test error — Day 15');
 ```
 
-Push, visit that page on your live URL. The error should fire. Check Sentry dashboard within 60 sec — the error should appear.
+Push, visit that page on your live URL. The error should fire. Open Sentry dashboard: https://sentry.io and check within 60 sec — the error should appear.
 
 Then revert the test error.
 
@@ -59,7 +61,8 @@ Then revert the test error.
 
 ## Step 2: Vercel Analytics (5 min)
 
-1. vercel.com → your project → **Analytics** tab → enable
+1. Open Vercel dashboard: https://vercel.com/dashboard
+2. Choose your project → **Analytics** tab → enable
    - Docs: https://vercel.com/docs/analytics
 2. Install the package:
    ```bash
@@ -79,7 +82,7 @@ After your next visit (and ~10 min of data accumulation), Vercel dashboard shows
 
 ## Step 3: UptimeRobot (10 min)
 
-1. Sign up at [uptimerobot.com/signUp](https://uptimerobot.com/signUp). Free plan.
+1. Open UptimeRobot signup: https://uptimerobot.com/signUp
    - First monitor guide: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 2. Dashboard → **+ New Monitor**
 3. Type: HTTP(s)
@@ -164,7 +167,7 @@ Ask for one missing detail at a time if needed.
 
 | Problem | Fix |
 |---------|-----|
-| Sentry test error doesn't appear | DSN wrong OR error doesn't actually fire OR ad blocker blocking Sentry. Check Sentry dashboard "Configure SDK". |
+| Sentry test error doesn't appear | DSN wrong OR error doesn't actually fire OR ad blocker blocking Sentry. Open Sentry dashboard: https://sentry.io and check "Configure SDK". |
 | Vercel Analytics shows no data | Wait 10-15 min. Also confirm `<Analytics />` is inside `<body>`. |
 | UptimeRobot can't reach my site | Some CDNs block their IPs. Add UptimeRobot IPs to allowed list (Cloudflare). |
 | Too many Sentry events | Add `beforeSend` filter to ignore non-critical errors (bots, transient). |

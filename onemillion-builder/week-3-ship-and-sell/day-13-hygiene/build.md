@@ -48,7 +48,9 @@ If leaks ARE found: that's a real problem. Each leak is a real credential expose
 
 ## Step 2: Audit RLS Per Table
 
-Open Supabase → Table Editor.
+Open Supabase dashboard: https://supabase.com/dashboard
+
+Choose your project → Table Editor.
 
 For EACH table you have, click it. Look at:
 - **RLS indicator:** should be green (enabled). If not, click "Enable RLS."

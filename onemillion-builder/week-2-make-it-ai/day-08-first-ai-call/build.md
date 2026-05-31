@@ -16,7 +16,7 @@
 ## Before You Start
 
 - [ ] Day 7 verified — AI feature spec locked
-- [ ] You have `ANTHROPIC_API_KEY` in your Anthropic console (from docs/api-key.md)
+- [ ] You have `ANTHROPIC_API_KEY` in Anthropic Console: https://console.anthropic.com/
 - [ ] Opened [Account Setup Playbook: Day 8](../../docs/account-setup.md#day-8-anthropic-api-key)
 - [ ] Both terminal windows ready
 
@@ -38,7 +38,7 @@ npm install ai @ai-sdk/anthropic
 
 ## Step 2: Add Anthropic Key To Env Vars
 
-Open: https://console.anthropic.com/
+Open Anthropic Console: https://console.anthropic.com/
 
 Anthropic API docs: https://docs.anthropic.com/en/api/overview
 
@@ -51,10 +51,13 @@ ANTHROPIC_API_KEY=sk-ant-your-actual-key-here
 **Note:** No `NEXT_PUBLIC_` prefix. This must stay server-side only.
 
 Then add the same to Vercel:
-1. vercel.com → your project → Settings → Environment Variables
-2. Add `ANTHROPIC_API_KEY` with your key value
-3. Save
-4. Redeploy after saving
+1. Open Vercel dashboard: https://vercel.com/dashboard
+2. Choose your project → Settings → Environment Variables
+3. Add `ANTHROPIC_API_KEY` with your key value
+4. Save
+5. Redeploy after saving
+
+Vercel env var docs: https://vercel.com/docs/projects/environment-variables
 
 > 🚨 **Critical:** Never use `NEXT_PUBLIC_` for `ANTHROPIC_API_KEY`. That would expose your key to anyone who opens DevTools on your site.
 

@@ -33,9 +33,12 @@ Buy it. ~$10-30 total.
 
 ## Step 2: Connect To Vercel (3 min)
 
-1. vercel.com → your project → **Settings** → **Domains**
-2. Click **Add** → type `yourapp.com` → Add
-3. Vercel shows you DNS instructions. Note them.
+1. Open Vercel dashboard: https://vercel.com/dashboard
+2. Choose your project → **Settings** → **Domains**
+3. Click **Add** → type `yourapp.com` → Add
+4. Vercel shows you DNS instructions. Note them.
+
+Vercel domains docs: https://vercel.com/docs/domains
 
 Vercel typically says either:
 - "Add an A record pointing to 76.76.21.21" OR
@@ -46,6 +49,11 @@ Vercel typically says either:
 ## Step 3: Configure DNS At Your Registrar (5 min)
 
 Log in to your domain registrar. Find DNS settings for your domain.
+
+Registrar links:
+- Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
+- Porkbun: https://porkbun.com
+- Namecheap: https://www.namecheap.com
 
 Add the records Vercel told you. Example for Cloudflare:
 - Type: A
@@ -107,7 +115,9 @@ Specifically check:
 ```
 
 Update Supabase auth callback URL too:
-- Supabase → Authentication → URL Configuration
+- Open Supabase dashboard: https://supabase.com/dashboard
+- Choose your project → Authentication → URL Configuration
+- Supabase redirect URL docs: https://supabase.com/docs/guides/auth/redirect-urls
 - Add `https://yourapp.com/auth/callback` to allowed redirect URLs
 
 ---

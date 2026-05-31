@@ -144,7 +144,7 @@ If your cohort, live session, or Sid gave you a Google Form link, submit the cla
 
 **Current public fallback — GitHub Builder Claim issue:**
 
-1. Go to [github.com/siddsdixit/teach-one-million/issues/new/choose](https://github.com/siddsdixit/teach-one-million/issues/new/choose)
+1. Open Builder Claim issue chooser: https://github.com/siddsdixit/teach-one-million/issues/new/choose
 2. Choose **Builder Claim**
 3. Paste the verified claim packet from [Builder Claim Submission](../../docs/builder-claim.md)
 4. Include your live URL, Loom URL, repo URL if public, and short build summary
@@ -156,7 +156,11 @@ Sid reviews claims manually until Builder Wall automation is live. Accepted clai
 
 ## Step 8: Share The Win
 
-LinkedIn (or X if you use it):
+LinkedIn or X:
+
+- LinkedIn post composer: https://www.linkedin.com/feed/
+- Sid's LinkedIn profile: https://www.linkedin.com/in/siddharthdixit
+- X post composer: https://x.com/compose/post
 
 ```
 🎉 Builder #[N] reporting in.

@@ -107,7 +107,9 @@ Use your UI's AI button. Make a request that should trigger the tool.
 
 For our example: in the UI, click "AI: Draft Update to Acme" → AI generates email → AI should automatically call `save_email_draft` → check your DB to confirm the row was inserted.
 
-Open Supabase → Table Editor → drafts table. **You should see:** a new row with the AI-generated content.
+Open Supabase dashboard: https://supabase.com/dashboard
+
+Choose your project → Table Editor → drafts table. **You should see:** a new row with the AI-generated content.
 
 ---
 

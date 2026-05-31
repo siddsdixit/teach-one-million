@@ -97,6 +97,18 @@
       "uptimerobot_first_monitor": "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
       "qa": ["Sentry receives test error", "Vercel Analytics enabled", "UptimeRobot monitor up", "alert email verified"]
     },
+    "domain_dns": {
+      "days": [14],
+      "vercel_dashboard": "https://vercel.com/dashboard",
+      "vercel_domains": "https://vercel.com/docs/domains",
+      "cloudflare_registrar": "https://www.cloudflare.com/products/registrar/",
+      "porkbun": "https://porkbun.com",
+      "namecheap": "https://www.namecheap.com",
+      "dns_checker": "https://dnschecker.org",
+      "supabase_dashboard": "https://supabase.com/dashboard",
+      "supabase_redirect_urls": "https://supabase.com/docs/guides/auth/redirect-urls",
+      "qa": ["custom domain loads app", "valid SSL lock appears", "auth redirect URLs updated if used"]
+    },
     "loom_builder_claim": {
       "days": [18],
       "loom": "https://www.loom.com/",

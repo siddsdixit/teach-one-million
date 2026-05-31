@@ -251,6 +251,7 @@ def check_manifest() -> None:
             "github_app_repo_vercel",
             "supabase",
             "anthropic",
+            "domain_dns",
             "monitoring",
             "loom_builder_claim",
         ]:

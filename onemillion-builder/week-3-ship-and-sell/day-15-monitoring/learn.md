@@ -101,9 +101,9 @@ Cohort 0 scale: ~5-10 alerts per month is healthy. More = signal of real bugs. F
 
 ## Today's Assignment
 
-1. Set up Sentry — install SDK, add DSN, deploy
-2. Set up Vercel Analytics — enable in dashboard, add component
-3. Set up UptimeRobot — add monitor, configure email
+1. Set up Sentry — open https://sentry.io/signup/, install SDK, add DSN, deploy
+2. Set up Vercel Analytics — open https://vercel.com/dashboard, enable Analytics, add component
+3. Set up UptimeRobot — open https://uptimerobot.com/signUp, add monitor, configure email
 4. Trigger a test error to confirm Sentry catches it
 5. Run Day 15 verification
 

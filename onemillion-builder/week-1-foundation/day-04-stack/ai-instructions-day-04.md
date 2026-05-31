@@ -50,7 +50,7 @@ PASS or NEEDS REVISION
 (If PASS: one sentence + what's next)
 (If NEEDS REVISION: specific issues, in priority order. Common issues:
   - "Homepage still shows default text — edit app/page.tsx to say something about your build"
-  - "Vercel URL returns 404 — check deployment status in Vercel dashboard"
+  - "Vercel URL returns 404 — open Vercel dashboard: https://vercel.com/dashboard and check deployment status"
   - "No git remote — push to GitHub with `git remote add origin ...`")
 ```
 

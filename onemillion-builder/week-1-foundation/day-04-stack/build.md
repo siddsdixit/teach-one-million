@@ -18,7 +18,8 @@ Today you set up a Next.js project, push it to GitHub, and deploy to Vercel. Fol
 ## Before You Start
 
 - [ ] Day 3 verified (PRD locked)
-- [ ] GitHub, Vercel accounts ready (from getting-started.md)
+- [ ] GitHub account ready: https://github.com/signup
+- [ ] Vercel account ready: https://vercel.com/signup
 - [ ] Opened [Account Setup Playbook: Day 4](../../docs/account-setup.md#day-4-github-app-repo--vercel-deploy)
 - [ ] Terminal open, in `teach-one-million/my-onemillion-build`
 - [ ] Editor ready to open
@@ -111,7 +112,7 @@ Save the file. Look at `http://localhost:3000` in your browser — it should hot
 
 **Option A — GitHub CLI (easiest, RECOMMENDED):**
 
-Open: https://cli.github.com/
+Open GitHub CLI: https://cli.github.com/
 
 ```bash
 # Mac
@@ -159,7 +160,7 @@ git commit -m "Day 4: Next.js project initialized"
 
 ### Step 4c: Create The Remote GitHub Repo
 
-Go to [github.com/new](https://github.com/new):
+Open GitHub new repo: https://github.com/new
 
 - Repository name: `my-onemillion-build` (or whatever you named your folder)
 - **Public** or **Private** — your choice
@@ -184,7 +185,7 @@ Refresh github.com/YOUR-USERNAME/my-onemillion-build — your code is there.
 
 ## Step 5: Deploy To Vercel (10 min)
 
-Go to [vercel.com/new](https://vercel.com/new).
+Open Vercel import: https://vercel.com/new
 
 1. Sign in if you haven't (Continue with GitHub)
 2. You'll see your repos. Find `my-onemillion-build` and click **Import**
@@ -193,7 +194,7 @@ Go to [vercel.com/new](https://vercel.com/new).
 5. Environment Variables: leave empty for today (you'll add some on Day 5)
 6. Click **Deploy**
 
-If Vercel does not show your repo, check the GitHub integration permissions. For a personal repo, you usually need to be the repo owner. See the setup playbook and Vercel Git docs: https://vercel.com/docs/deployments/git
+If Vercel does not show your repo, check the GitHub integration permissions. For a personal repo, you usually need to be the repo owner. See Vercel Git docs: https://vercel.com/docs/deployments/git
 
 **You should see:** A progress screen with "Building..." then "Deploying..." Takes 1-3 minutes.
 
@@ -221,7 +222,9 @@ git commit -m "Update homepage text"
 git push
 ```
 
-Now go to Vercel's dashboard for your project. You'll see a new deployment building. Wait 30 seconds.
+Open Vercel dashboard: https://vercel.com/dashboard
+
+Choose your project. You'll see a new deployment building. Wait 30 seconds.
 
 Refresh your Vercel URL. **The text changed.** That's the deploy loop. You'll do this 50+ times over the next 14 days.
 

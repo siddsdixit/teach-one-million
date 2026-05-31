@@ -36,7 +36,9 @@ For example, if the user story is "see all deliverables I owe across all clients
 - `user_id` (RLS)
 - `id`, `created_at` (auto)
 
-In Supabase → Table Editor → your table → add any missing columns now.
+Open Supabase dashboard: https://supabase.com/dashboard
+
+Choose your project → Table Editor → your table → add any missing columns now.
 
 > 💡 **Don't overthink columns.** Add what you need. You can add more later. Start with 4-6 columns.
 
@@ -144,7 +146,8 @@ If all this works locally, you're 70% done.
 If the second user sees the first user's data: **RLS is broken.** Critical bug. Fix before moving on.
 
 How to fix RLS issues:
-- Go to Supabase → Table Editor → your table → Policies
+- Open Supabase dashboard: https://supabase.com/dashboard
+- Choose your project → Table Editor → your table → Policies
 - Make sure RLS is enabled (toggle is green)
 - Make sure your policy uses `auth.uid() = user_id`
 - Make sure your API route INSERTs include `user_id: user.id`
@@ -239,7 +242,7 @@ Ask for one missing detail at a time if needed.
 | `400 Bad Request` when inserting | Your INSERT is missing `user_id` or another required field. Check API route logs. |
 | `401 Unauthorized` | The API route isn't using the server-side Supabase client with the user's session. Ask Claude: "Why is my API returning 401? Show me how to use the server client with the user's session." |
 | `403 Forbidden` (RLS rejection) | The row's `user_id` doesn't match the current user. Make sure you're INSERTing with `user.id`. |
-| List shows nothing even though I added items | RLS too strict OR your SELECT is wrong. Test the SQL directly in Supabase → SQL Editor. |
+| List shows nothing even though I added items | RLS too strict OR your SELECT is wrong. Open Supabase dashboard: https://supabase.com/dashboard, then test the SQL directly in SQL Editor. |
 | Page renders blank | Probably a JavaScript error. Open browser DevTools (F12) → Console tab. The error tells you where. Paste into Claude for the fix. |
 | Form submits but nothing happens | Likely a network error or wrong API URL. DevTools → Network tab → click your request → see the response. |
 | Status update doesn't persist | You're updating local state but not calling PUT. OR the PUT route is broken. Test the route directly with curl. |

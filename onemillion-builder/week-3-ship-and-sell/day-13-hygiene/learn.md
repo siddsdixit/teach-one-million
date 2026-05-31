@@ -62,13 +62,17 @@ Each check is binary. Pass or fail. Day 13 doesn't end until all 9 pass.
 Search your codebase for hardcoded keys, tokens, passwords. Any string starting with `sk-`, `eyJ`, or matching a known token pattern. There should be none. All secrets in `.env.local` (gitignored) and Vercel env vars.
 
 ### 2. RLS On Every Table
-Open Supabase → Table Editor. Every table should have RLS enabled (green indicator) AND at least one policy. Service-only tables (admin) should explicitly DENY anon.
+Open Supabase dashboard: https://supabase.com/dashboard
+
+Choose your project → Table Editor. Every table should have RLS enabled (green indicator) AND at least one policy. Service-only tables (admin) should explicitly DENY anon.
 
 ### 3. RLS Policies Are Correct
 For each table, the policy should reference `auth.uid()`. Test with: log in as User B in incognito, try to access User A's data — must fail.
 
 ### 4. Rate Limit On Auth
-Supabase has built-in rate limits on signup/login. Verify they're enabled (Supabase → Authentication → Rate Limits). Default: ~30/hour per IP for signup.
+Open Supabase dashboard: https://supabase.com/dashboard
+
+Choose your project → Authentication → Rate Limits. Supabase has built-in rate limits on signup/login. Verify they're enabled. Default: ~30/hour per IP for signup.
 
 ### 5. Rate Limit On AI Endpoints
 You added a per-user daily cap on Day 12. Verify it's still working. Add IP-level rate limits too (covers abuse before auth).

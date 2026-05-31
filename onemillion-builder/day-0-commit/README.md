@@ -33,13 +33,20 @@ The goal today is not coding. The goal is to create accountability and prove tha
 
 What you will do now:
 1. Confirm the GitHub fork/clone setup is correct.
-2. Make a public commitment, or privately send the commitment to 5 real people.
-3. Come back and say `day done`.
+2. Choose one commitment path: LinkedIn, X, or private messages to 5 real people.
+3. Open the exact link for that path.
+4. Copy the matching full message from this page.
+5. Paste, customize only the bracketed placeholders if you want, and publish/send.
+6. Come back and say `day done`.
 
-Copy the message below. You may post it on LinkedIn/X, or send it privately by text, email, Slack, WhatsApp, or DM.
+Use these exact links:
+- LinkedIn post composer: https://www.linkedin.com/feed/
+- Sid's LinkedIn profile to tag: https://www.linkedin.com/in/siddharthdixit
+- X post composer: https://x.com/compose/post
+- Course repo to include: https://github.com/siddsdixit/teach-one-million
 ```
 
-Then show the commitment template from this page. Do not summarize it away.
+Then show the full LinkedIn, X, and private-message templates from this page. Do not summarize them away. Ask the learner which path they want to use, then tell them exactly where to paste the chosen message.
 
 End the opening with:
 
@@ -126,7 +133,18 @@ Five minutes of cringe → 2x odds of finishing → a real product on the intern
 
 ## The LinkedIn Template
 
-Copy. Paste. Customize. Post.
+Use this if you are comfortable posting publicly on LinkedIn.
+
+### Where To Paste
+
+1. Open https://www.linkedin.com/feed/
+2. Click **Start a post**.
+3. Paste the message below.
+4. When you type `@Sid Dixit`, choose Sid's profile from the LinkedIn dropdown if it appears.
+5. If the tag does not resolve, keep the profile link in the message: https://www.linkedin.com/in/siddharthdixit
+6. Click **Post**.
+
+### Copy This Full LinkedIn Post
 
 ```
 Starting #OneMillion today.
@@ -144,7 +162,8 @@ or are doing this too, hit me in the comments.
 The course is open source — anyone can join. Repo:
 https://github.com/siddsdixit/teach-one-million
 
-Day 1 starts now. Tagging @Sid Dixit (who built this).
+Day 1 starts now. Tagging @Sid Dixit, who built this.
+Sid's profile: https://www.linkedin.com/in/siddharthdixit
 
 Let's see what 18 days of compounded building looks like.
 ```
@@ -152,6 +171,17 @@ Let's see what 18 days of compounded building looks like.
 ---
 
 ## The X (Twitter) Version
+
+Use this if you want a shorter public commitment.
+
+### Where To Paste
+
+1. Open https://x.com/compose/post
+2. Paste the message below.
+3. Customize the bracketed line if you already know your idea.
+4. Click **Post**.
+
+### Copy This Full X Post
 
 ```
 Starting OneMillion today.
@@ -164,8 +194,38 @@ For: [specific person, or specific user gets locked on Day 1]
 
 Will post a daily update.
 
+Course: https://github.com/siddsdixit/teach-one-million
+
 Day 1 → 🚀
 #BuildingWith1M
+```
+
+---
+
+## Private Commitment Message
+
+Use this if you do not want to post publicly yet. Send it to 5 real people by text, email, Slack, WhatsApp, LinkedIn DM, or another channel you actually check.
+
+### Where To Paste
+
+1. Open your messaging app.
+2. Pick 5 real people who would notice if you quit.
+3. Paste the message below.
+4. Send it.
+5. Do not over-explain. The point is accountability.
+
+### Copy This Full Private Message
+
+```text
+I'm starting OneMillion today.
+
+It's an 18-day course where I build and ship a real AI-native product from scratch.
+The course is free and open source:
+https://github.com/siddsdixit/teach-one-million
+
+I don't have the idea fully locked yet. Day 1 is where I choose the product direction and target user.
+
+I'm sending this because I want a little accountability. If you don't hear from me in a few days, ask me how the build is going.
 ```
 
 ---
@@ -210,6 +270,12 @@ Either way: you win.
 ---
 
 ## Now: Go Post It
+
+Choose one path:
+
+- LinkedIn public post
+- X public post
+- private message to 5 real people
 
 Then come back and tell your coding harness:
 

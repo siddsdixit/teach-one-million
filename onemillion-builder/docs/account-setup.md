@@ -23,6 +23,9 @@ This playbook supports the `AGENTS.md` Preflight Gate and `course-manifest.json`
 - Fork course repo: https://github.com/siddsdixit/teach-one-million/fork
 - Install GitHub CLI: https://cli.github.com/
 - GitHub Git setup docs: https://docs.github.com/en/get-started/git-basics/set-up-git
+- LinkedIn post composer: https://www.linkedin.com/feed/
+- Sid's LinkedIn profile: https://www.linkedin.com/in/siddharthdixit
+- X post composer: https://x.com/compose/post
 
 ### Steps
 
@@ -60,6 +63,7 @@ Pass criteria:
 - `origin` contains your GitHub username.
 - `upstream` contains `siddsdixit/teach-one-million`.
 - Both required files exist.
+- Learner made the Day 0 commitment on LinkedIn, X, or privately to 5 real people.
 
 ---
 
@@ -207,6 +211,37 @@ Pass criteria:
 - Vercel Analytics page shows visits after a short delay.
 - UptimeRobot monitor is up.
 - A temporary broken URL test sends an alert, then you restore the real URL.
+
+---
+
+## Day 14: Domain + DNS
+
+### Links
+
+- Vercel dashboard: https://vercel.com/dashboard
+- Vercel domains docs: https://vercel.com/docs/domains
+- Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
+- Porkbun: https://porkbun.com
+- Namecheap: https://www.namecheap.com
+- DNS Checker: https://dnschecker.org
+- Supabase dashboard: https://supabase.com/dashboard
+- Supabase redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
+
+### Steps
+
+1. Buy a domain from a registrar.
+2. Open Vercel dashboard and add the domain to your project.
+3. Copy Vercel's DNS records into your registrar DNS settings.
+4. Wait for DNS propagation.
+5. Update Supabase Auth redirect URLs if your app uses Supabase Auth.
+
+### QA
+
+Pass criteria:
+
+- `https://your-domain.com` loads your app.
+- Browser shows a valid lock icon.
+- Supabase redirect URLs include the new production domain if auth redirects are used.
 
 ---
 

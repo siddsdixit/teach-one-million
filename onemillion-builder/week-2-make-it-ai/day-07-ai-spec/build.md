@@ -43,7 +43,7 @@ Here's my PRD:
 
 Help me draft an AI feature for this product. Walk me through it section
 by section. Push back on vagueness. The output goes in
-.onemillion/ai-feature.md and has these sections:
+the AI feature section in `.onemillion/prd.md` and has these sections:
 
 - Pattern (A / B / C — see Day 7 learn.md)
 - What It Does
@@ -80,13 +80,13 @@ If any answer is no, ask Claude to revise that section.
 Once it's solid:
 
 ```
-Save the final version to .onemillion/ai-feature.md
+Save the final version into `.onemillion/prd.md` under `## AI Feature Spec`.
 ```
 
 Then commit it:
 
 ```bash
-git add .onemillion/ai-feature.md
+git add .onemillion/prd.md
 git commit -m "Day 7: AI feature locked"
 ```
 
@@ -100,13 +100,13 @@ From this point: no scope creep on the AI feature. If you think of something coo
 claude
 ```
 
-Paste contents of [`ai-instructions-day-07.md`](./ai-instructions-day-07.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
 ## What Should Be True After Day 7
 
-- [ ] `.onemillion/ai-feature.md` exists with all 8 sections
+- [ ] `.onemillion/prd.md` includes `## AI Feature Spec` with all 8 sections
 - [ ] One pattern selected (A, B, or C)
 - [ ] Quality Criteria are measurable (numbers or verifiable conditions)
 - [ ] Cost Budget includes per-call cost AND a max
@@ -116,9 +116,9 @@ Paste contents of [`ai-instructions-day-07.md`](./ai-instructions-day-07.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 7 complete
 - **Last verified day:** Day 7

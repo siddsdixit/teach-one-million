@@ -292,7 +292,7 @@ Two to three pages. Eight sections. Everything decided.
 
 ## Verify Your Day 3
 
-Paste the contents of [`ai-instructions-day-03.md`](./ai-instructions-day-03.md) into your coding harness. The verifier will:
+Ask your harness to run the OneMillion verifier for this day. The verifier will:
 - Validate all 8 sections exist
 - Validate Core Jobs has exactly 3 user stories
 - Spot-check quality (named user? specific problem? research evidence? use cases? KPIs? Definition of Done concrete?)

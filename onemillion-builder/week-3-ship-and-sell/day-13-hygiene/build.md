@@ -60,7 +60,7 @@ For each policy, verify:
 - `USING` expression includes `auth.uid() = user_id` (or equivalent)
 - `WITH CHECK` expression for INSERT/UPDATE also includes the check
 
-Document in `.onemillion/audit-day-13.md`:
+Ask the harness to summarize the result in `.onemillion/state.json`, then fix code/config issues directly:
 
 ```markdown
 ## RLS Audit
@@ -149,9 +149,9 @@ If either shows commits: there's secret history. Use `git filter-repo` to remove
 
 ---
 
-## Step 8: Write The Audit Document
+## Step 8: Record Guard Result
 
-Create `.onemillion/audit-day-13.md` summarizing all 9 checks + any fixes you made. Use the template from learn.md.
+Do not create a separate audit file. The verifier should inspect code/config and record the Day 13 result in `.onemillion/state.json`.
 
 ---
 
@@ -167,7 +167,7 @@ git push
 claude
 ```
 
-Paste contents of [`ai-instructions-day-13.md`](./ai-instructions-day-13.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
@@ -180,14 +180,14 @@ Paste contents of [`ai-instructions-day-13.md`](./ai-instructions-day-13.md).
 - [ ] Error responses don't leak internals
 - [ ] No hidden admin/debug routes
 - [ ] .env files gitignored, no history
-- [ ] `.onemillion/audit-day-13.md` documents everything
+- [ ] critical guard checks pass in code/config
 - [ ] Verification passed ✅
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 13 complete
 - **Last verified day:** Day 13

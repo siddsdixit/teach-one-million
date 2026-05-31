@@ -3,11 +3,6 @@
   "title": "Idea Agent + PRD Draft",
   "structural_checks": [
     {
-      "id": "idea_brief_exists",
-      "type": "file_exists",
-      "path": ".onemillion/idea-brief.md"
-    },
-    {
       "id": "project_json_exists",
       "type": "file_exists",
       "path": ".onemillion/project.json"
@@ -55,17 +50,6 @@
       "id": "prd_exists",
       "type": "file_exists",
       "path": ".onemillion/prd.md"
-    },
-    {
-      "id": "progress_exists",
-      "type": "file_exists",
-      "path": ".onemillion/progress.md"
-    },
-    {
-      "id": "idea_brief_sections",
-      "type": "markdown_required_sections",
-      "path": ".onemillion/idea-brief.md",
-      "required_headings": ["Raw Idea", "User", "Pain", "Data", "Ideal Solution", "Usage", "User Stories", "Success", "KPI"]
     },
     {
       "id": "prd_sections",

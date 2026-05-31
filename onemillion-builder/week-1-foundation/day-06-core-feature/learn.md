@@ -179,7 +179,7 @@ That last one — incognito test — is critical. It proves your auth + RLS + AP
 claude
 ```
 
-Paste contents of [`ai-instructions-day-06.md`](./ai-instructions-day-06.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check API routes exist (POST, GET at minimum)
 - Verify the entity page exists and uses the routes
 - Test fetching the live URL

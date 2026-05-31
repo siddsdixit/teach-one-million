@@ -260,7 +260,7 @@ Pass criteria:
 1. Record a 5-minute Loom demo.
 2. Set sharing to public or "Anyone with the link can view."
 3. Test the Loom link in an incognito window.
-4. Save the live app URL, Loom URL, and proof summary in `.onemillion/demo.md`.
+4. Save the live app URL, Loom URL, and proof summary in `.onemillion/state.json`.
 5. Submit the official Builder Claim form if your cohort has one, or use the GitHub Builder Claim issue fallback.
 
 ### Permissions

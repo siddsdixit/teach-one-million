@@ -155,8 +155,8 @@ A great Demo Day Loom:
 
 ## Verify Your Day 18
 
-Paste contents of [`ai-instructions-day-18.md`](./ai-instructions-day-18.md). Claude will:
-- Check Demo Loom URL exists in `.onemillion/demo.md`
+Ask your harness to run the OneMillion verifier for this day.
+- Check Demo Loom URL exists in `.onemillion/state.json`
 - Verify Loom URL returns 200
 - Check live URL still works
 - Verify all previous 17 day verifications passed

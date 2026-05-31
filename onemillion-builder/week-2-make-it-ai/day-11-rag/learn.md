@@ -193,7 +193,7 @@ That's the moment your product crosses from "novelty AI demo" to "real AI tool I
 
 ## Verify Your Day 11
 
-Paste contents of [`ai-instructions-day-11.md`](./ai-instructions-day-11.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 

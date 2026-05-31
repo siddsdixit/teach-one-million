@@ -120,7 +120,7 @@ You don't configure anything. You don't pay anything. SSL just works because Ver
 
 ## Verify Your Day 14
 
-Paste contents of [`ai-instructions-day-14.md`](./ai-instructions-day-14.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Confirm your domain resolves (fetches the URL)
 - Verify SSL is active
 - Check for hardcoded URLs in code

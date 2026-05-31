@@ -19,22 +19,22 @@ https://github.com/siddsdixit/teach-one-million/issues/new/choose
 
 ## What The Form Should Ask
 
-Use these fields for the Google Form or GitHub issue. Do not ask learners to invent new proof at the end; this should come from `.onemillion/demo.md` and their verification reports.
+Use these fields for the Google Form or GitHub issue. Do not ask learners to invent new proof at the end; this should come from the app, the PRD, the live URL, the Loom URL, and `.onemillion/state.json`.
 
 | Field | Required | Source |
 |---|---:|---|
-| Builder display name | Yes | `.onemillion/demo.md` |
+| Builder display name | Yes | `.onemillion/state.json` or learner |
 | Email | Yes for form | Learner |
 | GitHub username | Yes | Learner |
 | Course fork URL | Yes | Day 0 preflight |
-| Product name | Yes | `.onemillion/demo.md` |
+| Product name | Yes | `.onemillion/project.json` |
 | Product one-liner | Yes | `.onemillion/project.json` or demo summary |
 | Live app URL | Yes | Day 4+ deployment |
 | Public Loom demo URL | Yes | Day 18 |
 | Public product repo URL | Optional | Learner product repo |
 | OneMillion fork URL | Yes | Learner course fork |
-| Last verified day | Yes | `.onemillion/progress.md` |
-| Verification report links or pasted summary | Yes | `.onemillion/verification-day-*.md` |
+| Last verified day | Yes | `.onemillion/state.json` |
+| Verification summary | Yes | `.onemillion/state.json` |
 | Cohort | Optional | Cohort name, live session, or self-paced |
 | Consent to list on Builder Wall | Yes | Learner |
 | LinkedIn/X profile | Optional | Learner |

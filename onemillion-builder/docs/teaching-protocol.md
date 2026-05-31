@@ -101,7 +101,7 @@ When the learner says `day done`, the harness must:
 1. Verify inspectable artifacts.
 2. Ask concise manual confirmation questions for anything external.
 3. If incomplete, explain the smallest next action.
-4. If complete, write the verification report.
+4. If complete, update verification status in `.onemillion/state.json`.
 5. Update state and progress.
 6. Preview the next day with one short teaching paragraph.
 

@@ -25,9 +25,8 @@ Today you learn how good product ideas work, how to describe one clearly, how to
 
 ## What You'll Have After Today
 
-- An idea brief in `.onemillion/idea-brief.md`
 - A project profile in `.onemillion/project.json`
-- A first PRD draft in `.onemillion/prd.md`
+- A first PRD draft in `.onemillion/prd.md` with the idea brief embedded
 - A plain-English understanding of user stories, success criteria, KPIs, and TAM/SAM/SOM
 - A reviewed PRD that you either agree with or have edited
 
@@ -200,7 +199,6 @@ An app for teachers.
 ## What Should Be True After Day 1
 
 - [ ] You understand what makes an idea good in OneMillion.
-- [ ] `.onemillion/idea-brief.md` exists.
 - [ ] `.onemillion/project.json` exists.
 - [ ] `.onemillion/prd.md` exists.
 - [ ] The PRD includes user, pain, unmet need, data sources, ideal solution, usage moment, user stories, success criteria, KPIs, competitive alternatives, and TAM/SAM/SOM.
@@ -210,7 +208,7 @@ An app for teachers.
 
 ## Verify Your Day 1
 
-Paste the contents of [`ai-instructions-day-01.md`](./ai-instructions-day-01.md) into your coding harness. It will check the local artifacts and ask whether you reviewed the PRD.
+Ask your harness to run the OneMillion verifier for this day. It will check the local artifacts and ask whether you reviewed the PRD.
 
 ---
 

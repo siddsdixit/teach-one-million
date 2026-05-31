@@ -65,7 +65,7 @@ You are ready for Week 3 if:
 - A streaming UI (text appears as it's generated, not all at once)
 - The AI can take at least one action via tools (e.g., write to your DB)
 - The AI's answers are grounded in your user's actual data (RAG)
-- A `ai-acceptance-criteria.md` file with measurable quality checks
+- AI quality checks represented in tests or evals
 - All 12 days verified ✅
 
 Then Week 3 takes it to production: hardening, custom domain, monitoring, landing page, real users.

@@ -164,7 +164,7 @@ That's the AI-native experience. Premium feel. Same backend cost. Wildly more en
 
 ## Verify Your Day 9
 
-Paste contents of [`ai-instructions-day-09.md`](./ai-instructions-day-09.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check API route uses streaming
 - Verify UI uses streaming hook
 - Confirm loading/empty/error states exist

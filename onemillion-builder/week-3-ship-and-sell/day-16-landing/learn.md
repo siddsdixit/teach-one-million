@@ -181,7 +181,7 @@ A logged-in user visiting yourapp.com should be redirected to their dashboard (n
 
 ## Verify Your Day 16
 
-Paste contents of [`ai-instructions-day-16.md`](./ai-instructions-day-16.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check all 5 sections exist in the page
 - Verify only one primary CTA
 - Test that logged-out users see the landing

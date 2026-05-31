@@ -116,14 +116,14 @@ Cover these four categories and you've covered ~90% of what real apps get burned
 In [build.md](./build.md):
 1. Run all 9 audit checks
 2. Fix any that fail
-3. Document what you fixed in `.onemillion/audit-day-13.md`
+3. Fix what is unsafe and let the verifier record the result in `.onemillion/state.json`
 4. Run Day 13 verification
 
 ---
 
 ## What Good Looks Like
 
-After Day 13, your `audit-day-13.md` looks like:
+After Day 13, your code/config should show:
 
 ```markdown
 # Day 13 — Production Audit
@@ -165,7 +165,7 @@ After Day 13, your `audit-day-13.md` looks like:
 ## What Should Be True After Day 13
 
 - [ ] All 9 audit checks pass
-- [ ] `.onemillion/audit-day-13.md` exists with results documented
+- [ ] guard checks pass in code/config and `.onemillion/state.json`
 - [ ] Any issues found are FIXED (not just noted)
 - [ ] Cross-user RLS test passed AGAIN (re-confirm)
 - [ ] Verification passed ✅
@@ -174,7 +174,7 @@ After Day 13, your `audit-day-13.md` looks like:
 
 ## Verify Your Day 13
 
-Paste contents of [`ai-instructions-day-13.md`](./ai-instructions-day-13.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Scan code for hardcoded secrets
 - Walk through your audit document
 - Verify the 9 checks

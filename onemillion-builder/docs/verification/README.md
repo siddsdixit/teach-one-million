@@ -1,6 +1,6 @@
 # Verification System — How Builder #N Is Earned
 
-OneMillion's credential is not earned by clicking through videos. It's earned by passing **Day 0 preflight verification plus 18 daily verification checks**. Each check confirms specific, verifiable artifacts exist in your project.
+OneMillion's credential is not earned by clicking through videos. It's earned by passing **Day 0 preflight verification plus 18 daily verification checks** through one verifier. Each check inspects the product directory, the active OneMillion pipeline outputs, deployed URLs when relevant, and manual confirmations when the work happens outside the repo.
 
 This is what makes Builder #N credible: every Builder on the wall genuinely shipped what the course promised.
 
@@ -8,24 +8,24 @@ This is what makes Builder #N credible: every Builder on the wall genuinely ship
 
 ## How It Works
 
-### Per-Day Verification
+### One Verifier
 
-Every day in the course has an `ai-instructions-day-XX.md` file. This is a fallback verifier prompt. The primary path is to say `day done`; your harness then reads the manifest completion gate and verifies the day.
+The verifier is [`agent/verify.md`](agent/verify.md). The primary path is to say `day done`; your harness then reads the manifest completion gate and verifies the day.
 
-1. Reads your project files and required `.onemillion/` artifacts
+1. Reads your product files, app directories, and active pipeline outputs
 2. Checks structural requirements (files exist, JSON is valid, code patterns present)
 3. Fetches deployed URLs when the day has a deployment gate
 4. Confirms the live deployment contains meaningful text markers from the local source where possible
 5. Reviews quality (PRD specific enough, prompts well-formed, etc.)
 6. Reports pass / needs-revision with specifics
-7. Writes the report to `.onemillion/verification-day-XX.md`
+7. Updates `.onemillion/state.json`
 
 You run this at the end of each day. Pass it, move on. Fail it, fix the issues and re-run.
 
 ### Final Verification (Day 18)
 
 On Day 18, you run a final pass that:
-1. Confirms Day 0 preflight and all 18 daily verifications have passed
+1. Confirms Day 0 preflight and all 18 daily verifications are recorded in `.onemillion/state.json`
 2. Checks your deployed URL is still live
 3. Confirms anti-cheating signals (deployed URL is unique, commit history shows organic build, demo Loom features the builder)
 4. Generates the [Builder Claim packet](../builder-claim.md) for form/GitHub submission
@@ -56,7 +56,7 @@ This is the supported path for the current version of the course. After each day
 2. Your harness reads `.onemillion/state.json`.
 3. It reads the current day in `course-manifest.json`.
 4. It checks the completion gate.
-5. It writes `.onemillion/verification-day-XX.md`.
+5. It updates `.onemillion/state.json`.
 6. If the day passes, it advances your state to the next day.
 
 ### CLI Verification
@@ -70,9 +70,9 @@ python onemillion-builder/docs/verification/scripts/verify.py 4 \
   --write-report
 ```
 
-The CLI verifies local artifacts, runs schema checks, fetches deployment URLs, and writes `.onemillion/verification-day-XX.md` when `--write-report` is provided.
+The CLI verifies local artifacts, runs schema checks, fetches deployment URLs, and updates `.onemillion/state.json` when `--write-report` is provided.
 
-Today the CLI has machine schemas for Days 1-6. Days 7-18 use the daily prompt verifier files plus harness inspection and human-reviewed proof artifacts. Do not treat a Day 7-18 prompt pass as the same thing as a fully automated schema pass.
+Today the CLI has machine schemas for Days 1-6. Days 7-18 use the same verifier with manifest gates plus harness inspection and human confirmation. Do not create extra proof files just to satisfy verification.
 
 ---
 
@@ -88,7 +88,7 @@ The course is designed for a final Google Form or web form where builders paste 
 - Live app URL
 - Public Loom demo URL
 - Product repo URL if public
-- Verification summary
+- Verification summary from `.onemillion/state.json`
 - Builder Wall consent
 
 See [Builder Claim Submission](../builder-claim.md) for the exact field list.
@@ -107,7 +107,7 @@ The future GitHub Action will run verification automatically on every push and s
 
 ## The Schemas
 
-For builders who want to know exactly what's checked: see `verify/schema/day-XX.json` files. Today, schema files exist for Days 1-6. Days 7-18 currently use the daily `ai-instructions-day-XX.md` prompt verifiers and final Builder Claim review.
+For builders who want to know exactly what's checked: see `verify/schema/day-XX.json` files. Today, schema files exist for Days 1-6. Days 7-18 use the unified verifier, manifest gates, app inspection, deployment checks, and final Builder Claim review.
 
 Engineers: feel free to read the schemas. They're machine-readable specifications of what "pass" means for the schema-backed days.
 
@@ -118,7 +118,7 @@ Engineers: feel free to read the schemas. They're machine-readable specification
 Builders can theoretically fork someone else's repo and pass verification. To prevent this:
 - Day 18 requires a live URL and public Loom demo
 - Duplicate or suspicious submissions are flagged for manual review
-- The 5 user conversations (Day 2) require real names + dates — Sid spot-checks Cohort 0 manually
+- Day 2 validation evidence lives inside the PRD and may be spot-checked manually
 - Demo Loom (Day 18) must show the builder using the product live
 
 It's not bulletproof. It's good enough. The Builder Wall is a reputation system — fakes get noticed.

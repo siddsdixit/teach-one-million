@@ -21,7 +21,7 @@
 
 ## What You'll Have After Today
 
-- A `ai-acceptance-criteria.md` file with **measurable, testable** quality criteria for your AI feature
+- Measurable AI quality criteria represented in tests or evals in the codebase
 - A **cost budget check** — confirmed you're within the budget from Day 7's spec
 - A **test log** showing 5+ real AI interactions and their pass/fail against criteria
 - **Lock decision:** AI feature is good enough → move to Week 3 (Ship & Sell), OR needs more work → iterate
@@ -54,7 +54,7 @@ The pillar in action: **validation gates.** Every phase has acceptance criteria.
 
 ## Part 2: From Quality Criteria → Test Cases (~15 min read)
 
-Open `.onemillion/ai-feature.md` from Day 7. Look at your Quality Criteria. Each one becomes a test case.
+Open the AI feature section in `.onemillion/prd.md` from Day 7. Look at your Quality Criteria. Each one becomes a test case.
 
 ### Example Quality Criteria (from Day 7)
 - "Output is 80-200 words"
@@ -157,7 +157,7 @@ After running your 5+ test cases, make the call:
 - ✅ Cross-user data isolation works (RLS confirmed)
 
 ### If You Pass
-Lock the spec. Commit `ai-acceptance-criteria.md`. Move to Week 3 (Ship & Sell).
+Lock the AI behavior. Commit the tests or evals. Move to Week 3 (Ship & Sell).
 
 You can come back and improve the AI later. v1 is good enough. **Shipping > perfect.**
 
@@ -175,7 +175,7 @@ The principle: **honest "good enough" beats fake "perfect."**
 ## Today's Assignment
 
 In [build.md](./build.md):
-1. Create `.onemillion/ai-acceptance-criteria.md` with at least 5 test cases derived from Day 7 Quality Criteria
+1. Create `tests/ai-quality.test.ts` or an equivalent eval test in the codebase with at least 5 test cases derived from Day 7 Quality Criteria
 2. Run each test case. Document pass/fail.
 3. Check your cost in Anthropic console. Compare to budget.
 4. Add a hard cost cap to your API route (per-user daily limit).
@@ -186,7 +186,7 @@ In [build.md](./build.md):
 
 ## What Good Looks Like
 
-A locked `ai-acceptance-criteria.md` looks like:
+A locked AI quality test/eval looks like:
 
 ```markdown
 # AI Feature — Acceptance Criteria + Test Log
@@ -240,7 +240,7 @@ Signed off: [your name] 2026-05-12
 
 ## What Should Be True After Day 12
 
-- [ ] `.onemillion/ai-acceptance-criteria.md` exists with 5+ test cases
+- [ ] AI quality tests/evals exist with 5+ test cases
 - [ ] Each test case has setup + action + expected + verify method + result
 - [ ] Cost check is documented (actual vs spec budget)
 - [ ] Hard cost cap added to API route
@@ -252,7 +252,7 @@ Signed off: [your name] 2026-05-12
 
 ## Verify Your Day 12
 
-Paste contents of [`ai-instructions-day-12.md`](./ai-instructions-day-12.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 

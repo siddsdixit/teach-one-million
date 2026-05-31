@@ -8,7 +8,7 @@ This is the automated portion of verification. It checks local artifacts, code
 patterns, deployment URLs, and deployment/source matches where schemas define them.
 For judgment-heavy quality checks, use the coding harness verifier too.
 
-This script can write `.onemillion/verification-day-XX.md` with `--write-report`.
+This script can update the orchestrator-owned `.onemillion/state.json` with `--write-report`.
 """
 
 import json
@@ -494,7 +494,7 @@ def main():
     parser.add_argument("--vercel-url", help="Your Vercel deployment URL")
     parser.add_argument("--deployment-url", help="Alias for --vercel-url")
     parser.add_argument("--schema-dir", default=None, help="Path to verify/schema/ directory")
-    parser.add_argument("--write-report", action="store_true", help="Write .onemillion/verification-day-XX.md")
+    parser.add_argument("--write-report", action="store_true", help="Update .onemillion/state.json")
     args = parser.parse_args()
 
     # Parse day arg
@@ -570,9 +570,33 @@ def main():
     if args.write_report:
         report_dir = project_dir / ".onemillion"
         report_dir.mkdir(exist_ok=True)
-        report_path = report_dir / f"verification-day-{int(day_num):02d}.md"
-        report_path.write_text("\n".join(report_lines), encoding="utf-8")
-        print(f"Wrote report: {report_path}")
+        report_path = report_dir / "state.json"
+        if report_path.exists():
+            try:
+                state = json.loads(report_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                state = {}
+        else:
+            state = {}
+
+        state.setdefault("course", "OneMillion Builder")
+        state.setdefault("verification", {})
+        state["verification"].setdefault("days", {})
+        state["verification"]["days"][str(int(day_num))] = {
+            "day": int(day_num),
+            "title": schema["title"],
+            "result": "PASS" if all_passed else "NEEDS_REVISION",
+            "checked_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "project": str(project_dir),
+            "deployment": builder_inputs.get("vercel_url"),
+            "report": report_lines,
+        }
+        if all_passed:
+            previous = state.get("last_verified_day")
+            if not isinstance(previous, int) or int(day_num) > previous:
+                state["last_verified_day"] = int(day_num)
+        report_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+        print(f"Updated orchestrator state: {report_path}")
 
     sys.exit(0 if all_passed else 1)
 

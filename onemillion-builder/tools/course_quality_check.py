@@ -28,12 +28,9 @@ def check_day_files() -> None:
         if not day_dir.is_dir() or not day_dir.name.startswith("day-"):
             continue
         files = {p.name for p in day_dir.glob("*.md")}
-        ai_files = [p.name for p in day_dir.glob("ai-instructions-day-*.md")]
         missing = expected - files
         if missing:
             errors.append(f"{rel(day_dir)} missing files: {sorted(missing)}")
-        if len(ai_files) != 1:
-            errors.append(f"{rel(day_dir)} expected exactly one ai-instructions file, found {ai_files}")
 
 
 def check_links() -> None:
@@ -92,8 +89,8 @@ def check_stuck_prompts() -> None:
 def check_progress_tracker() -> None:
     for file in ROOT.glob("week-*/*/build.md"):
         text = file.read_text()
-        if "## Update Your Progress Tracker" not in text:
-            errors.append(f"{rel(file)} missing progress tracker update")
+        if "## Update Orchestrator State" not in text:
+            errors.append(f"{rel(file)} missing orchestrator state update")
 
 
 def check_day_navigation() -> None:
@@ -106,8 +103,6 @@ def check_day_navigation() -> None:
         "./loom.md",
     ]
     for file in ROOT.glob("week-*/*/*.md"):
-        if file.name.startswith("ai-instructions-day-"):
-            continue
         text = file.read_text()
         for item in required:
             if item not in text:

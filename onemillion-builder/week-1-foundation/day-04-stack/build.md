@@ -236,7 +236,7 @@ Refresh your Vercel URL. **The text changed.** That's the deploy loop. You'll do
 claude
 ```
 
-Paste the contents of [`ai-instructions-day-04.md`](./ai-instructions-day-04.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check `package.json` for Next.js
 - Verify `app/page.tsx` exists and isn't the default Next.js template
 - Check that git remote is set
@@ -258,9 +258,9 @@ If pass: you're done with Day 4. If revision needed: fix and re-run.
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 4 complete
 - **Last verified day:** Day 4

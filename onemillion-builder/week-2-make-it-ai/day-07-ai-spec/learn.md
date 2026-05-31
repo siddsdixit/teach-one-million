@@ -22,7 +22,7 @@
 ## What You'll Have After Today
 
 - A clear answer to "what AI feature am I adding to my app?"
-- A 1-page **AI Feature Spec** in `.onemillion/ai-feature.md`
+- A 1-page **AI Feature Spec** inside `.onemillion/prd.md`
 - An understanding of three AI patterns and which one fits your product
 - A locked decision — no scope creep on AI features for the rest of Week 2
 
@@ -124,7 +124,7 @@ This is the second pillar of agentic SDLC in action: **spec before code, especia
 
 ## Today's Assignment
 
-Create `.onemillion/ai-feature.md` with these sections:
+Add `## AI Feature Spec` to `.onemillion/prd.md` with these sections:
 
 ```markdown
 # AI Feature Spec
@@ -246,7 +246,7 @@ That's the level of detail you want. Specific. Testable. Bounded.
 
 ## What Should Be True After Day 7
 
-- [ ] `.onemillion/ai-feature.md` exists
+- [ ] `.onemillion/prd.md` includes `## AI Feature Spec`
 - [ ] You've picked one pattern (A, B, or C) and marked it
 - [ ] Each section has at least 2-3 sentences
 - [ ] Quality criteria are measurable (not subjective)
@@ -259,8 +259,8 @@ That's the level of detail you want. Specific. Testable. Bounded.
 
 ## Verify Your Day 7
 
-Paste contents of [`ai-instructions-day-07.md`](./ai-instructions-day-07.md). Claude will:
-- Check `ai-feature.md` exists with all sections
+Ask your harness to run the OneMillion verifier for this day.
+- Check the PRD includes the AI feature spec with all sections
 - Validate the pattern matches your PRD's user stories
 - Check Quality Criteria are measurable
 - Check Cost Budget has numbers

@@ -187,7 +187,7 @@ MVP: teacher pastes notes, selects students, gets draft updates, edits them, and
 
 ## Verify Your Day 2
 
-Paste the contents of [`ai-instructions-day-02.md`](./ai-instructions-day-02.md) into your coding harness. It will review `.onemillion/prd.md` and decide whether it is ready for Day 3.
+Ask your harness to run the OneMillion verifier for this day. It will review `.onemillion/prd.md` and decide whether it is ready for Day 3.
 
 ---
 

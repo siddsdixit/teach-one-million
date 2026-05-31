@@ -23,7 +23,7 @@
 
 ## Step 1: Plan The Demo (10 min)
 
-In `.onemillion/demo-plan.md`:
+Ask the orchestrator to record this demo plan in `.onemillion/state.json`:
 
 ```markdown
 ## Demo Plan (5 min total)
@@ -97,7 +97,7 @@ If it's private: change permissions to "Anyone with the link."
 
 ## Step 5: Save Demo Info (3 min)
 
-Create `.onemillion/demo.md`:
+Ask the orchestrator to add claim data to `.onemillion/state.json`:
 
 ```markdown
 # Day 18 — Demo Day Submission
@@ -122,7 +122,7 @@ Create `.onemillion/demo.md`:
 claude
 ```
 
-Paste contents of [`ai-instructions-day-18.md`](./ai-instructions-day-18.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 This runs the FINAL check:
 - Loom URL works
@@ -183,7 +183,7 @@ Tag @SidDixit. The Builder Wall thanks you.
 ## What Should Be True After Day 18
 
 - [ ] 5-min Demo Loom recorded + public
-- [ ] `.onemillion/demo.md` saved with URLs
+- [ ] `.onemillion/state.json` includes claim data with URLs
 - [ ] All 18 days verified
 - [ ] Builder Claim form or GitHub fallback submitted for review
 - [ ] Account setup QA passed from [Account Setup Playbook: Day 18](../../docs/account-setup.md#day-18-loom--builder-claim)
@@ -192,9 +192,9 @@ Tag @SidDixit. The Builder Wall thanks you.
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 18 complete
 - **Last verified day:** Day 18

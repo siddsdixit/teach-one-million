@@ -176,7 +176,7 @@ If everything works in production: **Week 1 is done.**
 claude
 ```
 
-Paste contents of [`ai-instructions-day-06.md`](./ai-instructions-day-06.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 The verifier will:
 - Check API route files exist
@@ -198,9 +198,9 @@ The verifier will:
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 6 complete
 - **Last verified day:** Day 6

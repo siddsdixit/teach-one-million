@@ -162,7 +162,7 @@ Test on Vercel URL. Confirm RAG works AND cross-user test still passes.
 claude
 ```
 
-Paste contents of [`ai-instructions-day-11.md`](./ai-instructions-day-11.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
@@ -180,9 +180,9 @@ Paste contents of [`ai-instructions-day-11.md`](./ai-instructions-day-11.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 11 complete
 - **Last verified day:** Day 11

@@ -218,7 +218,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - verifies `upstream` points to Sid's repo
 - gives full copy-ready LinkedIn, X, and private-message templates
 - saves `.onemillion/day-00-reflection.md`
-- writes `.onemillion/verification-day-00.md` after the commitment is confirmed
+- updates `.onemillion/state.json` after the commitment is confirmed
 
 **Exact links:**
 
@@ -260,10 +260,9 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 - creates `my-onemillion-build/`
 - answers the Idea agent interview
-- writes `.onemillion/idea-brief.md`
 - creates `.onemillion/project.json`
-- creates and reviews `.onemillion/prd.md`
-- creates `.onemillion/progress.md`
+- creates and reviews `.onemillion/prd.md` with the idea brief embedded
+- creates `.onemillion/state.json`
 
 **What the harness does:**
 
@@ -277,12 +276,11 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 **Done means:**
 
-- `.onemillion/idea-brief.md` exists
 - `my-onemillion-build/.onemillion/project.json` exists
-- `.onemillion/prd.md` exists
+- `.onemillion/prd.md` exists with the idea brief and first PRD
 - PRD includes user, pain, unmet need, data sources, ideal solution, usage moment, user stories, success criteria, KPIs, competitive alternatives, TAM/SAM/SOM, and assumptions for Day 2
 - learner reviewed and saved the PRD
-- progress tracker exists
+- orchestrator state is updated
 
 ## Day 2: Validate The PRD
 
@@ -520,7 +518,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 **What the learner does:**
 
-- creates `.onemillion/ai-feature.md`
+- adds the AI feature spec to `.onemillion/prd.md`
 - defines one useful AI job
 - writes quality criteria
 - documents failure modes and cost budget
@@ -626,7 +624,6 @@ The harness should not compress days unless the learner explicitly asks and the 
 **What the learner does:**
 
 - chooses one AI tool/action
-- writes `.onemillion/tools-plan.md`
 - implements the tool
 - tests successful action
 - tests cross-user denial
@@ -700,7 +697,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 **What the learner does:**
 
-- creates `.onemillion/ai-acceptance-criteria.md`
+- adds measurable AI quality criteria to tests/evals and PRD
 - writes pass/fail examples
 - documents budget
 - verifies rate/cost limits
@@ -735,7 +732,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - runs secret scan
 - audits every table's RLS policy
 - re-runs cross-user tests
-- documents risks in `.onemillion/audit-day-13.md`
+- fixes critical risks and leaves evidence in code/config
 
 **Exact links:**
 
@@ -751,9 +748,8 @@ The harness should not compress days unless the learner explicitly asks and the 
 **Done means:**
 
 - no exposed secrets
-- RLS audit is documented
+- RLS audit is visible in Supabase policy/code/config checks
 - critical guard checks pass
-- `.onemillion/audit-day-13.md` exists
 
 ## Day 14: Custom Domain
 
@@ -895,7 +891,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 - creates outreach list
 - sends 7-10 messages
-- captures responses in `.onemillion/feedback.md`
+- reflects response learnings in product copy, PRD, or Builder Claim notes
 - documents whether feedback was captured or outreach is pending
 
 **Exact links:**
@@ -934,7 +930,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - plans a 5-minute demo
 - records Loom
 - tests Loom public sharing
-- creates `.onemillion/demo.md`
+- prepares claim data from `.onemillion/state.json`, the live URL, and Loom URL
 - runs final verification
 - submits Builder Claim issue or form
 - shares the win
@@ -958,7 +954,6 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 **Done means:**
 
-- `.onemillion/demo.md` exists
 - Loom URL is public
 - live app URL works
 - final verification passes
@@ -998,8 +993,8 @@ Instead, explain the day, provide links and copy-ready material, and define done
 If the learner returns after a break:
 
 1. Read `.onemillion/state.json`.
-2. Read `.onemillion/progress.md`.
-3. Read the latest `.onemillion/verification-day-XX.md`.
+2. Read the verification history inside `.onemillion/state.json`.
+3. Inspect the current PRD/app state.
 4. Summarize where they are.
 5. Give the next smallest action.
 

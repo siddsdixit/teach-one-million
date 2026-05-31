@@ -270,17 +270,6 @@ if [[ ! -f "$STATE_DIR/state.json" ]]; then
 EOF
 fi
 
-if [[ ! -f "$STATE_DIR/progress.md" ]]; then
-  cat > "$STATE_DIR/progress.md" <<EOF
-# OneMillion Progress
-
-- Current day: 0
-- Current phase: preflight complete
-- Next action: open this repo in your coding harness and start Day 0.
-- Course page: $COURSE_PAGE
-EOF
-fi
-
 echo "OneMillion harness adapters installed."
 echo
 echo "Next:"

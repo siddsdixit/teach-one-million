@@ -207,7 +207,7 @@ The AI didn't just talk about doing it. It did it.
 
 ## Verify Your Day 10
 
-Paste contents of [`ai-instructions-day-10.md`](./ai-instructions-day-10.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 

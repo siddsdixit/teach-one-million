@@ -158,7 +158,6 @@ def test_installer_succeeds_in_fork_like_clone(results: list[Result], tmp: Path)
         ".gemini/GEMINI.md",
         ".github/copilot-instructions.md",
         ".onemillion/state.json",
-        ".onemillion/progress.md",
     ]
     missing = [path for path in expected if not (repo / path).exists()]
     passed = proc.returncode == 0 and not missing
@@ -187,18 +186,6 @@ def test_day0_state(results: list[Result], repo: Path) -> None:
 def create_day1_project(path: Path) -> Path:
     product = path / "my-onemillion-build"
     (product / ".onemillion").mkdir(parents=True)
-    (product / ".onemillion/progress.md").write_text(
-        """# OneMillion Progress
-
-## Builder
-
-- **Builder name:** Sim Learner
-- **Product name:** FollowUpPilot
-- **Target user:** independent yoga studio owners
-- **Current day:** Day 1
-- **Last verified day:** None
-"""
-    )
     (product / ".onemillion/project.json").write_text(
         json.dumps(
             {
@@ -210,50 +197,6 @@ def create_day1_project(path: Path) -> Path:
             },
             indent=2,
         )
-    )
-    (product / ".onemillion/idea-brief.md").write_text(
-        """# Idea Brief
-
-## Raw Idea
-FollowUpPilot drafts approval-based rebooking messages for yoga studio owners.
-
-## User
-Independent yoga studio owners.
-
-## Pain Point / Unmet Need
-Owners forget to follow up with clients who attend one class but do not rebook.
-
-## Current Workaround
-Manual review of class attendance exports and ad hoc messages.
-
-## Data Sources / Formats
-- Class attendance CSV exports
-- Client names and emails
-- Message notes entered by the owner
-
-## Ideal Solution
-A simple dashboard that finds missed rebooking opportunities and drafts messages for owner approval.
-
-## Usage Moment
-The owner opens it after classes each week and reviews follow-up drafts.
-
-## People / Roles
-- Yoga studio owner
-- Recent class attendee
-
-## User Stories
-- As a yoga studio owner, I want to upload attendance data so that I can see who did not rebook.
-- As a yoga studio owner, I want to review drafted messages so that I stay in control.
-- As a yoga studio owner, I want to mark follow-ups sent so that I know what is complete.
-
-## Success Criteria
-An owner can identify missed rebookings, review a draft, and mark it sent.
-
-## KPIs
-- Owner creates one follow-up list.
-- Owner approves one drafted message.
-- Owner returns after the next class.
-"""
     )
     (product / ".onemillion/prd.md").write_text(
         """# FollowUpPilot PRD
@@ -321,8 +264,9 @@ def test_day1_verifier(results: list[Result], tmp: Path) -> None:
         ],
         REPO,
     )
-    report_exists = (product / ".onemillion/verification-day-01.md").exists()
-    passed = proc.returncode == 0 and report_exists
+    state_path = product / ".onemillion/state.json"
+    state = json.loads(state_path.read_text()) if state_path.exists() else {}
+    passed = proc.returncode == 0 and state.get("last_verified_day") == 1
     record(results, "day1_artifacts_pass_schema_verifier", passed, proc.stdout)
 
 

@@ -16,14 +16,14 @@
 ## Before You Start
 
 - [ ] Day 11 verified — RAG working
-- [ ] Open `.onemillion/ai-feature.md` from Day 7 to reference Quality Criteria
+- [ ] Open the AI feature section in `.onemillion/prd.md` from Day 7 to reference Quality Criteria
 - [ ] Anthropic console open in browser to check cost
 
 ---
 
 ## Step 1: Create The Acceptance Criteria File
 
-In your editor, create `.onemillion/ai-acceptance-criteria.md`. Use this template:
+In your editor, create `tests/ai-quality.test.ts` or an equivalent eval test in the codebase. Use this template:
 
 ```markdown
 # AI Feature — Acceptance Criteria + Test Log
@@ -152,7 +152,7 @@ Write your decision in the "Lock Decision" section.
 ## Step 6: Commit + Verify
 
 ```bash
-git add .onemillion/ai-acceptance-criteria.md
+git add tests/
 git add app/api/ai/  # if you updated the route with rate limit
 git commit -m "Day 12: AI feature locked + tested"
 git push
@@ -162,13 +162,13 @@ git push
 claude
 ```
 
-Paste contents of [`ai-instructions-day-12.md`](./ai-instructions-day-12.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
 ## What Should Be True After Day 12
 
-- [ ] `.onemillion/ai-acceptance-criteria.md` exists with 5+ test cases
+- [ ] AI quality tests/evals exist with 5+ test cases
 - [ ] Each test case has all 5 sections + a result
 - [ ] Cost check documented with actual numbers
 - [ ] Hard cost cap added to API route
@@ -177,9 +177,9 @@ Paste contents of [`ai-instructions-day-12.md`](./ai-instructions-day-12.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 12 complete
 - **Last verified day:** Day 12

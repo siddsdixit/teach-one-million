@@ -56,75 +56,6 @@ def load_personas(path: Path = PERSONAS_PATH) -> list[dict]:
 def create_persona_project(persona: dict, repo: Path) -> Path:
     product_dir = repo / "my-onemillion-build"
     (product_dir / ".onemillion").mkdir(parents=True, exist_ok=True)
-    (product_dir / ".onemillion" / "progress.md").write_text(
-        f"""# OneMillion Progress
-
-## Builder
-
-- **Builder name:** {persona['name']}
-- **Product name:** {persona['label']} Build
-- **Target user:** {persona['target_user']}
-- **Current day:** Day 1
-- **Last verified day:** None
-
-## Links
-
-- **GitHub repo:** [add on Day 4]
-- **Live URL:** [add on Day 4]
-- **Supabase project:** [add on Day 5]
-- **Vercel project:** [add on Day 4]
-- **Demo Loom:** [add on Day 18]
-
-## Current State
-
-- **What works now:** Day 1 setup in progress
-- **Current blocker:** None
-- **Next smallest action:** Review PRD
-"""
-    )
-    (product_dir / ".onemillion" / "idea-brief.md").write_text(
-        f"""# Idea Brief
-
-## Raw Idea
-{persona['idea']}
-
-## User
-{persona['target_user']}
-
-## Pain Point / Unmet Need
-The target user has a repeated workflow pain that costs time and creates missed follow-up.
-
-## Current Workaround
-Manual tracking across notes, spreadsheets, and messages.
-
-## Data Sources / Formats
-- User-entered notes
-- Spreadsheet rows
-- Email or message text copied by the user
-
-## Ideal Solution
-A focused app that organizes the work and drafts useful next actions for review.
-
-## Usage Moment
-The user opens it during the painful workflow and uses it to decide the next action.
-
-## People / Roles
-- Primary user: {persona['target_user']}
-
-## User Stories
-- As a {persona['target_user']}, I want to capture the work in one place so that I do not lose track.
-- As a {persona['target_user']}, I want to see what needs attention so that I can act quickly.
-- As a {persona['target_user']}, I want to review suggested next steps so that I stay in control.
-
-## Success Criteria
-The user can capture, review, and complete the core workflow without switching tools.
-
-## KPIs
-- User creates 3+ records in first session.
-- User completes one core workflow.
-- User returns the next week.
-"""
-    )
     (product_dir / ".onemillion" / "project.json").write_text(
         json.dumps(
             {
@@ -459,9 +390,8 @@ def simulate_persona(persona: dict, tmp: Path) -> PersonaResult:
     if verify.returncode == 0:
         checks.append("Day 1 schema verifier passed")
         artifacts.append(str((product / ".onemillion/project.json").relative_to(repo)))
-        artifacts.append(str((product / ".onemillion/idea-brief.md").relative_to(repo)))
         artifacts.append(str((product / ".onemillion/prd.md").relative_to(repo)))
-        artifacts.append(str((product / ".onemillion/verification-day-01.md").relative_to(repo)))
+        artifacts.append(str((product / ".onemillion/state.json").relative_to(repo)))
     else:
         checks.append("Day 1 schema verifier failed")
         passed = False

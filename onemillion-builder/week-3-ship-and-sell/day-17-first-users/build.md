@@ -15,7 +15,7 @@
 
 ## Step 1: List 10 People To Reach Out To (10 min)
 
-In `.onemillion/outreach-list.md`:
+Ask the orchestrator to record your outreach list in `.onemillion/state.json`:
 
 ```markdown
 ## Outreach List — Day 17
@@ -82,7 +82,7 @@ Option B reveals 5x more than Option A. Worth pushing for, even with 1-2 people.
 
 ## Step 4: Capture Feedback (15-20 min)
 
-In `.onemillion/feedback.md`, use the template from learn.md.
+Ask the orchestrator to record feedback notes in `.onemillion/state.json`.
 
 Capture:
 - Direct quotes (gold)
@@ -113,25 +113,25 @@ Don't fix anything today (except P0 actual bugs). Just sort. You ship Day 18 fir
 claude
 ```
 
-Paste contents of [`ai-instructions-day-17.md`](./ai-instructions-day-17.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
 ## What Should Be True After Day 17
 
-- [ ] `.onemillion/outreach-list.md` exists with 10 people
+- [ ] `.onemillion/state.json` records 10 outreach attempts or equivalent
 - [ ] You sent 10 outreach messages
 - [ ] At least 1 response received
 - [ ] At least 1 person actually signed up + tried it
-- [ ] `.onemillion/feedback.md` has at least 1 entry with direct quotes
+- [ ] `.onemillion/state.json` records at least 1 feedback signal or pending-feedback status
 - [ ] Feedback categorized (P0/P1/P2/Ignore)
 - [ ] Verification passed ✅
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 17 complete
 - **Last verified day:** Day 17

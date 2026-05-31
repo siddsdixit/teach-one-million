@@ -142,7 +142,7 @@ Wait for Vercel deploy. Test streaming on LIVE URL.
 claude
 ```
 
-Paste contents of [`ai-instructions-day-09.md`](./ai-instructions-day-09.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
@@ -160,9 +160,9 @@ Paste contents of [`ai-instructions-day-09.md`](./ai-instructions-day-09.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 9 complete
 - **Last verified day:** Day 9

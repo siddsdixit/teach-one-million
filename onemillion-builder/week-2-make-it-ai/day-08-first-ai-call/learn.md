@@ -218,7 +218,7 @@ If you sign out and log in as a different user, the AI still works (it's just a 
 
 ## Verify Your Day 8
 
-Paste contents of [`ai-instructions-day-08.md`](./ai-instructions-day-08.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check the SDK is installed
 - Check API route exists
 - Verify the prompt has all 5 elements

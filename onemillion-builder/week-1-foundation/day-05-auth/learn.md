@@ -184,7 +184,7 @@ If all of that works, Day 5 is done.
 
 ## Verify Your Day 5
 
-Paste the contents of [`ai-instructions-day-05.md`](./ai-instructions-day-05.md) into your coding harness. It will:
+Ask your harness to run the OneMillion verifier for this day. It will:
 - Check Supabase libraries are installed
 - Verify env vars are set
 - Check auth routes exist

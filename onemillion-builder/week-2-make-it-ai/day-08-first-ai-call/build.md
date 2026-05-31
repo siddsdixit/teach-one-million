@@ -75,7 +75,7 @@ Paste:
 I'm on Day 8 of OneMillion. I need to build an API route that calls Claude.
 
 Here's my AI Feature Spec:
-[paste contents of .onemillion/ai-feature.md]
+[paste contents of the AI feature section in `.onemillion/prd.md`]
 
 Create:
 1. app/api/ai/[your-feature-slug]/route.ts — a POST route that:
@@ -177,7 +177,7 @@ Visit your LIVE URL. Test the AI feature on production.
 claude
 ```
 
-Paste contents of [`ai-instructions-day-08.md`](./ai-instructions-day-08.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
@@ -197,9 +197,9 @@ Paste contents of [`ai-instructions-day-08.md`](./ai-instructions-day-08.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 8 complete
 - **Last verified day:** Day 8

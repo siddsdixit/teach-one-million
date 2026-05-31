@@ -135,9 +135,7 @@ my-onemillion-build/
 ├── .onemillion/
 │   ├── project.json
 │   ├── prd.md
-│   ├── verification-day-01.md
-│   ├── verification-day-02.md
-│   └── verification-day-03.md
+│   └── state.json
 ├── app/
 │   ├── layout.tsx
 │   ├── page.tsx               ← your homepage
@@ -186,7 +184,7 @@ And visiting `https://[your-app].vercel.app` should show: "Hello from [your name
 claude
 ```
 
-Paste contents of [`ai-instructions-day-04.md`](./ai-instructions-day-04.md). Claude will:
+Ask your harness to run the OneMillion verifier for this day.
 - Check the project structure exists
 - Verify `package.json` has Next.js + correct dependencies
 - Confirm `app/page.tsx` exists

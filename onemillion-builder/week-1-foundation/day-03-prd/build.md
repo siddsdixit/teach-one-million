@@ -96,7 +96,7 @@ This looks good. Save the final PRD to .onemillion/prd.md
 ls .onemillion/
 ```
 
-You should see: `project.json`, `prd.md`, and possibly verification files from earlier days.
+You should see: `project.json`, `prd.md`, and `state.json`.
 
 ---
 
@@ -132,7 +132,7 @@ If you want to add a feature later, it goes in "v2 or later" — not v1.
 claude
 ```
 
-Paste the contents of [`ai-instructions-day-03.md`](./ai-instructions-day-03.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 Claude reads `prd.md`, checks all 8 sections, validates user story format, and reports pass / needs-revision.
 
@@ -151,9 +151,9 @@ Claude reads `prd.md`, checks all 8 sections, validates user story format, and r
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 3 complete
 - **Last verified day:** Day 3

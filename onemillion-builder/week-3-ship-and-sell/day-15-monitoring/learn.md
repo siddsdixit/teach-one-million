@@ -136,7 +136,7 @@ Cohort 0 scale: ~5-10 alerts per month is healthy. More = signal of real bugs. F
 
 ## Verify Your Day 15
 
-Paste contents of [`ai-instructions-day-15.md`](./ai-instructions-day-15.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 

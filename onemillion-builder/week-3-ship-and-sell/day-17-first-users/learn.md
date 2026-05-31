@@ -128,7 +128,7 @@ What worked, what's broken, what's missing — all feedback welcome.
 
 When someone tries it and tells you what they think, write it down. Today. Fresh.
 
-Create `.onemillion/feedback.md`:
+Ask the orchestrator to record feedback notes in `.onemillion/state.json`:
 
 ```markdown
 ## Feedback Log
@@ -168,7 +168,7 @@ Capture 1-3 of these. They're gold.
 2. Send DMs / emails / texts
 3. Walk anyone who responds through signup (over a call or messaging)
 4. Watch them use it (if possible — screenshare reveals tons)
-5. Capture their feedback in `.onemillion/feedback.md`
+5. Capture their feedback in `.onemillion/state.json`
 6. Run Day 17 verification
 
 ---
@@ -179,7 +179,7 @@ By end of Day 17:
 - 10 outreach messages sent
 - 1-3 responded
 - 1+ actually signed up and tried it
-- 1+ feedback entry in `.onemillion/feedback.md` with specific quotes
+- 1+ feedback entry in `.onemillion/state.json` with specific quotes
 
 You might get 0 actual users today. That's OK — your outreach list buys you 1-2 users over the next week. Demo Day (Day 18) can include the feedback you collected, not just users.
 
@@ -204,7 +204,7 @@ You might get 0 actual users today. That's OK — your outreach list buys you 1-
 - [ ] You sent 10 outreach messages
 - [ ] At least 1 response received
 - [ ] At least 1 person actually used the product
-- [ ] `.onemillion/feedback.md` exists with at least 1 entry
+- [ ] `.onemillion/state.json` records at least 1 feedback entry or pending-feedback status
 - [ ] You did NOT iterate during feedback collection (resist the urge)
 - [ ] Verification passed ✅
 
@@ -212,8 +212,8 @@ You might get 0 actual users today. That's OK — your outreach list buys you 1-
 
 ## Verify Your Day 17
 
-Paste contents of [`ai-instructions-day-17.md`](./ai-instructions-day-17.md). Claude will:
-- Check feedback.md exists with structured entries
+Ask your harness to run the OneMillion verifier for this day.
+- Check `.onemillion/state.json` records outreach and feedback status
 - Ask about your outreach count + response count
 - Help you categorize the feedback (now, v2, ignore)
 - Report pass / needs revision

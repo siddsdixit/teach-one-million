@@ -22,7 +22,7 @@
 
 ## Step 1: Plan The Tool
 
-In `.onemillion/tools-plan.md`, write down:
+In `the tool implementation and code comments`, write down:
 
 ```markdown
 ## Tool 1: [tool_name]
@@ -81,7 +81,7 @@ I'm on Day 10 of OneMillion. Add tool use to my AI route at
 app/api/ai/[my-feature]/route.ts.
 
 Here's the tool I want to add:
-[paste contents of .onemillion/tools-plan.md]
+[paste contents of the tool implementation and code comments]
 
 Update the route to:
 1. Import `tool` from 'ai' and `z` from 'zod'
@@ -96,7 +96,7 @@ Show me the file before saving.
 
 Review the diff. Pay attention to:
 - The auth check inside `execute()` — the user_id should come from the session, NOT from the tool parameters
-- The Zod schema — should match what you wrote in tools-plan.md
+- The Zod schema — should match the tool behavior you intentionally designed
 - The system prompt update — should mention WHEN to use the tool
 
 ---
@@ -147,13 +147,13 @@ Test the tool on live URL. Verify it works AND auth works.
 claude
 ```
 
-Paste contents of [`ai-instructions-day-10.md`](./ai-instructions-day-10.md).
+Ask your harness to run the OneMillion verifier for this day.
 
 ---
 
 ## What Should Be True After Day 10
 
-- [ ] `.onemillion/tools-plan.md` exists with at least 1 tool documented
+- [ ] `the tool implementation and code comments` exists with at least 1 tool documented
 - [ ] API route defines the tool with `tool({ description, parameters, execute })`
 - [ ] System prompt mentions the tool
 - [ ] Tool's execute function checks auth using session user_id (not from AI parameters)
@@ -164,9 +164,9 @@ Paste contents of [`ai-instructions-day-10.md`](./ai-instructions-day-10.md).
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 10 complete
 - **Last verified day:** Day 10

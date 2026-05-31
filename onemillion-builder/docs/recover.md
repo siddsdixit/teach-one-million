@@ -11,12 +11,12 @@ Use this page when you stopped for a few days or weeks and need to restart witho
 Open your project folder and check:
 
 ```bash
-ls .onemillion/verification-day-*.md
+cat .onemillion/state.json
 ```
 
-The highest numbered file is your last completed checkpoint.
+Look for `last_verified_day` and the `verification.days` object.
 
-If you have no verification files yet, restart at [Day 1](../week-1-foundation/day-01-vision/learn.md).
+If `last_verified_day` is missing, restart at [Day 1](../week-1-foundation/day-01-vision/learn.md).
 
 ---
 
@@ -44,8 +44,8 @@ Paste this:
 I am returning to OneMillion after a break.
 
 My last verified day appears to be Day [X].
-Here are my verification files:
-[paste output of ls .onemillion/verification-day-*.md]
+Here is my OneMillion state:
+[paste .onemillion/state.json]
 
 Here is what happens when I run npm run dev:
 [paste result or error]

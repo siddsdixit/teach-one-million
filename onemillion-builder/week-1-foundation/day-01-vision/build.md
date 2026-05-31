@@ -58,9 +58,8 @@ Teach me what makes a good product idea:
 
 Then interview me one question at a time as the OneMillion Idea agent.
 Your goal is to help me create:
-1. .onemillion/idea-brief.md
-2. .onemillion/project.json
-3. .onemillion/prd.md
+1. .onemillion/project.json
+2. .onemillion/prd.md
 
 After drafting the PRD, ask me to open it, review it, edit anything I disagree with, and save it.
 ```
@@ -116,17 +115,17 @@ Answer in plain language. Rough notes are fine.
 - [Measurable usefulness signal 3]
 ```
 
-The harness should save this to:
+The harness should put this into the top of `.onemillion/prd.md` as the idea brief section:
 
 ```text
-.onemillion/idea-brief.md
+.onemillion/prd.md
 ```
 
 ---
 
 ## Step 4: Create `project.json`
 
-The harness should create `.onemillion/project.json` from the idea brief.
+The harness should create `.onemillion/project.json` from the idea brief section in the PRD.
 
 Required shape:
 
@@ -205,34 +204,22 @@ Edit anything you disagree with. Then save the file.
 
 ---
 
-## Step 7: Create Your Progress Tracker
+## Step 7: Update Orchestrator State
 
-Create `.onemillion/progress.md`:
+Ask the orchestrator to update `.onemillion/state.json`:
 
-```markdown
-# OneMillion Progress
-
-## Builder
-
-- **Builder name:** [Your name]
-- **Product name:** [Product name or "not named yet"]
-- **Target user:** [Specific user]
-- **Current day:** Day 1 complete
-- **Last verified day:** Day 1
-
-## Links
-
-- **GitHub repo:** [add on Day 4]
-- **Live URL:** [add on Day 4]
-- **Supabase project:** [add on Day 5]
-- **Vercel project:** [add on Day 4]
-- **Demo Loom:** [add on Day 18]
-
-## Current State
-
-- **What works now:** Idea brief and PRD draft created
-- **Current blocker:** None
-- **Next smallest action:** Day 2 research
+```json
+{
+  "current_day": 1,
+  "last_verified_day": 1,
+  "product": {
+    "builder_name": "[Your name]",
+    "product_name": "[Product name or not named yet]",
+    "target_user": "[Specific user]"
+  },
+  "current_blocker": null,
+  "next_smallest_action": "Open Day 2"
+}
 ```
 
 ---
@@ -245,25 +232,24 @@ In your terminal, in `my-onemillion-build`:
 claude
 ```
 
-Paste the contents of [`ai-instructions-day-01.md`](./ai-instructions-day-01.md), or ask your harness to run the Day 1 verifier.
+Ask your harness to run the OneMillion verifier for Day 1.
 
 ---
 
 ## What Should Be True After Day 1
 
 - [ ] `teach-one-million/my-onemillion-build/` exists.
-- [ ] `.onemillion/idea-brief.md` exists.
 - [ ] `.onemillion/project.json` exists and is valid JSON.
-- [ ] `.onemillion/prd.md` exists.
+- [ ] `.onemillion/prd.md` exists with the idea brief and first PRD.
 - [ ] PRD includes user, pain, unmet need, data, ideal solution, user stories, success criteria, KPIs, competitive alternatives, TAM/SAM/SOM, and assumptions for Day 2.
 - [ ] You opened, reviewed, edited if needed, and saved the PRD.
 - [ ] Verification passed.
 
 ---
 
-## Update Your Progress Tracker
+## Update Orchestrator State
 
-Before you close today, open `.onemillion/progress.md` and update:
+Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 - **Current day:** Day 1 complete
 - **Last verified day:** Day 1

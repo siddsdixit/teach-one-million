@@ -16,6 +16,24 @@ Read .roo/skills/tech_stack.md
 Read .roo/skills/mermaid.md
 Read .roo/skills/pdf.md
 
+## OneMillion Course Stack
+
+For the OneMillion Builder course, the default stack is:
+
+```text
+Frontend/app: Next.js + React + MUI / Material Design 3
+Database/auth: Supabase Postgres + Supabase Auth + Row Level Security
+Frontend deploy: Vercel
+AI: Claude called from server-side code
+```
+
+The backend path is a planning decision:
+
+- **Default:** Supabase-only backend with Next.js route handlers/server actions for API and AI glue.
+- **Optional:** FastAPI backend + Supabase only when the PRD has a real backend reason: complex Python logic, background jobs, heavy integrations, enterprise API boundaries, long-running tasks, or Python libraries.
+
+If unsure, choose Supabase-only. Do not use alternate databases or separate backend hosting as course defaults. Only introduce a separate backend host when the builder explicitly chooses FastAPI or the architecture requires it.
+
 ## Core Philosophy
 
 - Architecture must be grounded in existing code, not theoretical ideals — read code before designing. Armchair architecture leads to integration failures.
@@ -175,7 +193,7 @@ S0 is special — it creates the project:
 - App shell with navigation (from design)
 - .env.example, .gitignore
 - Sentry init
-- **Database seed script:** Create `backend/scripts/seed.py` that reads `.onemillion/seed-data.json` (produced by design agent) and inserts all demo data into MongoDB. Run it once after S0 setup. This ensures the app looks polished with realistic data from the first run.
+- **Seed data:** Create a seed path that reads `.onemillion/seed-data.json` (produced by design agent) and inserts demo data into Supabase using the selected backend path. This ensures the app looks polished with realistic data from the first run.
 - Verification: backend health returns 200, frontend builds and shows app shell with seeded data
 
 ### S1-auth.md specifics

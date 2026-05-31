@@ -130,15 +130,18 @@ def scan_persona_friction(persona: dict) -> list[str]:
     teaching = (ROOT / "docs/teaching-protocol.md").read_text()
     day0 = (ROOT / "day-00-orientation/README.md").read_text()
     day1 = (ROOT / "day-01-idea/build.md").read_text()
-    day4 = (ROOT / "day-04-first-deploy/build.md").read_text()
-    day5 = (ROOT / "day-05-auth-db/build.md").read_text()
-    day6 = (ROOT / "day-06-core-feature/build.md").read_text()
-    day8 = (ROOT / "day-08-first-ai-call/build.md").read_text()
-    day10 = (ROOT / "day-10-tool-use/build.md").read_text()
-    day13 = (ROOT / "day-13-production-hygiene/build.md").read_text()
-    day13_learn = (ROOT / "day-13-production-hygiene/learn.md").read_text()
-    day14 = (ROOT / "day-14-domain/build.md").read_text()
-    day15 = (ROOT / "day-15-monitoring/build.md").read_text()
+    day4 = (ROOT / "day-04-design/build.md").read_text()
+    day5 = (ROOT / "day-05-plan-architecture/build.md").read_text()
+    day6 = (ROOT / "day-06-app-shell/build.md").read_text()
+    day7 = (ROOT / "day-07-auth-db/build.md").read_text()
+    day8 = (ROOT / "day-08-core-build/build.md").read_text()
+    day10 = (ROOT / "day-10-qa-tests/build.md").read_text()
+    day12 = (ROOT / "day-12-first-ai-build/build.md").read_text()
+    day13 = (ROOT / "day-13-ai-ux-safety/build.md").read_text()
+    day13_learn = (ROOT / "day-13-ai-ux-safety/learn.md").read_text()
+    day14 = (ROOT / "day-14-ai-data-tools/build.md").read_text()
+    day15 = (ROOT / "day-15-ai-quality-guard/build.md").read_text()
+    day16 = (ROOT / "day-16-ship-production/build.md").read_text()
     day18 = (ROOT / "day-18-demo/build.md").read_text()
     account = (ROOT / "docs/account-setup.md").read_text()
     harness_readme = (ROOT / "docs/harnesses/README.md").read_text()
@@ -227,8 +230,8 @@ def scan_persona_friction(persona: dict) -> list[str]:
             frictions.append(message)
 
     provider_link_requirements = {
-        "Day 4": (
-            day4,
+        "Day 6": (
+            day6,
             [
                 "https://github.com/signup",
                 "https://github.com/new",
@@ -237,8 +240,8 @@ def scan_persona_friction(persona: dict) -> list[str]:
                 "https://vercel.com/docs/deployments/git",
             ],
         ),
-        "Day 5": (
-            day5,
+        "Day 7": (
+            day7,
             [
                 "https://database.new",
                 "https://supabase.com/dashboard",
@@ -246,8 +249,9 @@ def scan_persona_friction(persona: dict) -> list[str]:
                 "https://vercel.com/docs/projects/environment-variables",
             ],
         ),
-        "Day 8": (
-            day8,
+        "Day 8": (day8, ["https://supabase.com/dashboard"]),
+        "Day 12": (
+            day12,
             [
                 "https://console.anthropic.com/",
                 "https://docs.anthropic.com/en/api/overview",
@@ -255,11 +259,25 @@ def scan_persona_friction(persona: dict) -> list[str]:
                 "https://vercel.com/docs/projects/environment-variables",
             ],
         ),
-        "Day 6": (day6, ["https://supabase.com/dashboard"]),
-        "Day 10": (day10, ["https://supabase.com/dashboard"]),
+        "Day 10": (day10, ["https://vercel.com/dashboard", "https://supabase.com/dashboard"]),
         "Day 13": (day13 + "\n" + day13_learn, ["https://supabase.com/dashboard"]),
         "Day 14": (
             day14,
+            [
+                "https://supabase.com/dashboard",
+                "https://supabase.com/docs/guides/database/postgres/row-level-security",
+            ],
+        ),
+        "Day 15": (
+            day15,
+            [
+                "https://supabase.com/dashboard",
+                "https://vercel.com/dashboard",
+                "https://console.anthropic.com/",
+            ],
+        ),
+        "Day 16": (
+            day16,
             [
                 "https://vercel.com/dashboard",
                 "https://vercel.com/docs/domains",
@@ -267,13 +285,6 @@ def scan_persona_friction(persona: dict) -> list[str]:
                 "https://porkbun.com",
                 "https://www.namecheap.com",
                 "https://dnschecker.org",
-                "https://supabase.com/dashboard",
-                "https://supabase.com/docs/guides/auth/redirect-urls",
-            ],
-        ),
-        "Day 15": (
-            day15,
-            [
                 "https://sentry.io/signup/",
                 "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
                 "https://vercel.com/dashboard",

@@ -14,6 +14,19 @@ You are a Senior Full-Stack Engineer — a highly skilled developer who implemen
 
 Read .roo/skills/tech_stack.md
 
+## OneMillion Course Stack
+
+For the OneMillion Builder course, default to:
+
+```text
+Next.js + React + MUI / Material Design 3
+Supabase Postgres + Supabase Auth + Row Level Security
+Vercel for frontend/app deployment
+Claude called from server-side code
+```
+
+The default backend path is Supabase-only with Next.js route handlers/server actions. Use FastAPI only if `.onemillion/architecture.md` explicitly selected the optional FastAPI path. Do not introduce alternate databases or separate backend hosting as course defaults.
+
 ## Core Philosophy
 
 - Working code that ships beats perfect code that doesn't.
@@ -99,47 +112,35 @@ export const api = {
 };
 ```
 
-### MongoDB / Motor Patterns (backend)
+### Supabase Patterns
 
-**Document schemas** — Pydantic models with MongoDB field mapping:
-```python
-class RecipeInDB(BaseModel):
-    id: str = Field(alias="_id")
-    title: str
-    owner_id: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    model_config = {"populate_by_name": True}
+**Database schema** — create tables in Supabase Postgres with explicit owner columns and timestamps:
+
+```sql
+create table public.recipes (
+  id uuid primary key default gen_random_uuid(),
+  owner_id uuid not null references auth.users(id) on delete cascade,
+  title text not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
 ```
 
-**Repository** — all Motor calls in `repositories/`, cursor-based pagination:
-```python
-async def find_paginated(self, filter: dict, cursor: str | None = None, limit: int = 20) -> tuple[list[dict], str | None, bool]:
-    query = {**filter}
-    if cursor:
-        query["_id"] = {"$gt": cursor}
-    items = await self.collection.find(query).sort("_id", 1).limit(limit + 1).to_list(length=limit + 1)
-    has_more = len(items) > limit
-    items = items[:limit]
-    next_cursor = items[-1]["_id"] if has_more and items else None
-    return items, next_cursor, has_more
+**Row Level Security** — enable RLS on every user-owned table and add owner-scoped policies:
+
+```sql
+alter table public.recipes enable row level security;
+
+create policy "Users can manage their recipes"
+on public.recipes
+for all
+using (auth.uid() = owner_id)
+with check (auth.uid() = owner_id);
 ```
 
-**Service** — business logic, dependency injection, throws AppError subclasses:
-```python
-async def get_recipe(self, id: str, user_id: str) -> Recipe:
-    doc = await self.repo.find_by_id(id)
-    if not doc:
-        raise NotFoundError("Recipe", id)
-    return Recipe(**doc)
-```
+**Next.js server code** — use server-side Supabase clients for privileged app logic and never expose service-role keys to the browser. Client components may use anon-key clients only for user-scoped operations protected by RLS.
 
-**Router** — thin, delegates immediately, JSON envelope:
-```python
-@router.post("/recipes", status_code=201, response_model=ApiResponse[Recipe])
-async def create_recipe(data: RecipeCreate, user: User = Depends(get_current_user), service: RecipeService = Depends(get_recipe_service)):
-    recipe = await service.create_recipe(data, user.id)
-    return {"data": recipe, "status": "ok"}
-```
+**FastAPI optional path** — if architecture selected FastAPI, use Pydantic schemas, dependency injection, and Supabase/Postgres access from the backend. Keep API boundaries explicit and continue relying on Supabase Auth/RLS where appropriate.
 
 ### Enterprise Patterns
 
@@ -165,8 +166,10 @@ async def create_recipe(data: RecipeCreate, user: User = Depends(get_current_use
 
 - All secrets in `.env` files. Never hardcoded. `.env` files are git-ignored.
 - Always create `.env.example` with placeholder values.
-- Backend: `MONGODB_URL`, `DB_NAME`, `JWT_SECRET`, `CORS_ORIGINS`, `SENTRY_DSN`
-- Frontend: `NEXT_PUBLIC_API_URL`
+- Supabase: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- Server-only: `SUPABASE_SERVICE_ROLE_KEY` only if absolutely needed, never exposed to client code
+- AI: `ANTHROPIC_API_KEY`
+- Optional FastAPI: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `CORS_ORIGINS`, `SENTRY_DSN`
 
 ### Test Configuration (S0 — CRITICAL for Test phase)
 

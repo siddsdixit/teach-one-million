@@ -14,18 +14,17 @@ The learner will:
 - choose a specific product idea
 - validate the problem with real conversations
 - write a small PRD
-- build a Next.js app
-- deploy to Vercel
+- turn the PRD into a spec, design, and architecture
+- choose the backend path: Supabase-only by default, FastAPI only when justified
+- build a Next.js + MUI app
+- deploy the frontend to Vercel
 - add Supabase auth and database
 - build one real core feature
 - add a Claude-powered AI feature
-- stream AI output
-- let AI use safe tools
-- ground AI in user data
-- add quality gates and a cost budget
+- add AI UX, data/tooling only where useful, quality gates, and cost limits
 - audit production risk
-- add monitoring
-- create a landing page
+- verify production, monitoring, and optional domain
+- create positioning and a product page
 - reach out to users
 - record a Loom demo
 - submit a Builder Claim
@@ -110,10 +109,11 @@ Tools arrive just in time. External tools enter only when the pipeline needs the
 | Stage | Tool introduced | Why then |
 |---|---|---|
 | Course workspace | GitHub | The learner needs a fork, clone, progress trail, and proof of work before anything else. |
-| First deploy | Vercel | Deployment matters once there is a real app shell to deploy. |
+| First deploy | Vercel | Deployment matters once there is a planned app shell to deploy. |
 | Data/auth | Supabase | Database and auth matter once the product needs users and persistent data. |
+| Optional backend | FastAPI | Introduced only if the architecture has a real backend reason. |
 | AI feature | Anthropic | API keys matter once the product has a defined AI job. |
-| Production | Sentry, Vercel Analytics, UptimeRobot | Monitoring matters once real people can use the product. |
+| Production | Sentry, Vercel Analytics, UptimeRobot, optional domain | Monitoring matters once real people can use the product. |
 
 ## The AI/Human Contract
 
@@ -179,9 +179,10 @@ Key Day 0 setup links:
 The course has Day 0 plus 18 build days.
 
 - **Day 0:** orientation, OneMillion mission, pipeline, commitment, and GitHub workspace
-- **Days 1-6:** foundation: idea agent, PRD draft, research, validation, stack, auth, core feature
-- **Days 7-12:** make it AI: AI spec, first call, streaming, tools, RAG, quality gates
-- **Days 13-18:** ship and sell: hygiene, domain, monitoring, landing page, users, demo
+- **Days 1-5:** foundation: idea, research, spec, design, architecture
+- **Days 6-10:** build and QA: app shell, deploy, auth, core workflow, review, tests
+- **Days 11-15:** make it AI: AI spec, first AI build, AI UX, data/tools if justified, quality and guardrails
+- **Days 16-18:** ship and sell: production verification, monitoring/domain optionality, positioning, users, demo
 
 The harness should not compress days unless the learner explicitly asks and the completion gates are already satisfied.
 
@@ -388,72 +389,152 @@ The harness should not compress days unless the learner explicitly asks and the 
 - out-of-scope list has at least 5 items
 - definition of done is concrete
 
-## Day 4: Stack + First Deploy
+## Day 4: Design The Product
 
-**Purpose:** create the real app, push it to GitHub, and deploy it to Vercel.
+**Purpose:** use the Design agent to turn `.onemillion/refined-prd.md` into screens, flows, states, copy, and MUI design language.
 
-**Why it matters:** the learner stops being a planner and becomes a builder with a live URL.
+**Why it matters:** design is not decoration. Design decides what the learner is asking the build agent to create. A good design spec prevents random UI, missing states, and rebuilds later.
 
 **What the learner learns:**
 
-- Next.js app structure
-- Git basics
-- GitHub app repo
-- Vercel deployment loop
+- what product design means before code
+- primary user journeys
+- screens, flows, and states
+- loading, empty, error, success, partial, and full states
+- MUI / Material Design as the course UI language
+- how to review a design spec before building
 
 **What the learner does:**
 
-- creates a Next.js app inside `my-onemillion-build`
-- customizes the homepage
-- initializes git for the product app
-- creates a GitHub product repo
-- deploys to Vercel
+- reviews the Day 3 refined PRD
+- chooses a visual direction with the Design agent
+- identifies the main screens and user flow
+- reviews the generated design spec
+- approves or edits the design direction
+
+**What the harness does:**
+
+- acts as the Design agent
+- reads `.onemillion/refined-prd.md`
+- teaches design concepts before asking for style choices
+- creates `.onemillion/design-spec.md`
+- creates `.onemillion/design-system.md`
+- defines MUI component patterns, states, layout, responsive behavior, and copy tone
+
+**Done means:**
+
+- `.onemillion/design-spec.md` exists
+- `.onemillion/design-system.md` exists
+- main screens and states are described
+- learner approved the design direction
+
+## Day 5: Plan Architecture
+
+**Purpose:** use the Plan agent to turn spec + design into architecture, backend path, data model, and sprint briefs.
+
+**Why it matters:** building without a plan causes agent drift. Day 5 teaches how software is broken into architecture and buildable slices.
+
+**What the learner learns:**
+
+- architecture before code
+- frontend/backend boundaries
+- data model thinking
+- API contracts
+- sprint briefs as build contracts
+- backend path optionality
+
+**Backend path decision:**
+
+```text
+Default: Next.js + MUI + Supabase + Vercel
+Optional: FastAPI + Supabase when there is a real backend reason
+```
+
+If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Python libraries, background jobs, enterprise API boundaries, heavy integrations, or long-running workflows.
+
+**What the learner does:**
+
+- chooses Supabase-only or FastAPI backend path
+- reviews architecture decisions
+- reviews data model and API boundaries
+- approves sprint sequence
+
+**What the harness does:**
+
+- acts as the Plan agent
+- reads PRD, refined PRD, design spec, and design system
+- explains the backend path tradeoff
+- defaults to Supabase-only unless FastAPI is justified
+- creates `.onemillion/architecture.md`
+- creates `.onemillion/sprints/`
+- runs Validate Plan thinking before build begins
+
+**Done means:**
+
+- `.onemillion/architecture.md` exists
+- `.onemillion/sprints/` exists
+- backend path decision is recorded
+- validate-plan passes or findings are resolved
+
+## Day 6: App Shell + First Deploy
+
+**Purpose:** create the real app shell from the plan, apply the MUI baseline, push to GitHub, and deploy the frontend to Vercel.
+
+**Why it matters:** the learner now moves from documents to working software, but with a spec, design, and plan behind it.
+
+**What the learner learns:**
+
+- Next.js project structure
+- MUI setup
+- GitHub product repo
+- Vercel deploy loop
+- how to verify live source matches local code
+
+**What the learner does:**
+
+- creates the product app
+- applies app shell/navigation from design
+- initializes product git repo if needed
+- creates product GitHub repo
+- deploys frontend to Vercel
 - verifies push-to-deploy works
 
 **Exact links:**
 
-- GitHub signup: https://github.com/signup
-- GitHub CLI: https://cli.github.com/
 - GitHub new repo: https://github.com/new
 - Vercel signup: https://vercel.com/signup
 - Vercel import: https://vercel.com/new
 - Vercel dashboard: https://vercel.com/dashboard
 - Vercel Git docs: https://vercel.com/docs/deployments/git
 
-**What the harness does:**
-
-- explains every command
-- helps fix setup errors
-- edits simple homepage text
-- checks local app and deployed URL
-
 **Done means:**
 
 - product GitHub repo exists
 - app runs locally
 - Vercel deployment URL works
-- live homepage matches local code
+- live homepage matches local source markers
 
-## Day 5: Auth + Database
+## Day 7: Auth + Database
 
-**Purpose:** add real signup/login and a real database.
+**Purpose:** add Supabase auth, database tables, environment variables, and Row Level Security.
 
-**Why it matters:** useful products remember users and protect their data. Day 5 introduces auth, tables, env vars, and RLS.
+**Why it matters:** useful products remember users and protect their data.
 
 **What the learner learns:**
 
 - Supabase project setup
-- environment variables
 - auth flow
+- environment variables
+- Postgres tables
 - Row Level Security
 
 **What the learner does:**
 
 - creates Supabase project
-- stores public Supabase env vars locally and in Vercel
-- scaffolds signup/login/logout/dashboard
-- creates first table
-- enables RLS
+- stores env vars locally and in Vercel
+- scaffolds signup/login/logout
+- creates first tables from the architecture
+- enables RLS and tests cross-user protection
 
 **Exact links:**
 
@@ -462,471 +543,309 @@ The harness should not compress days unless the learner explicitly asks and the 
 - Supabase Next.js Auth: https://supabase.com/docs/guides/auth/quickstarts/nextjs
 - Supabase API keys: https://supabase.com/docs/guides/getting-started/api-keys
 - Supabase RLS: https://supabase.com/docs/guides/database/postgres/row-level-security
-- Vercel dashboard: https://vercel.com/dashboard
 - Vercel env vars: https://vercel.com/docs/projects/environment-variables
-
-**What the harness does:**
-
-- helps scaffold auth code
-- checks `.env.local` is not committed
-- checks signup/login/logout behavior
-- reminds learner not to paste secrets
 
 **Done means:**
 
 - Supabase project exists
-- signup/login/logout work
+- signup/login/logout work locally and live
 - protected dashboard works
-- table has RLS enabled
-- deployed app still works
+- RLS is enabled
+- secrets are not committed
 
-## Day 6: Core Feature
+## Day 8: Core Build
 
-**Purpose:** build the main non-AI workflow.
+**Purpose:** build the main non-AI workflow from the sprint brief.
 
-**Why it matters:** AI is not the product if the basic workflow does not work. Day 6 makes the app useful before adding AI.
+**Why it matters:** AI is not the product if the basic workflow does not work. Day 8 makes the app useful before adding AI.
 
 **What the learner learns:**
 
 - CRUD workflow
-- API routes
-- UI connected to database
+- forms and validation
+- UI connected to Supabase
+- deployed functional QA
 - cross-user data safety
 
 **What the learner does:**
 
-- defines the main entity fields
-- builds create/read/update/delete
+- builds create/read/update/delete for the core entity
+- connects UI to Supabase
 - tests locally
 - deploys and tests live
-- runs a second-user RLS test
-
-**Exact links:**
-
-- Supabase dashboard: https://supabase.com/dashboard
-- Vercel dashboard: https://vercel.com/dashboard
-
-**What the harness does:**
-
-- breaks work into data, API, UI, and review
-- reviews generated code
-- blocks progress if cross-user data leaks
+- runs second-user RLS checks
 
 **Done means:**
 
-- core feature works locally and live
+- core workflow works locally and live
 - CRUD works end to end
 - second user cannot see first user's data
-- Days 1-6 are verified
 
-## Day 7: AI Feature Spec
+## Day 9: Implementation Review
 
-**Purpose:** define the AI feature before writing AI code.
+**Purpose:** use the Review agent to compare the built app against the spec before writing more tests or AI.
 
-**Why it matters:** "add AI" is not a feature. Day 7 turns AI into a measurable job with clear inputs, output, constraints, and failure modes.
+**Why it matters:** working code can still be the wrong code. Day 9 teaches spec drift detection.
 
 **What the learner learns:**
 
-- useful AI behavior
-- prompt role/goal/tone/constraints/format
-- measurable acceptance criteria
-- cost awareness
+- what code review means
+- spec vs implementation
+- blockers, bugs, edge cases, observations
+- when to fix now vs defer
 
 **What the learner does:**
 
-- adds the AI feature spec to `.onemillion/prd.md`
+- runs review against `.onemillion/refined-prd.md`
+- reads `.onemillion/review-findings.md`
+- fixes blockers or explicitly defers non-critical issues
+
+**Done means:**
+
+- `.onemillion/review-findings.md` exists
+- blockers are fixed or intentionally deferred with reason
+- app still builds
+
+## Day 10: QA + Tests
+
+**Purpose:** teach what good QA is and prove the core app works.
+
+**Why it matters:** learners need to know the difference between “it opened once” and “it works.” Day 10 teaches happy paths, edge cases, negative cases, and live QA.
+
+**What the learner learns:**
+
+- good QA mindset
+- acceptance criteria as tests
+- manual QA vs automated tests
+- happy paths, edge cases, and permission checks
+- evidence-based verification
+
+**What the learner does:**
+
+- writes or reviews tests/manual QA checklist from acceptance criteria
+- runs local checks
+- tests the live Vercel URL
+- records QA result
+
+**Done means:**
+
+- `.onemillion/test-results.md` exists
+- core tests or manual QA checklist pass
+- live app passes critical path QA
+
+## Day 11: AI Feature Spec
+
+**Purpose:** define the AI feature before writing AI code.
+
+**Why it matters:** “add AI” is not a feature. Day 11 turns AI into a measurable job with inputs, outputs, constraints, failure modes, and cost boundaries.
+
+**What the learner learns:**
+
+- useful AI vs AI decoration
+- prompt inputs and expected outputs
+- structured output where useful
+- measurable AI acceptance criteria
+- failure modes and cost awareness
+
+**What the learner does:**
+
 - defines one useful AI job
+- updates pipeline artifacts with the AI spec
 - writes quality criteria
-- documents failure modes and cost budget
-
-**What the harness does:**
-
-- acts as Spec agent
-- challenges vague AI ideas
-- validates the AI feature against the product's real user problem
+- documents failure modes and budget
 
 **Done means:**
 
 - AI feature spec exists
-- criteria are measurable
-- the AI feature is core to the product, not decoration
+- AI behavior is measurable
+- failure modes and cost budget are recorded
 
-## Day 8: First AI Call
+## Day 12: First AI Build
 
-**Purpose:** make the app call Claude from a secure server route.
+**Purpose:** make the app call Claude securely from the server side.
 
-**Why it matters:** the learner sees real AI output inside their product while keeping the API key server-side.
+**Why it matters:** the learner sees real AI output inside the product while keeping API keys server-side.
 
 **What the learner learns:**
 
 - server-side AI calls
 - Anthropic API key handling
-- Vercel AI SDK
 - prompt construction
+- local and live AI testing
 
 **What the learner does:**
 
 - creates Anthropic API key
-- stores `ANTHROPIC_API_KEY` locally and in Vercel
-- builds server route
-- adds UI button
-- tests AI output locally and live
+- stores `ANTHROPIC_API_KEY` locally and in deployment env vars
+- builds server route/action
+- adds UI trigger
+- tests output locally and live
 
 **Exact links:**
 
 - Anthropic Console: https://console.anthropic.com/
 - Anthropic API docs: https://docs.anthropic.com/en/api/overview
-- Vercel dashboard: https://vercel.com/dashboard
 - Vercel env vars: https://vercel.com/docs/projects/environment-variables
 
-**What the harness does:**
-
-- creates the route only after showing the plan
-- checks the key is never exposed with `NEXT_PUBLIC_`
-- reviews prompt construction
-
 **Done means:**
 
-- server route exists
+- AI route/action exists
 - AI output appears in app
-- live app AI feature works
+- live app AI path works
 - API key is not exposed to client code
 
-## Day 9: Streaming UI
+## Day 13: AI UX + Safety
 
-**Purpose:** make AI output appear progressively instead of all at once.
+**Purpose:** make the AI feature usable, bounded, and understandable.
 
-**Why it matters:** streaming changes how AI feels. It makes the product feel responsive even when the model is still working.
+**Why it matters:** AI quality is partly product design. Loading states, error states, review boundaries, and rate limits are what make AI safe enough to use.
 
 **What the learner learns:**
 
-- streaming responses
-- loading states
-- error states
-- latency perception
+- streaming vs normal loading states
+- error and retry UX
+- human review boundaries
+- rate and cost controls
 
 **What the learner does:**
 
-- changes route from non-streaming to streaming
-- updates UI to show token-by-token output
-- adds loading and error behavior
-- tests local and live streaming
-
-**What the harness does:**
-
-- explains streaming before editing
-- keeps the previous Day 8 behavior intact
-- verifies loading/error states are not broken
+- chooses streaming or strong loading states
+- improves AI UI states
+- handles errors and retries
+- adds rate/cost guardrails where appropriate
 
 **Done means:**
 
-- output streams token by token
-- loading and error states work
-- deployed app still works
+- AI loading/error/success states work
+- unsafe actions require review or are blocked
+- rate or cost guard exists
 
-## Day 10: Tool Use
+## Day 14: AI Data + Tools
 
-**Purpose:** let AI take one scoped action in the app.
+**Purpose:** decide whether the AI needs app data, tools, RAG, or none of the above.
 
-**Why it matters:** AI becomes more useful when it can act, but actions must be bounded and safe.
-
-**What the learner learns:**
-
-- tool boundaries
-- safe database writes
-- human review
-- authorization inside tool execution
-
-**What the learner does:**
-
-- chooses one AI tool/action
-- implements the tool
-- tests successful action
-- tests cross-user denial
-
-**Exact links:**
-
-- Supabase dashboard: https://supabase.com/dashboard
-
-**What the harness does:**
-
-- refuses broad unsafe tools
-- ensures user permission is checked inside the tool
-- reviews generated code
-
-**Done means:**
-
-- AI can use at least one tool
-- tool action is scoped
-- User B cannot manipulate User A's data
-
-## Day 11: RAG
-
-**Purpose:** ground the AI in the user's app data.
-
-**Why it matters:** generic AI output is not enough. The product becomes useful when AI uses the user's own records safely.
+**Why it matters:** not every product needs RAG. The learner should choose the simplest AI data path that solves the user problem.
 
 **What the learner learns:**
 
-- retrieval
-- grounding
-- RLS-safe server-side Supabase access
-- avoiding hallucinated context
+- tool use vs RAG vs simple context
+- retrieval scope
+- data privacy
+- RLS-safe AI context
+- cross-user boundary testing
 
 **What the learner does:**
 
-- selects which data should ground the AI
-- fetches relevant rows before calling AI
-- includes retrieved context in the prompt
+- decides whether advanced AI data/tooling is needed
+- implements the chosen path if justified
 - tests with user-specific data
-- re-runs cross-user checks
-
-**Exact links:**
-
-- Supabase dashboard: https://supabase.com/dashboard
-- Supabase RLS docs: https://supabase.com/docs/guides/database/postgres/row-level-security
-
-**What the harness does:**
-
-- helps choose retrieval scope
-- prevents service-role shortcuts
-- checks that RLS still protects user data
+- reruns cross-user checks
 
 **Done means:**
 
-- AI uses app data
-- AI answers are grounded in user records
-- RLS still prevents cross-user leaks
+- AI data/tool path is justified or explicitly skipped
+- AI uses only scoped data/actions
+- RLS still protects user data
 
-## Day 12: Lock The AI
+## Day 15: AI Quality Gate + Guard
 
-**Purpose:** make AI quality measurable.
+**Purpose:** lock AI quality and audit the product before production shipping.
 
-**Why it matters:** AI features drift. Day 12 creates acceptance criteria, examples, evals, rate limits, and cost budget.
-
-**What the learner learns:**
-
-- AI acceptance criteria
-- manual evals or tests
-- cost budget
-- rate limits
-
-**What the learner does:**
-
-- adds measurable AI quality criteria to tests/evals and PRD
-- writes pass/fail examples
-- documents budget
-- verifies rate/cost limits
-
-**What the harness does:**
-
-- acts as Test agent
-- turns vague quality into observable checks
-- helps run tests or manual evals
-
-**Done means:**
-
-- acceptance criteria exist
-- tests or manual evals pass
-- cost/rate budget is documented
-
-## Day 13: Production Hygiene
-
-**Purpose:** audit the product before treating it as shippable.
-
-**Why it matters:** a working demo can still leak secrets, expose data, or fail silently. Day 13 catches the dangerous stuff.
+**Why it matters:** a demo can work once and still be risky. Day 15 checks AI quality, secrets, auth, RLS, privacy, and cost risk.
 
 **What the learner learns:**
 
+- AI evals or manual quality tests
 - secrets audit
 - RLS audit
-- abuse prevention
-- error handling
+- auth and privacy checks
+- cost/rate risk
 
 **What the learner does:**
 
-- runs secret scan
-- audits every table's RLS policy
-- re-runs cross-user tests
-- fixes critical risks and leaves evidence in code/config
-
-**Exact links:**
-
-- Supabase dashboard: https://supabase.com/dashboard
-- Vercel dashboard: https://vercel.com/dashboard
-
-**What the harness does:**
-
-- acts as Guard agent
-- blocks on critical leaks
-- helps document non-critical risks
+- runs AI quality checks
+- runs guard/security checks
+- fixes critical risks
+- records accepted non-critical risks
 
 **Done means:**
 
+- AI quality checks pass
 - no exposed secrets
-- RLS audit is visible in Supabase policy/code/config checks
 - critical guard checks pass
+- cost/rate budget is represented
 
-## Day 14: Custom Domain
+## Day 16: Ship Production
 
-**Purpose:** optionally connect a custom domain, or deliberately decide to stay on the Vercel URL.
+**Purpose:** verify the production app, monitoring, optional domain, and rollback/smoke-test path.
 
-**Why it matters:** domains teach deployment reality: DNS, SSL, redirects, and production URLs. But a custom domain is optional.
+**Why it matters:** shipping means more than “Vercel says deployed.” The live product must be reachable, verifiable, observable, and recoverable.
 
 **What the learner learns:**
 
-- DNS basics
-- Vercel domain setup
-- SSL
-- auth redirect URL updates
+- production verification
+- smoke tests
+- monitoring basics
+- custom domain optionality
+- rollback thinking
 
 **What the learner does:**
 
-- chooses to buy a domain or skip with a documented reason
-- connects domain in Vercel if buying
-- configures DNS at registrar
-- verifies HTTPS
-- updates Supabase redirect URLs if needed
+- verifies production URL
+- optionally connects a custom domain
+- configures monitoring/analytics/uptime checks where appropriate
+- runs production smoke tests
 
 **Exact links:**
 
 - Vercel dashboard: https://vercel.com/dashboard
 - Vercel domains docs: https://vercel.com/docs/domains
-- Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
-- Porkbun: https://porkbun.com
-- Namecheap: https://www.namecheap.com
-- DNS Checker: https://dnschecker.org
-- Supabase dashboard: https://supabase.com/dashboard
-- Supabase redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
-
-**What the harness does:**
-
-- explains DNS records
-- helps copy Vercel's required records
-- documents skip decision if the learner stays on `.vercel.app`
-
-**Done means:**
-
-- custom domain works with HTTPS, or skip is documented
-- auth redirect URLs are updated if auth uses redirects
-
-## Day 15: Monitoring
-
-**Purpose:** add error monitoring, analytics, and uptime checks.
-
-**Why it matters:** production means knowing when the app breaks. Day 15 gives the learner eyes on errors and downtime.
-
-**What the learner learns:**
-
-- Sentry error monitoring
-- Vercel Analytics
-- UptimeRobot uptime checks
-- alert email verification
-
-**What the learner does:**
-
-- creates Sentry project
-- adds Sentry config and DSN
-- enables Vercel Analytics
-- creates UptimeRobot monitor
-- tests an alert
-
-**Exact links:**
-
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
-- Vercel dashboard: https://vercel.com/dashboard
 - Vercel Analytics: https://vercel.com/docs/analytics
 - UptimeRobot signup: https://uptimerobot.com/signUp
-- UptimeRobot first monitor: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
-
-**What the harness does:**
-
-- guides the setup in three small chunks
-- verifies packages/config files
-- asks for manual confirmation where dashboards cannot be inspected
+- Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
+- Porkbun: https://porkbun.com
+- DNS Checker: https://dnschecker.org
 
 **Done means:**
 
-- Sentry configured and receives test error
-- Vercel Analytics enabled
-- UptimeRobot monitor active
-- alert email works
+- production URL works
+- live app matches local source
+- monitoring configured or explicitly skipped
+- custom domain works or skip is documented
 
-## Day 16: Landing Page
+## Day 17: Sell + First Users
 
-**Purpose:** turn the product into something a stranger can understand.
+**Purpose:** make the product understandable and get it in front of real people.
 
-**Why it matters:** a product without positioning is hard to share. Day 16 makes the root URL explain what the product does and for whom.
+**Why it matters:** a product without positioning is hard to share. Day 17 turns the build into a page, message, and outreach loop.
 
 **What the learner learns:**
 
 - positioning
-- proof
+- landing/product page copy
 - CTA
-- landing page structure
-
-**What the learner does:**
-
-- writes headline and one-liner
-- adds product explanation
-- adds CTA
-- adds proof and demo links if available
-- deploys landing page
-
-**Exact links:**
-
-- Vercel dashboard: https://vercel.com/dashboard
-
-**What the harness does:**
-
-- acts as Sell plus Build
-- helps write positioning
-- reviews landing page clarity
-
-**Done means:**
-
-- landing page is live
-- CTA works
-- copy is specific about target user and pain
-
-## Day 17: First 10 Users
-
-**Purpose:** get the product in front of real people.
-
-**Why it matters:** shipping is not only deploys. The learner needs signal from humans, even if the first signal is silence.
-
-**What the learner learns:**
-
 - outreach
 - feedback capture
-- interpreting no-response
-- not changing the product mid-feedback
 
 **What the learner does:**
 
-- creates outreach list
-- sends 7-10 messages
-- reflects response learnings in product copy, PRD, or Builder Claim notes
-- documents whether feedback was captured or outreach is pending
+- writes landing/product page copy
+- sends outreach to real people
+- records feedback or pending-response status
+- reflects learnings in product copy, PRD, or Builder Claim notes
 
 **Exact links:**
 
 - LinkedIn feed: https://www.linkedin.com/feed/
 - X post composer: https://x.com/compose/post
 
-**What the harness does:**
-
-- helps write outreach messages
-- keeps the learner from over-editing the product before feedback
-- records `PASS_WITH_FEEDBACK` or `OUTREACH_SENT_PENDING_FEEDBACK`
-
 **Done means:**
 
-- outreach list exists
-- feedback file exists
-- 7-10 outreach messages sent or equivalent
-- at least one real feedback signal, or documented pending-feedback status
+- product page is clear
+- outreach was sent to real people
+- feedback signal or pending-feedback status is recorded
 
 ## Day 18: Demo Day + Builder Claim
 
@@ -959,14 +878,6 @@ The harness should not compress days unless the learner explicitly asks and the 
 - LinkedIn feed: https://www.linkedin.com/feed/
 - Sid's LinkedIn profile: https://www.linkedin.com/in/siddharthdixit
 - X post composer: https://x.com/compose/post
-
-**What the harness does:**
-
-- checks all previous verifications
-- checks live app URL
-- checks public Loom URL
-- generates verified Builder Claim packet
-- reminds learner that official Builder #N is assigned after review
 
 **Done means:**
 

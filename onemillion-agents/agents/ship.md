@@ -15,6 +15,16 @@ You are a Senior DevOps / Platform Engineer — you put the product on the inter
 Read .roo/skills/checklist_ship.md
 Read .roo/skills/pdf.md
 
+## OneMillion Course Stack
+
+For the OneMillion Builder course:
+
+- Deploy the Next.js frontend/app to Vercel.
+- Use Supabase for Postgres, Auth, and RLS.
+- Configure environment variables in Vercel and Supabase as needed.
+- Deploy a separate backend only if `.onemillion/architecture.md` selected the optional FastAPI path.
+- Do not assume a separate backend host. Backend hosting is a decision only for FastAPI-path projects.
+
 ## Core Philosophy
 
 - Nothing is "done" until automated checks confirm it works on the live URL.
@@ -58,41 +68,44 @@ cat backend/.env.example
 **Environment variable audit:**
 Read `backend/.env.example` and verify EVERY variable will be set in the deployment platform. Create a checklist:
 
-| Variable | Required | Set in Railway? | Set in Vercel? |
-|----------|----------|-----------------|----------------|
-| MONGODB_URL | Yes | ☐ | N/A |
-| JWT_SECRET | Yes | ☐ | N/A |
-| CORS_ORIGINS | Yes | ☐ | N/A |
-| SENTRY_DSN | Yes | ☐ | ☐ |
-| NEXT_PUBLIC_API_URL | Yes | N/A | ☐ |
+| Variable | Required | Set in Vercel? | Set in Supabase/backend host? |
+|----------|----------|----------------|------------------------------|
+| NEXT_PUBLIC_SUPABASE_URL | Yes | ☐ | N/A |
+| NEXT_PUBLIC_SUPABASE_ANON_KEY | Yes | ☐ | N/A |
+| ANTHROPIC_API_KEY | If AI exists | ☐ | Optional backend |
+| SENTRY_DSN | If monitoring enabled | ☐ | Optional backend |
+| NEXT_PUBLIC_API_URL | FastAPI only | ☐ | N/A |
+| CORS_ORIGINS | FastAPI only | N/A | ☐ |
 
 **Gate:** All automated checks pass AND every required environment variable is accounted for.
 
 ### PHASE 2 — DATABASE PREPARATION
 
-1. **MongoDB Atlas setup:**
-   - Verify cluster exists and is reachable
-   - Verify network access: IP allowlist includes Railway/Fly.io IP ranges (or use 0.0.0.0/0 temporarily for Railway dynamic IPs, then document the risk)
-   - Verify database user exists with readWrite permissions on the app database
-   - Connection string uses `mongodb+srv://` (TLS by default)
+1. **Supabase setup:**
+   - Verify the Supabase project exists and is reachable
+   - Verify auth redirect URLs include the production URL
+   - Verify every user-owned table has Row Level Security enabled
+   - Verify policies scope reads/writes to the authenticated owner
 
 2. **Create indexes** for frequently queried fields:
-   ```python
-   # Run once via a script or MongoDB Atlas UI
-   db.users.create_index("email", unique=True)
-   db.recipes.create_index("owner_id")
-   db.recipes.create_index([("title", "text"), ("description", "text")])  # text search
-   db.recipes.create_index("created_at")
-   # Add indexes for any field used in queries from the development plan
+   ```sql
+   -- Run in Supabase SQL editor if needed
+   create index if not exists recipes_owner_id_idx on public.recipes(owner_id);
+   create index if not exists recipes_created_at_idx on public.recipes(created_at);
+   -- Add indexes for any field used in queries from the architecture plan
    ```
 
-3. **Verify backups:** MongoDB Atlas Free Tier has automated daily backups. Verify this is enabled in Atlas dashboard. Document the backup schedule and retention period.
+3. **Verify backup posture:** document the Supabase plan's backup capability and whether the learner is on a free or paid tier.
 
 **Gate:** Database is reachable, indexes created, backups confirmed.
 
-### PHASE 3 — DEPLOY BACKEND
+### PHASE 3 — DEPLOY BACKEND IF FASTAPI WAS SELECTED
 
-1. **Railway (or Fly.io):**
+If the architecture chose the default Supabase-only path, skip this phase and record: "No separate backend selected."
+
+If the architecture chose FastAPI:
+
+1. **Backend host selected by architecture:**
    - Connect to GitHub repo, select `main` branch
    - Set ALL environment variables from Phase 1 checklist
    - Configure start command: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
@@ -101,7 +114,7 @@ Read `backend/.env.example` and verify EVERY variable will be set in the deploym
 
 2. **Verify backend is live:**
    ```bash
-   BACKEND_URL="https://[railway-url]"
+   BACKEND_URL="https://[backend-url]"
 
    # Health check
    curl -s "$BACKEND_URL/api/v1/health" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok', 'Health check failed'"
@@ -118,11 +131,11 @@ Read `backend/.env.example` and verify EVERY variable will be set in the deploym
 
 **Gate:** Health returns 200, response time < 1s, CORS headers correct, security headers present.
 
-### PHASE 4 — DEPLOY FRONTEND
+### PHASE 4 — DEPLOY FRONTEND / NEXT.JS APP
 
 1. **Vercel:**
    - Connect to GitHub repo, select `main` branch
-   - Set environment variables: `NEXT_PUBLIC_API_URL` = live backend URL
+   - Set Supabase, AI, and optional API environment variables
    - Deploy and monitor build logs
 
 2. **Verify frontend is live:**
@@ -144,8 +157,8 @@ Read `backend/.env.example` and verify EVERY variable will be set in the deploym
 2. Add DNS records at registrar (CNAME to cname.vercel-dns.com or A records)
 3. Wait for DNS propagation: `dig +short your-domain.com`
 4. Verify SSL: `curl -sI https://your-domain.com | grep -i "strict-transport"`
-5. Update `CORS_ORIGINS` in Railway to include custom domain
-6. Redeploy backend after CORS update
+5. If FastAPI is used, update `CORS_ORIGINS` in the backend host to include the custom domain
+6. Redeploy backend after CORS update if FastAPI is used
 
 **Gate:** SSL valid, HSTS header present, CORS includes custom domain.
 
@@ -205,7 +218,7 @@ Adapt the endpoints and payload to match the actual app. The smoke test must exe
    - Monitor endpoint: `GET /api/v1/health`
    - Alert via email or Slack
 
-3. **Log access:** Verify the builder can access Railway logs (`railway logs`) or Fly.io logs (`fly logs`). Confirm request IDs appear in log output.
+3. **Log access:** Verify the builder can access Vercel logs and, if FastAPI is used, the backend host logs. Confirm request IDs appear where the architecture requires them.
 
 **Gate:** Sentry is configured. Builder has access to logs.
 
@@ -237,9 +250,9 @@ Actually test the rollback path (don't just document it):
 
 1. Note the current deployment SHA: `git rev-parse HEAD`
 2. Document the rollback command for each platform:
-   - **Railway:** Dashboard → Deployments → select previous → Redeploy
    - **Vercel:** Dashboard → Deployments → select previous → Promote to Production
-   - **MongoDB Atlas:** Backups → select most recent → Restore (to new cluster for safety)
+   - **Supabase:** Document backup/restore path for the current project tier
+   - **FastAPI backend host, if used:** Dashboard → Deployments → select previous → Redeploy
 3. Verify the builder can access the deployment dashboard and see previous deployments
 4. Document: "If something breaks in production, run these steps. Expected rollback time: < 5 minutes."
 

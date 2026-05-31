@@ -58,49 +58,90 @@
   "provider_setup_playbook": "onemillion-builder/docs/account-setup.md",
   "provider_setup_links": {
     "github_course_fork": {
-      "days": [0],
+      "days": [
+        0
+      ],
       "account": "https://github.com/signup",
       "course_repo": "https://github.com/siddsdixit/teach-one-million",
       "fork": "https://github.com/siddsdixit/teach-one-million/fork",
       "cli": "https://cli.github.com/",
-      "qa": ["origin points to learner fork", "upstream points to siddsdixit/teach-one-million"]
+      "qa": [
+        "origin points to learner fork",
+        "upstream points to siddsdixit/teach-one-million"
+      ]
     },
     "github_app_repo_vercel": {
-      "days": [4],
+      "days": [
+        6
+      ],
       "github_new_repo": "https://github.com/new",
       "vercel_signup": "https://vercel.com/signup",
       "vercel_import": "https://vercel.com/new",
       "vercel_git_docs": "https://vercel.com/docs/deployments/git",
-      "qa": ["app repo exists", "live Vercel URL returns 200", "push triggers redeploy"]
+      "qa": [
+        "app repo exists",
+        "live Vercel URL returns 200",
+        "push triggers redeploy"
+      ]
     },
     "supabase": {
-      "days": [5, 6, 10, 11, 13],
+      "days": [
+        5,
+        7,
+        8,
+        13,
+        15
+      ],
       "dashboard": "https://supabase.com/dashboard",
       "new_project": "https://database.new",
       "nextjs_auth": "https://supabase.com/docs/guides/auth/quickstarts/nextjs",
       "api_keys": "https://supabase.com/docs/guides/getting-started/api-keys",
       "redirect_urls": "https://supabase.com/docs/guides/auth/redirect-urls",
       "rls": "https://supabase.com/docs/guides/database/postgres/row-level-security",
-      "qa": ["signup works locally", "signup works on live URL", "RLS enabled", "auth.uid policy exists"]
+      "qa": [
+        "signup works locally",
+        "signup works on live URL",
+        "RLS enabled",
+        "auth.uid policy exists"
+      ]
     },
     "anthropic": {
-      "days": [8, 9, 10, 11, 12],
+      "days": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
       "console": "https://console.anthropic.com/",
       "api_docs": "https://docs.anthropic.com/en/api/overview",
       "vercel_env": "https://vercel.com/docs/projects/environment-variables",
-      "qa": ["ANTHROPIC_API_KEY set locally and in Vercel", "no NEXT_PUBLIC_ANTHROPIC leak", "live AI route works"]
+      "qa": [
+        "ANTHROPIC_API_KEY set locally and in Vercel",
+        "no NEXT_PUBLIC_ANTHROPIC leak",
+        "live AI route works"
+      ]
     },
     "monitoring": {
-      "days": [15],
+      "days": [
+        16
+      ],
       "sentry_signup": "https://sentry.io/signup/",
       "sentry_nextjs": "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
       "vercel_analytics": "https://vercel.com/docs/analytics",
       "uptimerobot_signup": "https://uptimerobot.com/signUp",
       "uptimerobot_first_monitor": "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
-      "qa": ["Sentry receives test error", "Vercel Analytics enabled", "UptimeRobot monitor up", "alert email verified"]
+      "qa": [
+        "Sentry receives test error",
+        "Vercel Analytics enabled",
+        "UptimeRobot monitor up",
+        "alert email verified"
+      ]
     },
     "domain_dns": {
-      "days": [14],
+      "days": [
+        16
+      ],
       "vercel_dashboard": "https://vercel.com/dashboard",
       "vercel_domains": "https://vercel.com/docs/domains",
       "cloudflare_registrar": "https://www.cloudflare.com/products/registrar/",
@@ -109,270 +150,674 @@
       "dns_checker": "https://dnschecker.org",
       "supabase_dashboard": "https://supabase.com/dashboard",
       "supabase_redirect_urls": "https://supabase.com/docs/guides/auth/redirect-urls",
-      "qa": ["custom domain loads app", "valid SSL lock appears", "auth redirect URLs updated if used"]
+      "qa": [
+        "custom domain loads app",
+        "valid SSL lock appears",
+        "auth redirect URLs updated if used"
+      ]
     },
     "loom_builder_claim": {
-      "days": [18],
+      "days": [
+        18
+      ],
       "loom": "https://www.loom.com/",
       "loom_share": "https://loomhelp.zendesk.com/hc/en-us/articles/360002208157-How-to-share-your-recording",
       "builder_claim_packet": "onemillion-builder/docs/builder-claim.md",
       "builder_claim": "https://github.com/siddsdixit/teach-one-million/issues/new/choose",
-      "qa": ["incognito can view Loom", "incognito can open live app", "Builder Claim form or fallback submitted"]
+      "qa": [
+        "incognito can view Loom",
+        "incognito can open live app",
+        "Builder Claim form or fallback submitted"
+      ]
     }
   },
-  "utility_agents": ["ask", "debug", "refactor", "orchestrator", "research", "review", "revise"],
+  "utility_agents": [
+    "ask",
+    "debug",
+    "refactor",
+    "orchestrator",
+    "research",
+    "review",
+    "revise"
+  ],
   "days": [
     {
       "day": 1,
       "title": "Idea Agent + PRD Draft",
       "primary_agent": "idea",
-      "supporting_agents": ["ask"],
+      "supporting_agents": [
+        "ask"
+      ],
       "lesson": "onemillion-builder/day-01-idea/learn.md",
       "build": "onemillion-builder/day-01-idea/build.md",
       "resources": "onemillion-builder/day-01-idea/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["understand what makes a good idea", "describe user pain and unmet need", "identify data sources and formats", "write user stories", "define success criteria and KPIs", "review an Idea-agent PRD draft"],
+      "learning_focus": [
+        "understand what makes a good idea",
+        "describe user pain and unmet need",
+        "identify data sources and formats",
+        "write user stories",
+        "define success criteria and KPIs",
+        "review an Idea-agent PRD draft"
+      ],
       "external_tools": [],
-      "human_decisions": ["target user", "pain point", "data sources", "ideal solution", "user stories", "success criteria", "KPIs", "PRD edits"],
-      "completion_gate": [".onemillion/project.json", ".onemillion/prd.md includes idea brief and first PRD", "learner reviewed and saved PRD"]
+      "human_decisions": [
+        "target user",
+        "pain point",
+        "data sources",
+        "ideal solution",
+        "user stories",
+        "success criteria",
+        "KPIs",
+        "PRD edits"
+      ],
+      "completion_gate": [
+        ".onemillion/project.json",
+        ".onemillion/prd.md includes idea brief and first PRD",
+        "learner reviewed and saved PRD"
+      ]
     },
     {
       "day": 2,
       "title": "Validate The PRD",
       "primary_agent": "idea",
-      "supporting_agents": ["research"],
+      "supporting_agents": [
+        "research"
+      ],
       "lesson": "onemillion-builder/day-02-validate-prd/learn.md",
       "build": "onemillion-builder/day-02-validate-prd/build.md",
       "resources": "onemillion-builder/day-02-validate-prd/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["review and edit the Day 1 PRD", "validate pain with real users/customers", "compare competitors and workarounds", "define ICP", "sanity-check TAM/SAM/SOM", "separate full product vision from MVP", "update the PRD from evidence"],
-      "external_tools": ["phone", "email", "calendar", "notes"],
-      "human_decisions": ["who to interview", "what evidence is strong enough", "whether to keep, refine, or pivot", "target ICP", "MVP scope", "PRD edits"],
-      "completion_gate": [".onemillion/prd.md includes Day 2 Learner Review", ".onemillion/prd.md includes validation evidence", ".onemillion/prd.md includes competitors/workarounds", ".onemillion/prd.md includes ICP and TAM/SAM/SOM sanity", ".onemillion/prd.md includes full product versus MVP", ".onemillion/prd.md includes Keep/Refine/Pivot verdict"]
+      "learning_focus": [
+        "review and edit the Day 1 PRD",
+        "validate pain with real users/customers",
+        "compare competitors and workarounds",
+        "define ICP",
+        "sanity-check TAM/SAM/SOM",
+        "separate full product vision from MVP",
+        "update the PRD from evidence"
+      ],
+      "external_tools": [
+        "phone",
+        "email",
+        "calendar",
+        "notes"
+      ],
+      "human_decisions": [
+        "who to interview",
+        "what evidence is strong enough",
+        "whether to keep, refine, or pivot",
+        "target ICP",
+        "MVP scope",
+        "PRD edits"
+      ],
+      "completion_gate": [
+        ".onemillion/prd.md includes Day 2 Learner Review",
+        ".onemillion/prd.md includes validation evidence",
+        ".onemillion/prd.md includes competitors/workarounds",
+        ".onemillion/prd.md includes ICP and TAM/SAM/SOM sanity",
+        ".onemillion/prd.md includes full product versus MVP",
+        ".onemillion/prd.md includes Keep/Refine/Pivot verdict"
+      ]
     },
     {
       "day": 3,
       "title": "Lock The Spec",
       "primary_agent": "spec",
-      "supporting_agents": ["validate-spec"],
+      "supporting_agents": [
+        "validate-spec"
+      ],
       "lesson": "onemillion-builder/day-03-spec/learn.md",
       "build": "onemillion-builder/day-03-spec/build.md",
       "resources": "onemillion-builder/day-03-spec/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["turn validated PRD into a buildable spec", "write functional requirements", "break MVP into CRUD building blocks", "lock MVP scope", "write user stories", "write use cases", "write acceptance criteria", "define KPIs", "define done", "use spec and validate-spec agents"],
+      "learning_focus": [
+        "turn validated PRD into a buildable spec",
+        "write functional requirements",
+        "break MVP into CRUD building blocks",
+        "lock MVP scope",
+        "write user stories",
+        "write use cases",
+        "write acceptance criteria",
+        "define KPIs",
+        "define done",
+        "use spec and validate-spec agents"
+      ],
       "external_tools": [],
-      "human_decisions": ["MVP functional requirements", "core entities and CRUD actions", "MVP stories", "acceptance criteria", "out-of-scope items", "definition of done", "spec lock"],
-      "completion_gate": [".onemillion/refined-prd.md exists", ".onemillion/refined-prd.md includes Day 3 Locked Spec", "functional requirements listed", "core MVP entities and CRUD actions listed", "features tagged MVP or POST-MVP", "complete core flow listed", "data schema and business rules listed", "exactly 3 core user stories", "2+ use cases", "testable acceptance criteria", "2+ KPIs/success signals", "locked out-of-scope list", "concrete definition of done"]
+      "human_decisions": [
+        "MVP functional requirements",
+        "core entities and CRUD actions",
+        "MVP stories",
+        "acceptance criteria",
+        "out-of-scope items",
+        "definition of done",
+        "spec lock"
+      ],
+      "completion_gate": [
+        ".onemillion/refined-prd.md exists",
+        ".onemillion/refined-prd.md includes Day 3 Locked Spec",
+        "functional requirements listed",
+        "core MVP entities and CRUD actions listed",
+        "features tagged MVP or POST-MVP",
+        "complete core flow listed",
+        "data schema and business rules listed",
+        "exactly 3 core user stories",
+        "2+ use cases",
+        "testable acceptance criteria",
+        "2+ KPIs/success signals",
+        "locked out-of-scope list",
+        "concrete definition of done"
+      ]
     },
     {
       "day": 4,
-      "title": "Stack + First Deploy",
-      "primary_agent": "plan",
-      "supporting_agents": ["build", "debug"],
-      "lesson": "onemillion-builder/day-04-first-deploy/learn.md",
-      "build": "onemillion-builder/day-04-first-deploy/build.md",
-      "resources": "onemillion-builder/day-04-first-deploy/resources.md",
+      "title": "Design The Product",
+      "primary_agent": "design",
+      "supporting_agents": [
+        "validate-spec"
+      ],
+      "lesson": "onemillion-builder/day-04-design/learn.md",
+      "build": "onemillion-builder/day-04-design/build.md",
+      "resources": "onemillion-builder/day-04-design/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["understand the stack", "create a Next.js app", "use GitHub", "deploy to Vercel"],
-      "external_tools": ["GitHub", "Vercel", "terminal"],
-      "human_decisions": ["repo name", "project name", "deployment ownership"],
-      "completion_gate": ["GitHub repo exists", "Vercel deployment URL works", "local app runs"]
+      "learning_focus": [
+        "turn refined PRD into screens and flows",
+        "learn product design basics",
+        "define MUI design language",
+        "design loading, empty, error, and success states",
+        "review the design before code"
+      ],
+      "external_tools": [],
+      "human_decisions": [
+        "primary user flow",
+        "visual direction",
+        "MUI component choices",
+        "screen priority",
+        "copy tone"
+      ],
+      "completion_gate": [
+        ".onemillion/design-spec.md exists",
+        ".onemillion/design-system.md exists",
+        "main screens and states are described",
+        "learner approved the design direction"
+      ]
     },
     {
       "day": 5,
-      "title": "Auth + Database",
-      "primary_agent": "build",
-      "supporting_agents": ["ask", "debug"],
-      "lesson": "onemillion-builder/day-05-auth-db/learn.md",
-      "build": "onemillion-builder/day-05-auth-db/build.md",
-      "resources": "onemillion-builder/day-05-auth-db/resources.md",
+      "title": "Plan Architecture",
+      "primary_agent": "plan",
+      "supporting_agents": [
+        "validate-plan"
+      ],
+      "lesson": "onemillion-builder/day-05-plan-architecture/learn.md",
+      "build": "onemillion-builder/day-05-plan-architecture/build.md",
+      "resources": "onemillion-builder/day-05-plan-architecture/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["understand auth", "create a Supabase project", "create tables", "enable RLS"],
-      "external_tools": ["Supabase"],
-      "human_decisions": ["table shape", "auth provider choices", "RLS policy intent"],
-      "completion_gate": ["Supabase project exists", "signup works", "login works", "logout works", "RLS enabled"]
+      "learning_focus": [
+        "understand architecture before coding",
+        "choose backend path",
+        "default to Next.js plus Supabase unless FastAPI is justified",
+        "map data model and API boundaries",
+        "create sprint briefs"
+      ],
+      "external_tools": [],
+      "human_decisions": [
+        "backend path: Supabase-only or FastAPI",
+        "data model",
+        "API boundary",
+        "sprint sequence",
+        "MVP technical scope"
+      ],
+      "completion_gate": [
+        ".onemillion/architecture.md exists",
+        ".onemillion/sprints/ exists",
+        "backend path decision is recorded",
+        "validate-plan passes or findings are resolved"
+      ]
     },
     {
       "day": 6,
-      "title": "Core Feature",
+      "title": "App Shell + First Deploy",
       "primary_agent": "build",
-      "supporting_agents": ["review"],
-      "lesson": "onemillion-builder/day-06-core-feature/learn.md",
-      "build": "onemillion-builder/day-06-core-feature/build.md",
-      "resources": "onemillion-builder/day-06-core-feature/resources.md",
+      "supporting_agents": [
+        "debug",
+        "ship"
+      ],
+      "lesson": "onemillion-builder/day-06-app-shell/learn.md",
+      "build": "onemillion-builder/day-06-app-shell/build.md",
+      "resources": "onemillion-builder/day-06-app-shell/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["build CRUD", "connect UI to database", "review generated code"],
-      "external_tools": ["Supabase", "Vercel"],
-      "human_decisions": ["core entity fields", "minimum usable workflow"],
-      "completion_gate": ["core create/read/update/delete works", "deployed app still works", "Day 1-6 verified"]
+      "learning_focus": [
+        "create the app from the plan",
+        "understand repo structure",
+        "apply MUI baseline",
+        "deploy frontend to Vercel",
+        "verify live source matches local code"
+      ],
+      "external_tools": [
+        "GitHub",
+        "Vercel",
+        "terminal"
+      ],
+      "human_decisions": [
+        "product repo name",
+        "project name",
+        "Vercel project ownership"
+      ],
+      "completion_gate": [
+        "GitHub product repo exists",
+        "local app runs",
+        "Vercel deployment URL returns 200",
+        "live homepage matches local source markers"
+      ]
     },
     {
       "day": 7,
-      "title": "AI Feature Spec",
-      "primary_agent": "spec",
-      "supporting_agents": ["validate-spec"],
-      "lesson": "onemillion-builder/day-07-ai-spec/learn.md",
-      "build": "onemillion-builder/day-07-ai-spec/build.md",
-      "resources": "onemillion-builder/day-07-ai-spec/resources.md",
+      "title": "Auth + Database",
+      "primary_agent": "build",
+      "supporting_agents": [
+        "ask",
+        "debug"
+      ],
+      "lesson": "onemillion-builder/day-07-auth-db/learn.md",
+      "build": "onemillion-builder/day-07-auth-db/build.md",
+      "resources": "onemillion-builder/day-07-auth-db/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["define useful AI behavior", "write quality criteria", "avoid AI decoration"],
-      "external_tools": [],
-      "human_decisions": ["AI job-to-be-done", "quality bar", "failure modes"],
-      "completion_gate": [".onemillion/prd.md includes AI feature spec", "measurable AI acceptance criteria are represented in tests or eval cases"]
+      "learning_focus": [
+        "create Supabase project",
+        "understand auth",
+        "create first tables",
+        "enable RLS",
+        "store env vars safely"
+      ],
+      "external_tools": [
+        "Supabase",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "auth provider choices",
+        "table shape",
+        "RLS policy intent",
+        "redirect URLs"
+      ],
+      "completion_gate": [
+        "Supabase project exists",
+        "signup works locally and live",
+        "login/logout works",
+        "RLS enabled",
+        "env vars are not leaked"
+      ]
     },
     {
       "day": 8,
-      "title": "First AI Call",
+      "title": "Core Build",
       "primary_agent": "build",
-      "supporting_agents": ["debug"],
-      "lesson": "onemillion-builder/day-08-first-ai-call/learn.md",
-      "build": "onemillion-builder/day-08-first-ai-call/build.md",
-      "resources": "onemillion-builder/day-08-first-ai-call/resources.md",
+      "supporting_agents": [
+        "debug"
+      ],
+      "lesson": "onemillion-builder/day-08-core-build/learn.md",
+      "build": "onemillion-builder/day-08-core-build/build.md",
+      "resources": "onemillion-builder/day-08-core-build/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["server-side AI calls", "environment variables", "prompt shape"],
-      "external_tools": ["AI provider console if needed"],
-      "human_decisions": ["prompt behavior", "test examples"],
-      "completion_gate": ["server route exists", "AI output appears in app", "API key not exposed to client"]
+      "learning_focus": [
+        "build CRUD from sprint brief",
+        "connect UI to Supabase",
+        "understand forms and validation",
+        "ship the main non-AI workflow"
+      ],
+      "external_tools": [
+        "Supabase",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "core entity fields",
+        "minimum usable workflow",
+        "what to defer"
+      ],
+      "completion_gate": [
+        "core create/read/update/delete works",
+        "deployed app still works",
+        "second user cannot see first user data"
+      ]
     },
     {
       "day": 9,
-      "title": "Streaming UI",
-      "primary_agent": "build",
-      "supporting_agents": ["debug"],
-      "lesson": "onemillion-builder/day-09-streaming/learn.md",
-      "build": "onemillion-builder/day-09-streaming/build.md",
-      "resources": "onemillion-builder/day-09-streaming/resources.md",
+      "title": "Implementation Review",
+      "primary_agent": "review",
+      "supporting_agents": [
+        "build"
+      ],
+      "lesson": "onemillion-builder/day-09-review/learn.md",
+      "build": "onemillion-builder/day-09-review/build.md",
+      "resources": "onemillion-builder/day-09-review/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["streaming responses", "loading states", "latency perception"],
+      "learning_focus": [
+        "learn what code review means",
+        "compare implementation to refined PRD",
+        "detect spec drift",
+        "classify blockers, bugs, edge cases, and observations"
+      ],
       "external_tools": [],
-      "human_decisions": ["streaming UX", "error state copy"],
-      "completion_gate": ["text streams token-by-token", "loading/error states work"]
+      "human_decisions": [
+        "what to fix now",
+        "what to defer",
+        "whether drift is intentional"
+      ],
+      "completion_gate": [
+        ".onemillion/review-findings.md exists",
+        "blockers are fixed or explicitly deferred with reason",
+        "code still builds"
+      ]
     },
     {
       "day": 10,
-      "title": "Tool Use",
-      "primary_agent": "build",
-      "supporting_agents": ["review"],
-      "lesson": "onemillion-builder/day-10-tool-use/learn.md",
-      "build": "onemillion-builder/day-10-tool-use/build.md",
-      "resources": "onemillion-builder/day-10-tool-use/resources.md",
+      "title": "QA + Tests",
+      "primary_agent": "test",
+      "supporting_agents": [
+        "debug",
+        "build"
+      ],
+      "lesson": "onemillion-builder/day-10-qa-tests/learn.md",
+      "build": "onemillion-builder/day-10-qa-tests/build.md",
+      "resources": "onemillion-builder/day-10-qa-tests/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["tool boundaries", "safe database actions", "human review"],
-      "external_tools": ["Supabase"],
-      "human_decisions": ["which actions AI may take", "read/write limits"],
-      "completion_gate": ["AI can use at least one tool", "tool action is scoped and safe"]
+      "learning_focus": [
+        "understand good QA",
+        "write behavior checks from acceptance criteria",
+        "test happy paths and edge cases",
+        "run local and live QA"
+      ],
+      "external_tools": [
+        "Vercel",
+        "Supabase"
+      ],
+      "human_decisions": [
+        "critical paths to test manually",
+        "acceptable risk",
+        "QA evidence"
+      ],
+      "completion_gate": [
+        ".onemillion/test-results.md exists",
+        "core tests or manual QA checklist pass",
+        "live app passes critical path QA"
+      ]
     },
     {
       "day": 11,
-      "title": "RAG",
-      "primary_agent": "build",
-      "supporting_agents": ["research"],
-      "lesson": "onemillion-builder/day-11-rag/learn.md",
-      "build": "onemillion-builder/day-11-rag/build.md",
-      "resources": "onemillion-builder/day-11-rag/resources.md",
+      "title": "AI Feature Spec",
+      "primary_agent": "spec",
+      "supporting_agents": [
+        "validate-spec"
+      ],
+      "lesson": "onemillion-builder/day-11-ai-spec/learn.md",
+      "build": "onemillion-builder/day-11-ai-spec/build.md",
+      "resources": "onemillion-builder/day-11-ai-spec/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["ground AI in user data", "retrieve relevant context", "avoid hallucinated context"],
-      "external_tools": ["Supabase"],
-      "human_decisions": ["what data should ground AI", "privacy boundaries"],
-      "completion_gate": ["AI uses app data", "RLS still protects user data"]
+      "learning_focus": [
+        "define useful AI behavior",
+        "avoid AI decoration",
+        "choose inputs and outputs",
+        "write measurable AI acceptance criteria",
+        "define failure modes and cost budget"
+      ],
+      "external_tools": [],
+      "human_decisions": [
+        "AI job-to-be-done",
+        "quality bar",
+        "failure modes",
+        "cost ceiling"
+      ],
+      "completion_gate": [
+        "AI feature spec exists in the pipeline artifacts",
+        "AI behavior is measurable",
+        "failure modes and cost budget are recorded"
+      ]
     },
     {
       "day": 12,
-      "title": "Lock The AI",
-      "primary_agent": "test",
-      "supporting_agents": ["build"],
-      "lesson": "onemillion-builder/day-12-lock-ai/learn.md",
-      "build": "onemillion-builder/day-12-lock-ai/build.md",
-      "resources": "onemillion-builder/day-12-lock-ai/resources.md",
+      "title": "First AI Build",
+      "primary_agent": "build",
+      "supporting_agents": [
+        "debug"
+      ],
+      "lesson": "onemillion-builder/day-12-first-ai-build/learn.md",
+      "build": "onemillion-builder/day-12-first-ai-build/build.md",
+      "resources": "onemillion-builder/day-12-first-ai-build/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["acceptance tests", "AI quality gates", "cost budget"],
-      "external_tools": [],
-      "human_decisions": ["pass/fail examples", "cost ceiling", "rate limit stance"],
-      "completion_gate": ["tests or eval cases exist in the codebase", "AI quality checks pass", "cost budget is represented in code/config or PRD"]
+      "learning_focus": [
+        "call Claude from the server side",
+        "handle API keys safely",
+        "build prompt inputs from product data",
+        "show AI output in the app"
+      ],
+      "external_tools": [
+        "Anthropic",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "prompt behavior",
+        "sample inputs",
+        "first output quality"
+      ],
+      "completion_gate": [
+        "AI route or server action exists",
+        "AI output appears in app",
+        "API key is not exposed to client code",
+        "live app AI path works"
+      ]
     },
     {
       "day": 13,
-      "title": "Production Hygiene",
-      "primary_agent": "guard",
-      "supporting_agents": ["debug"],
-      "lesson": "onemillion-builder/day-13-production-hygiene/learn.md",
-      "build": "onemillion-builder/day-13-production-hygiene/build.md",
-      "resources": "onemillion-builder/day-13-production-hygiene/resources.md",
+      "title": "AI UX + Safety",
+      "primary_agent": "build",
+      "supporting_agents": [
+        "review",
+        "guard"
+      ],
+      "lesson": "onemillion-builder/day-13-ai-ux-safety/learn.md",
+      "build": "onemillion-builder/day-13-ai-ux-safety/build.md",
+      "resources": "onemillion-builder/day-13-ai-ux-safety/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["secrets", "RLS audit", "abuse prevention", "error handling"],
-      "external_tools": ["GitHub", "Supabase", "Vercel"],
-      "human_decisions": ["which risks to fix now", "which risks to document"],
-      "completion_gate": ["no exposed secrets", "critical guard checks pass", "security decisions are visible in code/config"]
+      "learning_focus": [
+        "make AI usable",
+        "choose streaming or strong loading states",
+        "handle errors and retries",
+        "add rate limits and human review where needed"
+      ],
+      "external_tools": [
+        "Supabase",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "streaming vs loading state",
+        "error copy",
+        "human review boundary",
+        "rate limit stance"
+      ],
+      "completion_gate": [
+        "AI loading/error/success states work",
+        "rate or cost guard exists",
+        "unsafe actions require review or are blocked"
+      ]
     },
     {
       "day": 14,
-      "title": "Custom Domain",
-      "primary_agent": "ship",
-      "supporting_agents": ["debug"],
-      "lesson": "onemillion-builder/day-14-domain/learn.md",
-      "build": "onemillion-builder/day-14-domain/build.md",
-      "resources": "onemillion-builder/day-14-domain/resources.md",
+      "title": "AI Data + Tools",
+      "primary_agent": "build",
+      "supporting_agents": [
+        "research",
+        "review"
+      ],
+      "lesson": "onemillion-builder/day-14-ai-data-tools/learn.md",
+      "build": "onemillion-builder/day-14-ai-data-tools/build.md",
+      "resources": "onemillion-builder/day-14-ai-data-tools/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["domain basics", "DNS", "Vercel production config"],
-      "external_tools": ["Vercel", "domain registrar"],
-      "human_decisions": ["buy domain or stay on Vercel URL", "domain name"],
-      "completion_gate": ["custom domain works or documented skip decision", "HTTPS works"]
+      "learning_focus": [
+        "choose tool use or RAG only if needed",
+        "ground AI in user data safely",
+        "protect privacy and RLS",
+        "test cross-user boundaries"
+      ],
+      "external_tools": [
+        "Supabase"
+      ],
+      "human_decisions": [
+        "RAG vs tool use vs no advanced AI data path",
+        "data scope",
+        "read/write limits",
+        "privacy boundaries"
+      ],
+      "completion_gate": [
+        "AI uses app data or tool actions only if justified",
+        "scope is documented",
+        "RLS still protects user data",
+        "advanced AI path has tests or manual QA evidence"
+      ]
     },
     {
       "day": 15,
-      "title": "Monitoring",
-      "primary_agent": "ship",
-      "supporting_agents": ["guard"],
-      "lesson": "onemillion-builder/day-15-monitoring/learn.md",
-      "build": "onemillion-builder/day-15-monitoring/build.md",
-      "resources": "onemillion-builder/day-15-monitoring/resources.md",
+      "title": "AI Quality Gate + Guard",
+      "primary_agent": "test",
+      "supporting_agents": [
+        "guard",
+        "build"
+      ],
+      "lesson": "onemillion-builder/day-15-ai-quality-guard/learn.md",
+      "build": "onemillion-builder/day-15-ai-quality-guard/build.md",
+      "resources": "onemillion-builder/day-15-ai-quality-guard/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["error monitoring", "analytics", "uptime"],
-      "external_tools": ["Sentry", "Vercel Analytics", "UptimeRobot"],
-      "human_decisions": ["alert email", "monitoring thresholds"],
-      "completion_gate": ["Sentry configured", "analytics configured", "uptime monitor configured"]
+      "learning_focus": [
+        "run AI evals or manual quality tests",
+        "check cost risk",
+        "audit secrets and auth",
+        "fix critical safety issues before shipping"
+      ],
+      "external_tools": [
+        "Supabase",
+        "Vercel",
+        "Anthropic"
+      ],
+      "human_decisions": [
+        "pass/fail examples",
+        "quality threshold",
+        "accepted risks"
+      ],
+      "completion_gate": [
+        "AI evals or manual quality checks pass",
+        "no exposed secrets",
+        "critical guard checks pass",
+        "cost/rate budget is represented"
+      ]
     },
     {
       "day": 16,
-      "title": "Landing Page",
-      "primary_agent": "sell",
-      "supporting_agents": ["build", "review"],
-      "lesson": "onemillion-builder/day-16-landing/learn.md",
-      "build": "onemillion-builder/day-16-landing/build.md",
-      "resources": "onemillion-builder/day-16-landing/resources.md",
+      "title": "Ship Production",
+      "primary_agent": "ship",
+      "supporting_agents": [
+        "guard",
+        "debug"
+      ],
+      "lesson": "onemillion-builder/day-16-ship-production/learn.md",
+      "build": "onemillion-builder/day-16-ship-production/build.md",
+      "resources": "onemillion-builder/day-16-ship-production/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["positioning", "proof", "CTA", "landing page structure"],
-      "external_tools": ["Vercel"],
-      "human_decisions": ["headline", "CTA", "proof points"],
-      "completion_gate": ["landing page live", "CTA works", "positioning is specific"]
+      "learning_focus": [
+        "production deployment verification",
+        "custom domain optionality",
+        "monitoring basics",
+        "rollback and smoke tests"
+      ],
+      "external_tools": [
+        "Vercel",
+        "Sentry",
+        "Vercel Analytics",
+        "UptimeRobot",
+        "domain registrar if needed"
+      ],
+      "human_decisions": [
+        "custom domain or skip",
+        "alert email",
+        "monitoring thresholds"
+      ],
+      "completion_gate": [
+        "production URL works",
+        "live app matches local source",
+        "monitoring configured or documented skip",
+        "custom domain works or skip is documented"
+      ]
     },
     {
       "day": 17,
-      "title": "First 10 Users",
+      "title": "Sell + First Users",
       "primary_agent": "sell",
-      "supporting_agents": ["research"],
-      "lesson": "onemillion-builder/day-17-first-users/learn.md",
-      "build": "onemillion-builder/day-17-first-users/build.md",
-      "resources": "onemillion-builder/day-17-first-users/resources.md",
+      "supporting_agents": [
+        "research",
+        "build"
+      ],
+      "lesson": "onemillion-builder/day-17-sell-users/learn.md",
+      "build": "onemillion-builder/day-17-sell-users/build.md",
+      "resources": "onemillion-builder/day-17-sell-users/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["outreach", "feedback capture", "user signal"],
-      "external_tools": ["email", "LinkedIn", "Slack/Discord", "feedback notes"],
-      "human_decisions": ["who to contact", "ask", "feedback interpretation"],
-      "completion_gate": ["10 outreach attempts or equivalent confirmed", "at least one feedback signal or documented no-response result", "insights are reflected in product copy, PRD, or code"]
+      "learning_focus": [
+        "positioning",
+        "landing page copy",
+        "outreach",
+        "feedback capture",
+        "interpreting user signal"
+      ],
+      "external_tools": [
+        "email",
+        "LinkedIn",
+        "Slack/Discord",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "headline",
+        "CTA",
+        "who to contact",
+        "feedback interpretation"
+      ],
+      "completion_gate": [
+        "landing page or product page is clear",
+        "outreach sent to real people",
+        "feedback signal or pending-feedback status is recorded"
+      ]
     },
     {
       "day": 18,
       "title": "Demo Day + Builder Claim",
       "primary_agent": "review",
-      "supporting_agents": ["ship", "sell", "guard"],
+      "supporting_agents": [
+        "ship",
+        "sell",
+        "guard"
+      ],
       "lesson": "onemillion-builder/day-18-demo/learn.md",
       "build": "onemillion-builder/day-18-demo/build.md",
       "resources": "onemillion-builder/day-18-demo/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["demo storytelling", "final verification", "Builder Claim submission"],
-      "external_tools": ["Loom", "GitHub Issues", "Vercel"],
-      "human_decisions": ["demo story", "public ask", "Builder profile details"],
-      "completion_gate": ["public Loom URL", "live app URL", "Builder Claim issue submitted", ".onemillion/state.json contains final verification summary"]
+      "learning_focus": [
+        "demo storytelling",
+        "final verification",
+        "proof packet",
+        "Builder Claim submission"
+      ],
+      "external_tools": [
+        "Loom",
+        "GitHub Issues",
+        "Vercel"
+      ],
+      "human_decisions": [
+        "demo story",
+        "public ask",
+        "Builder profile details"
+      ],
+      "completion_gate": [
+        "public Loom URL",
+        "live app URL",
+        "Builder Claim issue submitted",
+        ".onemillion/state.json contains final verification summary"
+      ]
     }
   ]
 }

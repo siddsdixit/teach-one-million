@@ -140,7 +140,7 @@ Support modes are always available:
 | **Hands-on building** | Your harness writes code with you, but you review and decide. |
 | **Real tools** | GitHub, Vercel, Supabase, Anthropic, monitoring, Loom. |
 | **Daily verification** | Say `day done`; your harness checks the gate before moving on. |
-| **Small scope** | The first MVP is capped at exactly 3 core jobs so you can finish. |
+| **Small scope** | The first MVP is capped at a few core user stories so you can finish. |
 | **Design review** | The course includes visual and UX quality checks before launch. |
 
 The rule:
@@ -222,10 +222,10 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | [12](day-12-first-ai-build/learn.md) | First AI build | Claude output in your app |
 | [13](day-13-ai-ux-safety/learn.md) | AI UX + safety | Loading/error states, review boundary, rate/cost guard |
 | [14](day-14-ai-data-tools/learn.md) | AI data + tools | App data, tool use, or retrieval only if the product truly needs it |
-| [15](day-15-ai-quality-guard/learn.md) | AI quality + guard | AI evals, secrets, auth, RLS, and cost risk |
+| [15](day-15-ai-quality-guard/learn.md) | AI Quality Gate + Guard | AI evals, secrets, auth, RLS, and cost risk |
 | [16](day-16-ship-production/learn.md) | Ship production | Production verification, monitoring, optional domain |
 | [17](day-17-sell-users/learn.md) | Sell + first users | Landing/product copy, outreach, feedback |
-| [18](day-18-demo/learn.md) | Demo Day | Loom demo + Builder Claim |
+| [18](day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |
 
 ---
 
@@ -269,7 +269,7 @@ The only hard requirement is that you keep going one verified day at a time.
 | Architecture + sprint briefs | Gives the build agent a safe contract to follow. |
 | [DeliverableDash example artifacts](docs/examples/deliverabledash/README.md) | Shows what a finished course trail can look like. |
 | [Sample finished app shape](docs/examples/deliverabledash/app/README.md) | Gives you a concrete reference for the end state. |
-| [Daily verification reports](docs/verification/README.md) | Proves each day passed before you advanced. |
+| [Daily verification trail](docs/verification/README.md) | Proves each day passed before you advanced. |
 | [Day 18 demo](day-18-demo/learn.md) | Turns your product into something people can understand. |
 | [Share templates](docs/share-templates.md) | Helps you build in public without staring at a blank post. |
 
@@ -284,7 +284,7 @@ Complete all 18 days, pass final verification, and submit your Builder Claim.
 | Credential | What it means |
 |---|---|
 | **Builder #N** | A sequential, permanent builder number after review |
-| **Public proof** | Live URL, demo Loom, daily verification reports |
+| **Public proof** | Live URL, demo Loom, daily verification trail |
 | **Reusable skill** | A repeatable agentic build process for your next product |
 
 At the end, you submit a [Builder Claim packet](docs/builder-claim.md). Cohorts may use a Google Form for collection; self-paced learners can use the public GitHub Builder Claim fallback.

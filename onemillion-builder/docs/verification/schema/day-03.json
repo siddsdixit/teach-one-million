@@ -1,6 +1,6 @@
 {
   "day": 3,
-  "title": "Write Your PRD",
+  "title": "Lock The Spec",
   "structural_checks": [
     {
       "id": "prd_exists",
@@ -8,10 +8,10 @@
       "path": ".onemillion/prd.md"
     },
     {
-      "id": "eight_sections_present",
+      "id": "locked_spec_present",
       "type": "markdown_required_sections",
       "path": ".onemillion/prd.md",
-      "required_headings": ["Problem", "User", "Research", "Use Case", "KPI", "Scope", "Done"]
+      "required_headings": ["Day 3 Locked Spec", "MVP Summary", "Core User Stories", "Use Cases", "Acceptance Criteria", "KPI", "Out Of Scope", "Definition Of Done", "Agent Build Rule"]
     },
     {
       "id": "exactly_three_user_stories",
@@ -44,12 +44,12 @@
   ],
   "quality_checks": [
     {
-      "id": "named_user",
-      "criteria": "Section 1 (Problem) and Section 2 (User) reference a specific named user or detailed persona, not 'users' or 'people'"
+      "id": "mvp_scoped",
+      "criteria": "Day 3 Locked Spec keeps the MVP small and consistent with the Day 2 MVP decision"
     },
     {
-      "id": "evidence_in_problem",
-      "criteria": "Section 1 references the Day 2 conversations or includes specific evidence (numbers, quotes, observed behavior)"
+      "id": "agent_can_build",
+      "criteria": "A build agent can read the locked spec and know what to build without guessing"
     },
     {
       "id": "definition_of_done_concrete",

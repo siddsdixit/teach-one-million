@@ -24,4 +24,4 @@
 - **[Lean Customer Development](https://www.amazon.com/Lean-Customer-Development-Building-Customers/dp/1492023744)** — Cindy Alvarez's playbook
 
 ## What's next
-- [Day 3 — Write Your PRD](../day-03-prd/learn.md)
+- [Day 3 — Lock The Spec](../day-03-prd/learn.md)

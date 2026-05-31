@@ -331,46 +331,51 @@ The harness should not compress days unless the learner explicitly asks and the 
 - the learner knows the full product vision and the first MVP
 - `.onemillion/prd.md` includes the Day 2 verdict and MVP decision
 
-## Day 3: Write Your PRD
+## Day 3: Lock The Spec
 
-**Purpose:** turn the idea and research into a small buildable PRD.
+**Purpose:** turn the validated PRD into a small buildable spec that agents can implement without guessing.
 
-**Why it matters:** the PRD is the learner's scope lock and the agent's instruction manual. Without it, the product grows until it cannot be finished and the harness guesses.
+**Why it matters:** Day 1 and Day 2 decide what is worth building. Day 3 makes it buildable. Without a locked spec, the build agents invent missing requirements or quietly expand scope.
 
 **What the learner learns:**
 
 - requirements before code
-- what belongs inside a useful PRD
-- the difference between a feature, user story, use case, acceptance criterion, and KPI
-- exactly 3 core jobs
+- the difference between idea, requirement, user story, use case, acceptance criterion, and KPI
+- exactly 3 core user stories
+- testable acceptance criteria
 - out-of-scope list
 - definition of done
+- validate-spec thinking
 
 **What the learner does:**
 
-- writes `.onemillion/prd.md`
-- locks exactly 3 core features/jobs
-- writes user stories for the 3 jobs
+- updates `.onemillion/prd.md` with a Day 3 Locked Spec section
+- locks exactly 3 core user stories
 - writes 2-3 real use cases
+- writes acceptance criteria
 - defines 2-3 KPIs or success signals
 - writes what is out of scope
 - confirms the MVP is small enough for the course
+- commits the spec lock
 
 **What the harness does:**
 
 - acts as Spec agent
-- uses the Idea agent and research notes as input
+- uses the validated PRD as input
 - asks clarifying questions
-- drafts and revises the PRD
+- drafts and revises the locked spec section
 - uses Validate Spec to check scope
+- refuses to create sidecar spec files
 
 **Done means:**
 
-- `.onemillion/prd.md` exists
-- exactly 3 core features/jobs are listed
-- PRD includes target user, problem, research evidence, user stories, use cases, KPIs, out-of-scope, and definition of done
-- out-of-scope list exists
-- definition of done is clear
+- `.onemillion/prd.md` includes `Day 3 Locked Spec`
+- exactly 3 core user stories are listed
+- use cases are real scenarios
+- acceptance criteria are testable
+- KPIs are measurable
+- out-of-scope list has at least 5 items
+- definition of done is concrete
 
 ## Day 4: Stack + First Deploy
 

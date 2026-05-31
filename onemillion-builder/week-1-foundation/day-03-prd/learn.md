@@ -1,4 +1,4 @@
-# Day 3 — Write Your PRD
+# Day 3 — Lock The Spec
 
 <p align="center">
   <a href="../../README.md">Course Home</a> &bull;
@@ -9,312 +9,248 @@
   <a href="./loom.md">Video</a>
 </p>
 
-**Week 1 | ~45–90 min | Still no code (last day before we start building)**
+**Week 1 | ~60-90 min | Last no-code day before building**
+
+Day 1 created the first PRD. Day 2 validated it. Day 3 locks it into a buildable spec.
+
+You are still working in one core pipeline artifact:
+
+```text
+.onemillion/prd.md
+```
+
+Today answers:
+
+```text
+Can an agent read this PRD and build the first version without guessing?
+```
 
 ---
 
 ## Learning Frame
 
-- **Mental model:** A PRD turns messy intent into buildable constraints.
-- **What can go wrong:** You write a wish list instead of a small, frozen scope.
-- **What to ignore today:** Ignore nice-to-have features and future versions.
+- **Mental model:** A spec is a contract between the learner, the product, and the build agents.
+- **What can go wrong:** You leave fuzzy requirements, so the build agent fills gaps with guesses.
+- **What to ignore today:** Ignore implementation details, UI polish, Vercel, Supabase, and AI APIs. Today is the last scope lock before code.
 
 ## What You'll Have After Today
 
-- A **locked PRD** in `.onemillion/prd.md` with 8 sections
-- A scoped product type, locked user stories, use cases, KPIs, and out-of-scope
-- A clear answer to "is this done?" that you can hold yourself to
-- The end of "what if I added..." — scope is locked from here forward
-
-By tomorrow (Day 4) you build. Today you lock what you build.
-
----
-
-## Video Walkthrough
-
-Video walkthrough: coming soon. The written guide is complete.
+- `.onemillion/prd.md` updated into the locked Day 3 spec
+- exactly 3 core user stories
+- 2-3 real use cases
+- acceptance criteria for the MVP
+- measurable KPIs or success signals
+- a clear out-of-scope list
+- a concrete definition of done
+- an explicit spec-lock note saying what agents may and may not build
 
 ---
 
-## Part 1: Why PRDs Exist (~10 min read)
+## Part 1: What Is A Spec?
 
-**PRD** stands for Product Requirements Document. Every tech company writes one before building. It's not bureaucracy. It's the difference between shipping in 18 days and shipping in 6 months.
+A PRD explains the product. A spec makes the product buildable.
 
-A PRD does three things:
-1. **Forces you to make decisions** before you start coding
-2. **Locks scope** — you can't add features mid-build without a real conversation
-3. **Tells the AI exactly what to build** — agentic SDLC depends on a good spec
+A good spec tells the build agent:
 
-That last one is the whole game. Vague PRDs produce vague code. The AI is great at executing a clear spec; it's terrible at guessing what you meant. **The quality of your PRD determines the quality of everything that comes after.**
+- who the product is for
+- what pain it solves
+- what evidence supports it
+- what the MVP includes
+- what the MVP does not include
+- what the user must be able to do
+- what counts as correct behavior
+- what counts as done
 
-This is the first pillar of agentic engineering: **spec before code**. Never let AI generate without a spec it can validate against.
+Bad prompt:
 
-> 🔧 **Engineers:** You've seen PRDs before. The OneMillion PRD is intentionally lighter than corporate PRDs, but it still includes the pieces agents need: evidence, user stories, use cases, KPIs, scope, and done criteria. Heavier PRDs trigger paralysis in non-engineers. This version is the minimum useful spec.
-
----
-
-## Part 2: The Eight-Section PRD (~15 min read)
-
-Yours has 8 sections. No more. No less.
-
-### Section 1: Problem
-**One paragraph.** Specific pain. Who experiences it. Evidence it's real.
-
-*Not:* "Scheduling is hard for freelancers."
-*Yes:* "Freelance designers like Sarah spend ~90 minutes every Sunday cross-referencing Notion, email, and Slack to figure out which deliverables they owe which clients. In my 5 conversations, all 5 mentioned this Sunday-night ritual specifically. One lost an $8K client last year by forgetting to send final files."
-
-What changes between bad and good:
-- Named user (Sarah, not "freelancers")
-- Specific moment (Sunday night, not "always")
-- Specific time (~90 minutes, not "a lot")
-- Evidence (5/5 mentioned it, with a specific consequence)
-
-### Section 2: The User
-**One specific person.** Not a category. Not "all freelancers." One human, fleshed out.
-
-*Not:* "Freelancers."
-*Yes:* "Sarah, 34, freelance UX designer for 3 years. Has 4–6 active clients at a time. Uses Notion to track projects, email + Slack for client communication. Lost a major client last year due to a missed deliverable. Active in r/freelance. Charges $80/hr. Would pay $50/month for a tool that eliminates the Sunday review."
-
-What's in there:
-- Demographic anchors (age, role, experience)
-- Workflow specifics (Notion, email, Slack — your competition)
-- A failure story (gives you the emotional anchor)
-- Pricing intuition (anchors what you can charge)
-
-### Section 3: Research Evidence
-
-**What did you learn from Day 2?** Summarize conversation patterns, alternatives, substitutes, workarounds, and competitor gaps.
-
-*Example:*
-- 5/5 designers already use Notion or spreadsheets to track deliverables.
-- 4/5 said the painful moment is Sunday night review, not daily task entry.
-- Existing project management tools feel too broad; the gap is a simple client-deliverable view.
-
-### Section 4: Core Jobs / User Stories — Exactly 3
-**Format:** *As [user], I want [action] so that [outcome].*
-
-Three. Not five. Not seven. Three. This is the most important constraint in the entire PRD.
-
-Why three? Because the AI can ship three features cleanly in 6 days (Week 1). It cannot ship seven cleanly in 6 days. People who try to ship seven ship zero. People who ship three ship a product.
-
-*Example (good):*
-- As Sarah, I want to see all deliverables I owe across all clients in one dashboard so I never miss a deadline.
-- As Sarah, I want to send a quick status update to a client from the same dashboard so I stop switching between Notion and email.
-- As Sarah, I want clients to mark a deliverable approved so there's no dispute about whether I finished the work.
-
-*Example (bad — too many, too vague):*
-- Tool should help freelancers
-- Track time
-- Manage clients
-- Send invoices
-- Get reminders
-- Show analytics
-- Mobile app
-
-The bad example is what gets you stuck on Day 12 with nothing working. The good example is what gets you shipped on Day 18.
-
-### Section 5: Use Cases
-
-**Real scenarios the product must handle.** These are not features. They are moments from the user's life.
-
-*Example:*
-- Sunday review: Sarah opens the dashboard and sees every deliverable due this week, sorted by client and due date.
-- Client follow-up: Sarah marks a deliverable sent and sends a status update without opening three separate tools.
-- Approval dispute: Sarah can see whether a client approved a deliverable and when.
-
-### Section 6: KPIs / Success Signals
-
-**How you know the product is useful.** Keep these measurable and connected to the pain.
-
-*Example:*
-- A new user creates 3+ deliverables in the first session.
-- A user sends at least one status update from the dashboard.
-- Sarah's weekly review drops from 90 minutes to under 20 minutes.
-
-### Section 7: Out of Scope
-**The features you explicitly will NOT build in v1.**
-
-This is as important as the 3 core jobs. Every idea that isn't in Core Jobs goes here. This is where you write down every feature that's tempting but doesn't make the cut.
-
-*Example:*
-- **Out of scope (v2 or later):** Invoicing, time tracking, client self-service portal, mobile app, calendar integration, automated follow-ups, AI suggestions, multi-currency, team accounts.
-
-You will be tempted to add these mid-build. The PRD says no. The PRD wins. Add to "v2 or later" wishlist instead.
-
-> 💡 The phrase you'll say out loud most often during the build: **"That's a v2 feature."** Practice it now. It's how you actually ship.
-
-### Section 8: Definition of Done
-**What does v1 look like, exactly?** A few sentences. Concrete enough that you'll know when you're done.
-
-*Example:*
-> "A freelancer can sign up, add up to 4 clients, create a project under each client with a name + due date, mark deliverables as in-progress / sent / approved, and send a one-click status update via email. The dashboard shows everything they owe, sorted by due date. That's v1. No invoicing. No mobile."
-
-You read this on Day 14 when you're tempted to add "just one more feature." It tells you whether you're done.
-
----
-
-## Part 3: How To Run Your PRD With AI (~5 min read)
-
-You're going to use your coding harness to help draft your PRD. Two ways to do it:
-
-### Approach 1: Direct draft
-You write a rough PRD, Claude critiques it.
-
-```
-I'm starting Day 3 of the OneMillion course. Here is my validated PRD from
-Day 2: [paste .onemillion/prd.md]. Help me tighten it into a locked PRD with
-8 sections: Problem, Target User, Research Evidence,
-3 Core Jobs/User Stories, Use Cases, KPIs, Out of Scope, Definition of Done.
-Don't add fluff. Push back if any section is vague.
+```text
+Build my app.
 ```
 
-Claude will draft. You'll review. Iterate 2-3 times. Done.
+Better prompt:
 
-### Approach 2: Interview mode
-Claude asks you questions, then drafts based on answers.
-
-```
-I'm starting Day 3 of OneMillion. Help me write a PRD by asking me
-questions one at a time. Section 1 first: the Problem. Ask me what
-specific pain my user feels, with evidence.
+```text
+Build the MVP described in .onemillion/prd.md. Do not add features outside the 3 locked user stories. If the PRD is ambiguous, stop and ask.
 ```
 
-Better for builders who feel stuck. The questions surface things you didn't know to write.
+This is the point of OneMillion: the learner uses agents, but the learner controls the spec.
 
-> 💡 **Engineers:** Try Approach 1. EAs and PMs: try Approach 2 first.
+## Part 2: Requirements
 
-After drafting, save to `.onemillion/prd.md`. Don't write directly — let Claude write, then review what came out.
+A requirement is a behavior the product must support.
 
----
+Weak requirement:
 
-## Today's Assignment
-
-1. Draft your PRD using your coding harness (~30 minutes)
-2. Save to `.onemillion/prd.md`
-3. Lock it — no more pivots from here
-4. Run the Day 3 verification
-
----
-
-## What Good Looks Like (Real Example)
-
-Here's a complete PRD from a previous cohort builder:
-
-```markdown
-# DeliverableDash — PRD
-
-## 1. Problem
-Freelance designers spend ~90 minutes every Sunday cross-referencing Notion,
-email, and Slack to figure out which deliverables they owe which clients.
-This causes missed deadlines and lost clients. In my 5 conversations, all 5
-mentioned this Sunday review specifically. One lost a $8K client last year
-by forgetting to send final files for 2 weeks.
-
-## 2. The User
-Sarah, 34, freelance UX designer for 3 years. Has 4–6 active clients at a
-time. Uses Notion to track projects, email + Slack for client communication.
-Lost a major client last year due to a missed deliverable. Charges $80/hr.
-Would pay $50/month for a tool that eliminates the Sunday review.
-
-## 3. Research Evidence
-- 5/5 conversation participants described a weekly review ritual.
-- 4/5 use Notion or spreadsheets today.
-- 3/5 said general project management tools are too heavy for client deliverables.
-- The gap is a focused client-deliverable dashboard with low-friction status updates.
-
-## 4. Core Jobs / User Stories
-- As Sarah, I want to see all deliverables I owe across all clients in one
-  dashboard so I never miss a deadline.
-- As Sarah, I want to send a quick status update to a client from the same
-  dashboard so I stop switching tools.
-- As Sarah, I want clients to mark a deliverable approved so there's no
-  dispute about whether I finished the work.
-
-## 5. Use Cases
-- Sunday review: Sarah opens the dashboard and sees all deliverables due this week.
-- Status update: Sarah marks a deliverable sent and sends a client update from the same screen.
-- Approval record: Sarah can tell whether a client approved a deliverable and when.
-
-## 6. KPIs / Success Signals
-- A new user creates 3+ deliverables in the first session.
-- A user sends one client status update from the app.
-- Weekly review time drops from 90 minutes to under 20 minutes.
-
-## 7. Out of Scope (v2 or later)
-- Invoicing
-- Time tracking
-- Client self-service portal
-- Mobile app
-- Calendar integration
-- Automated follow-ups
-- AI suggestions (might be added Week 2)
-- Team accounts
-
-## 8. Definition of Done
-A freelance designer can sign up, add up to 4 clients, create a project
-under each client with a name + due date, mark deliverables as in-progress
-/ sent / approved, and send a one-click status update via email. The
-dashboard shows everything they owe, sorted by due date.
-
-Product type: web_app
+```text
+The app should be easy to use.
 ```
 
-Two to three pages. Eight sections. Everything decided.
+Buildable requirement:
 
----
+```text
+The teacher can paste classroom notes, select a student, generate a parent-update draft, edit the draft, and mark it ready to send.
+```
 
-## Common Mistakes (Today)
+Requirements should be:
 
-1. **Too many features.** If you have 5+ in the Core Jobs section, you'll fail. Cut to 3. Brutally. The rest go to Out of Scope.
+- observable
+- specific
+- small enough to build
+- connected to the validated pain
+- limited to the MVP
 
-2. **Vague users.** "Freelancers" or "small business owners" — too broad. Pick ONE specific human. The product gets shaped by who you're building for.
+## Part 3: User Stories
 
-3. **No Definition of Done.** Without it, you'll never feel finished. You'll keep adding features and never ship.
+User stories describe what the user wants to do and why.
 
-4. **Out of Scope is empty.** This means you haven't actually decided what NOT to build. Force yourself to list at least 5 things that aren't in v1.
+Format:
 
-5. **Skipping the AI assist.** Trying to write this in a vacuum. Use Claude. It's good at this. The point of agentic SDLC is to use the tool.
+```text
+As [specific user], I want [specific action] so that [specific outcome].
+```
+
+Day 3 requires exactly 3 user stories.
+
+Not 5. Not 12. Exactly 3.
+
+Why? Because the next days need a small build target. Too many stories make the build random.
+
+Good:
+
+```text
+As a K-5 teacher, I want to paste rough classroom notes so that I can start from what I already capture during the week.
+```
+
+Bad:
+
+```text
+As a user, I want to manage everything so that my life is easier.
+```
+
+## Part 4: Use Cases
+
+Use cases are real moments from the user's life.
+
+They answer:
+
+```text
+When does the user use this product?
+What happens before, during, and after?
+```
+
+Example:
+
+```text
+Weekly parent update: On Friday afternoon, the teacher pastes rough notes from the week, selects three students, generates draft updates, edits tone, and marks each update ready to send.
+```
+
+Use cases stop the spec from becoming abstract.
+
+## Part 5: Acceptance Criteria
+
+Acceptance criteria define what must be true for a feature to count as working.
+
+Example:
+
+```text
+Given a teacher has pasted notes and selected a student,
+When they click Generate Draft,
+Then the app creates a parent-update draft that references that student's notes and can be edited before sending.
+```
+
+You do not need a large test suite today. You need the spec to contain testable behavior.
+
+## Part 6: KPIs
+
+KPIs are not vanity metrics. They should measure whether the product solves the pain.
+
+Weak KPI:
+
+```text
+Get many users.
+```
+
+Better KPI:
+
+```text
+A teacher creates 3 usable parent-update drafts in under 10 minutes.
+```
+
+Good early KPIs usually measure:
+
+- time saved
+- successful task completion
+- draft acceptance
+- repeat usage
+- reduced manual work
+
+## Part 7: Out Of Scope
+
+Out of scope is where good builders win.
+
+Every tempting feature that is not part of the MVP goes here.
+
+Examples:
+
+- mobile app
+- billing
+- team accounts
+- admin dashboard
+- automated sending
+- integrations
+- analytics
+- advanced permissions
+
+If an agent tries to add these during the build, the spec says no.
+
+## Part 8: Definition Of Done
+
+Definition of Done is the exact state where v1 counts as complete.
+
+Example:
+
+```text
+A teacher can sign up, paste classroom notes, select a student, generate a draft parent update, edit it, save it, and view saved drafts later. No automatic sending. No parent portal. No roster import.
+```
+
+If this sentence is vague, the build will drift.
 
 ---
 
 ## What Should Be True After Day 3
 
-- [ ] `.onemillion/prd.md` exists
-- [ ] All 8 sections present and filled in
-- [ ] Core Jobs has exactly 3 user stories in proper format
-- [ ] Use Cases has at least 2 realistic scenarios
-- [ ] KPIs has at least 2 measurable success signals
-- [ ] Out of Scope has at least 5 items
-- [ ] You've read your PRD aloud and it sounds like a real product
-- [ ] You commit: scope is locked from here
+- [ ] `.onemillion/prd.md` includes a `Day 3 Locked Spec` section.
+- [ ] The MVP has exactly 3 core user stories.
+- [ ] Each user story uses the format `As [user], I want [action] so that [outcome]`.
+- [ ] The PRD has at least 2 real use cases.
+- [ ] The PRD has acceptance criteria for the MVP.
+- [ ] The PRD has 2+ measurable KPIs or success signals.
+- [ ] The PRD has 5+ out-of-scope items.
+- [ ] The PRD has a concrete Definition of Done.
+- [ ] The learner has committed the spec lock to git.
 
 ---
 
 ## Verify Your Day 3
 
-Ask your harness to run the OneMillion verifier for this day. The verifier will:
-- Validate all 8 sections exist
-- Validate Core Jobs has exactly 3 user stories
-- Spot-check quality (named user? specific problem? research evidence? use cases? KPIs? Definition of Done concrete?)
-- Report pass / needs revision
+Ask your harness to run the OneMillion verifier for Day 3. It should review `.onemillion/prd.md`, not create new paperwork.
 
 ---
 
 ## Share It
 
+```text
+Day 3 of OneMillion done.
+
+Spec locked.
+
+MVP: [one sentence]
+3 core stories: [short summary]
+Out of scope: [biggest thing I cut]
+
+Tomorrow: first app + first deploy.
+#BuildingWith1M
 ```
-✅ Day 3 done: PRD locked with 8 sections + 3 core jobs
-🎯 Tomorrow: stack setup + first deploy 🚀
-#BuildingWithOneMillion
-```
-
----
-
-## Go Deeper
-
-- **[Marty Cagan on PRDs](https://www.svpg.com/principles-vs-techniques/)** — long-form on what PRDs should and shouldn't do
-- **[Linear's PRD template](https://linear.app/method)** — modern, lightweight PRD example
-- **[Stripe's "Product Engineering" essay](https://stripe.com/blog)** — what good specs look like
 
 ---
 

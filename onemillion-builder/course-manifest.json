@@ -152,17 +152,17 @@
     },
     {
       "day": 3,
-      "title": "Write Your PRD",
+      "title": "Lock The Spec",
       "primary_agent": "spec",
       "supporting_agents": ["validate-spec"],
       "lesson": "onemillion-builder/week-1-foundation/day-03-prd/learn.md",
       "build": "onemillion-builder/week-1-foundation/day-03-prd/build.md",
       "resources": "onemillion-builder/week-1-foundation/day-03-prd/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": ["write requirements", "lock MVP scope", "write user stories", "write use cases", "define KPIs", "define done"],
+      "learning_focus": ["turn validated PRD into a buildable spec", "lock MVP scope", "write user stories", "write use cases", "write acceptance criteria", "define KPIs", "define done", "use validate-spec"],
       "external_tools": [],
-      "human_decisions": ["MVP features", "out-of-scope items", "definition of done"],
-      "completion_gate": [".onemillion/prd.md", "exactly 3 core jobs/user stories", "2+ use cases", "2+ KPIs/success signals", "locked out-of-scope list"]
+      "human_decisions": ["MVP stories", "acceptance criteria", "out-of-scope items", "definition of done", "spec lock"],
+      "completion_gate": [".onemillion/prd.md includes Day 3 Locked Spec", "exactly 3 core user stories", "2+ use cases", "testable acceptance criteria", "2+ KPIs/success signals", "locked out-of-scope list", "concrete definition of done"]
     },
     {
       "day": 4,

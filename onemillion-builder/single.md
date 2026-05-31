@@ -170,21 +170,24 @@ Key Day 0 setup links:
 
 The course has Day 0 plus 18 build days.
 
-- **Day 0:** GitHub workspace, public/private commitment, and fork setup
+- **Day 0:** orientation, OneMillion mission, pipeline, commitment, and GitHub workspace
 - **Days 1-6:** foundation: agent system, idea, research, PRD, stack, auth, core feature
 - **Days 7-12:** make it AI: AI spec, first call, streaming, tools, RAG, quality gates
 - **Days 13-18:** ship and sell: hygiene, domain, monitoring, landing page, users, demo
 
 The harness should not compress days unless the learner explicitly asks and the completion gates are already satisfied.
 
-## Day 0: GitHub Workspace + Public Commitment
+## Day 0: Orientation + Commitment + GitHub Workspace
 
-**Purpose:** create the learner's builder workspace, create accountability, and prove the course is running from the learner's own fork.
+**Purpose:** welcome the learner into the OneMillion mission, explain the pipeline, create accountability, and set up the learner's GitHub course workspace.
 
-**Why it matters:** most learners do not quit because they are incapable. They quit because setup feels random and the work becomes invisible. Day 0 gives them a real GitHub proof trail and a public or private commitment.
+**Why it matters:** most learners do not quit because they are incapable. They quit because the path feels random and the work becomes invisible. Day 0 makes the mission clear, shows the map, creates a public or private accountability loop, and gives the learner a real GitHub proof trail.
 
 **What the learner does:**
 
+- understands what OneMillion is and why it exists
+- learns the full OneMillion pipeline at a high level
+- answers three Day 0 reflection questions
 - creates or opens a GitHub account
 - stars the upstream repo
 - forks the repo
@@ -194,8 +197,10 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 **What the harness does:**
 
-- greets the learner and explains the whole OneMillion path
+- greets the learner warmly and explains the OneMillion mission
 - explains the OneMillion development pipeline at a high level
+- explains what the learner will have by the end: real app or agent, deployed URL, GitHub proof trail, Loom demo, Builder Claim, and builder credential/certificate path
+- explains that the product repo comes later when there is a real app; Day 0 only needs the course fork
 - explains why the fork-first workflow matters
 - gives exact setup links for GitHub
 - previews that Vercel, Supabase, Anthropic, and monitoring accounts are introduced later when the pipeline needs them
@@ -204,6 +209,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - verifies `origin` points to the learner's fork
 - verifies `upstream` points to Sid's repo
 - gives full copy-ready LinkedIn, X, and private-message templates
+- saves `.onemillion/day-00-reflection.md`
 - writes `.onemillion/verification-day-00.md` after the commitment is confirmed
 
 **Exact links:**
@@ -221,6 +227,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - `origin` points to learner fork
 - `upstream` points to `siddsdixit/teach-one-million`
 - upstream repo is starred
+- `.onemillion/day-00-reflection.md` exists
 - public or private commitment was made
 
 ## Day 1: OneMillion Pipeline + Idea Lab

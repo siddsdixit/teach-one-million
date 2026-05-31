@@ -137,5 +137,5 @@ The agent teaches and guides. You make decisions and do the real external-tool s
 
 ## Next
 
-→ [Day 0 — GitHub Workspace + Public Commitment](../day-0-commit/README.md)<br>
+→ [Day 0 — Orientation + Commitment + GitHub Workspace](../day-0-commit/README.md)<br>
 → [Day 1 — OneMillion Pipeline + Idea Lab](../week-1-foundation/day-01-vision/learn.md)

@@ -1,10 +1,10 @@
-# Day 0 — GitHub Workspace + Public Commitment
+# Day 0 — Orientation + Commitment + GitHub Workspace
 
-**Time: 20-30 minutes. Mandatory before Day 1.**
+**Time: 30-45 minutes. Mandatory before Day 1.**
 
-Before you start Day 1, set up your fork and make a commitment. Publicly if you can. Privately to five real people if you cannot post yet.
+Before you start Day 1, understand what OneMillion is, learn the pipeline you are about to follow, make a commitment, and set up your GitHub workspace.
 
-This sounds small. It is the course's first real learning gate: you create a public workspace, prove you can work from your own fork, and make it harder to disappear when the build gets uncomfortable.
+This is the course's first real learning gate. You are not just installing files. You are joining a mission, learning the map, creating a public or private accountability loop, and creating the workspace where your proof of work will live.
 
 ---
 
@@ -15,8 +15,18 @@ If you are a coding harness teaching this course, render this before asking the 
 ```text
 Welcome to OneMillion. I will be your course guide inside this coding harness.
 
+I'm glad you're here. OneMillion exists to teach one million people to build real AI-native products. The mission is simple: help people move from using AI as a chatbot to using AI as a builder.
+
 Here is what this course is:
-Over 18 build-days, you will go from an idea to a deployed AI product. You will build in a real GitHub repo, deploy to a real URL, add auth and a database, add an AI feature, collect feedback, record a Loom demo, and submit a Builder Claim.
+Over 18 build-days, you will go from an idea to a real application or agent. You will learn how to generate and evaluate ideas, research real user pain, write a PRD/spec, design, plan, build, review, test, guard, deploy, and think through go-to-market.
+
+By the end of the course, you should have:
+- a real app or agent
+- a deployed application URL
+- a public proof trail in GitHub
+- a Loom demo
+- a Builder Claim submission
+- a OneMillion builder credential/certificate path
 
 Here is how we will work:
 - I will teach one day at a time.
@@ -27,12 +37,26 @@ Here is how we will work:
 - You will touch the real external tools yourself.
 - When a day is complete, you will say `day done`; I will verify and advance you.
 
-Today is Day 0: GitHub Workspace + Public Commitment.
+Today is Day 0: Orientation + Commitment + GitHub Workspace.
 
-The goal today is not coding. The goal is to create your builder workspace, create accountability, and prove that your course repo is correctly set up from your own fork.
+The goal today is not coding. The goal is to understand the journey, make your commitment, and create your course workspace.
 
 The course follows the OneMillion development pipeline:
 idea -> research -> PRD -> validate spec -> design -> plan -> build -> review -> test -> guard -> ship -> sell.
+
+That pipeline is the operating system for the course. Each stage answers a question:
+- idea: what could be worth building?
+- research: is the pain real?
+- PRD/spec: what exactly are we building?
+- validate spec: is the spec clear enough to trust?
+- design: how should the product work for a human?
+- plan: how will we build it safely?
+- build: what is the next working slice?
+- review: did the code match the spec?
+- test: does it behave correctly?
+- guard: is it safe enough for real users?
+- ship: can people reach it?
+- sell: can people understand it, try it, and give feedback?
 
 We introduce external tools only when the pipeline needs them:
 - GitHub today, because your fork is the course workspace and proof trail.
@@ -42,12 +66,14 @@ We introduce external tools only when the pipeline needs them:
 - Sentry, analytics, and uptime monitoring on Day 15, when production needs observability.
 
 What you will do now:
-1. Confirm the GitHub fork/clone setup is correct.
-2. Choose one commitment path: LinkedIn, X, or private messages to 5 real people.
-3. Open the exact link for that path.
-4. Copy the matching full message from this page.
-5. Paste, customize only the bracketed placeholders if you want, and publish/send.
-6. Come back and say `day done`.
+1. Read the mission and pipeline.
+2. Answer three short reflection questions.
+3. Choose one commitment path: LinkedIn, X, or private messages to 5 real people.
+4. Open the exact link for that path.
+5. Copy the matching full message from this page.
+6. Paste, customize only the bracketed placeholders if you want, and publish/send.
+7. Set up or confirm the GitHub fork/clone workspace.
+8. Come back and say `day done`.
 
 Use these exact links:
 - GitHub signup: https://github.com/signup
@@ -64,6 +90,8 @@ End the opening with:
 
 ```text
 What counts as done for Day 0:
+- You answered the Day 0 reflection questions.
+- Your answers were saved to `.onemillion/day-00-reflection.md`.
 - The repo is a real clone of your fork.
 - `origin` points to your fork.
 - `upstream` points to Sid's repo.
@@ -79,9 +107,91 @@ Do not say only "do Day 0." The learner needs the full orientation.
 
 ---
 
-## Required Setup
+## Mission
 
-Do not skip this. Your coding harness should stop the course if any item is missing.
+OneMillion is on a mission to teach one million people to build real AI-native products.
+
+This course is for people who have ideas but do not want to wait for permission, a computer science degree, a cofounder, or a large team before they build. You will learn the process of taking an idea through product thinking, specs, design, implementation, safety, deployment, and go-to-market.
+
+The course is not passive. You are not here to watch AI build alone. The harness will teach and guide, but you will make product decisions, touch real tools, review work, and ship something real.
+
+By the end, you should have:
+
+- a real app or agent
+- a deployed application URL
+- a GitHub proof trail
+- a Loom demo
+- a Builder Claim submission
+- a path to a OneMillion builder credential/certificate
+
+---
+
+## The OneMillion Pipeline
+
+This is the pipeline you will follow:
+
+```text
+idea -> research -> PRD -> validate spec -> design -> plan -> build -> review -> test -> guard -> ship -> sell
+```
+
+You will unfold it one stage at a time.
+
+| Stage | What it means |
+|---|---|
+| **Idea** | Learn how good ideas are generated and choose one worth exploring. |
+| **Research** | Talk to people, inspect workarounds, and prove the pain is real. |
+| **PRD / spec** | Turn messy intent into a clear buildable product definition. |
+| **Validate spec** | Catch vague, oversized, or contradictory requirements before code. |
+| **Design** | Decide how the product should work for a human. |
+| **Plan** | Break the product into safe buildable slices. |
+| **Build** | Implement the next smallest working slice. |
+| **Review** | Check whether the implementation matches the spec. |
+| **Test** | Prove the product behaves correctly. |
+| **Guard** | Check security, privacy, secrets, costs, and production risk. |
+| **Ship** | Deploy and verify the product is reachable. |
+| **Sell** | Explain it, find users, collect feedback, and make the Builder Claim. |
+
+---
+
+## Day 0 Reflection
+
+Before setup, answer these. Your harness should save the answers to `.onemillion/day-00-reflection.md`.
+
+```markdown
+# Day 0 Reflection
+
+## What is OneMillion?
+[Answer in your own words.]
+
+## What does the OneMillion pipeline do?
+[Answer in your own words.]
+
+## What am I committing to?
+[Public commitment, private commitment, or both. Include where you posted/sent it if you can.]
+```
+
+The answers can be short. The goal is not a quiz grade. The goal is to make sure you know what you joined before the course starts moving.
+
+---
+
+## Why Commitment Matters
+
+You can satisfy Day 0 with either:
+
+- a public commitment on LinkedIn or X
+- a private commitment sent to 5 real people
+
+Both count.
+
+Public commitment is recommended because it more than doubles the odds that a learner finishes the course. The reason is simple: the work becomes visible. People see you start, some will ask how it is going, and Day 4 becomes harder to quietly abandon.
+
+Private commitment works too if public posting is not right for you yet. The mechanism is the same: specific people you respect now know you are doing this.
+
+---
+
+## Required GitHub Workspace Setup
+
+After orientation and commitment, set up the GitHub workspace. Your product repo comes later, when you have a real product app. Today you only need the course fork.
 
 Open the exact setup playbook first: [Account Setup Playbook](../docs/account-setup.md#day-0-github-course-fork)
 
@@ -130,22 +240,6 @@ You pass Day 0 setup only when:
 - `upstream` contains `siddsdixit/teach-one-million`.
 - You are not working from a downloaded zip.
 - Your harness can read `AGENTS.md` and `onemillion-builder/course-manifest.json`.
-
----
-
-## Why This Works
-
-The single biggest predictor of whether someone finishes a self-paced course isn't intelligence, time, or experience. It's **public commitment.**
-
-When you post that you're starting OneMillion:
-- Your network sees you start. They expect you to finish.
-- Day 4 (the hard day) becomes "I'm not going to be the person who quit publicly on Day 4"
-- Your network becomes your accountability partner. Some will check in. Some will encourage you. Some will follow your daily updates.
-- People you've never met may DM you to say "I'm doing this too." Instant cohort, even if you're self-serve.
-
-Builders who post on Day 0 finish at roughly **2x the rate** of those who don't. This is one of the most consistent findings across MOOC research.
-
-Five minutes of cringe → 2x odds of finishing → a real product on the internet. Take the deal.
 
 ---
 

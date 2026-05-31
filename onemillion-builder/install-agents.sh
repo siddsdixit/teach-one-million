@@ -182,7 +182,7 @@ First enforce the Preflight Gate:
 - real git worktree
 - `origin` points to the learner's fork
 - `upstream` points to `siddsdixit/teach-one-million`
-- Day 0 public or private commitment before Day 1
+- Day 0 orientation/reflection plus public or private commitment before Day 1
 
 Then teach one day at a time. When the learner says `day done`, follow the Day Done Protocol in `AGENTS.md`; do not advance until the current gate passes.
 

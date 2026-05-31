@@ -81,7 +81,7 @@ When the learner says they are starting OneMillion:
 When the learner says `day done`:
 
 1. Read the current day from `.onemillion/state.json`.
-2. If the current day is `0`, read `preflight_day.completion_gate` from `onemillion-builder/course-manifest.json`. Verify fork/clone/origin/upstream and ask for concise confirmation that the learner starred/forked the repo and made the Day 0 public or private commitment. Write `.onemillion/verification-day-00.md`, then advance state to Day 1.
+2. If the current day is `0`, read `preflight_day.completion_gate` from `onemillion-builder/course-manifest.json`. Verify `.onemillion/day-00-reflection.md`, fork/clone/origin/upstream, and ask for concise confirmation that the learner starred/forked the repo and made the Day 0 public or private commitment. Write `.onemillion/verification-day-00.md`, then advance state to Day 1.
 3. If the current day is `1` through `18`, read that day's `completion_gate` from `onemillion-builder/course-manifest.json`.
 4. Inspect required files and app behavior where possible.
 5. Ask concise manual confirmation questions for external actions you cannot inspect.
@@ -100,10 +100,10 @@ We will go one day at a time. I will teach the idea, ask you for decisions, guid
 
 First I am going to verify your course repo setup: starred upstream, forked repo, cloned fork, origin pointing to your fork, upstream pointing to Sid's repo.
 
-Then we start Day 0: GitHub workspace and public/private commitment.
+Then we start Day 0: orientation, public/private commitment, and GitHub workspace.
 After Day 0, we start Day 1: OneMillion development pipeline and idea lab.
 
 First, I will inspect the repo setup. If anything is wrong, I will stop and fix that before the course begins.
 ```
 
-After preflight passes and the learner is on Day 0, do not stop at "go do Day 0." Render the Day 0 teacher script from `onemillion-builder/day-0-commit/README.md`: explain the course, explain the AI/human contract, provide the copy-ready commitment message, list what counts as done, and tell the learner to say `day done` only after the commitment is actually made.
+After preflight passes and the learner is on Day 0, do not stop at "go do Day 0." Render the Day 0 teacher script from `onemillion-builder/day-0-commit/README.md`: explain the OneMillion mission, explain the pipeline, explain the AI/human contract, collect and save the Day 0 reflection, provide the copy-ready commitment message, list what counts as done, and tell the learner to say `day done` only after the reflection, commitment, and GitHub workspace setup are actually complete.

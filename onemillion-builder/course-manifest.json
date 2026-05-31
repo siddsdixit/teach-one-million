@@ -12,7 +12,7 @@
   "principle": "Agent guides. Learner decides. Learner touches real tools. Agent verifies.",
   "preflight_day": {
     "day": 0,
-    "title": "GitHub Workspace + Public Commitment",
+    "title": "Orientation + Commitment + GitHub Workspace",
     "path": "onemillion-builder/day-0-commit/README.md",
     "verifier_report": ".onemillion/verification-day-00.md",
     "completion_gate": [
@@ -22,6 +22,7 @@
       "origin points to learner fork",
       "upstream points to siddsdixit/teach-one-million",
       "learner confirms upstream repo is starred",
+      "learner answers Day 0 reflection questions",
       "learner made public or private commitment"
     ]
   },

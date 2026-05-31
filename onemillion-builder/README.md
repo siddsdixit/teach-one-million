@@ -194,7 +194,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 
 | Day | Focus | Outcome |
 |---:|---|---|
-| [0](day-0-commit/README.md) | GitHub workspace + commitment | Fork, clone, and public/private commitment |
+| [0](day-0-commit/README.md) | Orientation + commitment | Mission, pipeline, reflection, fork, clone, and public/private commitment |
 | [1](week-1-foundation/day-01-vision/learn.md) | OneMillion pipeline + idea lab | Understand the agents and pick the product direction |
 | [2](week-1-foundation/day-02-problem/learn.md) | Problem + research | Validate pain and compare alternatives before writing code |
 | [3](week-1-foundation/day-03-prd/learn.md) | PRD + user stories | Lock MVP scope, use cases, KPIs, and done criteria |

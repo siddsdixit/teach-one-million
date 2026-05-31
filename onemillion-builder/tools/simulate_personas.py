@@ -295,7 +295,7 @@ def scan_persona_friction(persona: dict) -> list[str]:
     for term in [
         "idea -> research -> prd -> validate spec -> design -> plan -> build -> review -> test -> guard -> ship -> sell",
         "tools arrive just in time",
-        "day 0: github workspace",
+        "day 0: orientation",
         "day 1: onemillion pipeline",
         "user stories",
         "use cases",

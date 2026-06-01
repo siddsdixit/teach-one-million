@@ -61,7 +61,7 @@ def check_forbidden_public_text() -> None:
         "link added Sprint",
         "cost-transparency.md",
         "tools/README.md",
-        "github.com/siddsdixit/course",
+        "github.com/siddsdixit/one-million-builders/tree/main/onemillion-builder",
         "codespaces-fallback-last-resort",
     ]
     for file in ROOT.rglob("*.md"):

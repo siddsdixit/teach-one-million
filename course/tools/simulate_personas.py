@@ -289,7 +289,7 @@ def scan_persona_friction(persona: dict) -> list[str]:
                 "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
                 "https://vercel.com/dashboard",
                 "https://vercel.com/docs/analytics",
-                "https://uptimerobot.com/signUp",
+                "https://dashboard.uptimerobot.com/login",
                 "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
             ],
         ),

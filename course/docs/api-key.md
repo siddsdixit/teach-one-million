@@ -113,10 +113,10 @@ These have free tiers and you sign up *when you get to that day*, not now:
 
 | Service | When you need it | Free tier |
 |---------|-----------------|-----------|
-| **Vercel** | Day 4 (deploy your app): https://vercel.com/signup | Generous |
-| **GitHub** | Day 4 (host your code): https://github.com/signup | Forever free |
-| **Sentry** | Day 15 (error monitoring): https://sentry.io/signup/ | 5,000 events/month |
-| **UptimeRobot** | Day 15 (uptime monitoring): https://uptimerobot.com/signUp | 50 monitors |
+| **Vercel** | Day 6 (deploy your app): https://vercel.com/signup | Generous |
+| **GitHub** | Day 0 (fork and proof trail): https://github.com/signup | Forever free |
+| **Sentry** | Day 16 (error monitoring): https://sentry.io/signup/ | 5,000 events/month |
+| **UptimeRobot** | Day 16 (uptime monitoring): https://dashboard.uptimerobot.com/login | 50 monitors |
 
 You'll see step-by-step signup for each one on the day you need it.
 

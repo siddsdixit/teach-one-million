@@ -182,7 +182,7 @@ Use exact links:
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 - Vercel Analytics: https://vercel.com/docs/analytics
-- UptimeRobot signup: https://uptimerobot.com/signUp
+- UptimeRobot dashboard: https://dashboard.uptimerobot.com/login
 - UptimeRobot first monitor: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 
 For MVP, at minimum configure one uptime or analytics/error signal, or document why it is deferred.
@@ -241,7 +241,7 @@ Do not perform a destructive rollback unless I explicitly approve it. Confirm I 
 - Supabase RLS: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
-- UptimeRobot signup: https://uptimerobot.com/signUp
+- UptimeRobot dashboard: https://dashboard.uptimerobot.com/login
 - UptimeRobot first monitor: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 - Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
 - Porkbun: https://porkbun.com

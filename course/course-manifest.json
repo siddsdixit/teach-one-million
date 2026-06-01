@@ -129,7 +129,7 @@
       "sentry_signup": "https://sentry.io/signup/",
       "sentry_nextjs": "https://docs.sentry.io/platforms/javascript/guides/nextjs/",
       "vercel_analytics": "https://vercel.com/docs/analytics",
-      "uptimerobot_signup": "https://uptimerobot.com/signUp",
+      "uptimerobot_signup": "https://dashboard.uptimerobot.com/login",
       "uptimerobot_first_monitor": "https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor",
       "qa": [
         "Sentry receives test error",

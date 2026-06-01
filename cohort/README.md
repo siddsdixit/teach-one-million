@@ -73,8 +73,8 @@ The recording posts within 24 hours. Watching the recording is fine. ~40% of coh
 
 ## Ship Captains
 
-If you've already graduated (Builder #N exists) and want to help run the next cohort: apply to be a **Ship Captain**. Get paid in OneMillion equity-of-mission (the gratitude tier) + access to Sid's network. See [tools/ship-captain.md] (coming Sprint 2).
+If you've already graduated (Builder #N exists) and want to help run the next cohort: apply to be a **Ship Captain**. Get paid in OneMillion equity-of-mission (the gratitude tier) + access to Sid's network. Ship Captain details will be added before the first public cohort opens.
 
 ---
 
-→ Back to [README](../README.md) · [Self-serve start](../course/week-1-foundation/day-01-vision/learn.md) · [Builder Wall](../builders/README.md)
+→ Back to [README](../README.md) · [Self-serve start](../course/README.md) · [Builder Wall](../builders/README.md)

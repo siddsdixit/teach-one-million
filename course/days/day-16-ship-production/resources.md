@@ -38,7 +38,7 @@
 - Supabase RLS: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
-- UptimeRobot signup: https://uptimerobot.com/signUp
+- UptimeRobot dashboard: https://dashboard.uptimerobot.com/login
 - UptimeRobot first monitor: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 - Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
 - Porkbun: https://porkbun.com

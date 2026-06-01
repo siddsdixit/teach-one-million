@@ -186,14 +186,14 @@ Pass criteria:
 
 ---
 
-## Day 15: Monitoring
+## Day 16: Monitoring
 
 ### Links
 
 - Sentry signup/login: https://sentry.io/signup/
 - Sentry Next.js setup: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 - Vercel Analytics docs: https://vercel.com/docs/analytics
-- UptimeRobot signup/login: https://uptimerobot.com/signUp
+- UptimeRobot dashboard/login: https://dashboard.uptimerobot.com/login
 - UptimeRobot first monitor guide: https://help.uptimerobot.com/en/articles/11358364-how-to-create-your-first-monitor
 
 ### Steps

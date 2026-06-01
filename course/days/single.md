@@ -957,7 +957,7 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 - Vercel Analytics: https://vercel.com/docs/analytics
-- UptimeRobot signup: https://uptimerobot.com/signUp
+- UptimeRobot dashboard: https://dashboard.uptimerobot.com/login
 - Cloudflare Registrar: https://www.cloudflare.com/products/registrar/
 - Porkbun: https://porkbun.com
 - DNS Checker: https://dnschecker.org

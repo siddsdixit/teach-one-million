@@ -45,7 +45,7 @@ The course and your product stay together:
 ```text
 teach-one-million/
   onemillion-builder/      # course
-  onemillion-agents/       # agents
+  onemillion-builder/agents/       # agents
   my-onemillion-build/     # your app
 ```
 
@@ -65,7 +65,7 @@ https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 
 Read AGENTS.md and onemillion-builder/course-manifest.json.
 Read onemillion-builder/docs/teaching-protocol.md.
-Read onemillion-builder/single.md.
+Read onemillion-builder/course/single.md.
 Become my OneMillion learning orchestrator.
 First enforce the Preflight Gate. If anything is wrong with clone/fork/origin/upstream setup, stop and fix it before Day 0.
 Then start Day 0. Do not start Day 1 until Day 0 passes.
@@ -100,8 +100,8 @@ The universal source remains:
 ```text
 AGENTS.md
 onemillion-builder/course-manifest.json
-onemillion-builder/single.md
-onemillion-agents/
+onemillion-builder/course/single.md
+onemillion-builder/agents/
 ```
 
 ---
@@ -137,5 +137,5 @@ The agent teaches and guides. You make decisions and do the real external-tool s
 
 ## Next
 
-→ [Day 0 — Orientation + Commitment + GitHub Workspace](../day-00-orientation/README.md)<br>
-→ [Day 1 — Idea Agent + PRD Draft](../day-01-idea/learn.md)
+→ [Day 0 — Orientation + Commitment + GitHub Workspace](../course/day-00-orientation/README.md)<br>
+→ [Day 1 — Idea Agent + PRD Draft](../course/day-01-idea/learn.md)

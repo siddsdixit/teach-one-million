@@ -12,7 +12,7 @@
 <p align="center">
   <a href="START-HERE.md"><strong>Start Here</strong></a>
   &nbsp;•&nbsp;
-  <a href="single.md">Full Course Flow</a>
+  <a href="course/single.md">Full Course Flow</a>
   &nbsp;•&nbsp;
   <a href="#start-in-5-minutes">5-Minute Setup</a>
   &nbsp;•&nbsp;
@@ -104,7 +104,7 @@ https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 
 Read AGENTS.md and onemillion-builder/course-manifest.json.
 Read onemillion-builder/docs/teaching-protocol.md.
-Read onemillion-builder/single.md.
+Read onemillion-builder/course/single.md.
 Become my OneMillion learning orchestrator.
 Properly greet me, explain the course, explain the AI/human contract, and guide me through GitHub setup, fork, clone, install, and Day 0.
 If I do not have GitHub yet, walk me through account creation with exact links.
@@ -114,13 +114,13 @@ When I say "day done", verify the day and advance me.
 Do not skip the learning or do the external tool steps for me.
 ```
 
-Need the slower walkthrough? Open [START-HERE.md](START-HERE.md). Want the whole day-by-day arc in one file? Open [single.md](single.md).
+Need the slower walkthrough? Open [START-HERE.md](START-HERE.md). Want the whole day-by-day arc in one file? Open [single.md](course/single.md).
 
 ---
 
 ## How The Course Feels
 
-OneMillion is an agent-led apprenticeship. Open the repo in Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, or another coding harness. The harness reads `AGENTS.md`, `course-manifest.json`, `docs/teaching-protocol.md`, and `single.md`, then becomes your OneMillion learning orchestrator.
+OneMillion is an agent-led apprenticeship. Open the repo in Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, or another coding harness. The harness reads `AGENTS.md`, `course-manifest.json`, `docs/teaching-protocol.md`, and `course/single.md`, then becomes your OneMillion learning orchestrator.
 
 You move through focused agent modes. In some harnesses these may be slash commands; in others, the orchestrator reads the course files and invokes the right mode for you.
 
@@ -164,6 +164,15 @@ idea -> research -> PRD -> validate spec -> design -> plan -> build -> review ->
 
 Tools arrive just in time. GitHub is required on Day 0 because your fork is the course workspace. Vercel appears on Day 6 when you deploy the app shell. Supabase appears on Day 7 when you add auth and database. Anthropic appears on Day 11 or Day 12 when the AI feature is specified and ready to build. Monitoring appears on Day 16 when the product is live enough to need production checks.
 
+The repo is intentionally organized so the learner-facing surface stays small:
+
+| Folder | What it contains |
+|---|---|
+| `course/` | Day 0-18 lessons, build guides, resources, Loom plans, and the full flow. |
+| `agents/` | OneMillion agent definitions and skills used by Claude Code, Cursor, Codex, Gemini, and other harnesses. |
+| `docs/` | Account setup, harness guides, verification notes, examples, and recovery help. |
+| `tools/` | Local QA and synthetic simulation scripts used to validate the course. |
+
 ---
 
 ## Support Built In
@@ -192,13 +201,13 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | **Ship + Sell** | 16-18 | production verification, monitoring/domain, brand, pricing, first users, demo | A launch-ready product and Builder Claim |
 
 <p align="center">
-  <a href="day-01-idea/learn.md"><strong>Days 1-5: Foundation</strong></a>
+  <a href="course/day-01-idea/learn.md"><strong>Days 1-5: Foundation</strong></a>
   &nbsp;•&nbsp;
-  <a href="day-06-app-shell/learn.md"><strong>Days 6-10: Build + QA</strong></a>
+  <a href="course/day-06-app-shell/learn.md"><strong>Days 6-10: Build + QA</strong></a>
   &nbsp;•&nbsp;
-  <a href="day-11-ai-spec/learn.md"><strong>Days 11-15: AI + Readiness</strong></a>
+  <a href="course/day-11-ai-spec/learn.md"><strong>Days 11-15: AI + Readiness</strong></a>
   &nbsp;•&nbsp;
-  <a href="day-16-ship-production/learn.md"><strong>Days 16-18: Ship + Sell</strong></a>
+  <a href="course/day-16-ship-production/learn.md"><strong>Days 16-18: Ship + Sell</strong></a>
 </p>
 
 ---
@@ -207,25 +216,25 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 
 | Day | Focus | Outcome |
 |---:|---|---|
-| [0](day-00-orientation/README.md) | Orientation + commitment | Mission, pipeline, reflection, fork, clone, and public/private commitment |
-| [1](day-01-idea/learn.md) | Idea agent + PRD draft | Learn good ideas, define user pain, and review first PRD |
-| [2](day-02-validate-prd/learn.md) | Validate the PRD | User evidence, ICP, MVP, and PRD validation update |
-| [3](day-03-spec/learn.md) | Lock the spec | Functional requirements, CRUD blocks, user stories, acceptance criteria, KPIs, and done criteria |
-| [4](day-04-design/learn.md) | Design the product | Audience-based design, MUI design system, screens, flows, states, seed data, and mockup approval |
-| [5](day-05-plan-architecture/learn.md) | Plan architecture | Product type, secure architecture, tenancy, backend path, scale assumptions, and sprint briefs |
-| [6](day-06-app-shell/learn.md) | App shell + first deploy | Next.js + MUI app live on Vercel |
-| [7](day-07-auth-db/learn.md) | Auth + database | Supabase signup/login, tables, and RLS |
-| [8](day-08-core-build/learn.md) | Core build | Main workflow working end-to-end |
-| [9](day-09-review/learn.md) | Implementation review | Spec drift and code review findings |
-| [10](day-10-qa-tests/learn.md) | QA + tests | Core behavior verified locally and live |
-| [11](day-11-ai-spec/learn.md) | AI feature spec | Measurable AI behavior |
-| [12](day-12-first-ai-build/learn.md) | First AI build | Selected LLM output in your app |
-| [13](day-13-product-polish/learn.md) | Product polish + UX finish | Clear flow, complete states, AI UX, mobile/desktop polish |
-| [14](day-14-security-trust-review/learn.md) | Security + trust review | Auth, authorization, tenancy/RBAC, RLS, secrets, AI privacy, cost/rate controls |
-| [15](day-15-qa-production-readiness/learn.md) | QA + production readiness | Final manual/automated QA, AI pass/fail examples, live critical path, production blockers |
-| [16](day-16-ship-production/learn.md) | Ship production | Production env vars, Supabase checks, live smoke tests, monitoring, rollback |
-| [17](day-17-sell-users/learn.md) | Brand + marketing + pricing + first users | Positioning, product page, pricing, launch posts, outreach, feedback |
-| [18](day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |
+| [0](course/day-00-orientation/README.md) | Orientation + commitment | Mission, pipeline, reflection, fork, clone, and public/private commitment |
+| [1](course/day-01-idea/learn.md) | Idea agent + PRD draft | Learn good ideas, define user pain, and review first PRD |
+| [2](course/day-02-validate-prd/learn.md) | Validate the PRD | User evidence, ICP, MVP, and PRD validation update |
+| [3](course/day-03-spec/learn.md) | Lock the spec | Functional requirements, CRUD blocks, user stories, acceptance criteria, KPIs, and done criteria |
+| [4](course/day-04-design/learn.md) | Design the product | Audience-based design, MUI design system, screens, flows, states, seed data, and mockup approval |
+| [5](course/day-05-plan-architecture/learn.md) | Plan architecture | Product type, secure architecture, tenancy, backend path, scale assumptions, and sprint briefs |
+| [6](course/day-06-app-shell/learn.md) | App shell + first deploy | Next.js + MUI app live on Vercel |
+| [7](course/day-07-auth-db/learn.md) | Auth + database | Supabase signup/login, tables, and RLS |
+| [8](course/day-08-core-build/learn.md) | Core build | Main workflow working end-to-end |
+| [9](course/day-09-review/learn.md) | Implementation review | Spec drift and code review findings |
+| [10](course/day-10-qa-tests/learn.md) | QA + tests | Core behavior verified locally and live |
+| [11](course/day-11-ai-spec/learn.md) | AI feature spec | Measurable AI behavior |
+| [12](course/day-12-first-ai-build/learn.md) | First AI build | Selected LLM output in your app |
+| [13](course/day-13-product-polish/learn.md) | Product polish + UX finish | Clear flow, complete states, AI UX, mobile/desktop polish |
+| [14](course/day-14-security-trust-review/learn.md) | Security + trust review | Auth, authorization, tenancy/RBAC, RLS, secrets, AI privacy, cost/rate controls |
+| [15](course/day-15-qa-production-readiness/learn.md) | QA + production readiness | Final manual/automated QA, AI pass/fail examples, live critical path, production blockers |
+| [16](course/day-16-ship-production/learn.md) | Ship production | Production env vars, Supabase checks, live smoke tests, monitoring, rollback |
+| [17](course/day-17-sell-users/learn.md) | Brand + marketing + pricing + first users | Positioning, product page, pricing, launch posts, outreach, feedback |
+| [18](course/day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |
 
 ---
 
@@ -270,7 +279,7 @@ The only hard requirement is that you keep going one verified day at a time.
 | [DeliverableDash example artifacts](docs/examples/deliverabledash/README.md) | Shows what a finished course trail can look like. |
 | [Sample finished app shape](docs/examples/deliverabledash/app/README.md) | Gives you a concrete reference for the end state. |
 | [Daily verification trail](docs/verification/README.md) | Proves each day passed before you advanced. |
-| [Day 18 demo](day-18-demo/learn.md) | Turns your product into something people can understand. |
+| [Day 18 demo](course/day-18-demo/learn.md) | Turns your product into something people can understand. |
 | [Share templates](docs/share-templates.md) | Helps you build in public without staring at a blank post. |
 
 The product is useful. The proof trail is useful. The repeatable way of building is the real prize.

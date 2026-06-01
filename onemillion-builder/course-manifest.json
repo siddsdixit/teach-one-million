@@ -6,14 +6,14 @@
   "default_product_dir": "my-onemillion-build",
   "start_day": 0,
   "completion_phrase": "day done",
-  "agent_root": "onemillion-agents/agents",
+  "agent_root": "onemillion-builder/agents/agents",
   "teaching_protocol": "onemillion-builder/docs/teaching-protocol.md",
-  "course_flow": "onemillion-builder/single.md",
+  "course_flow": "onemillion-builder/course/single.md",
   "principle": "Agent guides. Learner decides. Learner touches real tools. Agent verifies.",
   "preflight_day": {
     "day": 0,
     "title": "Orientation + Commitment + GitHub Workspace",
-    "path": "onemillion-builder/day-00-orientation/README.md",
+    "path": "onemillion-builder/course/day-00-orientation/README.md",
     "verifier_state": ".onemillion/state.json",
     "completion_gate": [
       "git worktree exists",
@@ -188,9 +188,9 @@
       "supporting_agents": [
         "ask"
       ],
-      "lesson": "onemillion-builder/day-01-idea/learn.md",
-      "build": "onemillion-builder/day-01-idea/build.md",
-      "resources": "onemillion-builder/day-01-idea/resources.md",
+      "lesson": "onemillion-builder/course/day-01-idea/learn.md",
+      "build": "onemillion-builder/course/day-01-idea/build.md",
+      "resources": "onemillion-builder/course/day-01-idea/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "understand what makes a good idea",
@@ -224,9 +224,9 @@
       "supporting_agents": [
         "research"
       ],
-      "lesson": "onemillion-builder/day-02-validate-prd/learn.md",
-      "build": "onemillion-builder/day-02-validate-prd/build.md",
-      "resources": "onemillion-builder/day-02-validate-prd/resources.md",
+      "lesson": "onemillion-builder/course/day-02-validate-prd/learn.md",
+      "build": "onemillion-builder/course/day-02-validate-prd/build.md",
+      "resources": "onemillion-builder/course/day-02-validate-prd/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "review and edit the Day 1 PRD",
@@ -267,9 +267,9 @@
       "supporting_agents": [
         "validate-spec"
       ],
-      "lesson": "onemillion-builder/day-03-spec/learn.md",
-      "build": "onemillion-builder/day-03-spec/build.md",
-      "resources": "onemillion-builder/day-03-spec/resources.md",
+      "lesson": "onemillion-builder/course/day-03-spec/learn.md",
+      "build": "onemillion-builder/course/day-03-spec/build.md",
+      "resources": "onemillion-builder/course/day-03-spec/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "turn validated PRD into a buildable spec",
@@ -316,9 +316,9 @@
       "supporting_agents": [
         "validate-spec"
       ],
-      "lesson": "onemillion-builder/day-04-design/learn.md",
-      "build": "onemillion-builder/day-04-design/build.md",
-      "resources": "onemillion-builder/day-04-design/resources.md",
+      "lesson": "onemillion-builder/course/day-04-design/learn.md",
+      "build": "onemillion-builder/course/day-04-design/build.md",
+      "resources": "onemillion-builder/course/day-04-design/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "turn refined PRD into screens and flows",
@@ -363,9 +363,9 @@
       "supporting_agents": [
         "validate-plan"
       ],
-      "lesson": "onemillion-builder/day-05-plan-architecture/learn.md",
-      "build": "onemillion-builder/day-05-plan-architecture/build.md",
-      "resources": "onemillion-builder/day-05-plan-architecture/resources.md",
+      "lesson": "onemillion-builder/course/day-05-plan-architecture/learn.md",
+      "build": "onemillion-builder/course/day-05-plan-architecture/build.md",
+      "resources": "onemillion-builder/course/day-05-plan-architecture/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "understand architecture before coding",
@@ -414,9 +414,9 @@
         "debug",
         "ship"
       ],
-      "lesson": "onemillion-builder/day-06-app-shell/learn.md",
-      "build": "onemillion-builder/day-06-app-shell/build.md",
-      "resources": "onemillion-builder/day-06-app-shell/resources.md",
+      "lesson": "onemillion-builder/course/day-06-app-shell/learn.md",
+      "build": "onemillion-builder/course/day-06-app-shell/build.md",
+      "resources": "onemillion-builder/course/day-06-app-shell/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "create the app from the plan",
@@ -450,9 +450,9 @@
         "ask",
         "debug"
       ],
-      "lesson": "onemillion-builder/day-07-auth-db/learn.md",
-      "build": "onemillion-builder/day-07-auth-db/build.md",
-      "resources": "onemillion-builder/day-07-auth-db/resources.md",
+      "lesson": "onemillion-builder/course/day-07-auth-db/learn.md",
+      "build": "onemillion-builder/course/day-07-auth-db/build.md",
+      "resources": "onemillion-builder/course/day-07-auth-db/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "create Supabase project",
@@ -501,9 +501,9 @@
       "supporting_agents": [
         "debug"
       ],
-      "lesson": "onemillion-builder/day-08-core-build/learn.md",
-      "build": "onemillion-builder/day-08-core-build/build.md",
-      "resources": "onemillion-builder/day-08-core-build/resources.md",
+      "lesson": "onemillion-builder/course/day-08-core-build/learn.md",
+      "build": "onemillion-builder/course/day-08-core-build/build.md",
+      "resources": "onemillion-builder/course/day-08-core-build/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "complete one useful sprint",
@@ -546,9 +546,9 @@
       "supporting_agents": [
         "build"
       ],
-      "lesson": "onemillion-builder/day-09-review/learn.md",
-      "build": "onemillion-builder/day-09-review/build.md",
-      "resources": "onemillion-builder/day-09-review/resources.md",
+      "lesson": "onemillion-builder/course/day-09-review/learn.md",
+      "build": "onemillion-builder/course/day-09-review/build.md",
+      "resources": "onemillion-builder/course/day-09-review/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "learn what code review means",
@@ -588,9 +588,9 @@
         "debug",
         "build"
       ],
-      "lesson": "onemillion-builder/day-10-qa-tests/learn.md",
-      "build": "onemillion-builder/day-10-qa-tests/build.md",
-      "resources": "onemillion-builder/day-10-qa-tests/resources.md",
+      "lesson": "onemillion-builder/course/day-10-qa-tests/learn.md",
+      "build": "onemillion-builder/course/day-10-qa-tests/build.md",
+      "resources": "onemillion-builder/course/day-10-qa-tests/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "understand good QA",
@@ -634,9 +634,9 @@
       "supporting_agents": [
         "validate-spec"
       ],
-      "lesson": "onemillion-builder/day-11-ai-spec/learn.md",
-      "build": "onemillion-builder/day-11-ai-spec/build.md",
-      "resources": "onemillion-builder/day-11-ai-spec/resources.md",
+      "lesson": "onemillion-builder/course/day-11-ai-spec/learn.md",
+      "build": "onemillion-builder/course/day-11-ai-spec/build.md",
+      "resources": "onemillion-builder/course/day-11-ai-spec/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "understand adding AI means calling a large language model inside the app to do a specific job",
@@ -681,9 +681,9 @@
       "supporting_agents": [
         "debug"
       ],
-      "lesson": "onemillion-builder/day-12-first-ai-build/learn.md",
-      "build": "onemillion-builder/day-12-first-ai-build/build.md",
-      "resources": "onemillion-builder/day-12-first-ai-build/resources.md",
+      "lesson": "onemillion-builder/course/day-12-first-ai-build/learn.md",
+      "build": "onemillion-builder/course/day-12-first-ai-build/build.md",
+      "resources": "onemillion-builder/course/day-12-first-ai-build/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "call the selected LLM from server-side code",
@@ -730,9 +730,9 @@
         "review",
         "design"
       ],
-      "lesson": "onemillion-builder/day-13-product-polish/learn.md",
-      "build": "onemillion-builder/day-13-product-polish/build.md",
-      "resources": "onemillion-builder/day-13-product-polish/resources.md",
+      "lesson": "onemillion-builder/course/day-13-product-polish/learn.md",
+      "build": "onemillion-builder/course/day-13-product-polish/build.md",
+      "resources": "onemillion-builder/course/day-13-product-polish/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "inspect the app from the target user's point of view",
@@ -771,9 +771,9 @@
         "build",
         "test"
       ],
-      "lesson": "onemillion-builder/day-14-security-trust-review/learn.md",
-      "build": "onemillion-builder/day-14-security-trust-review/build.md",
-      "resources": "onemillion-builder/day-14-security-trust-review/resources.md",
+      "lesson": "onemillion-builder/course/day-14-security-trust-review/learn.md",
+      "build": "onemillion-builder/course/day-14-security-trust-review/build.md",
+      "resources": "onemillion-builder/course/day-14-security-trust-review/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "understand authentication versus authorization",
@@ -819,9 +819,9 @@
         "build",
         "debug"
       ],
-      "lesson": "onemillion-builder/day-15-qa-production-readiness/learn.md",
-      "build": "onemillion-builder/day-15-qa-production-readiness/build.md",
-      "resources": "onemillion-builder/day-15-qa-production-readiness/resources.md",
+      "lesson": "onemillion-builder/course/day-15-qa-production-readiness/learn.md",
+      "build": "onemillion-builder/course/day-15-qa-production-readiness/build.md",
+      "resources": "onemillion-builder/course/day-15-qa-production-readiness/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "turn acceptance criteria into final QA",
@@ -864,9 +864,9 @@
         "test",
         "debug"
       ],
-      "lesson": "onemillion-builder/day-16-ship-production/learn.md",
-      "build": "onemillion-builder/day-16-ship-production/build.md",
-      "resources": "onemillion-builder/day-16-ship-production/resources.md",
+      "lesson": "onemillion-builder/course/day-16-ship-production/learn.md",
+      "build": "onemillion-builder/course/day-16-ship-production/build.md",
+      "resources": "onemillion-builder/course/day-16-ship-production/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "production versus preview deployments",
@@ -919,9 +919,9 @@
         "build",
         "review"
       ],
-      "lesson": "onemillion-builder/day-17-sell-users/learn.md",
-      "build": "onemillion-builder/day-17-sell-users/build.md",
-      "resources": "onemillion-builder/day-17-sell-users/resources.md",
+      "lesson": "onemillion-builder/course/day-17-sell-users/learn.md",
+      "build": "onemillion-builder/course/day-17-sell-users/build.md",
+      "resources": "onemillion-builder/course/day-17-sell-users/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "brand for an early product",
@@ -972,9 +972,9 @@
         "sell",
         "guard"
       ],
-      "lesson": "onemillion-builder/day-18-demo/learn.md",
-      "build": "onemillion-builder/day-18-demo/build.md",
-      "resources": "onemillion-builder/day-18-demo/resources.md",
+      "lesson": "onemillion-builder/course/day-18-demo/learn.md",
+      "build": "onemillion-builder/course/day-18-demo/build.md",
+      "resources": "onemillion-builder/course/day-18-demo/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "demo storytelling",

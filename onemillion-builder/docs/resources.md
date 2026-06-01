@@ -87,4 +87,4 @@ After Builder #N:
 
 ---
 
-→ **Back to:** [README](../README.md) · [Day 1](../day-01-idea/learn.md)
+→ **Back to:** [README](../README.md) · [Day 1](../course/day-01-idea/learn.md)

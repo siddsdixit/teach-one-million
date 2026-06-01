@@ -42,7 +42,7 @@ The course brain is still:
 ```text
 AGENTS.md
 onemillion-builder/course-manifest.json
-onemillion-agents/
+onemillion-builder/agents/
 ```
 
 ---

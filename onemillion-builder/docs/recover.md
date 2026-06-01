@@ -16,7 +16,7 @@ cat .onemillion/state.json
 
 Look for `last_verified_day` and the `verification.days` object.
 
-If `last_verified_day` is missing, restart at [Day 1](../day-01-idea/learn.md).
+If `last_verified_day` is missing, restart at [Day 1](../course/day-01-idea/learn.md).
 
 ---
 
@@ -67,15 +67,15 @@ If your last verified day is:
 
 | Last verified | Resume here |
 |---------------|-------------|
-| None | [Day 1](../day-01-idea/learn.md) |
-| Day 1 | [Day 2](../day-02-validate-prd/learn.md) |
-| Day 2 | [Day 3](../day-03-spec/learn.md) |
-| Day 3 | [Day 4](../day-04-design/learn.md) |
-| Day 4 | [Day 5](../day-05-plan-architecture/learn.md) |
-| Day 5 | [Day 6](../day-06-app-shell/learn.md) |
-| Day 6 | [Day 7](../day-07-auth-db/learn.md) |
-| Day 12 | [Day 13](../day-13-product-polish/learn.md) |
-| Day 17 | [Day 18](../day-18-demo/learn.md) |
+| None | [Day 1](../course/day-01-idea/learn.md) |
+| Day 1 | [Day 2](../course/day-02-validate-prd/learn.md) |
+| Day 2 | [Day 3](../course/day-03-spec/learn.md) |
+| Day 3 | [Day 4](../course/day-04-design/learn.md) |
+| Day 4 | [Day 5](../course/day-05-plan-architecture/learn.md) |
+| Day 5 | [Day 6](../course/day-06-app-shell/learn.md) |
+| Day 6 | [Day 7](../course/day-07-auth-db/learn.md) |
+| Day 12 | [Day 13](../course/day-13-product-polish/learn.md) |
+| Day 17 | [Day 18](../course/day-18-demo/learn.md) |
 
 For any other day, open the next day in the same day folder.
 

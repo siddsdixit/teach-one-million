@@ -8,7 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
-AGENTS_ROOT = REPO / "onemillion-agents"
+COURSE_ROOT = ROOT / "course"
+AGENTS_ROOT = ROOT / "agents"
 
 errors: list[str] = []
 
@@ -24,7 +25,7 @@ def check_day_files() -> None:
         "loom.md",
         "resources.md",
     }
-    for day_dir in sorted(ROOT.glob("day-*")):
+    for day_dir in sorted(COURSE_ROOT.glob("day-*")):
         if not day_dir.is_dir() or not day_dir.name.startswith("day-"):
             continue
         if day_dir.name.startswith("day-00-"):
@@ -39,6 +40,8 @@ def check_links() -> None:
     link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     href_re = re.compile(r'href="([^"]+)"')
     for file in ROOT.rglob("*.md"):
+        if "agents" in file.relative_to(ROOT).parts:
+            continue
         text = file.read_text()
         for raw in link_re.findall(text) + href_re.findall(text):
             if re.match(r"^(https?:|mailto:|#)", raw):
@@ -69,7 +72,7 @@ def check_forbidden_public_text() -> None:
 
 
 def check_learning_frames() -> None:
-    for file in ROOT.glob("day-*/learn.md"):
+    for file in COURSE_ROOT.glob("day-*/learn.md"):
         text = file.read_text()
         for heading in [
             "## Learning Frame",
@@ -82,14 +85,14 @@ def check_learning_frames() -> None:
 
 
 def check_stuck_prompts() -> None:
-    for file in ROOT.glob("day-*/build.md"):
+    for file in COURSE_ROOT.glob("day-*/build.md"):
         text = file.read_text()
         if "## If You Are Stuck" not in text:
             errors.append(f"{rel(file)} missing stuck-rescue prompt")
 
 
 def check_progress_tracker() -> None:
-    for file in ROOT.glob("day-*/build.md"):
+    for file in COURSE_ROOT.glob("day-*/build.md"):
         text = file.read_text()
         if "## Update Orchestrator State" not in text:
             errors.append(f"{rel(file)} missing orchestrator state update")
@@ -103,7 +106,7 @@ def check_day_navigation() -> None:
         "./resources.md",
         "./loom.md",
     ]
-    for file in ROOT.glob("day-*/*.md"):
+    for file in COURSE_ROOT.glob("day-*/*.md"):
         if file.parent.name.startswith("day-00-"):
             continue
         text = file.read_text()
@@ -117,7 +120,7 @@ def check_agent_architecture() -> None:
         REPO / "AGENTS.md",
         ROOT / "AGENTS.md",
         ROOT / "course-manifest.json",
-        ROOT / "single.md",
+        COURSE_ROOT / "single.md",
         ROOT / "docs" / "account-setup.md",
         ROOT / "docs" / "agent-flow.md",
         ROOT / "docs" / "day-done.md",
@@ -241,7 +244,7 @@ def check_manifest() -> None:
     if manifest.get("teaching_protocol") != "onemillion-builder/docs/teaching-protocol.md":
         errors.append(f"{rel(path)} must point to teaching protocol")
 
-    if manifest.get("course_flow") != "onemillion-builder/single.md":
+    if manifest.get("course_flow") != "onemillion-builder/course/single.md":
         errors.append(f"{rel(path)} must point to single course flow")
 
     setup_links = manifest.get("provider_setup_links")
@@ -268,7 +271,7 @@ def check_harness_neutral_entrypoints() -> None:
         ROOT / "AGENTS.md",
         ROOT / "README.md",
         ROOT / "START-HERE.md",
-        ROOT / "single.md",
+        COURSE_ROOT / "single.md",
         ROOT / "docs" / "getting-started.md",
         ROOT / "docs" / "account-setup.md",
         ROOT / "docs" / "agent-flow.md",

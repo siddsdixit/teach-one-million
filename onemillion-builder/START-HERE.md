@@ -17,7 +17,7 @@ The course is designed around a universal bootstrap file:
 AGENTS.md
 ```
 
-That file tells your harness how to become your OneMillion learning orchestrator. The day-by-day map lives in `course-manifest.json`. The full narrative course flow lives in [single.md](single.md).
+That file tells your harness how to become your OneMillion learning orchestrator. The day-by-day map lives in `course-manifest.json`. The full narrative course flow lives in [single.md](course/single.md).
 
 When a day asks you to create an account, create a key, set permissions, or verify a dashboard, use [Account Setup Playbook](docs/account-setup.md). It gives exact links and QA checks.
 
@@ -37,8 +37,12 @@ Your product workspace lives inside that cloned course repo:
 
 ```text
 teach-one-million/
-  onemillion-builder/      # course lessons, verifiers, harness instructions
-  onemillion-agents/       # agent definitions the harness uses to teach
+  onemillion-builder/
+    README.md              # learner landing page
+    course/                # Day 0-18 lessons and full flow
+    agents/                # agent definitions and skills
+    docs/                  # setup, harness, verification, examples
+    tools/                 # local QA/simulation utilities
   my-onemillion-build/     # your product app, created on Day 1
   .onemillion/             # course state, created by the installer
 ```
@@ -76,7 +80,7 @@ https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
 
 Read AGENTS.md and onemillion-builder/course-manifest.json.
 Read onemillion-builder/docs/teaching-protocol.md.
-Read onemillion-builder/single.md.
+Read onemillion-builder/course/single.md.
 Become my OneMillion learning orchestrator.
 First verify I starred, forked, and cloned the repo.
 Then start Day 0. Do not start Day 1 until Day 0 passes.

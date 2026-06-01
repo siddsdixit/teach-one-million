@@ -12,10 +12,10 @@ Read these files before starting or resuming the course:
 
 1. `onemillion-builder/course-manifest.json` — machine-readable curriculum map.
 2. `onemillion-builder/docs/teaching-protocol.md` — required learner experience.
-3. `onemillion-builder/single.md` — complete day-by-day course narrative.
-4. `onemillion-agents/agents/orchestrator.md` — orchestration protocol.
+3. `onemillion-builder/course/single.md` — complete day-by-day course narrative.
+4. `onemillion-builder/agents/agents/orchestrator.md` — orchestration protocol.
 5. The current day's `learn.md` and `build.md` files from the manifest.
-6. The current day's mapped agent from `onemillion-agents/agents/`.
+6. The current day's mapped agent from `onemillion-builder/agents/agents/`.
 
 ## Preflight Gate
 
@@ -106,4 +106,4 @@ After Day 0, we start Day 1: Idea Agent and PRD draft.
 First, I will inspect the repo setup. If anything is wrong, I will stop and fix that before the course begins.
 ```
 
-After preflight passes and the learner is on Day 0, do not stop at "go do Day 0." Render the Day 0 teacher script from `onemillion-builder/day-0-commit/README.md`: explain the OneMillion mission, explain the pipeline, explain the AI/human contract, collect and save the Day 0 reflection, provide the copy-ready commitment message, list what counts as done, and tell the learner to say `day done` only after the reflection, commitment, and GitHub workspace setup are actually complete.
+After preflight passes and the learner is on Day 0, do not stop at "go do Day 0." Render the Day 0 teacher script from `onemillion-builder/course/day-00-orientation/README.md`: explain the OneMillion mission, explain the pipeline, explain the AI/human contract, collect and save the Day 0 reflection, provide the copy-ready commitment message, list what counts as done, and tell the learner to say `day done` only after the reflection, commitment, and GitHub workspace setup are actually complete.

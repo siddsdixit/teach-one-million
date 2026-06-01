@@ -139,4 +139,4 @@ This page is the current cost breakdown for the course.
 
 ---
 
-→ **Back to:** [Getting Started](./getting-started.md) · [Day 1](../day-01-idea/learn.md)
+→ **Back to:** [Getting Started](./getting-started.md) · [Day 1](../course/day-01-idea/learn.md)

@@ -5,7 +5,7 @@
 The course does not depend on the plugin for the first local learning flow. The primary course architecture is harness-neutral:
 
 ```text
-AGENTS.md + course-manifest.json + onemillion-agents/
+AGENTS.md + onemillion-builder/course-manifest.json + onemillion-builder/agents/
 ```
 
 That lets learners start in Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, or another coding harness.

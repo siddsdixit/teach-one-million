@@ -4,21 +4,17 @@
 
 *By [Sid Dixit](https://www.linkedin.com/in/siddharthdixit/)*
 
-![teach-one-million](onemillion-builder/diagrams/hero-animated.gif)
+[![teach-one-million](onemillion-builder/diagrams/hero-animated.gif)](onemillion-builder/README.md)
 
----
+## Start The Course
 
-The million starts with one.
+The canonical learner page is:
 
-That one could be you.
+**[onemillion-builder →](onemillion-builder/README.md)**
 
-The canonical learner landing page is:
+That folder contains the course, agents, install script, docs, verification tools, and examples. Start there.
 
-```text
-https://github.com/siddsdixit/teach-one-million/tree/main/onemillion-builder
-```
-
-Learners star, fork, clone, and run the installer before Day 0 or Day 1. The course is a hard-gated fork-first flow: if the repo is not a real clone with `origin` pointing to the learner's fork and `upstream` pointing to Sid's repo, the coding harness must stop and fix setup before teaching.
+Learners should star, fork, clone, and install from their own fork:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/teach-one-million.git
@@ -26,33 +22,33 @@ cd teach-one-million
 ./onemillion-builder/install-agents.sh
 ```
 
-Then their coding harness reads `AGENTS.md` and `onemillion-builder/course-manifest.json` to teach the course one day at a time:
+Then paste this into Claude Code, Codex, Cursor, Gemini, Copilot, Antigravity, or another coding harness:
 
 ```text
-I am starting the OneMillion course.
+I am starting the OneMillion course from my fork.
 
-Course repo:
-https://github.com/siddsdixit/teach-one-million
-
-Read AGENTS.md and the course manifest.
+Read AGENTS.md and onemillion-builder/course-manifest.json.
+Read onemillion-builder/docs/teaching-protocol.md.
+Read onemillion-builder/course/single.md.
 Become my OneMillion learning orchestrator.
 First enforce the Preflight Gate.
-Start me at Day 0.
+Then start Day 0.
 ```
 
----
+## Repository Map
 
-| | |
-|--|--|
-| [onemillion-builder →](onemillion-builder/README.md) | 18-day course — build a real AI product from scratch |
-| [AGENTS.md →](AGENTS.md) | Universal bootstrap for Claude Code, Cursor, Codex, Gemini, Antigravity, Copilot, and similar harnesses |
-| [onemillion-agents →](onemillion-agents/README.md) | Portable agents and skills used by the course |
-| [onemillion-plugin →](onemillion-plugin/README.md) | Optional native extension path |
-| [The Manifesto →](MANIFESTO.md) | Why the CS degree is dead |
-| [Builder Wall →](builders/README.md) | Everyone who finished |
-| [Join a Cohort →](cohort/README.md) | Free, live, Sid-led |
+| Path | Purpose |
+|---|---|
+| [onemillion-builder](onemillion-builder/README.md) | The full 18-day learner course and canonical landing page |
+| [onemillion-builder/course](onemillion-builder/course/single.md) | Day 0-18 course content |
+| [onemillion-builder/agents](onemillion-builder/agents/README.md) | Portable OneMillion agents and skills |
+| [AGENTS.md](AGENTS.md) | Universal bootstrap that tells coding harnesses how to teach the course |
+| [onemillion-plugin](onemillion-plugin/README.md) | Optional native extension path |
+| [MANIFESTO.md](MANIFESTO.md) | The OneMillion manifesto |
+| [builders](builders/README.md) | Builder wall |
+| [cohort](cohort/README.md) | Cohort information |
 
----
+Generated harness adapters such as `.claude/`, `.cursor/`, `.gemini/`, `.agents/`, and Copilot instruction files are not committed at the repository root. The installer creates them locally from `onemillion-builder/agents`.
 
 *MIT licensed. Free for learners, forever.*
 *→ [onemillion.build](https://onemillion.build)*

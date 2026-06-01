@@ -3,6 +3,12 @@
 *.pyc
 __pycache__/
 .env
+.agents/
+.claude/
+.cursor/
+.gemini/
+.github/copilot-instructions.md
+.github/instructions/
 onemillion-builder/simulation+QA/
 onemillion-builder/archive/
 onemillion-builder/loom-scripts/

@@ -10,13 +10,15 @@
 
 ## Recording Plan
 
-Sid should record a walkthrough for Day 15: AI Quality Gate + Guard.
+Sid should record a walkthrough for Day 15: QA + Production Readiness.
 
 Cover:
 
-- run AI evals or manual quality tests
-- check cost risk
-- audit secrets and auth
-- fix critical safety issues before shipping
+- turning acceptance criteria into final QA
+- manual QA versus automated tests
+- testing auth, data, AI, and live deployment
+- AI pass/fail examples
+- classifying blockers versus accepted MVP risks
+- deciding whether the product is ready for Day 16 production shipping
 
 End by showing the Day 15 done checklist and the exact `day done` verification moment.

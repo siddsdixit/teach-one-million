@@ -724,89 +724,66 @@
     },
     {
       "day": 13,
-      "title": "AI UX + Safety",
+      "title": "Product Polish + UX Finish",
       "primary_agent": "build",
       "supporting_agents": [
         "review",
-        "guard"
+        "design"
       ],
-      "lesson": "onemillion-builder/day-13-ai-ux-safety/learn.md",
-      "build": "onemillion-builder/day-13-ai-ux-safety/build.md",
-      "resources": "onemillion-builder/day-13-ai-ux-safety/resources.md",
+      "lesson": "onemillion-builder/day-13-product-polish/learn.md",
+      "build": "onemillion-builder/day-13-product-polish/build.md",
+      "resources": "onemillion-builder/day-13-product-polish/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
-        "make AI usable",
-        "choose streaming or strong loading states",
-        "handle errors and retries",
-        "add rate limits and human review where needed"
+        "inspect the app from the target user's point of view",
+        "improve copy, hierarchy, labels, and navigation",
+        "add empty, loading, error, success, and partial states",
+        "make the AI feature understandable, retryable, and reviewable",
+        "fix mobile and desktop polish issues",
+        "update existing refined PRD/spec only if intended behavior changes"
       ],
       "external_tools": [
         "Supabase",
         "Vercel"
       ],
       "human_decisions": [
-        "streaming vs loading state",
-        "error copy",
-        "human review boundary",
-        "rate limit stance"
+        "target-user product feel",
+        "UX problems to fix now versus defer",
+        "AI output display/save/review/edit/accept behavior",
+        "AI waiting state",
+        "AI failure state",
+        "core workflow success state"
       ],
       "completion_gate": [
-        "AI loading/error/success states work",
-        "rate or cost guard exists",
-        "unsafe actions require review or are blocked"
+        "main MVP flow is easy to understand without explanation",
+        "empty/loading/error/success states are present where needed",
+        "AI feature has clear waiting, output, retry, and review behavior",
+        "mobile and desktop layouts do not overlap or break",
+        "target-user pain point still feels central"
       ]
     },
     {
       "day": 14,
-      "title": "AI Data + Tools",
-      "primary_agent": "build",
+      "title": "Security + Trust Review",
+      "primary_agent": "guard",
       "supporting_agents": [
-        "research",
-        "review"
+        "review",
+        "build",
+        "test"
       ],
-      "lesson": "onemillion-builder/day-14-ai-data-tools/learn.md",
-      "build": "onemillion-builder/day-14-ai-data-tools/build.md",
-      "resources": "onemillion-builder/day-14-ai-data-tools/resources.md",
+      "lesson": "onemillion-builder/day-14-security-trust-review/learn.md",
+      "build": "onemillion-builder/day-14-security-trust-review/build.md",
+      "resources": "onemillion-builder/day-14-security-trust-review/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
-        "choose tool use or RAG only if needed",
-        "ground AI in user data safely",
-        "protect privacy and RLS",
-        "test cross-user boundaries"
-      ],
-      "external_tools": [
-        "Supabase"
-      ],
-      "human_decisions": [
-        "RAG vs tool use vs no advanced AI data path",
-        "data scope",
-        "read/write limits",
-        "privacy boundaries"
-      ],
-      "completion_gate": [
-        "AI uses app data or tool actions only if justified",
-        "scope is documented",
-        "RLS still protects user data",
-        "advanced AI path has tests or manual QA evidence"
-      ]
-    },
-    {
-      "day": 15,
-      "title": "AI Quality Gate + Guard",
-      "primary_agent": "test",
-      "supporting_agents": [
-        "guard",
-        "build"
-      ],
-      "lesson": "onemillion-builder/day-15-ai-quality-guard/learn.md",
-      "build": "onemillion-builder/day-15-ai-quality-guard/build.md",
-      "resources": "onemillion-builder/day-15-ai-quality-guard/resources.md",
-      "verifier": "onemillion-builder/docs/verification/agent/verify.md",
-      "learning_focus": [
-        "run AI evals or manual quality tests",
-        "check cost risk",
-        "audit secrets and auth",
-        "fix critical safety issues before shipping"
+        "understand authentication versus authorization",
+        "review owner-based access, tenancy, and RBAC",
+        "review Supabase RLS assumptions",
+        "scan for exposed server-only secrets",
+        "review AI data privacy and minimal context",
+        "understand prompt injection basics",
+        "decide whether RAG/tool use is skipped or justified",
+        "check cost, rate-limit, and abuse controls"
       ],
       "external_tools": [
         "Supabase",
@@ -814,15 +791,68 @@
         "Anthropic"
       ],
       "human_decisions": [
-        "pass/fail examples",
-        "quality threshold",
-        "accepted risks"
+        "single-tenant, multi-tenant, or public/community data stance",
+        "whether RBAC is needed now",
+        "roles/actions if RBAC is needed",
+        "what data AI may receive",
+        "RAG/tool use skipped or justified",
+        "acceptable cost/rate limits",
+        "production-blocking trust risks"
       ],
       "completion_gate": [
-        "AI evals or manual quality checks pass",
-        "no exposed secrets",
-        "critical guard checks pass",
-        "cost/rate budget is represented"
+        "auth routes and protected pages behave correctly",
+        "owner, tenant, or RBAC checks exist where needed",
+        "Supabase RLS policies protect user/tenant data",
+        "no server-only secret is exposed to client code or git",
+        "AI route receives only allowed, minimal context",
+        "RAG/tool use is skipped or justified by the product",
+        "cost/rate/abuse controls are present or consciously deferred with reason",
+        "critical trust blockers are fixed before Day 15"
+      ]
+    },
+    {
+      "day": 15,
+      "title": "QA + Production Readiness",
+      "primary_agent": "test",
+      "supporting_agents": [
+        "guard",
+        "build",
+        "debug"
+      ],
+      "lesson": "onemillion-builder/day-15-qa-production-readiness/learn.md",
+      "build": "onemillion-builder/day-15-qa-production-readiness/build.md",
+      "resources": "onemillion-builder/day-15-qa-production-readiness/resources.md",
+      "verifier": "onemillion-builder/docs/verification/agent/verify.md",
+      "learning_focus": [
+        "turn acceptance criteria into final QA",
+        "run manual QA and automated tests where useful",
+        "test auth, data, AI, and live deployment critical paths",
+        "use AI pass/fail examples",
+        "classify blockers, fix-now items, accepted MVP risks, and deferrals",
+        "prepare for Day 16 production verification"
+      ],
+      "external_tools": [
+        "Supabase",
+        "Vercel",
+        "Anthropic"
+      ],
+      "human_decisions": [
+        "critical paths that must pass before shipping",
+        "which tests should be automated now",
+        "which tests can remain manual for MVP",
+        "AI pass/fail examples and quality threshold",
+        "what defects block Day 16",
+        "accepted non-critical risks"
+      ],
+      "completion_gate": [
+        "local build/test commands pass or failures are understood and fixed/deferred",
+        "manual QA covers the main user journey, auth, data, AI feature, and error states",
+        "automated tests cover the highest-risk behavior the repo can support",
+        "live deployment is checked for the critical path",
+        "AI pass/fail examples produce acceptable behavior",
+        "no Day 14 critical security/trust blocker remains",
+        "production-blocking bugs are fixed before Day 16",
+        "accepted risks are explicit in the existing state/verification trail"
       ]
     },
     {

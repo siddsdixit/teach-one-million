@@ -19,7 +19,7 @@
 Paste this:
 
 ```text
-I am on OneMillion Day 15: AI Quality Gate + Guard.
+I am on OneMillion Day 15: QA + Production Readiness.
 
 Act as the `test` agent for this day.
 First teach me the concept in plain language.
@@ -27,6 +27,7 @@ Then guide me one step at a time.
 Use the course manifest, single.md, and the current pipeline artifacts.
 Do not skip my human decisions.
 Do not create paperwork-only files.
+Test the actual app and update the existing verification trail. Do not create a new paperwork system.
 When an external provider is needed, give the exact full URL and QA check.
 ```
 
@@ -34,19 +35,89 @@ When an external provider is needed, give the exact full URL and QA check.
 
 Before the harness writes or changes anything, answer these decisions:
 
-- pass/fail examples
-- quality threshold
-- accepted risks
+- critical paths that must pass before shipping
+- which tests should be automated now
+- which tests can remain manual for MVP
+- AI pass/fail examples and quality threshold
+- what defects block Day 16
+- what non-critical risks can be accepted temporarily
 
 ## Step 3: Produce The Day Output
 
 Expected output today:
 
-- AI quality and guard evidence
+- final QA evidence for the MVP
+- tests or manual checks for the highest-risk flows
+- fixes for production blockers
+- ready-for-production decision for Day 16
 
 Work with the harness until the output matches the day's purpose. Review generated artifacts before accepting them.
 
-## Step 4: External Tools
+## Step 4: QA + Readiness Prompts
+
+### Final QA Plan From Existing Artifacts
+
+```text
+Create the final Day 15 QA pass from the existing PRD/refined PRD, design spec, architecture, test plan, review findings, and app code.
+
+Do not create a new paperwork system.
+Use existing .onemillion/test-plan.md and .onemillion/test-results.md if they exist.
+
+Tell me:
+1. The critical paths that must pass before production
+2. The manual QA checks I should perform
+3. The automated tests that are worth adding now
+4. The AI feature pass/fail examples
+5. The production blockers, if any
+```
+
+### Manual QA Pass
+
+```text
+Guide me through a manual QA pass.
+
+Cover:
+- signup/login/logout
+- main workflow
+- data create/read/update/delete/archive where applicable
+- AI feature success and failure
+- mobile and desktop layout
+- empty/loading/error/success states
+- live deployment critical path
+
+Ask me for evidence you cannot inspect directly. Record only the result in the existing verification trail/state.
+```
+
+### Automated Test Pass
+
+```text
+Inspect the repo and choose the smallest useful automated test set for production readiness.
+
+Prefer tests that cover:
+- core workflow behavior
+- auth/authorization boundaries
+- API route or server action behavior
+- AI route error handling
+- E2E happy path if Playwright or equivalent is available
+
+Add tests only where the repo supports them cleanly. Run the relevant commands and fix production-blocking failures.
+```
+
+### Production Readiness Decision
+
+```text
+Make a Day 15 production readiness decision.
+
+Classify findings as:
+- BLOCKER: must fix before Day 16
+- FIX NOW: should fix today if small
+- ACCEPT FOR MVP: known risk with reason
+- DEFER: not needed for this MVP
+
+Do not move to Day 16 while a blocker remains.
+```
+
+## Step 5: External Tools
 
 - Supabase dashboard: https://supabase.com/dashboard
 - Supabase project shortcut: https://database.new
@@ -66,13 +137,13 @@ Work with the harness until the output matches the day's purpose. Review generat
 
 If the harness mentions an external provider, it must also give the exact link, permission/settings, and QA check from `onemillion-builder/docs/account-setup.md`.
 
-## Step 5: Verify
+## Step 6: Verify
 
 Ask your harness:
 
 ```text
 Run the OneMillion verifier for Day 15.
-Inspect the relevant artifacts, app code, deployment links, and manual confirmations.
+Inspect the existing test plan/results, app code, automated test output, manual QA confirmations, live deployment, AI feature behavior, Day 14 guard status, and production-readiness decision.
 Record the result in .onemillion/state.json.
 Do not create separate verifier markdown files.
 ```
@@ -88,17 +159,20 @@ Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 ## What Should Be True After Day 15
 
-- [ ] AI evals or manual quality checks pass
-- [ ] no exposed secrets
-- [ ] critical guard checks pass
-- [ ] cost/rate budget is represented
+- [ ] local build/test commands pass or failures are understood and fixed/deferred
+- [ ] manual QA covers the main user journey, auth, data, AI feature, and error states
+- [ ] automated tests cover the highest-risk behavior the repo can support
+- [ ] live deployment is checked for the critical path
+- [ ] AI pass/fail examples produce acceptable behavior
+- [ ] no Day 14 critical security/trust blocker remains
+- [ ] production-blocking bugs are fixed before Day 16
 
 ## If You Are Stuck
 
 Paste this into your harness:
 
 ```text
-I am on OneMillion Day 15: AI Quality Gate + Guard.
+I am on OneMillion Day 15: QA + Production Readiness.
 I am stuck on this part:
 [paste the step or artifact]
 

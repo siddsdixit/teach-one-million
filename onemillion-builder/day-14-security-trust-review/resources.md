@@ -1,4 +1,4 @@
-# Day 13 — Resources
+# Day 14 — Resources
 
 <p align="center">
   <a href="../README.md">Course Home</a> &bull;
@@ -17,6 +17,8 @@
 
 ## Primary Agent
 
+- `guard` in `../../onemillion-agents/agents/guard.md`
+- `review` in `../../onemillion-agents/agents/review.md`
 - `build` in `../../onemillion-agents/agents/build.md`
 
 ## External Links
@@ -27,10 +29,3 @@
 - Supabase API keys: https://supabase.com/docs/guides/getting-started/api-keys
 - Supabase redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
 - Supabase RLS: https://supabase.com/docs/guides/database/postgres/row-level-security
-- Vercel signup: https://vercel.com/signup
-- Vercel import: https://vercel.com/new
-- Vercel dashboard: https://vercel.com/dashboard
-- Vercel Git docs: https://vercel.com/docs/deployments/git
-- Vercel env vars: https://vercel.com/docs/projects/environment-variables
-- Vercel domains docs: https://vercel.com/docs/domains
-- Vercel Analytics: https://vercel.com/docs/analytics

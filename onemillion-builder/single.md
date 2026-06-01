@@ -20,9 +20,10 @@ The learner will:
 - deploy the frontend to Vercel
 - add Supabase auth and database
 - build one real core feature
-- add a Claude-powered AI feature
-- add AI UX, data/tooling only where useful, quality gates, and cost limits
-- audit production risk
+- add a server-side LLM feature
+- polish the product experience
+- audit security, trust, AI privacy, and production risk
+- complete final QA and production readiness
 - verify production, monitoring, and optional domain
 - create positioning and a product page
 - reach out to users
@@ -181,7 +182,7 @@ The course has Day 0 plus 18 build days.
 - **Day 0:** orientation, OneMillion mission, pipeline, commitment, and GitHub workspace
 - **Days 1-5:** foundation: idea, research, spec, design, architecture
 - **Days 6-10:** build and QA: app shell, deploy, auth, core workflow, review, tests
-- **Days 11-15:** make it AI: AI spec, first AI build, AI UX, data/tools if justified, quality and guardrails
+- **Days 11-15:** AI and readiness: AI strategy, first AI build, product polish, security/trust, final QA
 - **Days 16-18:** ship and sell: production verification, monitoring/domain optionality, positioning, users, demo
 
 The harness should not compress days unless the learner explicitly asks and the completion gates are already satisfied.
@@ -810,86 +811,105 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - API key is not exposed to client code
 - common error states are handled
 
-## Day 13: AI UX + Safety
+## Day 13: Product Polish + UX Finish
 
-**Purpose:** make the AI feature usable, bounded, and understandable.
+**Purpose:** make the product feel usable, clear, and credible before the final trust and QA gates.
 
-**Why it matters:** AI quality is partly product design. Loading states, error states, review boundaries, and rate limits are what make AI safe enough to use.
-
-**What the learner learns:**
-
-- streaming vs normal loading states
-- error and retry UX
-- human review boundaries
-- rate and cost controls
-
-**What the learner does:**
-
-- chooses streaming or strong loading states
-- improves AI UI states
-- handles errors and retries
-- adds rate/cost guardrails where appropriate
-
-**Done means:**
-
-- AI loading/error/success states work
-- unsafe actions require review or are blocked
-- rate or cost guard exists
-
-## Day 14: AI Data + Tools
-
-**Purpose:** decide whether the AI needs app data, tools, RAG, or none of the above.
-
-**Why it matters:** not every product needs RAG. The learner should choose the simplest AI data path that solves the user problem.
+**Why it matters:** a product can technically work and still feel confusing. Day 13 teaches the learner to inspect the app from the target user's point of view, improve the core flow, sharpen copy, finish missing states, and make the AI feature understandable instead of mysterious.
 
 **What the learner learns:**
 
-- tool use vs RAG vs simple context
-- retrieval scope
-- data privacy
-- RLS-safe AI context
-- cross-user boundary testing
+- product polish as friction removal
+- empty, loading, error, success, and partial states
+- copy, hierarchy, labels, and navigation
+- mobile and desktop polish
+- AI UX as part of the product flow
+- review, retry, edit, and accept patterns for AI output
 
 **What the learner does:**
 
-- decides whether advanced AI data/tooling is needed
-- implements the chosen path if justified
-- tests with user-specific data
-- reruns cross-user checks
+- reviews the product like the target user
+- improves the main MVP flow
+- adds or sharpens missing UI states
+- improves Day 12 AI waiting, output, retry, and review behavior
+- fixes mobile/desktop layout issues
+- updates existing refined PRD/spec only if intended behavior changes
 
 **Done means:**
 
-- AI data/tool path is justified or explicitly skipped
-- AI uses only scoped data/actions
-- RLS still protects user data
+- the main MVP flow is understandable without explanation
+- empty/loading/error/success states work where needed
+- AI output has clear waiting, retry, and review behavior
+- mobile and desktop layouts do not break
+- target-user pain point still feels central
 
-## Day 15: AI Quality Gate + Guard
+## Day 14: Security + Trust Review
 
-**Purpose:** lock AI quality and audit the product before production shipping.
+**Purpose:** audit auth, authorization, tenancy, RBAC, RLS, secrets, AI privacy, and cost/abuse controls before final QA.
 
-**Why it matters:** a demo can work once and still be risky. Day 15 checks AI quality, secrets, auth, RLS, privacy, and cost risk.
+**Why it matters:** security is product quality. A real product must protect user identity, user data, tenant boundaries, server secrets, and AI context before it is treated as production-ready.
 
 **What the learner learns:**
 
-- AI evals or manual quality tests
-- secrets audit
-- RLS audit
-- auth and privacy checks
-- cost/rate risk
+- authentication versus authorization
+- owner-based access, tenancy, and RBAC
+- Supabase RLS as a data protection layer
+- server-only secrets and API keys
+- AI data minimization and prompt injection basics
+- rate, cost, and abuse controls
+- why RAG/tool use stays optional unless justified
 
 **What the learner does:**
 
-- runs AI quality checks
-- runs guard/security checks
-- fixes critical risks
-- records accepted non-critical risks
+- reviews protected routes and data access
+- checks owner, tenant, or RBAC boundaries
+- checks Supabase RLS assumptions
+- scans for exposed secrets
+- reviews AI route privacy and minimal context
+- decides whether RAG/tool use is skipped or justified
+- fixes critical trust blockers
 
 **Done means:**
 
-- AI quality checks pass
-- no exposed secrets
-- critical guard checks pass
-- cost/rate budget is represented
+- auth and authorization behave correctly
+- RLS protects user/tenant data where needed
+- no server-only secret is exposed
+- AI receives only allowed, minimal context
+- RAG/tool use is skipped or justified
+- critical trust blockers are fixed
+
+## Day 15: QA + Production Readiness
+
+**Purpose:** prove the product works, fix production blockers, and decide whether the app is ready for Day 16 shipping.
+
+**Why it matters:** QA is evidence. The product is not ready because it looks done; it is ready when the main journey, auth/data behavior, AI behavior, live deployment, and known risks have been checked.
+
+**What the learner learns:**
+
+- final QA from acceptance criteria
+- manual QA versus automated tests
+- unit, component, API, backend, E2E, Playwright, and Selenium-style testing
+- live deployment QA
+- AI pass/fail examples
+- production blocker classification
+
+**What the learner does:**
+
+- runs a final manual QA pass
+- adds or runs the smallest useful automated tests
+- verifies the live deployment critical path
+- tests AI behavior with pass/fail examples
+- fixes production-blocking bugs
+- records accepted MVP risks in the existing verification trail
+
+**Done means:**
+
+- local build/test commands pass or failures are fixed/deferred with reason
+- manual QA covers main journey, auth, data, AI, and error states
+- live deployment critical path works
+- AI pass/fail examples are acceptable
+- no Day 14 critical blocker remains
+- production blockers are fixed before Day 16
 
 ## Day 16: Ship Production
 

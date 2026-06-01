@@ -10,13 +10,16 @@
 
 ## Recording Plan
 
-Sid should record a walkthrough for Day 14: AI Data + Tools.
+Sid should record a walkthrough for Day 14: Security + Trust Review.
 
 Cover:
 
-- choose tool use or RAG only if needed
-- ground AI in user data safely
-- protect privacy and RLS
-- test cross-user boundaries
+- authentication versus authorization
+- owner-based access, tenancy, and RBAC
+- Supabase RLS checks
+- secret handling and server-only API keys
+- AI data privacy and prompt injection basics
+- cost, rate-limit, and abuse controls
+- why RAG/tool use remains optional
 
 End by showing the Day 14 done checklist and the exact `day done` verification moment.

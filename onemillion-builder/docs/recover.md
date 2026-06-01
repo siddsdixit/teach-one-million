@@ -74,7 +74,7 @@ If your last verified day is:
 | Day 4 | [Day 5](../day-05-plan-architecture/learn.md) |
 | Day 5 | [Day 6](../day-06-app-shell/learn.md) |
 | Day 6 | [Day 7](../day-07-auth-db/learn.md) |
-| Day 12 | [Day 13](../day-13-ai-ux-safety/learn.md) |
+| Day 12 | [Day 13](../day-13-product-polish/learn.md) |
 | Day 17 | [Day 18](../day-18-demo/learn.md) |
 
 For any other day, open the next day in the same day folder.

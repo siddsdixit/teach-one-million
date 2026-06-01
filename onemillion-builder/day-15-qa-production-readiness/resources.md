@@ -18,6 +18,8 @@
 ## Primary Agent
 
 - `test` in `../../onemillion-agents/agents/test.md`
+- `guard` in `../../onemillion-agents/agents/guard.md`
+- `debug` in `../../onemillion-agents/agents/debug.md`
 
 ## External Links
 

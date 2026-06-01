@@ -262,4 +262,4 @@ Help me find the smallest next action. Teach the concept if I am missing it. Do 
 
 ---
 
--> **Next:** [Day 13 — AI UX + Safety](../day-13-ai-ux-safety/learn.md)
+-> **Next:** [Day 13 — Product Polish + UX Finish](../day-13-product-polish/learn.md)

@@ -47,7 +47,7 @@ By the end, you have:
 |---|---|
 | A live web app | Public Vercel URL |
 | Real signup/login | Supabase auth + database |
-| A real AI feature | Claude-powered workflow |
+| A real AI feature | Server-side LLM workflow |
 | Production hygiene | Security, monitoring, and checks |
 | A public demo | Loom + Builder Claim |
 
@@ -188,7 +188,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 |---|---:|---|---|
 | **Foundation** | 0-5 | GitHub workspace, idea, research, spec, design, architecture | A validated, designed, planned product |
 | **Build + QA** | 6-10 | app shell, Vercel, Supabase, core build, review, QA | A live app with auth, database, and one working workflow |
-| **Make It AI** | 11-15 | AI spec, Claude call, AI UX, data/tools, quality gates, guardrails | A useful AI feature with safety and quality checks |
+| **AI + Readiness** | 11-15 | AI strategy, first AI build, product polish, security/trust, final QA | A useful AI feature inside a polished, trusted, production-ready MVP |
 | **Ship + Sell** | 16-18 | production verification, monitoring/domain, positioning, users, demo | A launch-ready product and Builder Claim |
 
 <p align="center">
@@ -196,7 +196,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
   &nbsp;•&nbsp;
   <a href="day-06-app-shell/learn.md"><strong>Days 6-10: Build + QA</strong></a>
   &nbsp;•&nbsp;
-  <a href="day-11-ai-spec/learn.md"><strong>Days 11-15: Make It AI</strong></a>
+  <a href="day-11-ai-spec/learn.md"><strong>Days 11-15: AI + Readiness</strong></a>
   &nbsp;•&nbsp;
   <a href="day-16-ship-production/learn.md"><strong>Days 16-18: Ship + Sell</strong></a>
 </p>
@@ -219,10 +219,10 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | [9](day-09-review/learn.md) | Implementation review | Spec drift and code review findings |
 | [10](day-10-qa-tests/learn.md) | QA + tests | Core behavior verified locally and live |
 | [11](day-11-ai-spec/learn.md) | AI feature spec | Measurable AI behavior |
-| [12](day-12-first-ai-build/learn.md) | First AI build | Claude output in your app |
-| [13](day-13-ai-ux-safety/learn.md) | AI UX + safety | Loading/error states, review boundary, rate/cost guard |
-| [14](day-14-ai-data-tools/learn.md) | AI data + tools | App data, tool use, or retrieval only if the product truly needs it |
-| [15](day-15-ai-quality-guard/learn.md) | AI Quality Gate + Guard | AI evals, secrets, auth, RLS, and cost risk |
+| [12](day-12-first-ai-build/learn.md) | First AI build | Selected LLM output in your app |
+| [13](day-13-product-polish/learn.md) | Product polish + UX finish | Clear flow, complete states, AI UX, mobile/desktop polish |
+| [14](day-14-security-trust-review/learn.md) | Security + trust review | Auth, authorization, tenancy/RBAC, RLS, secrets, AI privacy, cost/rate controls |
+| [15](day-15-qa-production-readiness/learn.md) | QA + production readiness | Final manual/automated QA, AI pass/fail examples, live critical path, production blockers |
 | [16](day-16-ship-production/learn.md) | Ship production | Production verification, monitoring, optional domain |
 | [17](day-17-sell-users/learn.md) | Sell + first users | Landing/product copy, outreach, feedback |
 | [18](day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |

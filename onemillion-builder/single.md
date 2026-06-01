@@ -456,6 +456,7 @@ The harness should not compress days unless the learner explicitly asks and the 
 - product type: web app, mobile-first responsive app, agent, or hybrid
 - frontend/backend boundaries
 - database and ownership boundaries
+- auth model choices: public/anonymous, login required, invite-only, team roles, admin roles, or mixed access
 - secure architecture: auth, authorization, secrets, RLS, AI permissions, rate limits, and cost limits
 - single-user vs multi-tenant vs public/community data models
 - scalability as a planning input without overbuilding
@@ -469,16 +470,17 @@ The harness should not compress days unless the learner explicitly asks and the 
 
 ```text
 Default: Next.js + MUI + Supabase + Vercel
-Optional: FastAPI + Supabase when there is a real backend reason
+Optional: FastAPI + Supabase + a backend host such as Railway, Fly.io, Render, or another justified provider when there is a real backend reason
 ```
 
-If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Python libraries, background jobs, enterprise API boundaries, heavy integrations, or long-running workflows.
+If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Python libraries, background jobs, enterprise API boundaries, heavy integrations, or long-running workflows. If FastAPI is chosen, the architecture must name the host, CORS rules, auth/session strategy, health check, env vars, tests, and deploy path.
 
 **What the learner does:**
 
 - decides product type
 - chooses Supabase-only or FastAPI backend path
 - chooses single-user, multi-tenant, or public/community tenancy
+- chooses auth model and protected/public route boundaries
 - reviews security and permission boundaries
 - reviews architecture decisions
 - reviews data model and API boundaries
@@ -546,23 +548,27 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 ## Day 7: Auth + Database
 
-**Purpose:** add Supabase auth, database tables, environment variables, and Row Level Security.
+**Purpose:** add Supabase Auth, session handling, protected routes, database tables, environment variables, and Row Level Security.
 
-**Why it matters:** useful products remember users and protect their data.
+**Why it matters:** useful products remember users and protect their data. Auth is the module that answers who the user is; RLS is the database boundary that makes sure users and tenants cannot see each other's private rows.
 
 **What the learner learns:**
 
 - Supabase project setup
-- auth flow
+- identity, session, authorization, and RLS
+- auth method choices: email/password, magic link, OAuth, invite-only, admin-created users, or team roles
+- Supabase Auth with Next.js
+- callback routes, protected routes, login/logout/session state
 - environment variables
-- Postgres tables
-- Row Level Security
+- Postgres tables with ownership fields
+- second-user isolation testing
 
 **What the learner does:**
 
 - creates Supabase project
 - stores env vars locally and in Vercel
-- scaffolds signup/login/logout
+- scaffolds signup/login/logout, callback, and session state
+- protects private routes
 - creates first tables from the architecture
 - enables RLS and tests cross-user protection
 
@@ -572,15 +578,18 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - Supabase project shortcut: https://database.new
 - Supabase Next.js Auth: https://supabase.com/docs/guides/auth/quickstarts/nextjs
 - Supabase API keys: https://supabase.com/docs/guides/getting-started/api-keys
+- Supabase redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
 - Supabase RLS: https://supabase.com/docs/guides/database/postgres/row-level-security
 - Vercel env vars: https://vercel.com/docs/projects/environment-variables
 
 **Done means:**
 
 - Supabase project exists
-- signup/login/logout work locally and live
+- auth method is chosen and implemented
+- signup/login/logout work locally and live when signup is part of the product
 - protected dashboard works
-- RLS is enabled
+- RLS is enabled on private tables
+- second-user isolation passes when private data exists
 - secrets are not committed
 
 ## Day 8: Core Build

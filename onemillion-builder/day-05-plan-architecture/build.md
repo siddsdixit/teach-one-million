@@ -83,10 +83,21 @@ Choose one:
 
 ```text
 Default: Supabase + Next.js route handlers/server actions
-Optional: FastAPI + Supabase only when the product has a real backend reason
+Optional: FastAPI + Supabase + selected backend host only when the product has a real backend reason
 ```
 
-Use FastAPI only if the PRD/design needs complex Python logic, background jobs, heavy integrations, enterprise API boundaries, long-running workflows, or Python libraries.
+Use FastAPI if the PRD/design makes the product genuinely backend-heavy: complex Python logic, background jobs, heavy integrations, enterprise API boundaries, long-running workflows, webhook orchestration, high-volume server processing, or Python libraries.
+
+If FastAPI is selected, the harness must record:
+
+- why the default Supabase/Next.js path is not enough
+- backend host/deployment target, such as Railway, Fly.io, Render, or another justified provider
+- API boundary and CORS rules
+- auth/session strategy between the frontend, Supabase, and backend
+- health check
+- server-side env vars
+- test strategy
+- which sprint creates the backend
 
 ### Database Boundary
 
@@ -109,6 +120,7 @@ If the customer is a company, school, clinic, agency, or team, strongly consider
 ### Security
 
 - What requires login?
+- What auth method fits the product: email/password, magic link, OAuth, invite-only, admin-created users, or team roles?
 - What requires owner permission?
 - What requires admin or manager permission?
 - What data must never cross user or tenant boundaries?
@@ -138,6 +150,7 @@ The architecture should include:
 - stack
 - backend path
 - tenancy model
+- auth model
 - security model
 - data model
 - API/server action boundaries

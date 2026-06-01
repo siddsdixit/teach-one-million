@@ -12,10 +12,10 @@ Update this file at the end of each day. It is your restart point if life interr
 
 ## Links
 
-- **GitHub repo:** [add on Day 4]
-- **Live URL:** [add on Day 4]
-- **Supabase project:** [add on Day 5]
-- **Vercel project:** [add on Day 4]
+- **GitHub product repo:** [add on Day 6]
+- **Live URL:** [add on Day 6]
+- **Supabase project:** [add on Day 7]
+- **Vercel project:** [add on Day 6]
 - **Demo Loom:** [add on Day 18]
 
 ## Current State
@@ -46,4 +46,3 @@ Update this file at the end of each day. It is your restart point if life interr
 | Day 16 | Not started | |
 | Day 17 | Not started | |
 | Day 18 | Not started | |
-

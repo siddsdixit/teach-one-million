@@ -135,7 +135,7 @@ status: draft | refined | approved
 
 ## 5. API CONTRACT
 
-- **Endpoint:** [e.g., `POST /api/v1/chat`]
+- **Endpoint:** [e.g., `POST /api/ai/chat` or the FastAPI endpoint selected by architecture]
 - **Request format:**
     ```json
     {
@@ -154,7 +154,7 @@ status: draft | refined | approved
     }
     ```
 - **Response format (streaming):** SSE with `data: {chunk}` per token, `data: [DONE]` on completion
-- **Auth:** [API key header / JWT / None for internal]
+- **Auth:** [Supabase user session / API key header / internal only, depending on architecture]
 - **Rate limits:** [Requests per minute per user]
 
 ## 6. MEMORY & CONTEXT

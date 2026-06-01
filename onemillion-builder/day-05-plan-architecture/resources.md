@@ -23,7 +23,7 @@
 
 - Architecture converts PRD + design into technical decisions.
 - Default course stack: Next.js + React + MUI, Supabase Auth/Postgres/RLS, Vercel, Claude from server-side code.
-- Backend path is a decision: Supabase/Next.js first, FastAPI only when justified.
+- Backend path is a decision: Supabase/Next.js first, FastAPI only when justified, with Railway, Fly.io, Render, or another backend host chosen only if the architecture needs it.
 - Product type affects architecture: web app, mobile-first responsive app, agent, or hybrid.
 - Tenancy affects every table and permission boundary.
 - Security architecture starts before code: auth, authorization, secrets, RLS, AI permissions, rate/cost limits.
@@ -39,3 +39,6 @@
 - Supabase Row Level Security docs for later reference: https://supabase.com/docs/guides/database/postgres/row-level-security
 - Next.js docs for later reference: https://nextjs.org/docs
 - FastAPI docs for optional backend reference: https://fastapi.tiangolo.com/
+- Railway docs for optional backend hosting reference: https://docs.railway.com/
+- Fly.io docs for optional backend hosting reference: https://fly.io/docs/
+- Render docs for optional backend hosting reference: https://render.com/docs

@@ -30,9 +30,9 @@ AI: Claude called from server-side code
 The backend path is a planning decision:
 
 - **Default:** Supabase-only backend with Next.js route handlers/server actions for API and AI glue.
-- **Optional:** FastAPI backend + Supabase only when the PRD has a real backend reason: complex Python logic, background jobs, heavy integrations, enterprise API boundaries, long-running tasks, or Python libraries.
+- **Backend-heavy path:** FastAPI backend + Supabase when Day 5 architecture determines the product has a real backend reason: complex Python logic, background jobs, heavy integrations, enterprise API boundaries, long-running tasks, webhook orchestration, high-volume server processing, or Python libraries.
 
-If unsure, choose Supabase-only. Do not use alternate databases or separate backend hosting as course defaults. Only introduce a separate backend host when the builder explicitly chooses FastAPI or the architecture requires it.
+If unsure, choose Supabase-only. Do not use alternate databases or separate backend hosting as course defaults. When FastAPI is genuinely justified, treat it as a first-class architecture choice and record the backend host, API boundary, CORS rules, auth/session strategy, health check, env vars, tests, and deploy path. Railway, Fly.io, Render, or another backend host are acceptable only when the architecture explains why the backend exists.
 
 ## Core Philosophy
 
@@ -63,13 +63,13 @@ Write `.onemillion/architecture.md` containing:
 
 1. **Product type** — web app, mobile-first responsive app, agent, or hybrid, with rationale from PRD/design
 2. **Tech stack** — exact course stack and any justified optional additions
-3. **Backend path** — Supabase + Next.js route handlers/server actions by default; FastAPI + Supabase only with explicit justification
+3. **Backend path** — Supabase + Next.js route handlers/server actions by default; FastAPI + Supabase when backend-heavy requirements justify it
 4. **Architecture pattern** — modular Next.js app by default; separate API service only if FastAPI is selected
 5. **Frontend boundary** — pages, layouts, app shell, design-system integration, public/protected routes
 6. **Backend/server boundary** — server actions, route handlers, AI endpoints, integrations, background jobs if any
 7. **Database model** — core entities, ownership fields, tenant fields, indexes, storage needs
 8. **Tenancy model** — single-user, team/multi-tenant, or public/community
-9. **Security model** — auth, authorization, RLS, secrets, AI permissions, rate/cost limits
+9. **Security model** — auth, session handling, authorization, RLS, secrets, AI permissions, rate/cost limits
 10. **Scalability assumptions** — expected users, data volume, AI volume, search/filter/file needs, bottlenecks
 11. **Folder tree** — actual directory structure for the selected stack
 12. **Module list** — each module with responsibilities and public interface
@@ -96,7 +96,7 @@ Create `.onemillion/sprints/` directory. Write one file per sprint.
 
 ### Sprint structure
 
-**S0-foundation.md** is always fixed. **S1-auth-db.md** is included when the product requires login, private data, tenant data, or saved user state. Feature sprints (S2+) are sequenced by dependency.
+**S0-foundation.md** is always fixed. **S1-auth-db.md** is included when the product requires login, private data, tenant data, saved user state, invite-only access, or admin/team roles. Feature sprints (S2+) are sequenced by dependency.
 
 If `build_scope` is `"full"`: no sprint cap, plan all features.
 If `build_scope` is `"mvp"`: apply `floor(build_timeline_weeks × 2.2)` sprint cap. Keep each sprint small enough to build, test, and review in isolation.
@@ -115,7 +115,7 @@ Every sprint brief must be SELF-CONTAINED. A developer (or the build agent) read
 - Product type: [web app/mobile-first responsive app/agent/hybrid]
 - Backend path: [Supabase + Next.js route handlers/server actions | FastAPI + Supabase]
 - Tenancy model: [single-user | multi-tenant | public/community]
-- Security boundary: [who can read/write what]
+- Security boundary: [who can log in, who can read/write what, what RLS or backend checks enforce it]
 
 ## Entity Schemas
 
@@ -185,6 +185,7 @@ Every sprint brief must be SELF-CONTAINED. A developer (or the build agent) read
 
 ## Security Notes
 - Auth required: [yes/no]
+- Auth flow: [anonymous | email/password | magic link | OAuth | invite-only | admin/member roles]
 - Ownership/tenant rule: [rule]
 - RLS policy involved: [policy]
 - Secret exposure risk: [none/list]
@@ -219,15 +220,16 @@ S0 is special — it creates the project:
 
 ### S1-auth-db.md specifics
 
-S1 is included when the product requires login, saved private data, tenant data, or protected workflows:
+S1 is included when the product requires login, saved private data, tenant data, protected workflows, invite-only access, or admin/team roles. This sprint should teach auth as a real product module, not just a provider setup:
 - Supabase Auth setup
-- Login/register pages
+- Login/register pages, plus logout and session state
 - Auth callback route
 - Protected route wrapper
-- User profile or tenant membership table if needed
+- User profile, role, or tenant membership table if needed
 - RLS policies for user-owned or tenant-owned data
+- Redirect URLs for local and deployed app
 - Environment variable handling
-- Verification: signup, login, logout, protected route, second-user isolation when data exists
+- Verification: signup, login, logout, protected route rejection, session persistence, and second-user isolation when data exists
 
 ## Phase 3 — Write everything
 

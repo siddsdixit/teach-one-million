@@ -107,18 +107,18 @@ c. **Test data strategy:** All Playwright tests MUST use unique identifiers to p
 - Emails: `test_${Date.now()}@example.com` (never hardcode test@example.com)
 - Entity names: `TEST-PO-${Date.now()}` or similar timestamped suffix
 
-d. **Database env check:** If the project uses a database (look for `DATABASE_URL`, `SUPABASE_URL`, or `MONGODB_URI` in `.env` or `docker-compose.yml`):
+d. **Database env check:** If the project uses a database (look for `SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_URL`, or `DATABASE_URL` in `.env`, `.env.local`, or `docker-compose.yml`):
 
 - Confirm a test-safe env is in use: value should contain "test", "dev", "local", or "localhost" — not a production host.
 - If only a production DB URL is found, skip all write tests (create/update/delete). Run read-only tests only. Write in `QA/testing-limitations.md`: "Write tests skipped — no test database configured. Set TEST_DATABASE_URL to a non-production DB before running."
 - Never run destructive operations against a production database.
 
-**MongoDB test database guidance:**
+**Supabase test database guidance:**
 
-- For unit tests: use `mongomock` or `mongomock-motor` to mock MongoDB operations without a real database.
-- For integration tests: use a separate test database (append `_test` to the database name in the connection string).
-- Always drop the test database in teardown: `db.client.drop_database("appname_test")`.
-- If using MongoDB Atlas free tier: create a separate cluster or database for testing — never share with production.
+- Prefer a separate Supabase project for test/dev data.
+- Never run destructive tests against production.
+- Use unique test users and unique entity names for every run.
+- Clean up test rows by owner/test marker after test completion.
 
 e. **Teardown script:** After tests complete, write `QA/cleanup.sh` listing the exact delete/reset commands to remove test data, so the builder can reset manually.
 
@@ -145,9 +145,9 @@ UI Element Map: [list of pages and their key buttons/inputs discovered]
 ## Testing Tiers — Full Reference
 
 ### TIER 1: API CONTRACT TESTS
-**Framework:** pytest + httpx.AsyncClient
-**Location:** `backend/tests/test_api/` — one file per sprint
-**Coverage target:** 100% of in-scope endpoints.
+**Framework:** Playwright/request tests for Next.js route handlers/server actions, or pytest + httpx.AsyncClient only if FastAPI is selected.
+**Location:** `tests/api/` or `backend/tests/test_api/` for FastAPI-path projects.
+**Coverage target:** 100% of in-scope server routes/actions.
 
 For every endpoint, test:
 - Happy path (correct status code and response shape)
@@ -160,21 +160,21 @@ For every endpoint, test:
 - Pagination: empty, first page, cursor continuation, invalid cursor, limit boundaries
 
 ### TIER 2: SECURITY INTEGRATION TESTS
-**Framework:** pytest + httpx.AsyncClient
-**Location:** `backend/tests/test_security/`
+**Framework:** Playwright/request tests for default Next.js/Supabase apps, or pytest + httpx.AsyncClient only when FastAPI is selected.
+**Location:** `tests/security/` or `backend/tests/test_security/` for FastAPI-path projects.
 
 Dynamic security tests against running API:
-- Expired/malformed/invalid-signature JWT → 401
+- Missing/expired Supabase session → 401
 - IDOR: User A's resource accessed by User B → 403
-- MongoDB operator injection: `{"email": {"$gt": ""}}` → 422
+- SQL/RPC injection-style payloads are rejected or treated as plain text
 - XSS payload in text fields → stored but escaped
 - Oversized payload (10MB) → 413 or 422
 - Malformed JSON → 400
 - Rate limiting: 11 rapid auth requests → 429 on 11th
 
 ### TIER 3: DATA INTEGRITY TESTS
-**Framework:** pytest + httpx.AsyncClient
-**Location:** `backend/tests/test_data/` — one file per sprint
+**Framework:** Playwright/request tests or test runner selected by architecture.
+**Location:** `tests/data/` or app-specific test folder.
 
 - Create → Read returns same data
 - Update → Read returns updated data
@@ -186,7 +186,7 @@ Dynamic security tests against running API:
 
 ### TIER 4: E2E USER FLOW TESTS
 **Framework:** Playwright (TypeScript, **Chromium only**)
-**Location:** `frontend/tests/e2e/` — one spec per sprint
+**Location:** `tests/e2e/` or `frontend/tests/e2e/` — one spec per sprint
 
 - Complete Core Flow end-to-end on full stack
 - Per-feature happy path for each in-scope feature
@@ -196,9 +196,9 @@ Dynamic security tests against running API:
 - Config: screenshot on failure, video retain on failure, 1 retry
 
 ### TIER 5: UNIT TESTS
-**Framework:** pytest + pytest-asyncio
-**Location:** `backend/tests/test_services/`
-**Coverage target:** 80% line coverage on `services/`.
+**Framework:** Vitest/React Testing Library for Next.js modules, or pytest + pytest-asyncio for FastAPI-path services.
+**Location:** `tests/unit/` or `backend/tests/test_services/`.
+**Coverage target:** meaningful coverage on validation/business rules.
 
 - Service layer business logic edge cases (mock repository)
 - Correct AppError subclass thrown for each error condition
@@ -221,22 +221,23 @@ Dynamic security tests against running API:
 Generate GitHub Actions workflow:
 - Backend: pytest + coverage report + lint
 - Frontend: build + lint + Playwright (with browser install cache)
-- Database: MongoDB service container (or appropriate DB)
+- Database: Supabase test project or appropriate service container for the selected architecture
 - Triggers: push to main, all PRs
 - Artifacts: upload Playwright reports + coverage on failure
 
 ### TIER 8: API SCHEMA VALIDATION
-**Framework:** pytest + httpx + Pydantic
-**Location:** `backend/tests/test_security/test_schema_validation.py`
+**Framework:** Zod/Vitest or Playwright/request tests by default, pytest + httpx + Pydantic only when FastAPI is selected.
+**Location:** `tests/schema/` or `backend/tests/test_security/test_schema_validation.py` for FastAPI-path projects.
 
-For every endpoint with a Pydantic response model:
-- Call endpoint, validate response with `ResponseModel.model_validate(response.json())`
-- Verify no extra fields leak (use `model_config = ConfigDict(extra="forbid")` in test)
+For every endpoint with a Zod or Pydantic response model:
+- Default Next.js/Supabase path: validate Zod schemas and user-safe response shapes.
+- FastAPI path: call endpoint and validate response with `ResponseModel.model_validate(response.json())`.
+- Verify no extra fields leak.
 - Verify nullable fields return null (not missing) when empty
 
 ### TIER 9: RATE LIMIT & RESILIENCE TESTS
-**Framework:** pytest + httpx + asyncio
-**Location:** `backend/tests/test_security/test_rate_limit.py`
+**Framework:** Playwright/request tests by default, pytest + httpx + asyncio for FastAPI.
+**Location:** `tests/security/` or `backend/tests/test_security/test_rate_limit.py`
 
 - Auth endpoints: N+1 rapid requests → 429 on overflow
 - Verify `Retry-After` or `X-RateLimit-Remaining` headers
@@ -244,8 +245,8 @@ For every endpoint with a Pydantic response model:
 - Malformed auth headers (`Bearer invalid`, `Bearer `, no header) → appropriate 401
 
 ### TIER 10: CONCURRENCY & RACE CONDITION TESTS
-**Framework:** pytest + httpx + asyncio.gather
-**Location:** `backend/tests/test_data/test_concurrency.py`
+**Framework:** Playwright/request tests or the architecture-selected backend test runner.
+**Location:** `tests/data/` or `backend/tests/test_data/test_concurrency.py`
 
 - Two users update same resource simultaneously → no data corruption
 - Concurrent creates with unique constraint → one 201, one 409
@@ -260,12 +261,12 @@ For every endpoint with a Pydantic response model:
 - Check: color contrast, ARIA labels, keyboard navigation, focus management
 
 ### TIER 12: DATABASE MIGRATION TESTS
-**Framework:** bash + Alembic (or project's migration tool)
+**Framework:** Supabase SQL/migration checks by default, or Alembic only if the FastAPI architecture selected it.
 **Location:** Run as a SEPARATE command in Phase 2 (cross-cutting), NEVER chained with pytest
 
-- `alembic upgrade head` → exits 0
-- `alembic downgrade -1` → exits 0
-- `alembic upgrade head` again → exits 0 (round-trip)
+- Supabase migrations/SQL apply cleanly against the project or local Supabase environment
+- RLS policies exist after migration
+- Alembic upgrade/downgrade round-trip only for FastAPI-path projects that use Alembic
 - If migrations fail, log as a bug for the build agent. Do NOT let migration failures block pytest.
 
 ### AGENT BEHAVIORAL TESTS (agent/hybrid only)
@@ -278,12 +279,12 @@ Happy paths, boundary/refusal tests, injection attempts, cost verification, mult
 
 ## Test Factories Reference
 
-Create `backend/tests/conftest.py` with reusable fixtures:
-- `client` — httpx.AsyncClient with ASGITransport
-- `auth_client` — client with registered + logged-in user
+Create reusable fixtures in the repo's selected test location:
+- `client` — request client, browser context, or httpx.AsyncClient with ASGITransport for FastAPI
+- `auth_client` — client or browser context with registered + logged-in Supabase user
 - `second_auth_client` — different user for IDOR tests
 - `make_[entity](**overrides)` — factory functions for test data with sensible defaults
-- `cleanup` — auto-cleanup fixture that drops test collections after each test module
+- `cleanup` — auto-cleanup fixture that removes test rows after each test module
 
 Every test uses factories — never hardcode test data inline.
 

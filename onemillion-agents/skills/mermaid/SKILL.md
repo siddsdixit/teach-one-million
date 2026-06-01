@@ -22,10 +22,10 @@ npx -y @mermaid-js/mermaid-cli mmdc -i input.mmd -o output.png
 ```bash
 cat > /tmp/diagram.mmd << 'EOF'
 graph TD
-    A[Client] --> B[API Gateway]
-    B --> C[Auth Service]
-    B --> D[App Service]
-    D --> E[(Database)]
+    A[Next.js App] --> B[Server Action / Route Handler]
+    B --> C[Supabase Auth]
+    B --> D[(Supabase Postgres + RLS)]
+    B --> E[Claude API]
 EOF
 ```
 
@@ -63,11 +63,10 @@ elements.append(img)
 ### System Architecture
 ```mermaid
 graph TD
-    Client[Frontend - Next.js] --> Gateway[API Gateway - FastAPI]
-    Gateway --> Auth[Auth Service]
-    Gateway --> Core[Core Service]
-    Core --> DB[(MongoDB)]
-    Core --> Cache[(Redis)]
+    Client[Next.js + MUI App] --> Server[Next.js Server Actions / Route Handlers]
+    Client --> SupabaseAuth[Supabase Auth]
+    Server --> Supabase[(Supabase Postgres + RLS)]
+    Server --> Claude[Claude API]
 ```
 
 ### Entity Relationship
@@ -83,23 +82,22 @@ erDiagram
 ### Sequence Diagram
 ```mermaid
 sequenceDiagram
-    Client->>+API: POST /auth/login
-    API->>+DB: Find user by email
-    DB-->>-API: User record
-    API->>API: Verify password (Argon2)
-    API-->>-Client: JWT tokens
+    Client->>+Supabase: Sign in
+    Supabase-->>-Client: User session
+    Client->>+Server: Submit protected action
+    Server->>+Supabase: Check user + RLS-scoped data
+    Supabase-->>-Server: Authorized result
+    Server-->>-Client: Success response
 ```
 
 ### Data Flow
 ```mermaid
 flowchart LR
-    Input[User Input] --> Validate[Pydantic Validation]
-    Validate --> Service[Business Logic]
-    Service --> Repo[Repository]
-    Repo --> DB[(Database)]
-    DB --> Repo
-    Repo --> Service
-    Service --> Response[API Response]
+    Input[User Input] --> Validate[Zod / Server Validation]
+    Validate --> Server[Server Action / Route Handler]
+    Server --> DB[(Supabase + RLS)]
+    DB --> Server
+    Server --> Response[User-Safe Response]
 ```
 
 ### Sprint Timeline
@@ -150,14 +148,14 @@ If `npx mmdc` fails (no Node.js, network issues, etc.), convert diagrams to:
 # System architecture as a table
 arch_data = [
     ['Component', 'Technology', 'Connects To'],
-    ['Frontend', 'Next.js', 'API Gateway'],
-    ['API Gateway', 'FastAPI', 'Auth, Core Services'],
-    ['Database', 'MongoDB', 'Core Service'],
+    ['Frontend', 'Next.js + MUI', 'Server Boundary, Supabase Auth'],
+    ['Server Boundary', 'Next.js route handlers/server actions', 'Supabase, Claude'],
+    ['Database/Auth', 'Supabase', 'Server Actions / Route Handlers'],
 ]
 ```
 
 3. **Description paragraphs** as last resort:
-"The client connects to the API Gateway (FastAPI), which routes to Auth and Core services. Core service reads/writes to MongoDB."
+"The Next.js app uses Supabase Auth for sessions. Server actions or route handlers validate input, call Supabase with the user's permissions, and return user-safe responses."
 
 **Never leave raw mermaid code blocks in a PDF.** Always render or convert.
 

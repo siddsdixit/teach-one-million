@@ -371,8 +371,8 @@
         "understand architecture before coding",
         "decide product type: web app, mobile-first responsive app, agent, or hybrid",
         "choose frontend, backend, database, and AI boundaries",
-        "choose backend path: Supabase/Next.js by default, FastAPI only when justified",
-        "design secure architecture with auth, authorization, secrets, RLS, AI permissions, and rate/cost limits",
+        "choose backend path: Supabase/Next.js by default, FastAPI plus Railway/Fly.io/Render only when justified",
+        "design secure architecture with auth, session handling, authorization, secrets, RLS, AI permissions, and rate/cost limits",
         "decide single-user, multi-tenant, or public/community data model",
         "factor scalability, compliance, privacy, reliability, observability, cost, and integrations into architecture",
         "create small self-contained sprint briefs as build contracts"
@@ -380,7 +380,8 @@
       "external_tools": [],
       "human_decisions": [
         "product type",
-        "backend path: Supabase-only or FastAPI",
+        "backend path: Supabase-only or FastAPI with selected backend host",
+        "auth model",
         "frontend/backend/database/AI boundaries",
         "tenancy model",
         "security model",
@@ -452,9 +453,12 @@
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
         "create Supabase project",
-        "understand auth",
-        "create first tables",
+        "understand identity, session, authorization, and RLS",
+        "choose auth method",
+        "wire Supabase Auth into Next.js",
+        "create first tables with ownership fields",
         "enable RLS",
+        "test second-user isolation",
         "store env vars safely"
       ],
       "external_tools": [
@@ -462,16 +466,21 @@
         "Vercel"
       ],
       "human_decisions": [
-        "auth provider choices",
-        "table shape",
+        "auth method",
+        "public vs protected routes",
+        "single-user vs team/multi-tenant model",
+        "profile or membership table shape",
         "RLS policy intent",
         "redirect URLs"
       ],
       "completion_gate": [
         "Supabase project exists",
-        "signup works locally and live",
+        "auth method is chosen and implemented",
+        "signup works locally and live when signup is part of the product",
         "login/logout works",
-        "RLS enabled",
+        "protected routes reject unauthenticated users",
+        "RLS enabled on private tables",
+        "second-user isolation passes when private data exists",
         "env vars are not leaked"
       ]
     },

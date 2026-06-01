@@ -29,7 +29,7 @@ Use these fields for the Google Form or GitHub issue. Do not ask learners to inv
 | Course fork URL | Yes | Day 0 preflight |
 | Product name | Yes | `.onemillion/project.json` |
 | Product one-liner | Yes | `.onemillion/project.json` or demo summary |
-| Live app URL | Yes | Day 4+ deployment |
+| Live app URL | Yes | Day 6+ deployment |
 | Public Loom demo URL | Yes | Day 18 |
 | Public product repo URL | Optional | Learner product repo |
 | OneMillion fork URL | Yes | Learner course fork |

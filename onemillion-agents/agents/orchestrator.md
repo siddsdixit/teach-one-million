@@ -126,18 +126,18 @@ Do not compress multiple days into one unless the learner explicitly asks and th
 - Day 1: `idea`
 - Day 2: `idea` + `research`
 - Day 3: `spec` + `validate-spec`
-- Day 4: `plan` + `build`
-- Day 5: `build`
-- Day 6: `build` + `review`
-- Day 7: `spec`
-- Day 8: `build`
-- Day 9: `build`
-- Day 10: `build`
-- Day 11: `build` + `research`
-- Day 12: `test`
-- Day 13: `guard`
-- Day 14: `ship`
-- Day 15: `ship` + `guard`
-- Day 16: `sell` + `build`
+- Day 4: `design` + `validate-spec`
+- Day 5: `plan` + `validate-plan`
+- Day 6: `build` + `debug` + `ship`
+- Day 7: `build` + `ask` + `debug`
+- Day 8: `build` + `debug`
+- Day 9: `review` + `build`
+- Day 10: `test` + `debug` + `build`
+- Day 11: `spec` + `ask`
+- Day 12: `build` + `debug`
+- Day 13: `build` + `guard`
+- Day 14: `build` + `research`
+- Day 15: `test` + `guard`
+- Day 16: `ship` + `guard`
 - Day 17: `sell` + `research`
 - Day 18: `review` + `ship` + `sell`

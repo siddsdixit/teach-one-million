@@ -22,9 +22,17 @@ Paste this:
 I am on OneMillion Day 7: Auth + Database.
 
 Act as the `build` agent for this day.
-First teach me the concept in plain language.
+First teach me auth as a product module in plain language:
+- identity: how the product knows who I am
+- session: how the app remembers I am logged in
+- authorization: what a logged-in user can do
+- RLS: how Supabase prevents one user or tenant from reading another user's rows
+- redirect URLs: why local and deployed auth callbacks must be configured
+- env vars: what can be public and what must stay server-only
+
 Then guide me one step at a time.
 Use the course manifest, single.md, and the current pipeline artifacts.
+Read .onemillion/architecture.md and .onemillion/sprints/S1-auth-db.md before changing code.
 Do not skip my human decisions.
 Do not create paperwork-only files.
 When an external provider is needed, give the exact full URL and QA check.
@@ -34,17 +42,26 @@ When an external provider is needed, give the exact full URL and QA check.
 
 Before the harness writes or changes anything, answer these decisions:
 
-- auth provider choices
-- table shape
-- RLS policy intent
-- redirect URLs
+- auth method: email/password, magic link, OAuth, invite-only, or admin-created users
+- which routes are public and which routes are protected
+- single-user, team/multi-tenant, or public/community data model
+- profile or membership table shape, if needed
+- first product table shape from the sprint brief
+- RLS policy intent for each private table
+- local and deployed redirect URLs
 
 ## Step 3: Produce The Day Output
 
 Expected output today:
 
-- Supabase auth
-- RLS-protected tables
+- Supabase project connected to the app
+- Supabase Auth wired into Next.js
+- signup/login/logout/callback/session behavior
+- protected route wrapper or middleware
+- first product tables from the architecture/sprint brief
+- RLS policies for private user-owned or tenant-owned data
+- `.env.example` with placeholders only
+- local env values configured outside git
 
 Work with the harness until the output matches the day's purpose. Review generated artifacts before accepting them.
 
@@ -89,9 +106,13 @@ Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 ## What Should Be True After Day 7
 
 - [ ] Supabase project exists
-- [ ] signup works locally and live
+- [ ] auth method is chosen and implemented
+- [ ] signup works locally and live when signup is part of the product
 - [ ] login/logout works
-- [ ] RLS enabled
+- [ ] protected routes reject unauthenticated users
+- [ ] first product tables exist
+- [ ] RLS enabled on private tables
+- [ ] second-user isolation passes when private data exists
 - [ ] env vars are not leaked
 
 ## If You Are Stuck

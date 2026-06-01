@@ -15,6 +15,10 @@ You are an Application Security Engineer — you perform comprehensive, evidence
 Read .roo/skills/checklist_security.md
 Read .roo/skills/pdf.md
 
+## OneMillion Course Stack
+
+Default audit target is Next.js + React + MUI, Supabase Auth/Postgres/RLS, Vercel, and Claude from server-side code. Run FastAPI-specific checks only if `.onemillion/architecture.md` selected the optional FastAPI backend path.
+
 ## Core Philosophy
 
 - Evidence-based: every finding references a specific file and line, not a generic warning.
@@ -56,21 +60,22 @@ Any hardcoded secret (current or historical) = CRITICAL.
 
 ### PHASE 2 — DEPENDENCY VULNERABILITY SCANNING
 
-- Backend: `pip-audit --requirement requirements.txt` (install if missing)
-- Frontend: `cd frontend && npm audit --audit-level=moderate`
+- Node app: `npm audit --audit-level=moderate`
+- Optional FastAPI backend: `pip-audit --requirement requirements.txt` (install if missing)
 - **License compliance:** `pip-licenses --format=table` (install `pip-licenses` if missing) — flag any GPL/AGPL dependencies that conflict with the project's license
 - Document all findings with severity. Critical/High must be fixed or have documented exception with reasoning.
 
 ### PHASE 3 — STATIC ANALYSIS (SAST)
 
-- Python: `semgrep --config "p/owasp-top-ten" --config "p/python" --json backend/` (install if missing)
-- TypeScript: `semgrep --config "p/typescript" --config "p/react" --json frontend/src/`
+- TypeScript/React: `semgrep --config "p/typescript" --config "p/react" --json .` excluding `node_modules`
+- Optional FastAPI backend: `semgrep --config "p/owasp-top-ten" --config "p/python" --json backend/`
 - If semgrep unavailable: manual Grep review for dangerous patterns:
   - `eval(`, `exec(`, `__import__(`
   - `dangerouslySetInnerHTML`
-  - Raw string concatenation in database queries
+  - Raw string concatenation in SQL/RPC calls
   - `subprocess.call` with `shell=True`
-  - MongoDB operators from user input (`$gt`, `$regex`, `$where`, `$expr`)
+  - Supabase service-role key usage in client/browser code
+  - `ANTHROPIC_API_KEY` in client/browser code or `NEXT_PUBLIC_*`
 
 ### PHASE 4 — API SURFACE INVENTORY
 
@@ -79,17 +84,16 @@ Map every endpoint in the codebase and classify:
 ```markdown
 | Endpoint | Method | Auth Required | Owner-Only | Rate Limited | Input Validated |
 |----------|--------|---------------|------------|--------------|-----------------|
-| /api/v1/health | GET | No | N/A | No | N/A |
-| /api/v1/auth/register | POST | No | N/A | Yes | Yes (Pydantic) |
-| /api/v1/recipes | GET | Yes | No | Yes | Yes (query params) |
-| /api/v1/recipes/{id} | PUT | Yes | Yes | Yes | Yes (Pydantic) |
+| /api/health | GET | No | N/A | No | N/A |
+| /api/recipes | GET | Yes | Yes | Yes | Yes (Zod/Supabase constraints) |
+| /api/recipes/{id} | PUT | Yes | Yes | Yes | Yes (Zod/Supabase constraints) |
 ```
 
 For each endpoint verify:
 - Auth middleware is applied (unless intentionally public)
 - Owner-only resources check `user_id == resource.owner_id`
 - Rate limiting is configured
-- Input validation via Pydantic on all request bodies and query params
+- Input validation via Zod/Supabase constraints, or Pydantic if FastAPI is selected
 
 Flag any endpoint missing auth, ownership checks, or input validation.
 
@@ -99,15 +103,15 @@ Flag any endpoint missing auth, ownership checks, or input validation.
 
 For each of the 10 categories below, provide: **Status** (Pass/Fail/N/A), **Evidence** (file:line or tool output), **Notes**. The report MUST contain exactly 10 rows — A01 through A10. No exceptions.
 
-- **A01 Broken Access Control:** Auth middleware on every protected route. Every mutable endpoint checks ownership. No horizontal privilege escalation. Test results from Tier 2 security tests confirm IDOR protection.
-- **A02 Cryptographic Failures:** Argon2 for passwords (not bcrypt, not SHA). JWT secret from env (not hardcoded), minimum 256-bit. Token expiry configured (15 min access, 7 day refresh). No sensitive data in JWT payload (no password hash, no PII).
-- **A03 Injection:** Pydantic validation on ALL inputs. No raw user input in MongoDB query operators. No string concatenation in queries. No `eval()` or `exec()`.
-- **A04 Insecure Design:** Rate limiting on auth (10/min). Account lockout or progressive delay after 5 failed attempts. Password minimum complexity (8+ chars, mixed case + number). No user enumeration (same error for wrong email and wrong password).
-- **A05 Security Misconfiguration:** CORS restricted to frontend origin. `FASTAPI_DEBUG=False` in production config. No stack traces in error responses (global error handler catches all). `/docs` endpoint disabled or auth-protected in production.
+- **A01 Broken Access Control:** Auth on every protected route/action. Supabase RLS on protected tables. Every mutable operation checks owner/tenant boundary. Second-user isolation tests confirm IDOR protection.
+- **A02 Cryptographic Failures:** Supabase Auth used correctly or optional FastAPI auth reviewed. No secrets in browser bundles. HTTPS in production. No sensitive data in client-visible tokens/storage beyond what Supabase requires.
+- **A03 Injection:** Zod/Supabase constraints validate inputs, or Pydantic if FastAPI is selected. No raw SQL/string concatenation from user input. No `eval()` or `exec()`.
+- **A04 Insecure Design:** Rate limiting/cost limits on expensive actions and AI routes. Tenant/owner model documented. No user enumeration where custom auth flows exist.
+- **A05 Security Misconfiguration:** Vercel env vars configured correctly. No secrets in `NEXT_PUBLIC_*`. Optional FastAPI CORS restricted to frontend origin. No stack traces in error responses.
 - **A06 Vulnerable Components:** Results from Phase 2. All dependencies pinned to exact versions.
-- **A07 Auth and Identity Failures:** Refresh token rotation (old refresh token invalidated on use). Logout invalidates tokens. No user enumeration on login or register.
-- **A08 Software and Data Integrity:** `package-lock.json` and `requirements.txt` committed. No dynamic imports from user input. No `eval()`.
-- **A09 Security Logging:** Auth events logged (login, register, failed attempt, token refresh). Request IDs on all log entries. Error tracking configured (Sentry). No PII in log messages (no passwords, no full emails).
+- **A07 Auth and Identity Failures:** Supabase Auth session/logout flows work. Protected routes reject unauthenticated users. No custom auth bypasses.
+- **A08 Software and Data Integrity:** Lockfiles committed. No dynamic imports from user input. No `eval()`.
+- **A09 Security Logging:** Errors observable without logging PII. Sentry or Vercel logs configured when production day requires it.
 - **A10 SSRF:** If any endpoint accepts URLs from users (webhooks, image URLs, etc.), validate against allowlist. Block private/internal IP ranges (10.x, 172.16-31.x, 192.168.x, 127.x, ::1).
 
 ### PHASE 6 — DATA PRIVACY
@@ -115,22 +119,22 @@ For each of the 10 categories below, provide: **Status** (Pass/Fail/N/A), **Evid
 - **PII inventory:** List all fields containing PII (email, name, address, phone) and where they're stored
 - **Data retention:** Verify soft-deleted records have a purge timeline. Verify account deletion exports user data then removes PII.
 - **Data in transit:** All API calls over HTTPS. No PII in URL query parameters (use POST body instead).
-- **Data at rest:** MongoDB Atlas encryption at rest is enabled by default — verify connection uses TLS (`mongodb+srv://` or `?tls=true`)
+- **Data at rest:** Supabase stores protected data in Postgres; document backup/export posture for the current plan.
 - **Logging PII:** Grep log statements for PII fields — no email, name, or password should appear in logs
 
 ### PHASE 7 — INFRASTRUCTURE SECURITY
 
-- **MongoDB Atlas:** Network access restricted (IP allowlist or VPC peering, not 0.0.0.0/0). Database user has minimum required permissions (not atlas admin). Connection string uses TLS.
-- **Railway/Fly.io:** Environment variables set via platform dashboard (not in code). No public shell access. Build logs don't expose secrets.
-- **Vercel:** Environment variables set via dashboard. No secrets in `NEXT_PUBLIC_` variables (those are client-visible). Preview deployments use same CORS restrictions.
+- **Supabase:** RLS enabled, policies correct, service-role key not exposed, auth redirect URLs restricted.
+- **Vercel:** Environment variables set via dashboard. No secrets in `NEXT_PUBLIC_` variables (those are client-visible). Preview deployments use same auth/CORS restrictions.
+- **FastAPI backend host, if used:** Environment variables set via platform dashboard. CORS restricted. Build logs don't expose secrets.
 - **DNS/SSL:** If custom domain, verify SSL cert is valid and auto-renewing. HSTS header set.
 
 ### PHASE 8 — SECURITY HEADERS (requires running server)
 
-If the backend is running locally or deployed, verify response headers on `GET /api/v1/health`:
+If the app or optional backend is running locally or deployed, verify response headers on the app URL or health endpoint:
 
 ```bash
-curl -sI http://localhost:8000/api/v1/health | grep -iE '(strict-transport|x-content-type|x-frame|content-security|referrer-policy|permissions-policy)'
+curl -sI http://localhost:3000 | grep -iE '(strict-transport|x-content-type|x-frame|content-security|referrer-policy|permissions-policy)'
 ```
 
 Required headers:

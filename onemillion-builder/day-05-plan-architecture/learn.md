@@ -96,7 +96,7 @@ The backend enforces rules that should not live only in the browser:
 - background jobs
 - rate limiting and cost protection
 
-In this course, the default backend path is **Supabase + Next.js route handlers/server actions**. Add **FastAPI + Supabase** only when there is a real reason.
+In this course, the default backend path is **Supabase + Next.js route handlers/server actions**. Add **FastAPI + Supabase** only when there is a real reason, and then choose a backend host such as Railway, Fly.io, Render, or another provider the architecture can defend.
 
 ## Lightweight Backend Vs Heavy Backend
 
@@ -109,7 +109,7 @@ Use a lightweight backend when:
 - integrations are limited
 - the MVP should ship quickly
 
-Use a heavier backend such as FastAPI when:
+Use a heavier backend such as FastAPI when the architecture stage determines the product is genuinely backend-heavy:
 
 - Python libraries are essential
 - workflows are long-running or asynchronous
@@ -118,8 +118,11 @@ Use a heavier backend such as FastAPI when:
 - enterprise API boundaries are needed
 - complex permissions or approval workflows are hard to express with simple route handlers
 - the AI system needs deeper tool orchestration
+- the product is webhook-heavy
+- the product needs a clean public/internal API boundary
+- the backend has enough independent complexity that separating it reduces risk
 
-If unsure, choose the lightweight path. Simpler systems are easier to finish, test, secure, and explain.
+If unsure, choose the lightweight path. But if the PRD truly needs a backend-heavy system, choose FastAPI confidently and make it explicit in the architecture, sprint briefs, tests, backend hosting choice, and deployment plan.
 
 ## Secure Architecture
 
@@ -131,6 +134,7 @@ Teach the learner to ask:
 - What data is private to one user?
 - What data belongs to an organization or tenant?
 - Which actions require login?
+- Which auth method fits the learner's product: email/password, magic link, OAuth, invite-only, admin-created users, or team roles?
 - Which actions require ownership?
 - Which actions require admin/manager roles?
 - What secrets exist, and where are they stored?
@@ -240,7 +244,7 @@ Day 5 should also teach:
 
 - `.onemillion/architecture.md`
 - `.onemillion/sprints/S0-foundation.md`
-- `.onemillion/sprints/S1-auth-db.md` when auth/database is part of the MVP
+- `.onemillion/sprints/S1-auth-db.md` when auth/database is part of the MVP. Auth is a first-class module: login, logout, session state, protected routes, redirect URLs, profile/team membership shape, RLS, and second-user isolation.
 - `.onemillion/sprints/S2-...md` and beyond for core product slices
 - `.onemillion/assets/architecture.pdf` when PDF generation is available
 
@@ -249,6 +253,7 @@ Day 5 should also teach:
 - product type: web app, mobile-first responsive app, agent, or hybrid
 - backend path: Supabase-only or FastAPI + Supabase
 - tenancy model: single-user, team/multi-tenant, or public/community
+- auth model: public/anonymous, login required, invite-only, team roles, admin roles, or mixed public/private access
 - data model and ownership fields
 - security and permission boundaries
 - AI/server-side boundary

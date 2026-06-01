@@ -39,11 +39,10 @@ Videos are a required part of the world-class version of this course. Until a vi
 ## Recording Priority
 
 1. Getting Started / Codespaces
-2. Day 4 — first real deploy
-3. Day 5 — auth + RLS
-4. Day 6 — core feature
-5. Day 8 — first AI call
-6. Day 10 — tool use
+2. Day 4 — design review + mockup approval
+3. Day 5 — architecture + sprint briefs
+4. Day 6 — app shell + first deploy
+5. Day 7 — auth + RLS
+6. Day 12 — first AI build
 7. Day 17 — first users
 8. Day 18 — demo day
-

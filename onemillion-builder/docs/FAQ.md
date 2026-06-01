@@ -22,7 +22,7 @@ Engineers: yes, you'll learn things too. The agentic SDLC framework is genuinely
 | Some technical background (PM, analyst, etc.) | 1–1.5 hours | ~20 hours |
 | Engineer | 30–60 minutes | ~12 hours |
 
-The course is calibrated for the middle. EAs will spend more time on Day 4 (setup) and Day 6 (CRUD). Engineers will skim much of Days 1–3 (concept). Everyone arrives at Day 18 around the same time.
+The course is calibrated for the middle. EAs may spend more time on Day 6 (first deploy) and Day 7 (auth/database). Engineers will skim much of Days 1-3 conceptually but should still review the artifacts. Everyone arrives at Day 18 around the same time.
 
 If you fall behind, that's fine. The course is milestone-based, not calendar-based. Catch up. You're allowed to skip the weekend if you need to.
 
@@ -70,7 +70,7 @@ When you come back, use [I Fell Behind](./recover.md). It gives you one harness-
 
 ## 5. Can I skip days or do them out of order?
 
-Not really. Each day depends on the previous one. Day 4 needs Day 3's PRD. Day 7 needs Day 6's working app. The verification system enforces this — you can't get Builder #N if you skipped days.
+Not really. Each day depends on the previous one. Day 4 needs Day 3's refined PRD/spec. Day 5 needs Day 4's design. Day 7 needs Day 6's working app. The verification system enforces this — you can't get Builder #N if you skipped days.
 
 You **can** take more than one calendar day per "day" if you need to. Spread Day 4 over a weekend. Take a week off. Come back. The 18 days are *units of progress*, not literal calendar days.
 
@@ -78,7 +78,7 @@ You **can** take more than one calendar day per "day" if you need to. Spread Day
 
 ## 6. What if my product idea is bad?
 
-You'll find out on Day 2 (the Mom Test conversations) and Day 3 (the PRD). By then you can pivot. Many builders change their idea between Day 1 and Day 4 — that's expected, not failure.
+You'll find out on Day 2 through validation and Day 3 through the refined spec. By then you can pivot. Many builders change their idea between Day 1 and Day 3 — that's expected, not failure.
 
 **Common pivots:**
 - "Too big" → narrow scope to one user, one feature

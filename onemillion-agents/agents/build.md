@@ -25,7 +25,7 @@ Vercel for frontend/app deployment
 Claude called from server-side code
 ```
 
-The default backend path is Supabase-only with Next.js route handlers/server actions. Use FastAPI only if `.onemillion/architecture.md` explicitly selected the optional FastAPI path. Do not introduce alternate databases or separate backend hosting as course defaults.
+The default backend path is Supabase-only with Next.js route handlers/server actions. Use FastAPI only if `.onemillion/architecture.md` explicitly selected the optional FastAPI path. Do not introduce alternate databases or separate backend hosting as course defaults. Supabase Auth is the default identity provider in both paths unless the architecture documents a serious reason for custom auth.
 
 ## Core Philosophy
 
@@ -65,10 +65,12 @@ After completing, print: `✓ Sprint S[N] complete — [summary of what was buil
 
 For each sprint:
 
-1. Read `.onemillion/sprints/S[N]-[name].md` — this is your ONLY input for this sprint. It contains everything: entity schemas, endpoints, components, design notes, acceptance criteria, verification gate.
-2. Implement backend: Pydantic models → repository → service → router (following the patterns below).
-3. Implement frontend: page/component → hooks → forms → wire to API client.
-4. **Write test file** for this sprint: `backend/tests/test_api/test_s[N]_[name].py`. Use the acceptance criteria from the sprint brief. Import fixtures from conftest.py only. Cover: happy path, 401/403/404/422, CRUD operations. Run the tests to verify they pass.
+1. Read `.onemillion/sprints/S[N]-[name].md` — this is your ONLY input for this sprint. It contains everything: product decisions, entity schemas, Supabase/server tasks, frontend components, design notes, security notes, acceptance criteria, and verification gate.
+2. Implement the server/data work named in the sprint brief:
+   - Default path: Supabase schema/RLS + Next.js route handlers/server actions.
+   - Optional FastAPI path: FastAPI routes/services only if the sprint brief says the architecture selected FastAPI.
+3. Implement frontend: page/component → hooks/server actions → forms → wire to Supabase/server route.
+4. **Write tests appropriate to the selected path.** For default Next.js/Supabase builds, prefer Playwright flow tests, component tests, and RLS/second-user isolation checks. For optional FastAPI builds, add backend API tests. Use the acceptance criteria from the sprint brief. Cover happy path, unauthenticated/unauthorized behavior, validation, and key CRUD operations where relevant.
 5. Run validation (see Validation Standards). **This is a hard gate** — if validation fails, fix the issue and re-run. Do NOT proceed to step 6 until validation passes.
 6. Update `.onemillion/todo.md`: mark the sprint `[x]`, add notes for anything unexpected (workarounds, deviations from spec, issues fixed during the sprint).
 6. Stage specific files by name (never `git add -A`).
@@ -79,20 +81,23 @@ After all sprints, set `status: "completed"`, `handoff.next_mode: "review"`. Wri
 
 ## Code Standards
 
-### API Client Pattern (frontend)
+### Server/Data Access Pattern
 
-Create `frontend/src/lib/api.ts` in S0 — a single typed client all components use:
+Default path: use typed Supabase client/server utilities and Next.js route handlers or server actions. Create a small shared data-access layer only when it removes duplication.
+
+For optional FastAPI path only, create a typed API client. Do not create `NEXT_PUBLIC_API_URL` or a separate backend client for the default Supabase/Next.js path. The FastAPI client should send the current Supabase session access token when protected API calls require auth; do not invent localStorage token storage or custom JWT login unless the architecture explicitly selected custom auth.
+
+Example API client for FastAPI-path projects only:
 
 ```typescript
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
-async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+async function request<T>(path: string, options?: RequestInit, accessToken?: string): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
       ...options?.headers,
     },
   });
@@ -105,10 +110,10 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 }
 
 export const api = {
-  get: <T>(path: string) => request<T>(path),
-  post: <T>(path: string, body: unknown) => request<T>(path, { method: "POST", body: JSON.stringify(body) }),
-  put: <T>(path: string, body: unknown) => request<T>(path, { method: "PUT", body: JSON.stringify(body) }),
-  delete: <T>(path: string) => request<T>(path, { method: "DELETE" }),
+  get: <T>(path: string, accessToken?: string) => request<T>(path, undefined, accessToken),
+  post: <T>(path: string, body: unknown, accessToken?: string) => request<T>(path, { method: "POST", body: JSON.stringify(body) }, accessToken),
+  put: <T>(path: string, body: unknown, accessToken?: string) => request<T>(path, { method: "PUT", body: JSON.stringify(body) }, accessToken),
+  delete: <T>(path: string, accessToken?: string) => request<T>(path, { method: "DELETE" }, accessToken),
 };
 ```
 
@@ -140,19 +145,21 @@ with check (auth.uid() = owner_id);
 
 **Next.js server code** — use server-side Supabase clients for privileged app logic and never expose service-role keys to the browser. Client components may use anon-key clients only for user-scoped operations protected by RLS.
 
-**FastAPI optional path** — if architecture selected FastAPI, use Pydantic schemas, dependency injection, and Supabase/Postgres access from the backend. Keep API boundaries explicit and continue relying on Supabase Auth/RLS where appropriate.
+**Auth module / S1-auth-db** — treat auth as a product module. Implement signup/login/logout or the selected auth method, callback handling, session state, protected routes, profile or membership tables if needed, and second-user isolation checks for private data.
+
+**FastAPI optional path** — if architecture selected FastAPI, use Pydantic schemas, dependency injection, and Supabase/Postgres access from the backend. Keep API boundaries explicit and continue relying on Supabase Auth/RLS where appropriate. Protected FastAPI routes must verify the Supabase-authenticated user or the architecture-approved auth mechanism before touching private data.
 
 ### Enterprise Patterns
 
-**Error handling** — custom exceptions in `middleware/exceptions.py`, global handler in `middleware/error_handler.py`. Services throw AppError subclasses. No stack traces leak to client.
+**Error handling** — no stack traces leak to client. In Next.js, route handlers/server actions return typed user-safe errors. In FastAPI-path projects, use custom exceptions and a global handler.
 
-**Pagination** — cursor-based on every list endpoint. `PaginatedResponse[T]` generic. Frontend uses `useInfiniteQuery`.
+**Pagination** — cursor-based or range-based pagination on every list endpoint/table query. Frontend uses a consistent query/hook pattern.
 
 **Rate limiting** — in-memory, 10/min on auth, 100/min on general API.
 
 **Logging** — structured with request IDs, duration tracking, X-Request-ID header. Sentry for exceptions.
 
-**Middleware chain** in main.py: rate limiter → request logger → error handler → route handler.
+**FastAPI middleware chain** only if FastAPI is selected: rate limiter → request logger → error handler → route handler.
 
 ### Frontend Patterns
 
@@ -173,22 +180,24 @@ with check (auth.uid() = owner_id);
 
 ### Test Configuration (S0 — CRITICAL for Test phase)
 
-In S0, create `backend/pyproject.toml` with pytest config so the test agent doesn't waste turns on PYTHONPATH discovery:
+If FastAPI is selected, create `backend/pyproject.toml` with pytest config so the test agent doesn't waste turns on PYTHONPATH discovery:
 ```toml
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 ```
-Also ensure ALL runtime dependencies are in `requirements.txt` — if you pip install anything during build (slowapi, email-validator, etc.), add it to requirements.txt immediately. The test agent should never need to install missing runtime deps.
+For default Next.js/Supabase builds, ensure `package.json` contains all runtime dependencies and that generated test config matches the repo's chosen test framework. The test agent should never need to install missing runtime deps.
 
 ## Validation Standards
 
 **You MUST run validation after every frontend/backend file change. If it fails, fix and re-run before writing any more code. Never skip this.**
 
-**Backend:** `python -m py_compile [changed files]` → `ruff check .` → `ruff format --check .` → `python -m pytest tests/ -x -q` (if tests exist)
+**Backend/FastAPI only:** `python -m py_compile [changed files]` → `ruff check .` → `ruff format --check .` → `python -m pytest tests/ -x -q` (if tests exist)
 
 **Frontend:** `npm run build` (this runs tsc and catches missing imports, type errors, etc.)
+
+**Supabase/RLS:** verify schema and policies where possible. For protected data, test second-user isolation before declaring the sprint complete.
 
 **After adding any JSX component or icon:** Verify the import statement at the top of the file includes every symbol used. This is the #1 source of build failures.
 
@@ -202,7 +211,7 @@ Also ensure ALL runtime dependencies are in `requirements.txt` — if you pip in
 - No placeholder code, no "// TODO", no hardcoded secrets, no commented-out blocks.
 - If something cannot be implemented as specified, say so immediately with a concrete alternative.
 - Never commit code that fails validation.
-- Never put business logic in routers. Never put DB calls in services.
+- Keep server/data boundaries explicit. For FastAPI, never put business logic in routers. For Next.js route handlers/server actions, keep reusable business logic in shared modules when it is used in more than one place.
 - Never use `any` type in TypeScript. Never use raw fetch() in React components.
 - Never use `git add -A` or `git add .` — always stage specific files by name.
 - When re-entering from test/guard (bug fix mode): fix ONLY reported issues. Do not refactor unrelated code.

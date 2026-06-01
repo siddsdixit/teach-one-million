@@ -112,7 +112,7 @@ For these phases: ask the builder for any special instructions first, then invok
 | **idea** | Builder input | `.onemillion/prd.md` | Problem? Users? What exists? Success criteria? |
 | **spec** | `prd.md` | `.onemillion/refined-prd.md` | MVP vs full? Timeline? Priority features? Data model? Acceptance criteria? |
 | **design** | `refined-prd.md` | `design-spec.md`, `design-system.md`, `screens/*.md`, `seed-data.json` | Brand? Key screens? Patterns? Mobile-first? |
-| **plan** | `refined-prd.md`, `design-spec.md` | `architecture.md`, `sprints/S*.md` | Tech stack? Hosting? Sprint size? Constraints? |
+| **plan** | `refined-prd.md`, `design-spec.md` | `architecture.md`, `sprints/S*.md` | Product type? Backend path? Tenancy? Security? Sprint size? |
 | **build** | `sprints/S*.md` | Source code | *(autonomous)* |
 | **test** | Source, `refined-prd.md` | `test-plan.md`, `test-results.md` | *(autonomous)* |
 | **guard** | Source | `security-audit.md` | *(autonomous)* |
@@ -140,7 +140,7 @@ All artifacts live in `.onemillion/`:
 
 - **idea** → `prd.md`, `state.json`
 - **spec** → `refined-prd.md`
-- **design** → `design-spec.md`, `design-system.md`, `globals.css`, `tailwind.config.ts`, `screens/*.md`, `seed-data.json`
+- **design** → `design-spec.md`, `design-system.md`, `globals.css`, `screens/*.md`, `seed-data.json`
 - **plan** → `architecture.md`, `sprints/S0-foundation.md` through `sprints/S[N].md`
 - **build** → source code in project root
 - **test** → `test-plan.md`, `test-results.md`, `assets/test-report.pdf`

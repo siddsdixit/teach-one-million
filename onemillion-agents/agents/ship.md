@@ -23,7 +23,7 @@ For the OneMillion Builder course:
 - Use Supabase for Postgres, Auth, and RLS.
 - Configure environment variables in Vercel and Supabase as needed.
 - Deploy a separate backend only if `.onemillion/architecture.md` selected the optional FastAPI path.
-- Do not assume a separate backend host. Backend hosting is a decision only for FastAPI-path projects.
+- Do not assume a separate backend host. Backend hosting is a decision only for FastAPI-path projects, and the selected host may be Railway, Fly.io, Render, or another provider documented in the architecture.
 
 ## Core Philosophy
 
@@ -56,7 +56,7 @@ cd frontend && npm run build
 grep -c "Critical\|High" .onemillion/security-audit.md  # review findings section
 
 # 3. No secrets in codebase
-grep -rnE '(password|secret|api_key)\s*[:=]\s*["\x27][^"\x27]{8,}' backend/ frontend/src/ --include='*.py' --include='*.ts' --include='*.tsx'
+grep -rnE '(password|secret|api_key)\s*[:=]\s*["\x27][^"\x27]{8,}' . --include='*.py' --include='*.ts' --include='*.tsx' --exclude-dir=node_modules --exclude-dir=.next
 
 # 4. .env is gitignored
 git check-ignore .env  # should return .env
@@ -108,8 +108,8 @@ If the architecture chose FastAPI:
 1. **Backend host selected by architecture:**
    - Connect to GitHub repo, select `main` branch
    - Set ALL environment variables from Phase 1 checklist
-   - Configure start command: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
-   - Set health check path: `/api/v1/health`
+   - Configure start command from architecture
+   - Set health check path from architecture, commonly `/api/health` or `/api/v1/health`
    - Deploy and monitor build logs for errors
 
 2. **Verify backend is live:**
@@ -117,16 +117,16 @@ If the architecture chose FastAPI:
    BACKEND_URL="https://[backend-url]"
 
    # Health check
-   curl -s "$BACKEND_URL/api/v1/health" | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['status']=='ok', 'Health check failed'"
+   curl -s "$BACKEND_URL/api/health" || curl -s "$BACKEND_URL/api/v1/health"
 
    # Response time
-   curl -o /dev/null -s -w "%{time_total}\n" "$BACKEND_URL/api/v1/health"  # should be < 1s
+   curl -o /dev/null -s -w "%{time_total}\n" "$BACKEND_URL/api/health"  # should be < 1s
 
    # CORS headers
-   curl -sI -H "Origin: https://your-frontend.vercel.app" "$BACKEND_URL/api/v1/health" | grep -i "access-control"
+   curl -sI -H "Origin: https://your-frontend.vercel.app" "$BACKEND_URL/api/health" | grep -i "access-control"
 
    # Security headers
-   curl -sI "$BACKEND_URL/api/v1/health" | grep -iE "(x-content-type|x-frame|referrer-policy)"
+   curl -sI "$BACKEND_URL/api/health" | grep -iE "(x-content-type|x-frame|referrer-policy)"
    ```
 
 **Gate:** Health returns 200, response time < 1s, CORS headers correct, security headers present.
@@ -164,42 +164,19 @@ If the architecture chose FastAPI:
 
 ### PHASE 6 — AUTOMATED SMOKE TESTS ON PRODUCTION
 
-Run the Complete Core Flow against the LIVE URL — automated, not manual:
+Run the Complete Core Flow against the LIVE URL. Use Playwright or the app's own routes for default Next.js/Supabase apps. Use direct API curl tests only if the architecture selected a FastAPI/API-heavy backend.
 
 ```bash
-BACKEND_URL="https://[production-url]"
+FRONTEND_URL="https://[vercel-url]"
 
-# 1. Register a test user
-REGISTER=$(curl -s -X POST "$BACKEND_URL/api/v1/auth/register" \
-  -H "Content-Type: application/json" \
-  -d '{"email":"smoke-test-'$(date +%s)'@example.com","password":"SmokeTest1234!","name":"Smoke Test"}')
-echo "Register: $(echo $REGISTER | python3 -c 'import sys,json; print(json.load(sys.stdin).get("status","FAIL"))')"
+# App responds
+curl -s -o /dev/null -w "%{http_code}" "$FRONTEND_URL"
 
-# 2. Login
-TOKEN=$(curl -s -X POST "$BACKEND_URL/api/v1/auth/login" \
-  -H "Content-Type: application/json" \
-  -d '{"email":"smoke-test-'$(date +%s)'@example.com","password":"SmokeTest1234!"}' | \
-  python3 -c 'import sys,json; print(json.load(sys.stdin)["data"]["access_token"])')
-echo "Login: $([ -n '$TOKEN' ] && echo 'OK' || echo 'FAIL')"
-
-# 3. Create a resource (adjust endpoint per app)
-CREATE=$(curl -s -X POST "$BACKEND_URL/api/v1/recipes" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKEN" \
-  -d '{"title":"Smoke Test Recipe","description":"Automated test"}')
-echo "Create: $(echo $CREATE | python3 -c 'import sys,json; print(json.load(sys.stdin).get("status","FAIL"))')"
-
-# 4. Read it back
-RESOURCE_ID=$(echo $CREATE | python3 -c 'import sys,json; print(json.load(sys.stdin)["data"]["id"])')
-READ=$(curl -s "$BACKEND_URL/api/v1/recipes/$RESOURCE_ID" -H "Authorization: Bearer $TOKEN")
-echo "Read: $(echo $READ | python3 -c 'import sys,json; print(json.load(sys.stdin).get("status","FAIL"))')"
-
-# 5. Delete it (cleanup)
-curl -s -X DELETE "$BACKEND_URL/api/v1/recipes/$RESOURCE_ID" -H "Authorization: Bearer $TOKEN"
-echo "Cleanup: done"
+# Source/product marker appears
+curl -s "$FRONTEND_URL" | grep -i "[unique product text from local source]"
 ```
 
-Adapt the endpoints and payload to match the actual app. The smoke test must exercise: auth, create, read, delete.
+Adapt the smoke test to the actual app. If auth exists, test signup/login/logout. If protected data exists, test create/read/update/delete and second-user isolation on the live URL. If FastAPI exists, also test the documented health endpoint and core API endpoints.
 
 **Gate:** All smoke test steps return "OK". Any failure = deployment is NOT verified.
 
@@ -208,14 +185,14 @@ Adapt the endpoints and payload to match the actual app. The smoke test must exe
 1. **Sentry verification:**
    ```bash
    # Trigger a test error (if the app has a test error endpoint, or check Sentry dashboard)
-   curl -s "$BACKEND_URL/api/v1/health"  # at minimum verify Sentry DSN is set
+   curl -s "$FRONTEND_URL"  # at minimum verify the deployed app is reachable
    ```
    Verify in Sentry dashboard that the project is receiving events. If no events yet, that's OK — the smoke test should have generated request traces if `traces_sample_rate > 0`.
 
 2. **Uptime monitoring:** Recommend the builder set up a free uptime monitor:
    - [UptimeRobot](https://uptimerobot.com) (free, 5-min checks)
    - Or [Betterstack](https://betterstack.com) (free tier)
-   - Monitor endpoint: `GET /api/v1/health`
+   - Monitor endpoint: app homepage or documented health endpoint
    - Alert via email or Slack
 
 3. **Log access:** Verify the builder can access Vercel logs and, if FastAPI is used, the backend host logs. Confirm request IDs appear where the architecture requires them.
@@ -228,8 +205,8 @@ Run basic performance checks against the live URL:
 
 ```bash
 # Response time benchmarks
-for endpoint in "/api/v1/health" "/api/v1/recipes"; do
-  TIME=$(curl -o /dev/null -s -w "%{time_total}" "$BACKEND_URL$endpoint" -H "Authorization: Bearer $TOKEN")
+for endpoint in "/" "/api/health"; do
+  TIME=$(curl -o /dev/null -s -w "%{time_total}" "$FRONTEND_URL$endpoint")
   echo "$endpoint: ${TIME}s"
 done
 ```
@@ -252,7 +229,7 @@ Actually test the rollback path (don't just document it):
 2. Document the rollback command for each platform:
    - **Vercel:** Dashboard → Deployments → select previous → Promote to Production
    - **Supabase:** Document backup/restore path for the current project tier
-   - **FastAPI backend host, if used:** Dashboard → Deployments → select previous → Redeploy
+   - **FastAPI backend host, if used:** use the selected host's dashboard → Deployments → select previous → Redeploy
 3. Verify the builder can access the deployment dashboard and see previous deployments
 4. Document: "If something breaks in production, run these steps. Expected rollback time: < 5 minutes."
 

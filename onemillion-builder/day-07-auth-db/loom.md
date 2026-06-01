@@ -15,9 +15,14 @@ Sid should record a walkthrough for Day 7: Auth + Database.
 Cover:
 
 - create Supabase project
-- understand auth
-- create first tables
-- enable RLS
+- explain identity, session, authorization, and RLS in plain language
+- choose the auth method for the product
+- wire Supabase Auth into Next.js
+- configure local and deployed redirect URLs
+- protect private routes
+- create first tables with ownership or tenant fields
+- enable RLS and explain what each policy protects
+- test with a second user so private data cannot leak
 - store env vars safely
 
 End by showing the Day 7 done checklist and the exact `day done` verification moment.

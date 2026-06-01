@@ -46,7 +46,7 @@ Curated resources for after the 18 days. Keep building.
 ## Next.js + Supabase
 - **[Next.js Docs](https://nextjs.org/docs)** — the canonical reference
 - **[Supabase + Next.js Quickstart](https://supabase.com/docs/guides/getting-started/quickstarts/nextjs)**
-- **[shadcn/ui](https://ui.shadcn.com)** — beautiful free components
+- **[MUI](https://mui.com/material-ui/)** — the course UI component system
 
 ---
 

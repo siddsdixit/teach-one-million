@@ -175,8 +175,8 @@ _Simulation 3: Boundary / Refusal_
 
 ## 5. API CONTRACT (Agent Endpoint)
 
-- **Endpoint:** `POST /api/v1/chat`
-- **Auth:** Inherits user session from web app (JWT)
+- **Endpoint:** [server-side AI route or action, e.g., `POST /api/ai/chat`]
+- **Auth:** Inherits the current Supabase-authenticated user session from the web app
 - **Rate limits:** [Requests per minute per user]
 
 ## 6. MEMORY & CONTEXT

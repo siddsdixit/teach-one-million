@@ -23,11 +23,11 @@
 
 - Gmail: https://mail.google.com/
 - LinkedIn feed: https://www.linkedin.com/feed/
+- X post composer: https://x.com/compose/post
+- Reddit submit: https://www.reddit.com/submit
+- Hacker News submit: https://news.ycombinator.com/submit
 - Discord: https://discord.com/
-- Vercel signup: https://vercel.com/signup
-- Vercel import: https://vercel.com/new
 - Vercel dashboard: https://vercel.com/dashboard
-- Vercel Git docs: https://vercel.com/docs/deployments/git
-- Vercel env vars: https://vercel.com/docs/projects/environment-variables
-- Vercel domains docs: https://vercel.com/docs/domains
 - Vercel Analytics: https://vercel.com/docs/analytics
+- Plausible Analytics: https://plausible.io/
+- Umami: https://umami.is/

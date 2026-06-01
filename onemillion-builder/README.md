@@ -189,7 +189,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | **Foundation** | 0-5 | GitHub workspace, idea, research, spec, design, architecture | A validated, designed, planned product |
 | **Build + QA** | 6-10 | app shell, Vercel, Supabase, core build, review, QA | A live app with auth, database, and one working workflow |
 | **AI + Readiness** | 11-15 | AI strategy, first AI build, product polish, security/trust, final QA | A useful AI feature inside a polished, trusted, production-ready MVP |
-| **Ship + Sell** | 16-18 | production verification, monitoring/domain, positioning, users, demo | A launch-ready product and Builder Claim |
+| **Ship + Sell** | 16-18 | production verification, monitoring/domain, brand, pricing, first users, demo | A launch-ready product and Builder Claim |
 
 <p align="center">
   <a href="day-01-idea/learn.md"><strong>Days 1-5: Foundation</strong></a>
@@ -224,7 +224,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | [14](day-14-security-trust-review/learn.md) | Security + trust review | Auth, authorization, tenancy/RBAC, RLS, secrets, AI privacy, cost/rate controls |
 | [15](day-15-qa-production-readiness/learn.md) | QA + production readiness | Final manual/automated QA, AI pass/fail examples, live critical path, production blockers |
 | [16](day-16-ship-production/learn.md) | Ship production | Production verification, monitoring, optional domain |
-| [17](day-17-sell-users/learn.md) | Sell + first users | Landing/product copy, outreach, feedback |
+| [17](day-17-sell-users/learn.md) | Brand + marketing + pricing + first users | Positioning, product page, pricing, launch posts, outreach, feedback |
 | [18](day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |
 
 ---

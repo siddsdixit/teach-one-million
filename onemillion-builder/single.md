@@ -951,36 +951,52 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - monitoring configured or explicitly skipped
 - custom domain works or skip is documented
 
-## Day 17: Sell + First Users
+## Day 17: Brand + Marketing + Pricing + First Users
 
-**Purpose:** make the product understandable and get it in front of real people.
+**Purpose:** make the product understandable, credible, priced, and visible to first users.
 
-**Why it matters:** a product without positioning is hard to share. Day 17 turns the build into a page, message, and outreach loop.
+**Why it matters:** a product without positioning is hard to share. Day 17 turns the live build into a clear offer, a benefit-first page, a simple pricing stance, launch content, and first-user outreach. The goal is not a huge launch; it is finding a small number of people who understand the pain and care enough to respond.
 
 **What the learner learns:**
 
-- positioning
-- landing/product page copy
-- CTA
-- outreach
-- feedback capture
+- brand for an early product
+- positioning and category choice
+- benefit-first landing/product page copy
+- CTA design
+- MVP pricing: free beta, waitlist, one-time, subscription, usage-based, or demo-call first
+- launch content for LinkedIn, X, and communities
+- outreach without spamming
+- feedback capture and signal interpretation
+- simple SEO foundations and launch metrics
 
 **What the learner does:**
 
-- writes landing/product page copy
-- sends outreach to real people
-- records feedback or pending-response status
-- reflects learnings in product copy, PRD, or Builder Claim notes
+- creates a product name, tagline, and one-line promise
+- writes the positioning statement
+- updates the landing/product page or app copy
+- chooses a pricing stance
+- writes launch posts and cold outreach messages
+- identifies 5-10 relevant people or communities
+- sends or schedules at least 3 messages/posts
+- records feedback or pending-response status honestly
+- reflects learnings in product copy, PRD, or Builder Claim notes if direction changes
 
 **Exact links:**
 
 - LinkedIn feed: https://www.linkedin.com/feed/
 - X post composer: https://x.com/compose/post
+- Reddit submit: https://www.reddit.com/submit
+- Hacker News submit: https://news.ycombinator.com/submit
+- Gmail: https://mail.google.com/
+- Plausible Analytics: https://plausible.io/
+- Umami: https://umami.is/
 
 **Done means:**
 
-- product page is clear
-- outreach was sent to real people
+- positioning is specific and benefit-first
+- product page has headline, pain, solution, proof/demo, CTA, pricing, and basic SEO metadata
+- pricing stance is explicit
+- outreach was sent or scheduled to real people or relevant communities
 - feedback signal or pending-feedback status is recorded
 
 ## Day 18: Demo Day + Builder Claim

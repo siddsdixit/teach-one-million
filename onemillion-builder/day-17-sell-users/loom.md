@@ -10,14 +10,16 @@
 
 ## Recording Plan
 
-Sid should record a walkthrough for Day 17: Sell + First Users.
+Sid should record a walkthrough for Day 17: Brand + Marketing + Pricing + First Users.
 
 Cover:
 
-- positioning
-- landing page copy
-- outreach
-- feedback capture
-- interpreting user signal
+- positioning with the sell agent formula
+- benefit-first landing/product page copy
+- CTA and pricing stance
+- launch posts for LinkedIn/X/community
+- first-user outreach without spamming
+- feedback capture and signal interpretation
+- optional SEO metadata and lightweight metrics
 
 End by showing the Day 17 done checklist and the exact `day done` verification moment.

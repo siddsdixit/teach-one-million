@@ -69,14 +69,15 @@ Write `.onemillion/architecture.md` containing:
 6. **Backend/server boundary** — server actions, route handlers, AI endpoints, integrations, background jobs if any
 7. **Database model** — core entities, ownership fields, tenant fields, indexes, storage needs
 8. **Tenancy model** — single-user, team/multi-tenant, or public/community
-9. **Security model** — auth, session handling, authorization, RLS, secrets, AI permissions, rate/cost limits
-10. **Scalability assumptions** — expected users, data volume, AI volume, search/filter/file needs, bottlenecks
-11. **Folder tree** — actual directory structure for the selected stack
-12. **Module list** — each module with responsibilities and public interface
-13. **API/server standards** — route handler/server action shape, error format, pagination pattern; REST `/api/...` only where useful
-14. **Environment variables** — complete list with descriptions and public/private boundary
-15. **Deployment topology** — Vercel app, Supabase project, optional FastAPI service only if selected
-16. **Mermaid diagrams** — system architecture, module dependencies, data flow for Complete Core Flow
+9. **RBAC model** — no RBAC for MVP, simple owner/admin/member/viewer, or product-specific roles; record role permissions if RBAC is needed
+10. **Security model** — auth, session handling, authorization, RLS, secrets, AI permissions, rate/cost limits
+11. **Scalability assumptions** — expected users, data volume, AI volume, search/filter/file needs, bottlenecks
+12. **Folder tree** — actual directory structure for the selected stack
+13. **Module list** — each module with responsibilities and public interface
+14. **API/server standards** — route handler/server action shape, error format, pagination pattern; REST `/api/...` only where useful
+15. **Environment variables** — complete list with descriptions and public/private boundary
+16. **Deployment topology** — Vercel app, Supabase project, optional FastAPI service only if selected
+17. **Mermaid diagrams** — system architecture, module dependencies, data flow for Complete Core Flow
 
 Keep this file lean — it's a one-time reference the build agent reads in S0 and doesn't need again. Target: **under 200 lines**.
 
@@ -115,6 +116,7 @@ Every sprint brief must be SELF-CONTAINED. A developer (or the build agent) read
 - Product type: [web app/mobile-first responsive app/agent/hybrid]
 - Backend path: [Supabase + Next.js route handlers/server actions | FastAPI + Supabase]
 - Tenancy model: [single-user | multi-tenant | public/community]
+- RBAC model: [none for MVP | owner/admin/member/viewer | product-specific roles]
 - Security boundary: [who can log in, who can read/write what, what RLS or backend checks enforce it]
 
 ## Entity Schemas
@@ -225,7 +227,10 @@ S1 is included when the product requires login, saved private data, tenant data,
 - Login/register pages, plus logout and session state
 - Auth callback route
 - Protected route wrapper
-- User profile, role, or tenant membership table if needed
+- Why authentication matters for trust, privacy, personalization, billing, audit trails, and safe AI actions
+- Single-tenant vs multi-tenant decision with `owner_id`, `organization_id`, `tenant_id`, or membership rows
+- RBAC definition and role model when needed. RBAC means Role-Based Access Control: permissions are assigned to roles such as owner, admin, member, or viewer rather than one-off users.
+- User profile, organization/workspace, role, or tenant membership table if needed
 - RLS policies for user-owned or tenant-owned data
 - Redirect URLs for local and deployed app
 - Environment variable handling

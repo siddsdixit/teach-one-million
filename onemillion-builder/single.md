@@ -457,6 +457,8 @@ The harness should not compress days unless the learner explicitly asks and the 
 - frontend/backend boundaries
 - database and ownership boundaries
 - auth model choices: public/anonymous, login required, invite-only, team roles, admin roles, or mixed access
+- multi-tenancy decision: whether the product needs team/workspace/customer-account boundaries now or soon
+- RBAC decision: whether roles like owner/admin/member/viewer are needed, or simple owner-only access is enough
 - secure architecture: auth, authorization, secrets, RLS, AI permissions, rate limits, and cost limits
 - single-user vs multi-tenant vs public/community data models
 - scalability as a planning input without overbuilding
@@ -481,6 +483,7 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - chooses Supabase-only or FastAPI backend path
 - chooses single-user, multi-tenant, or public/community tenancy
 - chooses auth model and protected/public route boundaries
+- decides whether RBAC is needed and defines roles if it is
 - reviews security and permission boundaries
 - reviews architecture decisions
 - reviews data model and API boundaries
@@ -504,6 +507,7 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - product type decision is recorded
 - backend path decision is recorded
 - tenancy model is recorded
+- RBAC decision is recorded, even if the answer is "no RBAC for MVP"
 - security model is recorded
 - sprint briefs are self-contained build contracts
 - validate-plan passes or findings are resolved
@@ -555,12 +559,17 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 **What the learner learns:**
 
 - Supabase project setup
+- why authentication matters for trust, privacy, personalization, billing, audit trails, and safe AI actions
 - identity, session, authorization, and RLS
+- RBAC: Role-Based Access Control, including owner/admin/member/viewer patterns
+- single-tenant vs multi-tenant user hierarchy from the beginning
 - auth method choices: email/password, magic link, OAuth, invite-only, admin-created users, or team roles
 - Supabase Auth with Next.js
 - callback routes, protected routes, login/logout/session state
 - environment variables
 - Postgres tables with ownership fields
+- profile, organization, membership, and role table patterns
+- how to keep user information secure
 - second-user isolation testing
 
 **What the learner does:**
@@ -570,6 +579,7 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 - scaffolds signup/login/logout, callback, and session state
 - protects private routes
 - creates first tables from the architecture
+- creates profile, organization, or membership tables when the architecture needs multi-user hierarchy
 - enables RLS and tests cross-user protection
 
 **Exact links:**
@@ -586,6 +596,8 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 - Supabase project exists
 - auth method is chosen and implemented
+- single-tenant or multi-tenant model is chosen intentionally
+- RBAC roles are defined when teams, organizations, or admin/member differences exist
 - signup/login/logout work locally and live when signup is part of the product
 - protected dashboard works
 - RLS is enabled on private tables

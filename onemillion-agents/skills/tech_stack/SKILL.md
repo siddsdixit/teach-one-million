@@ -83,6 +83,7 @@ Every architecture must decide:
 - single-user, multi-tenant, or public/community data model
 - ownership fields: `owner_id`, `tenant_id`, `organization_id`, membership tables where needed
 - auth model: anonymous/public, login required, invite-only, team membership, admin roles, or mixed public/private access
+- RBAC model: no RBAC for MVP, simple owner/admin/member/viewer, or product-specific roles. If RBAC exists, define permissions before build.
 - public vs private fields
 - RLS policy intent
 - indexes for tenant, owner, status, date, search/filter fields

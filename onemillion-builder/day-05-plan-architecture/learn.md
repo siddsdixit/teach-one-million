@@ -135,6 +135,9 @@ Teach the learner to ask:
 - What data belongs to an organization or tenant?
 - Which actions require login?
 - Which auth method fits the learner's product: email/password, magic link, OAuth, invite-only, admin-created users, or team roles?
+- Does the product need multi-tenancy now or soon?
+- Does the product need RBAC now or soon?
+- If RBAC is needed, which roles exist: owner, admin, member, viewer, approver, manager, or product-specific roles?
 - Which actions require ownership?
 - Which actions require admin/manager roles?
 - What secrets exist, and where are they stored?
@@ -168,6 +171,23 @@ Common tenant fields:
 - `tenant_id` or `organization_id` for team ownership
 - `role` or membership table for admin/member/viewer permissions
 - `created_by`, `updated_by`, `created_at`, `updated_at`
+
+## RBAC Decision
+
+RBAC means **Role-Based Access Control**. It answers: what can each role do?
+
+Day 5 should explicitly ask whether the product needs RBAC. If the answer is no, record why simple owner-based access is enough for the MVP. If the answer is yes, define the initial roles and permissions before Day 7 builds auth/database.
+
+Common roles:
+
+| Role | Typical permissions |
+|---|---|
+| Owner | billing, workspace settings, delete workspace, invite admins |
+| Admin | invite members, manage records, change operational settings |
+| Member | create and update assigned work |
+| Viewer | read permitted records only |
+
+RBAC affects tables, RLS policies, routes, UI controls, tests, and future support. Do not let the build agent invent roles during implementation.
 
 ## Scalability
 
@@ -254,6 +274,7 @@ Day 5 should also teach:
 - backend path: Supabase-only or FastAPI + Supabase
 - tenancy model: single-user, team/multi-tenant, or public/community
 - auth model: public/anonymous, login required, invite-only, team roles, admin roles, or mixed public/private access
+- RBAC model: no RBAC, simple owner/admin/member/viewer, or product-specific roles
 - data model and ownership fields
 - security and permission boundaries
 - AI/server-side boundary

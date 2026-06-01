@@ -23,9 +23,13 @@ I am on OneMillion Day 7: Auth + Database.
 
 Act as the `build` agent for this day.
 First teach me auth as a product module in plain language:
+- why authentication matters for trust, privacy, personalization, billing, audit trails, and safe AI actions
 - identity: how the product knows who I am
 - session: how the app remembers I am logged in
 - authorization: what a logged-in user can do
+- RBAC: what Role-Based Access Control means, and how owner/admin/member/viewer roles work
+- single-tenant vs multi-tenant: when to use owner_id, organization_id, tenant_id, and membership tables
+- secure user information: how to avoid leaking private data, service-role keys, tenant records, or user profile data
 - RLS: how Supabase prevents one user or tenant from reading another user's rows
 - redirect URLs: why local and deployed auth callbacks must be configured
 - env vars: what can be public and what must stay server-only
@@ -45,7 +49,8 @@ Before the harness writes or changes anything, answer these decisions:
 - auth method: email/password, magic link, OAuth, invite-only, or admin-created users
 - which routes are public and which routes are protected
 - single-user, team/multi-tenant, or public/community data model
-- profile or membership table shape, if needed
+- profile, organization, membership, and role hierarchy if the product may become multi-user
+- RBAC roles: owner, admin, member, viewer, or simpler product-specific roles
 - first product table shape from the sprint brief
 - RLS policy intent for each private table
 - local and deployed redirect URLs
@@ -59,6 +64,7 @@ Expected output today:
 - signup/login/logout/callback/session behavior
 - protected route wrapper or middleware
 - first product tables from the architecture/sprint brief
+- profile, organization, or membership tables when the product needs multi-user hierarchy
 - RLS policies for private user-owned or tenant-owned data
 - `.env.example` with placeholders only
 - local env values configured outside git
@@ -111,6 +117,8 @@ Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 - [ ] login/logout works
 - [ ] protected routes reject unauthenticated users
 - [ ] first product tables exist
+- [ ] single-tenant or multi-tenant model is chosen intentionally
+- [ ] RBAC roles are defined when the product has teams, organizations, or admin/member differences
 - [ ] RLS enabled on private tables
 - [ ] second-user isolation passes when private data exists
 - [ ] env vars are not leaked

@@ -30,6 +30,8 @@ First teach me architecture in plain language:
 - why architecture comes after PRD/spec/design and before code
 - how to decide frontend, backend, database, and AI boundaries
 - when to build a web app, mobile-first web app, agent, or hybrid
+- how to decide whether the product needs single-tenancy, multi-tenancy, and RBAC
+- what RBAC means, and how owner/admin/member/viewer permissions affect architecture
 - when a lightweight backend is enough
 - when FastAPI or a heavier backend is justified
 - how secure architecture works
@@ -121,6 +123,9 @@ If the customer is a company, school, clinic, agency, or team, strongly consider
 
 - What requires login?
 - What auth method fits the product: email/password, magic link, OAuth, invite-only, admin-created users, or team roles?
+- Does the product need multi-tenancy now or soon?
+- Does the product need RBAC now or soon?
+- If RBAC is needed, which roles exist and what can each role do?
 - What requires owner permission?
 - What requires admin or manager permission?
 - What data must never cross user or tenant boundaries?
@@ -151,6 +156,7 @@ The architecture should include:
 - backend path
 - tenancy model
 - auth model
+- RBAC model
 - security model
 - data model
 - API/server action boundaries
@@ -214,6 +220,7 @@ Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 - [ ] product type decision is recorded
 - [ ] backend path decision is recorded
 - [ ] tenancy model is recorded
+- [ ] RBAC decision is recorded, even if the decision is "no RBAC for MVP"
 - [ ] security model is recorded
 - [ ] data model and ownership boundaries are recorded
 - [ ] scalability and cost assumptions are recorded

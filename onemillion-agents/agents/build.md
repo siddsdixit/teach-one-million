@@ -66,16 +66,19 @@ After completing, print: `✓ Sprint S[N] complete — [summary of what was buil
 For each sprint:
 
 1. Read `.onemillion/sprints/S[N]-[name].md` — this is your ONLY input for this sprint. It contains everything: product decisions, entity schemas, Supabase/server tasks, frontend components, design notes, security notes, acceptance criteria, and verification gate.
-2. Implement the server/data work named in the sprint brief:
+2. Confirm the sprint is a useful vertical slice. It should produce a user-visible workflow, not disconnected backend-only or frontend-only work, unless it is S0/S1 foundation/auth work.
+3. Implement the server/data work named in the sprint brief:
    - Default path: Supabase schema/RLS + Next.js route handlers/server actions.
    - Optional FastAPI path: FastAPI routes/services only if the sprint brief says the architecture selected FastAPI.
-3. Implement frontend: page/component → hooks/server actions → forms → wire to Supabase/server route.
-4. **Write tests appropriate to the selected path.** For default Next.js/Supabase builds, prefer Playwright flow tests, component tests, and RLS/second-user isolation checks. For optional FastAPI builds, add backend API tests. Use the acceptance criteria from the sprint brief. Cover happy path, unauthenticated/unauthorized behavior, validation, and key CRUD operations where relevant.
-5. Run validation (see Validation Standards). **This is a hard gate** — if validation fails, fix the issue and re-run. Do NOT proceed to step 6 until validation passes.
-6. Update `.onemillion/todo.md`: mark the sprint `[x]`, add notes for anything unexpected (workarounds, deviations from spec, issues fixed during the sprint).
-6. Stage specific files by name (never `git add -A`).
-7. Commit using the git commit message from the sprint brief.
-8. Update state.json: add sprint to `sprints_completed`, set `current_sprint` to next sprint (or null if done).
+4. Implement frontend: page/component → hooks/server actions → forms → wire to Supabase/server route.
+5. Handle user states named or implied by the sprint: loading, empty, error, success, and permission denied.
+6. **Write tests appropriate to the selected path.** For default Next.js/Supabase builds, prefer Playwright flow tests, component tests, and RLS/second-user isolation checks. For optional FastAPI builds, add backend API tests. Use the acceptance criteria from the sprint brief. Cover happy path, unauthenticated/unauthorized behavior, validation, and key CRUD operations where relevant.
+7. Run validation (see Validation Standards). **This is a hard gate** — if validation fails, fix the issue and re-run. Do NOT proceed to step 8 until validation passes.
+8. Verify the useful workflow locally and, when a live URL exists, verify the deployed app after push/deploy. Confirm source/build markers or visible product text match the live deployment.
+9. Update `.onemillion/todo.md`: mark the sprint `[x]`, add notes for anything unexpected (workarounds, deviations from spec, issues fixed during the sprint).
+10. Stage specific files by name (never `git add -A`).
+11. Commit using the git commit message from the sprint brief.
+12. Update state.json: add sprint to `sprints_completed`, set `current_sprint` to next sprint (or null if done).
 
 After all sprints, set `status: "completed"`, `handoff.next_mode: "review"`. Write `handoff.builder_context`: carry forward from previous phases + add sprints completed, any deviations logged in todo.md, endpoints built, frontend pages built. Use the `switch_mode` tool: `switch_mode(mode_slug: "orchestrator", reason: "Build phase complete, all sprints implemented — returning to orchestrator for routing")`
 

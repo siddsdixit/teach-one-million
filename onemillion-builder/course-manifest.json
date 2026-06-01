@@ -506,24 +506,37 @@
       "resources": "onemillion-builder/day-08-core-build/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
-        "build CRUD from sprint brief",
+        "complete one useful sprint",
+        "understand vertical slice thinking",
+        "use the sprint brief as the build contract",
+        "build CRUD or archive from sprint brief",
         "connect UI to Supabase",
         "understand forms and validation",
-        "ship the main non-AI workflow"
+        "handle loading, empty, error, success, and permission states",
+        "ship and verify the main non-AI workflow"
       ],
       "external_tools": [
         "Supabase",
         "Vercel"
       ],
       "human_decisions": [
+        "which sprint brief is the Day 8 target",
         "core entity fields",
         "minimum usable workflow",
+        "CRUD or archive actions in scope",
+        "states that must be visible today",
         "what to defer"
       ],
       "completion_gate": [
-        "core create/read/update/delete works",
-        "deployed app still works",
-        "second user cannot see first user data"
+        "exactly one useful sprint is selected and completed",
+        "core create/read/update/delete or archive works locally",
+        "data persists in Supabase",
+        "loading, empty, error, and success states are handled",
+        "protected routes still reject unauthenticated users",
+        "second user cannot see first user data when private data exists",
+        "deployed app works after the feature is pushed",
+        "live deployed workflow matches the local source/build",
+        "one meaningful sprint commit exists"
       ]
     },
     {

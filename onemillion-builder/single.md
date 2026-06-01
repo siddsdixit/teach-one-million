@@ -606,31 +606,44 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 ## Day 8: Core Build
 
-**Purpose:** build the main non-AI workflow from the sprint brief.
+**Purpose:** complete one useful non-AI sprint from the sprint brief.
 
-**Why it matters:** AI is not the product if the basic workflow does not work. Day 8 makes the app useful before adding AI.
+**Why it matters:** AI is not the product if the basic workflow does not work. Day 8 makes the app useful before adding AI by finishing one vertical slice end to end.
 
 **What the learner learns:**
 
-- CRUD workflow
+- what one useful sprint means
+- vertical slice thinking
+- sprint brief as build contract
+- CRUD workflow in practice
 - forms and validation
 - UI connected to Supabase
+- loading, empty, error, success, and permission states
 - deployed functional QA
 - cross-user data safety
+- small commit discipline
 
 **What the learner does:**
 
-- builds create/read/update/delete for the core entity
+- chooses the next useful sprint from `.onemillion/sprints/`
+- builds create/read/update/delete or archive for the core entity
 - connects UI to Supabase
+- handles basic user states
 - tests locally
 - deploys and tests live
 - runs second-user RLS checks
+- reviews one meaningful sprint commit
 
 **Done means:**
 
+- exactly one useful sprint is selected and completed
 - core workflow works locally and live
-- CRUD works end to end
-- second user cannot see first user's data
+- CRUD or archive works end to end
+- data persists in Supabase
+- loading, empty, error, and success states are handled
+- protected routes still reject unauthenticated users
+- second user cannot see first user's data when private data exists
+- one meaningful sprint commit exists
 
 ## Day 9: Implementation Review
 

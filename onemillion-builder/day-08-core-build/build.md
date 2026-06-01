@@ -22,9 +22,19 @@ Paste this:
 I am on OneMillion Day 8: Core Build.
 
 Act as the `build` agent for this day.
-First teach me the concept in plain language.
+First teach me the concept in plain language:
+- what "one useful sprint" means
+- what a vertical slice is
+- why the core non-AI workflow comes before AI
+- how CRUD becomes forms, lists, detail pages, status changes, and archive/delete actions
+- how the sprint brief acts as the build contract
+- how to preserve auth, RLS, tenancy, and RBAC decisions from Day 7
+- what local verification and live deployment verification mean
+
 Then guide me one step at a time.
 Use the course manifest, single.md, and the current pipeline artifacts.
+Read .onemillion/architecture.md and the next incomplete sprint brief in .onemillion/sprints/.
+Build exactly one useful sprint today unless the sprint brief itself is too small to prove a useful workflow.
 Do not skip my human decisions.
 Do not create paperwork-only files.
 When an external provider is needed, give the exact full URL and QA check.
@@ -36,13 +46,24 @@ Before the harness writes or changes anything, answer these decisions:
 
 - core entity fields
 - minimum usable workflow
+- which sprint brief is the Day 8 target
+- which route/screen proves the workflow is useful
+- what create/read/update/delete or archive actions are in scope
+- which states must be visible today: loading, empty, error, success, permission denied
 - what to defer
 
 ## Step 3: Produce The Day Output
 
 Expected output today:
 
-- working core workflow
+- one completed useful sprint from `.onemillion/sprints/`
+- one core workflow working end to end
+- real data saved and read from Supabase
+- auth/RLS/tenancy/RBAC boundaries preserved
+- loading, empty, error, and success states for the workflow
+- local verification
+- deployed verification on the live URL
+- one meaningful git commit for the sprint
 
 Work with the harness until the output matches the day's purpose. Review generated artifacts before accepting them.
 
@@ -70,7 +91,8 @@ Ask your harness:
 
 ```text
 Run the OneMillion verifier for Day 8.
-Inspect the relevant artifacts, app code, deployment links, and manual confirmations.
+Inspect the selected sprint brief, app code, Supabase persistence, auth/RLS boundaries, deployment link, and manual confirmations.
+Confirm one useful vertical sprint works locally and live.
 Record the result in .onemillion/state.json.
 Do not create separate verifier markdown files.
 ```
@@ -86,9 +108,15 @@ Before you close today, ask the orchestrator to update `.onemillion/state.json`:
 
 ## What Should Be True After Day 8
 
-- [ ] core create/read/update/delete works
-- [ ] deployed app still works
-- [ ] second user cannot see first user data
+- [ ] exactly one useful sprint is selected and completed
+- [ ] core create/read/update/delete or archive workflow works locally
+- [ ] data persists in Supabase
+- [ ] loading, empty, error, and success states are handled
+- [ ] protected routes still reject unauthenticated users
+- [ ] second user cannot see first user data when private data exists
+- [ ] deployed app works after the feature is pushed
+- [ ] live deployed workflow matches the local source/build
+- [ ] one meaningful sprint commit exists
 
 ## If You Are Stuck
 

@@ -248,6 +248,47 @@ Before Day 0 or Day 1, enforce the Preflight Gate in `AGENTS.md`. If the repo is
 Do not give bare task assignments. Properly greet the learner, explain the course, introduce the current day, provide copy-ready actions, and define what done means. When naming an external provider, include the exact full clickable URL from `onemillion-builder/docs/account-setup.md`.
 RULE
 
+REQUIRED_INSTALL_PATHS=(
+  "AGENTS.md"
+  "onemillion-builder/course-manifest.json"
+  "onemillion-builder/docs/teaching-protocol.md"
+  "onemillion-builder/course/single.md"
+  "onemillion-builder/agents/agents/orchestrator.md"
+  ".claude/agents/orchestrator.md"
+  ".claude/skills/tech_stack/SKILL.md"
+  ".claude/commands/onemillion.md"
+  ".cursor/rules/onemillion-course.mdc"
+  ".agents/rules/onemillion-course.md"
+  ".gemini/GEMINI.md"
+  ".github/copilot-instructions.md"
+  ".github/instructions/onemillion-course.instructions.md"
+)
+
+MISSING_PATHS=()
+for REQUIRED_PATH in "${REQUIRED_INSTALL_PATHS[@]}"; do
+  if [[ ! -e "$ROOT_DIR/$REQUIRED_PATH" ]]; then
+    MISSING_PATHS+=("$REQUIRED_PATH")
+  fi
+done
+
+CLAUDE_AGENT_COUNT="$(find "$ROOT_DIR/.claude/agents" -maxdepth 1 -type f -name "*.md" | wc -l | tr -d ' ')"
+CLAUDE_SKILL_COUNT="$(find "$ROOT_DIR/.claude/skills" -mindepth 2 -maxdepth 2 -type f -name "SKILL.md" | wc -l | tr -d ' ')"
+
+if (( CLAUDE_AGENT_COUNT < 10 )); then
+  MISSING_PATHS+=(".claude/agents/*.md expected at least 10 files, found $CLAUDE_AGENT_COUNT")
+fi
+
+if (( CLAUDE_SKILL_COUNT < 5 )); then
+  MISSING_PATHS+=(".claude/skills/*/SKILL.md expected at least 5 files, found $CLAUDE_SKILL_COUNT")
+fi
+
+if (( ${#MISSING_PATHS[@]} > 0 )); then
+  echo "Stop: harness adapter install verification failed."
+  echo
+  printf 'Missing or incomplete: %s\n' "${MISSING_PATHS[@]}"
+  exit 1
+fi
+
 mkdir -p "$STATE_DIR"
 if [[ ! -f "$STATE_DIR/state.json" ]]; then
   cat > "$STATE_DIR/state.json" <<EOF
@@ -271,6 +312,14 @@ EOF
 fi
 
 echo "OneMillion harness adapters installed."
+echo
+echo "Verified harness support:"
+echo "  Codex / generic AGENTS.md: AGENTS.md"
+echo "  Claude Code: .claude/agents, .claude/skills, .claude/commands/onemillion.md"
+echo "  Cursor: .cursor/rules/onemillion-course.mdc"
+echo "  Gemini: .gemini/GEMINI.md"
+echo "  Antigravity / generic agent harnesses: .agents/rules/onemillion-course.md"
+echo "  GitHub Copilot: .github/copilot-instructions.md and .github/instructions/onemillion-course.instructions.md"
 echo
 echo "Next:"
 echo "  cd $ROOT_DIR"

@@ -2,7 +2,13 @@
 
 Open the cloned repo in Cursor.
 
-Cursor should read `AGENTS.md` and `.cursor/rules/onemillion-course.mdc`.
+Run the installer first:
+
+```bash
+./onemillion-builder/install-agents.sh
+```
+
+Cursor should then read `AGENTS.md` and `.cursor/rules/onemillion-course.mdc`.
 
 Start with:
 

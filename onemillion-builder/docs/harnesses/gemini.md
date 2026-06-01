@@ -2,6 +2,12 @@
 
 Open the cloned repo in Gemini CLI or a Gemini-based coding harness.
 
+Run the installer first:
+
+```bash
+./onemillion-builder/install-agents.sh
+```
+
 Start with:
 
 ```text

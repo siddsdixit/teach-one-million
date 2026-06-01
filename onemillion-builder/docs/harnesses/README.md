@@ -19,7 +19,7 @@ When I say "day done", verify the day and advance me.
 Do not skip the learning or do the external tool steps for me.
 ```
 
-If pasting the GitHub link is unreliable, use the reliable path:
+For the most reliable setup, use the installer path:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/teach-one-million.git
@@ -28,6 +28,8 @@ cd teach-one-million
 ```
 
 Then open the folder in your harness.
+
+The installer verifies and creates local harness adapters for Claude Code, Cursor, Gemini, Antigravity-style agent rules, and GitHub Copilot. Codex uses the repository root `AGENTS.md` directly, so it does not need a separate generated adapter file.
 
 ## Harness Guides
 

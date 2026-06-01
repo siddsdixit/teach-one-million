@@ -14,3 +14,5 @@ I am starting the OneMillion course. Read AGENTS.md, onemillion-builder/course-m
 ```
 
 Codex should use `AGENTS.md` as the bootstrap, then read the course manifest, full course flow, and orchestrator agent.
+
+Codex does not need a separate generated adapter. The installer still verifies the fork/clone setup and prepares shared local state, but Codex reads the root `AGENTS.md` directly.

@@ -2,7 +2,13 @@
 
 Open the cloned repo in Antigravity.
 
-The repo includes:
+Run the installer first:
+
+```bash
+./onemillion-builder/install-agents.sh
+```
+
+The installer creates:
 
 ```text
 .agents/rules/onemillion-course.md

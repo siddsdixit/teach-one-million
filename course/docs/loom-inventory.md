@@ -38,11 +38,15 @@ Videos are a required part of the world-class version of this course. Until a vi
 
 ## Recording Priority
 
-1. Getting Started / Codespaces
-2. Day 4 — design review + mockup approval
-3. Day 5 — architecture + sprint briefs
-4. Day 6 — app shell + first deploy
-5. Day 7 — auth + RLS
-6. Day 12 — first AI build
-7. Day 17 — first users
-8. Day 18 — demo day
+Full launch scripts: [Loom Script Pack](loom-script-pack.md)
+
+1. Day 0 — welcome, mission, GitHub, fork, clone, install
+2. Day 1 — idea agent + PRD
+3. Day 2 — validate PRD
+4. Day 3 — spec agent
+5. Day 4 — design agent + mockup approval
+6. Day 5 — architecture + sprint briefs
+7. Days 6-8 — app shell, deploy, auth, core build
+8. Days 9-10 — review, manual QA, automated tests
+9. Days 11-12 — first AI feature
+10. Days 16-18 — ship, sell, demo, Builder Claim

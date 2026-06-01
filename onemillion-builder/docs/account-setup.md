@@ -144,26 +144,34 @@ Pass criteria:
 
 ---
 
-## Day 11/12: Anthropic API Key
+## Day 11/12: AI Provider API Key
 
 ### Links
 
 - Anthropic Console: https://console.anthropic.com/
 - Anthropic API overview: https://docs.anthropic.com/en/api/overview
+- OpenAI API keys: https://platform.openai.com/api-keys
+- OpenAI quickstart: https://platform.openai.com/docs/quickstart
+- Google AI Studio API keys: https://aistudio.google.com/app/apikey
+- Google Gemini API key docs: https://ai.google.dev/gemini-api/docs/api-key
 - Vercel env vars: https://vercel.com/docs/projects/environment-variables
 
 ### Steps
 
-1. Open Anthropic Console.
-2. Create or open a workspace for this app.
-3. Create an API key.
-4. Save it as `ANTHROPIC_API_KEY` in `.env.local`.
-5. Add `ANTHROPIC_API_KEY` to Vercel Project -> Settings -> Environment Variables.
-6. Redeploy after adding the env var.
+1. Use Anthropic/Claude by default unless the AI spec records a product reason to use OpenAI or Google Gemini.
+2. Open the provider dashboard.
+3. Create or open a workspace/project for this app.
+4. Create an API key.
+5. Save it in `.env.local` using the provider-specific name:
+   - Anthropic: `ANTHROPIC_API_KEY`
+   - OpenAI: `OPENAI_API_KEY`
+   - Google Gemini: `GEMINI_API_KEY`
+6. Add the same server-only env var to Vercel Project -> Settings -> Environment Variables.
+7. Redeploy after adding the env var.
 
 ### Permissions
 
-- `ANTHROPIC_API_KEY` is server-only.
+- AI provider keys are server-only.
 - Never prefix it with `NEXT_PUBLIC_`.
 - Never paste the value into chat or commit it.
 
@@ -171,9 +179,9 @@ Pass criteria:
 
 Pass criteria:
 
-- `ANTHROPIC_API_KEY` appears in `.env.local`.
-- `ANTHROPIC_API_KEY` appears in Vercel env vars.
-- `rg "NEXT_PUBLIC_ANTHROPIC|sk-ant" .` finds no client leak.
+- The selected provider key appears in `.env.local`.
+- The selected provider key appears in Vercel env vars.
+- `rg "NEXT_PUBLIC_ANTHROPIC|NEXT_PUBLIC_OPENAI|NEXT_PUBLIC_GEMINI|sk-ant|sk-proj|AIza" .` finds no client leak.
 - Live AI route works on Vercel.
 
 ---

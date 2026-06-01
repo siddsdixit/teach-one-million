@@ -726,28 +726,40 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 ## Day 11: AI Feature Spec
 
-**Purpose:** define the AI feature before writing AI code.
+**Purpose:** define the AI feature by updating the existing refined PRD/spec before writing AI code.
 
 **Why it matters:** “add AI” is not a feature. Day 11 turns AI into a measurable job with inputs, outputs, constraints, failure modes, and cost boundaries.
 
 **What the learner learns:**
 
+- what adding AI means: calling a large language model inside the app to do a specific job
 - useful AI vs AI decoration
+- simple AI feature vs agentic behavior
+- where API keys come from: Anthropic, OpenAI, or Google
+- how to store AI API keys securely
 - prompt inputs and expected outputs
+- structured output vs free text
+- tool calling at a high level
+- AI frameworks at a high level, and why to skip them for now unless needed
 - structured output where useful
 - measurable AI acceptance criteria
-- failure modes and cost awareness
+- failure modes, privacy, latency, and cost awareness
 
 **What the learner does:**
 
 - defines one useful AI job
-- updates pipeline artifacts with the AI spec
+- updates `.onemillion/refined-prd.md` with the AI feature section
+- updates architecture or existing sprint notes only if the AI decision changes architecture, security boundaries, or build scope
 - writes quality criteria
+- records provider/model and API key handling plan
+- records whether tool calling is needed
 - documents failure modes and budget
 
 **Done means:**
 
-- AI feature spec exists
+- refined PRD includes the selected AI feature
+- provider/model and secret-storage plan are recorded
+- tool-calling decision is recorded
 - AI behavior is measurable
 - failure modes and cost budget are recorded
 

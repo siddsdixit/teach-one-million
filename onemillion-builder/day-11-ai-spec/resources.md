@@ -21,4 +21,22 @@
 
 ## External Links
 
-- No new external account is required today.
+- No new external account is required today unless the learner intentionally prepares for Day 12.
+- Anthropic Console: https://console.anthropic.com/
+- Anthropic API overview: https://docs.anthropic.com/en/api/overview
+- OpenAI API keys: https://platform.openai.com/api-keys
+- OpenAI quickstart: https://platform.openai.com/docs/quickstart
+- Google AI Studio API keys: https://aistudio.google.com/app/apikey
+- Google Gemini API key docs: https://ai.google.dev/gemini-api/docs/api-key
+- Vercel environment variables: https://vercel.com/docs/projects/environment-variables
+
+## Frameworks To Know, But Skip For Now
+
+- Google ADK
+- LangChain
+- LangGraph
+- Langflow
+- Langfuse
+- CrewAI
+
+Use direct provider API/SDK calls from server-side code for the course MVP unless the architecture truly needs a framework.

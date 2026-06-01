@@ -27,6 +27,7 @@ Read .roo/skills/pdf.md
 ## Workflow
 
 1. Use Glob to check if `.onemillion/state.json` exists and read it.
+   - If the builder is on Day 11 or asks for "AI Feature Spec", enter **AI feature update mode**. Do not create a new core spec document. Read `.onemillion/refined-prd.md`, `.onemillion/architecture.md`, `.onemillion/review-findings.md`, `.onemillion/test-results.md`, and completed sprint briefs. Update `.onemillion/refined-prd.md` with an AI feature section covering: AI job-to-be-done, user story, provider/model recommendation, input contract, output contract, structured output schema if useful, prompt plan, examples, privacy/permission boundary, save/review/edit/action behavior, tool-calling boundary, measurable acceptance criteria, eval criteria, failure modes, fallback behavior, latency budget, and cost budget. Only update `.onemillion/architecture.md` or existing sprint briefs if the AI decision changes architecture, security boundaries, or build scope. Update state.json for Day 11 completion and handoff to build. Then stop.
    - If `current_phase` is `"spec"` and `status` is `"completed"`, and the builder wants changes, enter **edit mode**: modify `.onemillion/refined-prd.md` in place, update state.json, show a summary of what changed.
    - If `current_phase` is `"idea"` and `status` is `"completed"`, proceed to step 2 (normal flow).
    - If no state.json exists, tell the builder to run the idea agent first.

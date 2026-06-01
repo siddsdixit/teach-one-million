@@ -639,23 +639,39 @@
       "resources": "onemillion-builder/day-11-ai-spec/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
+        "understand adding AI means calling a large language model inside the app to do a specific job",
         "define useful AI behavior",
         "avoid AI decoration",
+        "understand simple AI feature versus agentic behavior",
+        "understand API key basics for Anthropic, OpenAI, and Google",
+        "understand secret-storage best practices",
         "choose inputs and outputs",
+        "choose structured output when useful",
+        "understand tool calling at a high level",
+        "understand AI frameworks at a high level and why to skip them for now",
         "write measurable AI acceptance criteria",
-        "define failure modes and cost budget"
+        "define failure modes, privacy, latency, and cost budget"
       ],
       "external_tools": [],
       "human_decisions": [
         "AI job-to-be-done",
+        "provider/model preference",
+        "simple AI feature versus agentic workflow",
+        "what data the AI can see",
+        "whether tool calling is needed",
         "quality bar",
         "failure modes",
+        "privacy boundary",
         "cost ceiling"
       ],
       "completion_gate": [
-        "AI feature spec exists in the pipeline artifacts",
+        "refined PRD includes the selected AI feature",
+        "provider/model choice is recorded",
+        "API key and secret-storage plan is recorded",
+        "input/output contract is recorded",
+        "tool-calling decision is recorded",
         "AI behavior is measurable",
-        "failure modes and cost budget are recorded"
+        "failure modes, privacy boundary, latency, and cost budget are recorded"
       ]
     },
     {

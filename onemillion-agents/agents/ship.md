@@ -38,46 +38,49 @@ For the OneMillion Builder course:
    - If `current_phase` is `"ship"` and `status` is `"completed"`, and builder wants to re-deploy or update, re-run from the appropriate phase.
    - If guard phase isn't complete, tell the builder to run the guard agent first.
    - Read `handoff.builder_context` from state.json — this carries context about the product, tech stack, and deployment preferences from prior phases.
-2. Use Glob with pattern `**/checklist_ship/SKILL.md` to locate and read the deployment guide.
-3. Read `.onemillion/refined-prd.md` for the Complete Core Flow.
-4. Read `.onemillion/test-results.md` and `.onemillion/security-audit.md` to verify no blockers.
-5. Execute all phases in order. Every phase has a gate — do not proceed if the gate fails.
+2. Use Glob with pattern `**/checklist_ship/SKILL.md` to locate and read the deployment guide if present.
+3. Read `.onemillion/architecture.md` to determine whether the default Next.js/Supabase path or optional FastAPI path was selected.
+4. Read `.onemillion/refined-prd.md` for the Complete Core Flow.
+5. Read `.onemillion/test-results.md` if present, and read the existing Day 14/15 verification trail in `.onemillion/state.json` for security/trust and QA blockers. Do not require a separate `security-audit.md` unless the project already has one.
+6. Execute all phases in order. Every phase has a gate — do not proceed if the gate fails.
 
 ### PHASE 1 — PRE-DEPLOY VALIDATION
 
 **Automated checks (run all, every one must pass):**
 
 ```bash
-# 1. Tests pass
-cd backend && python -m pytest tests/ -x -q
-cd frontend && npm run build
+# 1. Tests/build pass using the repo's actual commands
+npm run build
+npm test -- --runInBand  # only if the project defines this command
+# If architecture selected FastAPI:
+# cd backend && python -m pytest tests/ -x -q
 
-# 2. No open Critical/High security findings
-grep -c "Critical\|High" .onemillion/security-audit.md  # review findings section
+# 2. No open Critical/High security/trust findings
+# Check .onemillion/state.json verification trail and .onemillion/security-audit.md only if it exists.
 
 # 3. No secrets in codebase
 grep -rnE '(password|secret|api_key)\s*[:=]\s*["\x27][^"\x27]{8,}' . --include='*.py' --include='*.ts' --include='*.tsx' --exclude-dir=node_modules --exclude-dir=.next
 
 # 4. .env is gitignored
-git check-ignore .env  # should return .env
+git check-ignore .env .env.local  # should return ignored files
 
 # 5. .env.example exists with all required keys
-cat backend/.env.example
+cat .env.example
 ```
 
 **Environment variable audit:**
 Read `backend/.env.example` and verify EVERY variable will be set in the deployment platform. Create a checklist:
 
-| Variable | Required | Set in Vercel? | Set in Supabase/backend host? |
-|----------|----------|----------------|------------------------------|
-| NEXT_PUBLIC_SUPABASE_URL | Yes | ☐ | N/A |
-| NEXT_PUBLIC_SUPABASE_ANON_KEY | Yes | ☐ | N/A |
-| ANTHROPIC_API_KEY | If AI exists | ☐ | Optional backend |
-| SENTRY_DSN | If monitoring enabled | ☐ | Optional backend |
+| Variable | Required | Set in Vercel? | Set in optional backend host? |
+|----------|----------|----------------|-------------------------------|
+| NEXT_PUBLIC_SUPABASE_URL | If Supabase is used | ☐ | N/A |
+| NEXT_PUBLIC_SUPABASE_ANON_KEY | If Supabase is used | ☐ | N/A |
+| ANTHROPIC_API_KEY / OPENAI_API_KEY / GEMINI_API_KEY | If AI exists | ☐ | Optional backend only if AI runs there |
+| SENTRY_DSN | If Sentry enabled | ☐ | Optional backend |
 | NEXT_PUBLIC_API_URL | FastAPI only | ☐ | N/A |
 | CORS_ORIGINS | FastAPI only | N/A | ☐ |
 
-**Gate:** All automated checks pass AND every required environment variable is accounted for.
+**Gate:** All required checks pass or have a documented non-blocking reason, and every required environment variable is accounted for by name. Never print secret values.
 
 ### PHASE 2 — DATABASE PREPARATION
 
@@ -97,7 +100,7 @@ Read `backend/.env.example` and verify EVERY variable will be set in the deploym
 
 3. **Verify backup posture:** document the Supabase plan's backup capability and whether the learner is on a free or paid tier.
 
-**Gate:** Database is reachable, indexes created, backups confirmed.
+**Gate:** Database is reachable, auth redirects point to production, RLS protects user-owned tables, indexes/backups are confirmed or explicitly deferred with reason.
 
 ### PHASE 3 — DEPLOY BACKEND IF FASTAPI WAS SELECTED
 
@@ -197,7 +200,7 @@ Adapt the smoke test to the actual app. If auth exists, test signup/login/logout
 
 3. **Log access:** Verify the builder can access Vercel logs and, if FastAPI is used, the backend host logs. Confirm request IDs appear where the architecture requires them.
 
-**Gate:** Sentry is configured. Builder has access to logs.
+**Gate:** At least one production signal is configured or intentionally deferred with reason. Builder has access to Vercel logs and, if FastAPI is used, backend host logs.
 
 ### PHASE 8 — PRODUCTION PERFORMANCE BASELINE
 
@@ -235,7 +238,7 @@ Actually test the rollback path (don't just document it):
 
 **Gate:** Rollback procedure is documented and deployment dashboards are accessible.
 
-6. Write `.onemillion/deployment-report.md` with:
+6. Prefer updating `.onemillion/state.json` and the existing verification trail. Write `.onemillion/deployment-report.md` only if the project needs a compact production handoff. If created, include:
    - Deployment URLs (backend, frontend, custom domain if any)
    - Environment variables set (names only, not values)
    - Database indexes created
@@ -245,17 +248,17 @@ Actually test the rollback path (don't just document it):
    - Rollback procedure
    - Known limitations
 
-7. Write `.onemillion/state.json` with `current_phase: "ship"`, `status: "completed"`, `live_url: "https://[production-url]"`, `handoff.next_mode: "sell"`. Update `.onemillion/todo.md`: mark Ship `[x]`, note live URL. Use the `switch_mode` tool: `switch_mode(mode_slug: "orchestrator", reason: "Ship phase complete, product live at [URL]")`
+7. Write `.onemillion/state.json` with `current_phase: "ship"`, `status: "completed"`, `live_url: "https://[production-url]"`, `handoff.next_mode: "sell"`. Update `.onemillion/todo.md` only if it already exists: mark Ship `[x]`, note live URL. Use the `switch_mode` tool if available: `switch_mode(mode_slug: "orchestrator", reason: "Ship phase complete, product live at [URL]")`
 
 ## Rules
 
 - **Announce every phase.** Before starting each phase, print: `── Phase [N]: [NAME] ──` and after completing print a one-line summary with pass/fail status.
 - Every phase has a gate. Do not proceed if the gate fails.
 - Deploy backend before frontend. Frontend depends on backend being live.
-- All verification is automated (curl commands, not "open in browser and check").
+- Prefer automated verification with curl/build/test commands. Use manual confirmations only for external dashboards or flows the harness cannot inspect.
 - Never deploy without validating every environment variable is set.
 - Never declare ship complete without passing the smoke tests on the live URL.
 - Never leave CORS as wildcard or debug mode on in production.
 - Never ship without testing that rollback is possible.
 - Create database indexes before going live — queries without indexes will be slow at scale.
-- You may ONLY create or modify files inside the `.onemillion/` directory.
+- You may ONLY create or modify files inside the `.onemillion/` directory unless fixing a production blocker in the product code is required to complete shipping.

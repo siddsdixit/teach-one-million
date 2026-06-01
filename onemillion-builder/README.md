@@ -223,7 +223,7 @@ Self-paced and cohort learners use the same curriculum, the same daily gates, an
 | [13](day-13-product-polish/learn.md) | Product polish + UX finish | Clear flow, complete states, AI UX, mobile/desktop polish |
 | [14](day-14-security-trust-review/learn.md) | Security + trust review | Auth, authorization, tenancy/RBAC, RLS, secrets, AI privacy, cost/rate controls |
 | [15](day-15-qa-production-readiness/learn.md) | QA + production readiness | Final manual/automated QA, AI pass/fail examples, live critical path, production blockers |
-| [16](day-16-ship-production/learn.md) | Ship production | Production verification, monitoring, optional domain |
+| [16](day-16-ship-production/learn.md) | Ship production | Production env vars, Supabase checks, live smoke tests, monitoring, rollback |
 | [17](day-17-sell-users/learn.md) | Brand + marketing + pricing + first users | Positioning, product page, pricing, launch posts, outreach, feedback |
 | [18](day-18-demo/learn.md) | Demo Day + Builder Claim | Loom demo + Builder Claim |
 

@@ -14,9 +14,14 @@ Sid should record a walkthrough for Day 16: Ship Production.
 
 Cover:
 
-- production deployment verification
-- custom domain optionality
-- monitoring basics
-- rollback and smoke tests
+- production versus preview deployments
+- Vercel production env vars
+- Supabase Site URL, redirect URLs, and RLS production checks
+- optional FastAPI backend path only when architecture selected it
+- live smoke tests on the production URL
+- Sentry, Vercel Analytics, UptimeRobot, and logs
+- optional custom domain and DNS
+- rollback path and what rollback cannot fix
+- updating `.onemillion/state.json` with `live_url`
 
 End by showing the Day 16 done checklist and the exact `day done` verification moment.

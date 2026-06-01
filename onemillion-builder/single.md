@@ -913,29 +913,47 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 ## Day 16: Ship Production
 
-**Purpose:** verify the production app, monitoring, optional domain, and rollback/smoke-test path.
+**Purpose:** turn the MVP into a production product people can visit, verify, monitor, and recover.
 
-**Why it matters:** shipping means more than “Vercel says deployed.” The live product must be reachable, verifiable, observable, and recoverable.
+**Why it matters:** shipping means more than "Vercel says deployed." Local success does not prove production success. Day 16 checks production environment variables, Supabase auth redirects, RLS assumptions, optional backend hosting, live smoke tests, monitoring, custom domain optionality, and rollback before the learner starts selling.
 
 **What the learner learns:**
 
-- production verification
-- smoke tests
-- monitoring basics
-- custom domain optionality
-- rollback thinking
+- production versus preview deployments
+- production environment variables
+- Vercel production deployment
+- Supabase Auth Site URL and redirect URLs
+- Supabase RLS production checks
+- optional FastAPI backend deployment only if architecture selected it
+- live smoke tests
+- monitoring, analytics, uptime, and logs
+- custom domain and DNS optionality
+- rollback and recovery
 
 **What the learner does:**
 
-- verifies production URL
+- verifies Day 15 has no production blocker
+- audits production env vars by name without exposing secret values
+- deploys or verifies the Vercel production app
+- confirms Supabase production auth/RLS settings
+- deploys optional FastAPI backend only if architecture selected it
+- runs smoke tests on the live URL
+- configures or intentionally defers monitoring/analytics/uptime
 - optionally connects a custom domain
-- configures monitoring/analytics/uptime checks where appropriate
-- runs production smoke tests
+- records rollback path
+- updates `.onemillion/state.json` with `live_url`
 
 **Exact links:**
 
 - Vercel dashboard: https://vercel.com/dashboard
+- Vercel import: https://vercel.com/new
+- Vercel environment variables: https://vercel.com/docs/projects/environment-variables
 - Vercel domains docs: https://vercel.com/docs/domains
+- Vercel rollback CLI: https://vercel.com/docs/cli/rollback
+- Vercel instant rollback: https://vercel.com/docs/deployments/instant-rollback
+- Supabase dashboard: https://supabase.com/dashboard
+- Supabase Auth redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
+- Supabase RLS: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 - Vercel Analytics: https://vercel.com/docs/analytics
@@ -946,10 +964,16 @@ If unsure, choose Supabase-only. Use FastAPI only for complex backend logic, Pyt
 
 **Done means:**
 
-- production URL works
-- live app matches local source
-- monitoring configured or explicitly skipped
+- production URL returns 200 and does not show an application error
+- live app matches the current local/product source
+- Vercel production env vars are set by name with no secret values committed
+- Supabase auth/RLS production checks pass where applicable
+- optional FastAPI backend is deployed and health-checked, or explicitly skipped
+- live smoke test covers main flow, auth, data, and AI where applicable
+- monitoring/analytics/uptime is configured or intentionally deferred
 - custom domain works or skip is documented
+- rollback path is known
+- `.onemillion/state.json` includes `live_url`
 
 ## Day 17: Brand + Marketing + Pricing + First Users
 

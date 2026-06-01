@@ -861,6 +861,7 @@
       "primary_agent": "ship",
       "supporting_agents": [
         "guard",
+        "test",
         "debug"
       ],
       "lesson": "onemillion-builder/day-16-ship-production/learn.md",
@@ -868,28 +869,45 @@
       "resources": "onemillion-builder/day-16-ship-production/resources.md",
       "verifier": "onemillion-builder/docs/verification/agent/verify.md",
       "learning_focus": [
-        "production deployment verification",
+        "production versus preview deployments",
+        "production environment variable audit",
+        "Vercel production deployment",
+        "Supabase Auth Site URL and redirect URL checks",
+        "Supabase RLS production confirmation",
+        "optional FastAPI backend deployment only if architecture selected it",
+        "live smoke tests",
+        "monitoring, analytics, uptime, and logs",
         "custom domain optionality",
-        "monitoring basics",
-        "rollback and smoke tests"
+        "rollback path and production recovery"
       ],
       "external_tools": [
         "Vercel",
+        "Supabase",
         "Sentry",
         "Vercel Analytics",
         "UptimeRobot",
         "domain registrar if needed"
       ],
       "human_decisions": [
+        "production URL to publicize",
         "custom domain or skip",
-        "alert email",
-        "monitoring thresholds"
+        "monitoring choice",
+        "alert email/contact",
+        "optional FastAPI backend host if architecture selected FastAPI",
+        "acceptable production blockers versus deferrals"
       ],
       "completion_gate": [
-        "production URL works",
-        "live app matches local source",
-        "monitoring configured or documented skip",
-        "custom domain works or skip is documented"
+        "production URL returns 200 and does not show an application error",
+        "live app matches the current local/product source with a unique product marker",
+        "Vercel production environment variables are set by name, with no secret values committed",
+        "Supabase Site URL and redirect URLs include the production URL where auth is used",
+        "RLS/auth/tenant assumptions from Day 14 still hold in production",
+        "optional FastAPI backend is deployed and health-checked, or explicitly skipped because architecture did not select it",
+        "live smoke test covers the main flow, auth, data, and AI feature where applicable",
+        "monitoring/analytics/uptime is configured or intentionally deferred with reason",
+        "custom domain works or is explicitly skipped",
+        "rollback path is known and accessible",
+        ".onemillion/state.json includes the production live_url"
       ]
     },
     {

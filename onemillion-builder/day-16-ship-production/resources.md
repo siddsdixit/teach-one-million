@@ -18,6 +18,9 @@
 ## Primary Agent
 
 - `ship` in `../../onemillion-agents/agents/ship.md`
+- `guard` in `../../onemillion-agents/agents/guard.md`
+- `test` in `../../onemillion-agents/agents/test.md`
+- `debug` in `../../onemillion-agents/agents/debug.md`
 
 ## External Links
 
@@ -28,6 +31,11 @@
 - Vercel env vars: https://vercel.com/docs/projects/environment-variables
 - Vercel domains docs: https://vercel.com/docs/domains
 - Vercel Analytics: https://vercel.com/docs/analytics
+- Vercel rollback CLI: https://vercel.com/docs/cli/rollback
+- Vercel instant rollback: https://vercel.com/docs/deployments/instant-rollback
+- Supabase dashboard: https://supabase.com/dashboard
+- Supabase Auth redirect URLs: https://supabase.com/docs/guides/auth/redirect-urls
+- Supabase RLS: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
 - Sentry signup: https://sentry.io/signup/
 - Sentry Next.js docs: https://docs.sentry.io/platforms/javascript/guides/nextjs/
 - UptimeRobot signup: https://uptimerobot.com/signUp
